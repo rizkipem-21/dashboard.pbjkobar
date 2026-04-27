@@ -103,11 +103,11 @@
     "Satuan Kerja": "Dinas Kesehatan",
     "Pagu Program": 31403981295.0,
     "Pagu Pengadaan": 27986573305.0,
-    "RUP Penyedia": 4663652293.0,
+    "RUP Penyedia": 4450733518.0,
     "RUP Swakelola": 0.0,
-    "Total RUP Terumumkan": 4663652293.0,
-    "Selisih RUP Terumumkan": -26740329002.0,
-    "Persentase": 14.850512898956941
+    "Total RUP Terumumkan": 4450733518.0,
+    "Selisih RUP Terumumkan": -26953247777.0,
+    "Persentase": 14.172513593709935
   },
   {
     "Satuan Kerja": "Dinas Komunikasi, Informatika, Statistik dan Persandian",
@@ -143,11 +143,11 @@
     "Satuan Kerja": "Dinas Pekerjaan Umum dan Penataan Ruang",
     "Pagu Program": 105714344580.0,
     "Pagu Pengadaan": 105032048100.0,
-    "RUP Penyedia": 104997048100.0,
+    "RUP Penyedia": 70143338491.0,
     "RUP Swakelola": 35000000.0,
-    "Total RUP Terumumkan": 105032048100.0,
-    "Selisih RUP Terumumkan": -682296480.0,
-    "Persentase": 99.35458477020244
+    "Total RUP Terumumkan": 70178338491.0,
+    "Selisih RUP Terumumkan": -35536006089.0,
+    "Persentase": 66.38487782317195
   },
   {
     "Satuan Kerja": "Dinas Pemadam Kebakaran dan Penyelamatan",
@@ -193,11 +193,11 @@
     "Satuan Kerja": "Dinas Pendidikan dan Kebudayaan",
     "Pagu Program": 63843390000.0,
     "Pagu Pengadaan": 61655471600.0,
-    "RUP Penyedia": 9290812800.0,
+    "RUP Penyedia": 9271186632.0,
     "RUP Swakelola": 52187493800.0,
-    "Total RUP Terumumkan": 61478306600.0,
-    "Selisih RUP Terumumkan": -2365083400.0,
-    "Persentase": 96.29549214100317
+    "Total RUP Terumumkan": 61458680432.0,
+    "Selisih RUP Terumumkan": -2384709568.0,
+    "Persentase": 96.26475102904153
   },
   {
     "Satuan Kerja": "Dinas Perhubungan",
@@ -283,11 +283,11 @@
     "Satuan Kerja": "Inspektorat Daerah",
     "Pagu Program": 8933008000.0,
     "Pagu Pengadaan": 1292926000.0,
-    "RUP Penyedia": 857758775.0,
+    "RUP Penyedia": 1292926000.0,
     "RUP Swakelola": 0.0,
-    "Total RUP Terumumkan": 857758775.0,
-    "Selisih RUP Terumumkan": -8075249225.0,
-    "Persentase": 9.602127021491528
+    "Total RUP Terumumkan": 1292926000.0,
+    "Selisih RUP Terumumkan": -7640082000.0,
+    "Persentase": 14.473579336322098
   },
   {
     "Satuan Kerja": "Instalasi Farmasi",
@@ -333,11 +333,11 @@
     "Satuan Kerja": "Kecamatan Kumai",
     "Pagu Program": 1656422000.0,
     "Pagu Pengadaan": 943247000.0,
-    "RUP Penyedia": 774999698.0,
+    "RUP Penyedia": 736119698.0,
     "RUP Swakelola": 168247302.0,
-    "Total RUP Terumumkan": 943247000.0,
-    "Selisih RUP Terumumkan": -713175000.0,
-    "Persentase": 56.944848595345874
+    "Total RUP Terumumkan": 904367000.0,
+    "Selisih RUP Terumumkan": -752055000.0,
+    "Persentase": 54.59762065463995
   },
   {
     "Satuan Kerja": "Kecamatan Pangkalan Banteng",
@@ -783,11 +783,11 @@
     "Satuan Kerja": "Sekretariat DPRD",
     "Pagu Program": 16485728018.0,
     "Pagu Pengadaan": 8905641688.0,
-    "RUP Penyedia": 8755641688.0,
+    "RUP Penyedia": 8665245838.0,
     "RUP Swakelola": 150000000.0,
-    "Total RUP Terumumkan": 8905641688.0,
-    "Selisih RUP Terumumkan": -7580086330.0,
-    "Persentase": 54.020311861728786
+    "Total RUP Terumumkan": 8815245838.0,
+    "Selisih RUP Terumumkan": -7670482180.0,
+    "Persentase": 53.4719839389261
   },
   {
     "Satuan Kerja": "Workshop dan Peralatan Konstruksi",
