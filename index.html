@@ -1,238 +1,38 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rekapitulasi RUP Kabupaten Kotawaringin Barat Tahun 2026</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-
-<style>
-th { cursor: pointer; position: sticky; top: 0; background: #e5e7eb; z-index: 5; }
-.filter-box {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    border: 1px solid #ccc;
-    padding: 10px;
-    z-index: 10;
-    max-height: 250px;
-    overflow: auto;
-    display: none;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard PBJ 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100 p-6">
+<body class="bg-gray-100">
 
-<h1 class="text-2xl font-bold mb-1">
-Rekapitulasi RUP Kabupaten Kotawaringin Barat Tahun 2026
-</h1>
-<div class="text-sm text-gray-600 mb-4" id="lastUpdate"></div>
+  <header class="bg-blue-600 text-white py-6 shadow text-center">
+    <h1 class="text-3xl font-bold">Dashboard PBJ</h1>
+    <p class="text-sm">Kabupaten Kotawaringin Barat - Tahun 2026</p>
+  </header>
 
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4" id="summary"></div>
+  <main class="max-w-5xl mx-auto py-10 px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-<button onclick="downloadExcel()" class="mb-4 bg-green-600 text-white px-4 py-2 rounded">
-Download Excel
-</button>
+      <a href="rup/" class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition">
+        <h2 class="text-xl font-semibold">📊 Rekap RUP Tahun 2026</h2>
+        <p class="text-gray-500 mt-2">Data rencana umum pengadaan</p>
+      </a>
 
-<div class="bg-white rounded shadow max-h-[70vh] overflow-auto">
-<table class="min-w-full text-sm text-left border" id="table">
-<thead>
-<tr id="headerRow"></tr>
-</thead>
-<tbody id="body"></tbody>
-</table>
-</div>
+      <a href="pengadaan/" class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition">
+        <h2 class="text-xl font-semibold">📑 Rekap Data Pengadaan Tahun 2026</h2>
+        <p class="text-gray-500 mt-2">Data paket pengadaan</p>
+      </a>
 
-<script>
-let rawData = [];
-let filteredData = [];
-let filters = {};
+    </div>
+  </main>
 
-function rupiah(n){
-    return "Rp " + Number(n || 0).toLocaleString("id-ID");
-}
-
-async function loadData(){
-    const res = await fetch("data/rekap.json");
-    rawData = await res.json();
-
-    rawData = rawData.map(row => {
-        const paguPengadaan = Number(row["Pagu Pengadaan"] || 0);
-        const totalRup = Number(row["Total RUP Terumumkan"] || 0);
-
-        return {
-            ...row,
-            "Selisih RUP Terumumkan": totalRup - paguPengadaan,
-            "Persentase": paguPengadaan === 0 ? 0 : (totalRup / paguPengadaan) * 100
-        };
-    });
-
-    rawData = rawData.filter(row => {
-        return !(Number(row["Pagu Program"] || 0) === 0 &&
-                 Number(row["Pagu Pengadaan"] || 0) === 0 &&
-                 Number(row["Total RUP Terumumkan"] || 0) === 0);
-    });
-
-    filteredData = [...rawData];
-
-    renderHeader();
-    renderTable();
-    renderSummary();
-
-    fetch("data/last-update.txt")
-        .then(res => res.text())
-        .then(txt => {
-            document.getElementById("lastUpdate").innerText = "Update terakhir: " + txt;
-        });
-}
-
-function renderHeader(){
-    const header = document.getElementById("headerRow");
-    header.innerHTML = "";
-
-    const thNo = document.createElement("th");
-    thNo.className = "px-4 py-2 border";
-    thNo.innerText = "No.";
-    header.appendChild(thNo);
-
-    Object.keys(rawData[0]).forEach(col => {
-        const th = document.createElement("th");
-        th.className = "px-4 py-2 border";
-
-        th.innerHTML = `
-            ${col} ▼
-            <div class="filter-box" id="filter-${col}"></div>
-        `;
-
-        th.onclick = (e) => {
-            e.stopPropagation();
-            openFilter(col);
-        };
-
-        header.appendChild(th);
-    });
-}
-
-function openFilter(column){
-    document.querySelectorAll(".filter-box").forEach(el => el.style.display = "none");
-
-    const box = document.getElementById("filter-"+column);
-    box.style.display = "block";
-
-    const values = [...new Set(rawData.map(d => d[column]))];
-
-    box.innerHTML = `
-        <label><input type="checkbox" onclick="toggleAll('${column}', this)" checked> Select All</label><br>
-        ${values.map(v => `
-            <label>
-                <input type="checkbox" value="${v}" checked onchange="applyFilter('${column}')"> ${v}
-            </label><br>
-        `).join("")}
-        <button onclick="applyFilter('${column}')" class="mt-2 bg-blue-500 text-white px-2 py-1 rounded">OK</button>
-    `;
-}
-
-function toggleAll(column, el){
-    const box = document.getElementById("filter-"+column);
-    box.querySelectorAll("input[type=checkbox]").forEach(cb => {
-        if(cb !== el) cb.checked = el.checked;
-    });
-}
-
-function applyFilter(column){
-    const box = document.getElementById("filter-"+column);
-    const checked = [...box.querySelectorAll("input[type=checkbox]:checked")]
-        .map(cb => cb.value);
-
-    filters[column] = checked;
-
-    filteredData = rawData.filter(row => {
-        return Object.keys(filters).every(col => {
-            if(!filters[col] || filters[col].length === 0) return true;
-            return filters[col].includes(String(row[col]));
-        });
-    });
-
-    renderTable();
-    renderSummary();
-}
-
-function renderTable(){
-    const body = document.getElementById("body");
-    body.innerHTML = "";
-
-    filteredData.forEach((row, index) => {
-
-        // ✅ HANYA INI YANG DIUBAH
-        let tr = `<tr class='border ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}'>`;
-
-        tr += `<td class="px-4 py-2 border">${index + 1}</td>`;
-
-        Object.keys(row).forEach(col => {
-            let val = row[col];
-
-            if(col.includes("Pagu") || col.includes("RUP") || col.includes("Selisih")){
-                val = rupiah(val);
-            }
-
-            if(col === "Persentase"){
-                val = Number(val).toFixed(2) + "%";
-            }
-
-            tr += `<td class="px-4 py-2 border">${val}</td>`;
-        });
-
-        tr += "</tr>";
-        body.innerHTML += tr;
-    });
-}
-
-function renderSummary(){
-    let totalPaguProgram = 0;
-    let totalPaguPengadaan = 0;
-    let totalRup = 0;
-
-    filteredData.forEach(d => {
-        totalPaguProgram += Number(d["Pagu Program"] || 0);
-        totalPaguPengadaan += Number(d["Pagu Pengadaan"] || 0);
-        totalRup += Number(d["Total RUP Terumumkan"] || 0);
-    });
-
-    const persenTotal = totalPaguPengadaan === 0 ? 0 : (totalRup / totalPaguPengadaan) * 100;
-
-    document.getElementById("summary").innerHTML = `
-        <div class="bg-white p-4 shadow rounded">
-            <b>Total Pagu Program</b><br>${rupiah(totalPaguProgram)}
-        </div>
-        <div class="bg-white p-4 shadow rounded">
-            <b>Total Pagu Pengadaan</b><br>${rupiah(totalPaguPengadaan)}
-        </div>
-        <div class="bg-white p-4 shadow rounded">
-            <b>Total RUP Terumumkan</b><br>${rupiah(totalRup)}
-        </div>
-        <div class="bg-white p-4 shadow rounded">
-            <b>Persentase Total</b><br>${persenTotal.toFixed(2)}%
-        </div>
-    `;
-}
-
-function downloadExcel(){
-    const ws = XLSX.utils.json_to_sheet(filteredData);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "RUP");
-    XLSX.writeFile(wb, "rekap_rup.xlsx");
-}
-
-document.addEventListener("click", () => {
-    document.querySelectorAll(".filter-box").forEach(el => el.style.display = "none");
-});
-
-loadData();
-</script>
+  <footer class="text-center text-gray-500 text-sm py-6">
+    © 2026 Pemerintah Kabupaten Kotawaringin Barat
+  </footer>
 
 </body>
 </html>

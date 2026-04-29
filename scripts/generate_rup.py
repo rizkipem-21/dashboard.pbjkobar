@@ -168,7 +168,7 @@ with open(output_json, "w", encoding="utf-8") as f:
 # ======================================================
 # SIMPAN LAST UPDATE
 # ======================================================
-with open(base + "last-update.txt", "w") as f:
+with open(base + "last-update-rup.txt", "w") as f:
     f.write(datetime.now().strftime("%d %B %Y %H:%M WIB"))
 
 print("\nSELESAI: rekap_rup.json berhasil dibuat!")
