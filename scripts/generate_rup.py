@@ -131,10 +131,10 @@ df.fillna(0, inplace=True)
 # HITUNG NILAI FINAL
 # ======================================================
 df['Total RUP Terumumkan'] = df['RUP Penyedia'] + df['RUP Swakelola']
-df['Selisih RUP Terumumkan'] = df['Total RUP Terumumkan'] - df['Pagu Program']
+df['Selisih RUP Terumumkan'] = df['Total RUP Terumumkan'] - df['Pagu Pengadaan']
 
 df['Persentase'] = (
-    df['Total RUP Terumumkan'] / df['Pagu Program']
+    df['Total RUP Terumumkan'] / df['Pagu Pengadaan']
 ).replace([float('inf')], 0).fillna(0) * 100
 
 # ======================================================

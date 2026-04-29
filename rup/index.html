@@ -60,17 +60,6 @@ async function loadData(){
     const res = await fetch("../data/rekap_rup.json");
     rawData = await res.json();
 
-    rawData = rawData.map(row => {
-        const paguPengadaan = Number(row["Pagu Pengadaan"] || 0);
-        const totalRup = Number(row["Total RUP Terumumkan"] || 0);
-
-        return {
-            ...row,
-            "Selisih RUP Terumumkan": totalRup - paguPengadaan,
-            "Persentase": paguPengadaan === 0 ? 0 : (totalRup / paguPengadaan) * 100
-        };
-    });
-
     rawData = rawData.filter(row => {
         return !(Number(row["Pagu Program"] || 0) === 0 &&
                  Number(row["Pagu Pengadaan"] || 0) === 0 &&
