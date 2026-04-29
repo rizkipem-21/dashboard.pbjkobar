@@ -6,13 +6,13 @@ echo ========================= >> tools\log.txt
 echo START %date% %time% >> tools\log.txt
 
 echo DOWNLOAD DATA >> tools\log.txt
-powershell -ExecutionPolicy Bypass -File download.ps1 >> tools\log.txt 2>&1
+powershell -ExecutionPolicy Bypass -File tools\download.ps1 >> tools\log.txt 2>&1
 
 echo GENERATE REKAP >> tools\log.txt
-python generate_rekap.py
+python scripts\generate_rup.py >> tools\log.txt 2>&1
 
 echo GENERATE EXCEL >> tools\log.txt
-python generate_excel.py
+python tools\generate_excel.py >> tools\log.txt 2>&1
 
 :: FORMAT TANGGAL
 for /f "tokens=1-3 delims=/ " %%a in ("%date%") do (
@@ -43,7 +43,7 @@ for /f "tokens=1-2 delims=:." %%a in ("%time%") do (
 set hh=!hh: =!
 
 echo UPDATE LAST-UPDATE >> tools\log.txt
-echo !dd! !bulan! !yyyy! ^| !hh!.!mn! WIB > data\last-update.txt
+echo !dd! !bulan! !yyyy! ^| !hh!.!mn! WIB > data\last-update-rup.txt
 
 echo GIT CONFIG >> tools\log.txt
 git config user.name "rizkipem-21"
@@ -57,7 +57,6 @@ del /f /q .git\index.lock >nul 2>&1
 
 echo GIT ADD >> tools\log.txt
 git add . >> tools\log.txt 2>&1
-git add output/ >> tools\log.txt 2>&1
 
 echo GIT COMMIT >> tools\log.txt
 git commit -m "auto update %date% %time%" >> tools\log.txt 2>&1
