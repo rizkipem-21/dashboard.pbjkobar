@@ -6,7 +6,7 @@ from datetime import datetime
 # =========================
 # LOAD DATA JSON (DATA MURNI / BELUM FILTER)
 # =========================
-with open("data/rekap.json", "r", encoding="utf-8") as f:
+with open("data/rekap_rup.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
 df = pd.DataFrame(data)
