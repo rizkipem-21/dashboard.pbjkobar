@@ -2,16 +2,16 @@
 setlocal enabledelayedexpansion
 cd /d D:\rup-2026-inaproc
 
-echo ========================= >> log.txt
-echo START %date% %time% >> log.txt
+echo ========================= >> tools\log.txt
+echo START %date% %time% >> tools\log.txt
 
-echo DOWNLOAD DATA >> log.txt
-powershell -ExecutionPolicy Bypass -File download.ps1 >> log.txt 2>&1
+echo DOWNLOAD DATA >> tools\log.txt
+powershell -ExecutionPolicy Bypass -File download.ps1 >> tools\log.txt 2>&1
 
-echo GENERATE REKAP >> log.txt
+echo GENERATE REKAP >> tools\log.txt
 python generate_rekap.py
 
-echo GENERATE EXCEL >> log.txt
+echo GENERATE EXCEL >> tools\log.txt
 python generate_excel.py
 
 :: FORMAT TANGGAL
@@ -42,30 +42,30 @@ for /f "tokens=1-2 delims=:." %%a in ("%time%") do (
 
 set hh=!hh: =!
 
-echo UPDATE LAST-UPDATE >> log.txt
+echo UPDATE LAST-UPDATE >> tools\log.txt
 echo !dd! !bulan! !yyyy! ^| !hh!.!mn! WIB > data\last-update.txt
 
-echo GIT CONFIG >> log.txt
+echo GIT CONFIG >> tools\log.txt
 git config user.name "rizkipem-21"
 git config user.email "rizki.pem@gmail.com"
 
-echo GIT STATUS >> log.txt
-git status >> log.txt 2>&1
+echo GIT STATUS >> tools\log.txt
+git status >> tools\log.txt 2>&1
 
 :: FIX LOCK
 del /f /q .git\index.lock >nul 2>&1
 
-echo GIT ADD >> log.txt
-git add . >> log.txt 2>&1
-git add output/ >> log.txt 2>&1
+echo GIT ADD >> tools\log.txt
+git add . >> tools\log.txt 2>&1
+git add output/ >> tools\log.txt 2>&1
 
-echo GIT COMMIT >> log.txt
-git commit -m "auto update %date% %time%" >> log.txt 2>&1
+echo GIT COMMIT >> tools\log.txt
+git commit -m "auto update %date% %time%" >> tools\log.txt 2>&1
 
-echo GIT PUSH >> log.txt
-git push origin main >> log.txt 2>&1
+echo GIT PUSH >> tools\log.txt
+git push origin main >> tools\log.txt 2>&1
 
-echo PUSH STATUS: %ERRORLEVEL% >> log.txt
+echo PUSH STATUS: %ERRORLEVEL% >> tools\log.txt
 
-echo ========================= >> log.txt
-echo SELESAI %date% %time% >> log.txt
+echo ========================= >> tools\log.txt
+echo SELESAI %date% %time% >> tools\log.txt
