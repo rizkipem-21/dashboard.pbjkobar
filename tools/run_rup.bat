@@ -6,7 +6,7 @@ echo ========================= >> tools\log.txt
 echo START %date% %time% >> tools\log.txt
 
 echo DOWNLOAD DATA >> tools\log.txt
-powershell -ExecutionPolicy Bypass -File tools\download.ps1 >> tools\log.txt 2>&1
+powershell -ExecutionPolicy Bypass -File scripts\rup\download_rup.ps1 >> tools\log.txt 2>&1
 
 echo GENERATE REKAP >> tools\log.txt
 python scripts\generate_rup.py >> tools\log.txt 2>&1
