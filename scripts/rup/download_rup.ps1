@@ -3,7 +3,7 @@
 # ==============================
 
 $baseDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$dataPath = Join-Path $baseDir "data"
+$dataPath = Join-Path $baseDir "..\..\data"
 
 # buat folder data jika belum ada
 if (!(Test-Path $dataPath)) {

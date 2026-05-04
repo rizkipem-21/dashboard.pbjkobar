@@ -103,11 +103,11 @@
     "Satuan Kerja": "Dinas Kesehatan",
     "Pagu Program": 31403981295.0,
     "Pagu Pengadaan": 27986573305.0,
-    "RUP Penyedia": 5444099933.0,
+    "RUP Penyedia": 4891035773.0,
     "RUP Swakelola": 0.0,
-    "Total RUP Terumumkan": 5444099933.0,
-    "Selisih RUP Terumumkan": -22542473372.0,
-    "Persentase": 19.45254202316856
+    "Total RUP Terumumkan": 4891035773.0,
+    "Selisih RUP Terumumkan": -23095537532.0,
+    "Persentase": 17.476365254499314
   },
   {
     "Satuan Kerja": "Dinas Komunikasi, Informatika, Statistik dan Persandian",
@@ -143,11 +143,11 @@
     "Satuan Kerja": "Dinas Pekerjaan Umum dan Penataan Ruang",
     "Pagu Program": 105714344580.0,
     "Pagu Pengadaan": 105032048100.0,
-    "RUP Penyedia": 69521608963.0,
+    "RUP Penyedia": 70086520648.0,
     "RUP Swakelola": 35000000.0,
-    "Total RUP Terumumkan": 69556608963.0,
-    "Selisih RUP Terumumkan": -35475439137.0,
-    "Persentase": 66.22417654540624
+    "Total RUP Terumumkan": 70121520648.0,
+    "Selisih RUP Terumumkan": -34910527452.0,
+    "Persentase": 66.76202351232644
   },
   {
     "Satuan Kerja": "Dinas Pemadam Kebakaran dan Penyelamatan",
@@ -193,11 +193,11 @@
     "Satuan Kerja": "Dinas Pendidikan dan Kebudayaan",
     "Pagu Program": 63843390000.0,
     "Pagu Pengadaan": 61655471600.0,
-    "RUP Penyedia": 9197036632.0,
+    "RUP Penyedia": 9368966632.0,
     "RUP Swakelola": 52187493800.0,
-    "Total RUP Terumumkan": 61384530432.0,
-    "Selisih RUP Terumumkan": -270941168.0,
-    "Persentase": 99.56055616643764
+    "Total RUP Terumumkan": 61556460432.0,
+    "Selisih RUP Terumumkan": -99011168.0,
+    "Persentase": 99.83941219581881
   },
   {
     "Satuan Kerja": "Dinas Perhubungan",
@@ -213,11 +213,11 @@
     "Satuan Kerja": "Dinas Perikanan dan Ketahanan Pangan",
     "Pagu Program": 8823032229.0,
     "Pagu Pengadaan": 8063419229.0,
-    "RUP Penyedia": 8063419229.0,
+    "RUP Penyedia": 8066956729.0,
     "RUP Swakelola": 0.0,
-    "Total RUP Terumumkan": 8063419229.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 100.0
+    "Total RUP Terumumkan": 8066956729.0,
+    "Selisih RUP Terumumkan": 3537500.0,
+    "Persentase": 100.0438709671361
   },
   {
     "Satuan Kerja": "Dinas Perindustrian, Perdagangan, Koperasi, Usaha Kecil dan Menengah",
@@ -293,21 +293,21 @@
     "Satuan Kerja": "Instalasi Farmasi",
     "Pagu Program": 5257374241.0,
     "Pagu Pengadaan": 5257374241.0,
-    "RUP Penyedia": 4986110241.0,
+    "RUP Penyedia": 5051110241.0,
     "RUP Swakelola": 0.0,
-    "Total RUP Terumumkan": 4986110241.0,
-    "Selisih RUP Terumumkan": -271264000.0,
-    "Persentase": 94.84031405098521
+    "Total RUP Terumumkan": 5051110241.0,
+    "Selisih RUP Terumumkan": -206264000.0,
+    "Persentase": 96.07667267832227
   },
   {
     "Satuan Kerja": "Kecamatan Arut Selatan",
     "Pagu Program": 6754652808.0,
     "Pagu Pengadaan": 4701405808.0,
-    "RUP Penyedia": 4570468308.0,
+    "RUP Penyedia": 4553522708.0,
     "RUP Swakelola": 45360000.0,
-    "Total RUP Terumumkan": 4615828308.0,
-    "Selisih RUP Terumumkan": -85577500.0,
-    "Persentase": 98.17974658017438
+    "Total RUP Terumumkan": 4598882708.0,
+    "Selisih RUP Terumumkan": -102523100.0,
+    "Persentase": 97.81930970890569
   },
   {
     "Satuan Kerja": "Kecamatan Arut Utara",
@@ -333,11 +333,11 @@
     "Satuan Kerja": "Kecamatan Kumai",
     "Pagu Program": 1656422000.0,
     "Pagu Pengadaan": 943247000.0,
-    "RUP Penyedia": 736119698.0,
+    "RUP Penyedia": 715202698.0,
     "RUP Swakelola": 168247302.0,
-    "Total RUP Terumumkan": 904367000.0,
-    "Selisih RUP Terumumkan": -38880000.0,
-    "Persentase": 95.8780679927951
+    "Total RUP Terumumkan": 883450000.0,
+    "Selisih RUP Terumumkan": -59797000.0,
+    "Persentase": 93.66051522029754
   },
   {
     "Satuan Kerja": "Kecamatan Pangkalan Banteng",
@@ -703,11 +703,11 @@
     "Satuan Kerja": "Puskesmas Semanggang",
     "Pagu Program": 2390401100.0,
     "Pagu Pengadaan": 2323620274.0,
-    "RUP Penyedia": 641771384.0,
+    "RUP Penyedia": 654395500.0,
     "RUP Swakelola": 0.0,
-    "Total RUP Terumumkan": 641771384.0,
-    "Selisih RUP Terumumkan": -1681848890.0,
-    "Persentase": 27.61946051087003
+    "Total RUP Terumumkan": 654395500.0,
+    "Selisih RUP Terumumkan": -1669224774.0,
+    "Persentase": 28.16275564997932
   },
   {
     "Satuan Kerja": "Puskesmas Sungai Rangit",
@@ -753,11 +753,11 @@
     "Satuan Kerja": "Rumah Sakit Umum Daerah Sultan Imanuddin",
     "Pagu Program": 136086000000.0,
     "Pagu Pengadaan": 85676806400.0,
-    "RUP Penyedia": 85676806400.0,
+    "RUP Penyedia": 84956806400.0,
     "RUP Swakelola": 0.0,
-    "Total RUP Terumumkan": 85676806400.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 100.0
+    "Total RUP Terumumkan": 84956806400.0,
+    "Selisih RUP Terumumkan": -720000000.0,
+    "Persentase": 99.15963254204583
   },
   {
     "Satuan Kerja": "Satuan Polisi Pamong Praja",
