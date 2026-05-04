@@ -25,7 +25,7 @@ tahun = '2026'
 
 nama_file = f"Rekap RUP Tahun {tahun} ({tanggal}) Legacy.xlsx"
 
-output_path = os.path.join("output\rup", nama_file)
+output_path = os.path.join("output", "rup", nama_file)
 
 # =========================
 # PAKAI DATA MURNI (TANPA FILTER 0-0-0)
