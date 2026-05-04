@@ -1,5 +1,5 @@
 # ==============================
-# AUTO DOWNLOAD PENGADAAN INAPROC
+# AUTO DOWNLOAD PENGADAAN INAPROC (RETRY VERSION)
 # ==============================
 
 $baseDir = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -17,7 +17,7 @@ $headers = @{
 }
 
 # ============================================
-# DAFTAR ENDPOINT PENGADAAN
+# DAFTAR ENDPOINT
 # ============================================
 
 $urls = @(
@@ -42,49 +42,65 @@ $urls = @(
 )
 
 # ============================================
+# FUNGSI DOWNLOAD DENGAN RETRY
+# ============================================
+
+function Download-WithRetry($url, $output) {
+
+    $maxRetry = 5
+    $success = $false
+
+    for ($i = 1; $i -le $maxRetry; $i++) {
+
+        try {
+            Write-Host "  Percobaan ke-$i..."
+
+            $response = Invoke-RestMethod -Method GET -Uri $url -Headers $headers
+
+            if ($null -ne $response) {
+                $response | ConvertTo-Json -Depth 20 | Out-File -Encoding utf8 $output
+                Write-Host "  SUKSES" -ForegroundColor Green
+                $success = $true
+                break
+            }
+        }
+        catch {
+            Write-Host "  Gagal percobaan ke-$i" -ForegroundColor Red
+            Start-Sleep -Seconds 2
+        }
+    }
+
+    if (-not $success) {
+        Write-Host "  GAGAL TOTAL -> buat file kosong" -ForegroundColor Red
+        "[]" | Out-File -Encoding utf8 $output
+    }
+}
+
+# ============================================
 # LOOP DOWNLOAD
 # ============================================
 
 foreach ($url in $urls) {
 
-    try {
+    Write-Host ""
+    Write-Host "DOWNLOAD:" $url -ForegroundColor Yellow
 
-        Write-Host ""
-        Write-Host "DOWNLOAD:" $url -ForegroundColor Yellow
+    # ambil nama endpoint
+    $endpoint = ($url -split 'legacy/')[1] -split '\?'
+    $baseName = ($endpoint[0] -replace '/', '_')
 
-        # ambil nama endpoint
-        $endpoint = ($url -split 'legacy/')[1] -split '\?'
-        $baseName = ($endpoint[0] -replace '/', '_')
-
-        if ($url -match "tahun=([0-9]{4})") {
-            $tahun = $matches[1]
-        } else {
-            $tahun = "unknown"
-        }
-
-        $filename = "Legacy_${baseName}_${tahun}.json"
-        $output = Join-Path $dataPath $filename
-
-        # request API
-        $response = Invoke-RestMethod -Method GET -Uri $url -Headers $headers
-
-        # paksa file tetap ada
-        if ($null -eq $response) {
-            "[]" | Out-File -Encoding utf8 $output
-        }
-        else {
-            $response | ConvertTo-Json -Depth 20 | Out-File -Encoding utf8 $output
-        }
-
-        Write-Host "SUKSES -> $filename" -ForegroundColor Green
-
+    if ($url -match "tahun=([0-9]{4})") {
+        $tahun = $matches[1]
+    } else {
+        $tahun = "unknown"
     }
-    catch {
 
-        Write-Host "ERROR -> tetap buat file kosong" -ForegroundColor Red
+    $filename = "Legacy_${baseName}_${tahun}.json"
+    $output = Join-Path $dataPath $filename
 
-        "[]" | Out-File -Encoding utf8 $output
-    }
+    Download-WithRetry $url $output
+
+    Write-Host "FILE -> $filename"
 }
 
 Write-Host ""
