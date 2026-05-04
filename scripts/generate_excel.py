@@ -30,6 +30,7 @@ output_path = os.path.join("output", "rup", nama_file)
 # =========================
 # PAKAI DATA MURNI (TANPA FILTER 0-0-0)
 # =========================
+os.makedirs(os.path.join("output", "rup"), exist_ok=True)
 df.to_excel(output_path, index=False)
 
 print("Excel berhasil dibuat:", output_path)
