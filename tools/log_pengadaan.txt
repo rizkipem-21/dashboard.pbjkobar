@@ -1,0 +1,66 @@
+[2026-05-05 09:19:10] START generate_pengadaan
+[2026-05-05 09:19:10] LOAD Sumber 1 | rows: 4729
+[2026-05-05 09:19:10] LOAD Sumber 1_2 | rows: 51
+[2026-05-05 09:19:10] LOAD Sumber 2 | rows: 169
+[2026-05-05 09:19:10] ERROR Sumber 2_1 | [Errno 2] No such file or directory: 'D:\\rup-2026-inaproc\\data\\Legacy_tender_non-tender-selesai_2026.json'
+[2026-05-05 09:19:11] LOAD Sumber 2_2 | rows: 107
+[2026-05-05 09:19:11] LOAD Sumber 2_3 | rows: 71
+[2026-05-05 09:19:11] LOAD Sumber 2_4 | rows: 64
+[2026-05-05 09:19:11] LOAD Sumber 2_5 | rows: 2
+[2026-05-05 09:19:11] LOAD Sumber 3 | rows: 24
+[2026-05-05 09:19:11] ERROR Sumber 4 | Expecting value: line 1 column 1 (char 0)
+[2026-05-05 09:19:11] LOAD Sumber 5 | rows: 37
+[2026-05-05 09:19:11] LOAD Sumber 5_1 | rows: 30
+[2026-05-05 09:19:11] ERROR Sumber 5_1_1 | [Errno 2] No such file or directory: 'D:\\rup-2026-inaproc\\data\\Legacy_tender_tender-nilai_2026.json'
+[2026-05-05 09:19:11] LOAD Sumber 5_2 | rows: 4
+[2026-05-05 09:19:11] LOAD Sumber 5_3 | rows: 4
+[2026-05-05 09:19:11] LOAD Sumber 5_4 | rows: 3
+[2026-05-05 09:19:11] ERROR Sumber 5_5 | Expecting value: line 1 column 1 (char 0)
+[2026-05-05 09:19:11] LOAD Sumber 6 | rows: 206
+[2026-05-05 09:19:11] ERROR Sumber 7 | Expecting value: line 1 column 1 (char 0)
+[2026-05-05 09:20:30] START generate_pengadaan
+[2026-05-05 09:20:31] LOAD Sumber 1 | rows: 4729
+[2026-05-05 09:20:31] LOAD Sumber 1_2 | rows: 51
+[2026-05-05 09:20:31] LOAD Sumber 2 | rows: 169
+[2026-05-05 09:20:31] ERROR Sumber 2_1 | [Errno 2] No such file or directory: 'D:\\rup-2026-inaproc\\data\\Legacy_tender_non-tender-selesai_2026.json'
+[2026-05-05 09:20:31] LOAD Sumber 2_2 | rows: 107
+[2026-05-05 09:20:31] LOAD Sumber 2_3 | rows: 71
+[2026-05-05 09:20:31] LOAD Sumber 2_4 | rows: 64
+[2026-05-05 09:20:31] LOAD Sumber 2_5 | rows: 2
+[2026-05-05 09:20:31] LOAD Sumber 3 | rows: 24
+[2026-05-05 09:20:31] ERROR Sumber 4 | Expecting value: line 1 column 1 (char 0)
+[2026-05-05 09:20:31] LOAD Sumber 5 | rows: 37
+[2026-05-05 09:20:31] LOAD Sumber 5_1 | rows: 30
+[2026-05-05 09:20:31] ERROR Sumber 5_1_1 | [Errno 2] No such file or directory: 'D:\\rup-2026-inaproc\\data\\Legacy_tender_tender-nilai_2026.json'
+[2026-05-05 09:20:31] LOAD Sumber 5_2 | rows: 4
+[2026-05-05 09:20:31] LOAD Sumber 5_3 | rows: 4
+[2026-05-05 09:20:31] LOAD Sumber 5_4 | rows: 3
+[2026-05-05 09:20:31] ERROR Sumber 5_5 | Expecting value: line 1 column 1 (char 0)
+[2026-05-05 09:20:31] LOAD Sumber 6 | rows: 206
+[2026-05-05 09:20:31] ERROR Sumber 7 | Expecting value: line 1 column 1 (char 0)
+[2026-05-05 09:20:31] EXPORT JSON berhasil: D:\rup-2026-inaproc\data\rekap_pengadaan.json
+[2026-05-05 09:20:31] TOTAL DATA: 418
+[2026-05-05 09:20:31] SELESAI generate_pengadaan
+[2026-05-05 09:40:35] START generate_pengadaan
+[2026-05-05 09:40:36] LOAD Sumber 1 | rows: 4729
+[2026-05-05 09:40:36] LOAD Sumber 1_2 | rows: 51
+[2026-05-05 09:40:36] LOAD Sumber 2 | rows: 173
+[2026-05-05 09:40:36] LOAD Sumber 2_1 | rows: 155
+[2026-05-05 09:40:36] LOAD Sumber 2_2 | rows: 107
+[2026-05-05 09:40:36] LOAD Sumber 2_3 | rows: 71
+[2026-05-05 09:40:36] LOAD Sumber 2_4 | rows: 64
+[2026-05-05 09:40:36] LOAD Sumber 2_5 | rows: 2
+[2026-05-05 09:40:36] LOAD Sumber 3 | rows: 24
+[2026-05-05 09:40:36] ERROR Sumber 4 | Expecting value: line 1 column 1 (char 0)
+[2026-05-05 09:40:36] LOAD Sumber 5 | rows: 37
+[2026-05-05 09:40:36] LOAD Sumber 5_1 | rows: 30
+[2026-05-05 09:40:36] ERROR Sumber 5_1_1 | [Errno 2] No such file or directory: 'D:\\rup-2026-inaproc\\data\\Legacy_tender_tender-nilai_2026.json'
+[2026-05-05 09:40:36] LOAD Sumber 5_2 | rows: 4
+[2026-05-05 09:40:36] LOAD Sumber 5_3 | rows: 4
+[2026-05-05 09:40:36] LOAD Sumber 5_4 | rows: 3
+[2026-05-05 09:40:36] ERROR Sumber 5_5 | Expecting value: line 1 column 1 (char 0)
+[2026-05-05 09:40:36] LOAD Sumber 6 | rows: 206
+[2026-05-05 09:40:36] ERROR Sumber 7 | Expecting value: line 1 column 1 (char 0)
+[2026-05-05 09:40:36] EXPORT JSON berhasil: D:\rup-2026-inaproc\data\rekap_pengadaan.json
+[2026-05-05 09:40:36] TOTAL DATA: 421
+[2026-05-05 09:40:36] SELESAI generate_pengadaan
