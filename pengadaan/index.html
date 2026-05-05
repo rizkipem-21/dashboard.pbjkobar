@@ -4,36 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rekap Data Pengadaan 2026</title>
-
 <script src="https://cdn.tailwindcss.com"></script>
-
 </head>
-
 <body class="bg-gray-100 p-6">
-
 <h1 class="text-2xl font-bold mb-4">
 Rekap Data Pengadaan Tahun 2026
 </h1>
-
 <a href="../" class="text-blue-600 underline mb-4 inline-block">
 ← Kembali ke Dashboard
 </a>
-
 <div class="bg-white rounded shadow overflow-auto">
 <table class="min-w-full text-sm text-left border">
 <thead class="bg-gray-200">
 <tr>
-<th class="px-4 py-2 border">No</th>
-<th class="px-4 py-2 border">Kode RUP</th>
-<th class="px-4 py-2 border">Satuan Kerja</th>
-<th class="px-4 py-2 border">Nama Paket</th>
-<th class="px-4 py-2 border">Jenis Pengadaan</th>
-<th class="px-4 py-2 border">Metode Pengadaan</th>
-<th class="px-4 py-2 border">Status</th>
-<th class="px-4 py-2 border">Nilai Pagu RUP</th>
-<th class="px-4 py-2 border">Nilai HPS</th>
-<th class="px-4 py-2 border">Nilai Hasil Pemilihan</th>
-<th class="px-4 py-2 border">Efisiensi</th>
+    <th class="px-4 py-2 border">No</th>
+    <th class="px-4 py-2 border">Kode RUP</th>
+    <th class="px-4 py-2 border">Satuan Kerja</th>
+    <th class="px-4 py-2 border">Nama Paket</th>
+    <th class="px-4 py-2 border">Jenis Pengadaan</th>
+    <th class="px-4 py-2 border">Metode Pengadaan</th>
+    <th class="px-4 py-2 border">Status</th>
+    <th class="px-4 py-2 border">Nilai Pagu RUP</th>
+    <th class="px-4 py-2 border">Nilai HPS</th>
+    <th class="px-4 py-2 border">Nilai Hasil Pemilihan</th>
+    <th class="px-4 py-2 border">Efisiensi</th>
 </tr>
 </thead>
 <tbody id="tableBody"></tbody>
@@ -41,47 +35,56 @@ Rekap Data Pengadaan Tahun 2026
 </div>
 
 <script>
-function rupiah(n){
-    return "Rp " + Number(n || 0).toLocaleString("id-ID");
+// Format rupiah: jika null/kosong → "" , jika 0 → "Rp 0", jika angka → format
+function rupiah(n) {
+    if (n === null || n === undefined || n === "" || n === " ") return "";
+    return "Rp " + Number(n).toLocaleString("id-ID");
 }
 
-async function loadData(){
+// Cek apakah nilai adalah angka valid (termasuk 0)
+function isAngka(val) {
+    if (val === null || val === undefined || val === "" || val === " " || val === "N/A") return false;
+    return !isNaN(Number(val));
+}
+
+async function loadData() {
     const res = await fetch("../data/rekap_pengadaan.json");
     const data = await res.json();
-
     const tbody = document.getElementById("tableBody");
     tbody.innerHTML = "";
 
     data.forEach((row, index) => {
+        const pagu  = row["Nilai Pagu RUP"];
+        const hps   = row["Nilai HPS"];
+        const hasil = row["Nilai Hasil Pemilihan"];
 
-        const pagu = Number(row["Nilai Pagu RUP"] || 0);
-        const hasil = Number(row["Nilai Hasil Pemilihan"] || 0);
-        const hps = Number(row["Nilai HPS"] || 0);
-
-        const efisiensi = pagu - hasil;
+        // Efisiensi hanya dihitung jika pagu dan hasil keduanya angka valid
+        let efisiensiStr = "N/A";
+        if (isAngka(pagu) && isAngka(hasil)) {
+            const efisiensi = Number(pagu) - Number(hasil);
+            efisiensiStr = rupiah(efisiensi);
+        }
 
         const tr = `
         <tr class="border ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}">
             <td class="px-4 py-2 border">${index + 1}</td>
-            <td class="px-4 py-2 border">${row["Kode RUP"] || ""}</td>
-            <td class="px-4 py-2 border">${row["Satuan Kerja"] || ""}</td>
-            <td class="px-4 py-2 border">${row["Nama Paket"] || ""}</td>
-            <td class="px-4 py-2 border">${row["Jenis Pengadaan"] || ""}</td>
-            <td class="px-4 py-2 border">${row["Metode Pengadaan"] || ""}</td>
-            <td class="px-4 py-2 border">${row["Status"] || ""}</td>
-            <td class="px-4 py-2 border">${rupiah(pagu)}</td>
-            <td class="px-4 py-2 border">${rupiah(hps)}</td>
-            <td class="px-4 py-2 border">${rupiah(hasil)}</td>
-            <td class="px-4 py-2 border font-semibold text-green-700">${rupiah(efisiensi)}</td>
+            <td class="px-4 py-2 border">${row["Kode RUP"] ?? ""}</td>
+            <td class="px-4 py-2 border">${row["Satuan Kerja"] ?? ""}</td>
+            <td class="px-4 py-2 border">${row["Nama Paket"] ?? ""}</td>
+            <td class="px-4 py-2 border">${row["Jenis Pengadaan"] ?? ""}</td>
+            <td class="px-4 py-2 border">${row["Metode Pengadaan"] ?? ""}</td>
+            <td class="px-4 py-2 border">${row["Status"] ?? ""}</td>
+            <td class="px-4 py-2 border">${isAngka(pagu) ? rupiah(pagu) : (pagu ?? "")}</td>
+            <td class="px-4 py-2 border">${isAngka(hps) ? rupiah(hps) : (hps ?? "")}</td>
+            <td class="px-4 py-2 border">${isAngka(hasil) ? rupiah(hasil) : (hasil ?? "")}</td>
+            <td class="px-4 py-2 border font-semibold text-green-700">${efisiensiStr}</td>
         </tr>
         `;
-
         tbody.innerHTML += tr;
     });
 }
 
 loadData();
 </script>
-
 </body>
 </html>

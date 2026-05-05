@@ -219,11 +219,11 @@ df1_map = df1.set_index('kd_rup') if not df1.empty else pd.DataFrame()
 def get_s1(kd, col):
     try:
         if pd.isna(kd) or df1_map.empty:
-            return "N/A"
+            return None
         val = df1_map.loc[int(kd), col]
-        return "" if pd.isna(val) else val
+        return None if pd.isna(val) else val
     except:
-        return "N/A"
+        return None
 
 # ======================================================
 # SUMBER 2
@@ -254,7 +254,7 @@ for _,r in df2.iterrows():
             nilai_hasil=map_nt_kontrak[k]; found=True; break
     if not found:
         nilai_hasil="N/A"
-    if pd.isna(nilai_hasil):
+    elif nilai_hasil is not None and not isinstance(nilai_hasil, str) and pd.isna(nilai_hasil):
         nilai_hasil=""
 
     nilai_pdn="N/A"
@@ -262,7 +262,7 @@ for _,r in df2.iterrows():
     for k in kd_nt_list:
         if k in map_nt_pdn:
             nilai_pdn = map_nt_pdn[k]
-            if pd.isna(nilai_pdn):
+            if nilai_pdn is not None and not isinstance(nilai_pdn, str) and pd.isna(nilai_pdn):
                 nilai_pdn=""
             found=True
             break
@@ -272,7 +272,7 @@ for _,r in df2.iterrows():
     for k in kd_nt_list:
         if k in map_nt_umk:
             nilai_umk = map_nt_umk[k]
-            if pd.isna(nilai_umk):
+            if nilai_umk is not None and not isinstance(nilai_umk, str) and pd.isna(nilai_umk):
                 nilai_umk=""
             found=True
             break
@@ -403,9 +403,9 @@ for _,r in df1_2.iterrows():
             'Nama Paket':r.get('nama_paket'),
             'Metode Pengadaan':'Swakelola',
             'Jenis Pengadaan':jenis,
-            'Sumber Dana':'N/A',
-            'PDN':'N/A',
-            'UKM':'N/A',
+            'Sumber Dana':None,
+            'PDN':None,
+            'UKM':None,
             'Nilai Pagu RUP':r.get('pagu'),
             'Nilai Hasil Pemilihan':"",
             'Status':'Pengumuman RUP',
@@ -450,7 +450,7 @@ for _,r in df5.iterrows():
             nilai_hasil=map_t_kontrak[k]; found=True; break
     if not found:
         nilai_hasil="N/A"
-    if pd.isna(nilai_hasil):
+    elif nilai_hasil is not None and not isinstance(nilai_hasil, str) and pd.isna(nilai_hasil):
         nilai_hasil=""
 
     nilai_pdn="N/A"
@@ -458,7 +458,7 @@ for _,r in df5.iterrows():
     for k in kd_t_list:
         if k in map_t_pdn:
             nilai_pdn = map_t_pdn[k]
-            if pd.isna(nilai_pdn):
+            if nilai_pdn is not None and not isinstance(nilai_pdn, str) and pd.isna(nilai_pdn):
                 nilai_pdn=""
             found=True
             break
@@ -468,7 +468,7 @@ for _,r in df5.iterrows():
     for k in kd_t_list:
         if k in map_t_umk:
             nilai_umk = map_t_umk[k]
-            if pd.isna(nilai_umk):
+            if nilai_umk is not None and not isinstance(nilai_umk, str) and pd.isna(nilai_umk):
                 nilai_umk=""
             found=True
             break
@@ -598,7 +598,7 @@ for _,r in df1.iterrows():
             'Nama Paket':r.get('nama_paket'),
             'Metode Pengadaan':r.get('metode_pengadaan'),
             'Jenis Pengadaan':r.get('jenis_pengadaan'),
-            'Sumber Dana':'N/A',
+            'Sumber Dana':None,
             'PDN':'PDN' if r.get('status_pdn')=='PDN' else 'Non-PDN',
             'UKM':'UKM' if r.get('status_ukm')=='UKM' else 'Non-UKM',
             'Nilai Pagu RUP':r.get('pagu'),
