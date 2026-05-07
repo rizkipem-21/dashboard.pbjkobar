@@ -665,11 +665,167 @@ output_json = r'D:\rup-2026-inaproc\data\rekap_pengadaan.json'
 with open(output_json, "w", encoding="utf-8") as f:
     json.dump(final_df.to_dict(orient='records'), f, ensure_ascii=False, indent=2)
 
+print("JSON tersimpan:", output_json)
+
+# ======================================================
+# SIMPAN EXCEL MASTER
+# ======================================================
+import os
+from openpyxl import load_workbook
+from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+from openpyxl.utils import get_column_letter
+
+print("Generate Excel...")
+
+# Ambil tahun dari df1, fallback ke 2026
+tahun = str(df1['tahun_anggaran'].iloc[0]) if not df1.empty and 'tahun_anggaran' in df1.columns else '2026'
+tgl   = datetime.now().strftime('%Y-%m-%d')
+nama_file = f'Paket Pengadaan Tahun {tahun} ({tgl}) (Api Gateway Legacy).xlsx'
+
+output_dir   = r'D:\rup-2026-inaproc\output\pengadaan'
+output_excel = os.path.join(output_dir, nama_file)
+
+# Buat folder jika belum ada
+os.makedirs(output_dir, exist_ok=True)
+
+# Kolom angka yang perlu diformat rupiah di Excel
+kolom_angka = ['Nilai Pagu RUP', 'Nilai Hasil Pemilihan', 'Nilai HPS', 'Nilai PDN', 'Nilai UMK']
+
+# Kolom yang murni angka (boleh coerce ke NaN jika kosong)
+# Nilai Pagu RUP dan Nilai HPS selalu angka atau kosong — aman dikonversi
+kolom_angka_murni = ['Nilai Pagu RUP', 'Nilai HPS']
+
+# Kolom yang bisa berisi "N/A" — jangan dicoerce, tampilkan apa adanya
+# Nilai Hasil Pemilihan, Nilai PDN, Nilai UMK bisa berisi "N/A" jika join tidak match
+kolom_angka_mixed = ['Nilai Hasil Pemilihan', 'Nilai PDN', 'Nilai UMK']
+
+# Simpan dulu pakai pandas (cepat), lalu format pakai openpyxl
+excel_df = final_df.copy()
+
+# Konversi hanya kolom murni angka
+for col in kolom_angka_murni:
+    if col in excel_df.columns:
+        excel_df[col] = pd.to_numeric(excel_df[col], errors='coerce')
+
+# Kolom mixed: konversi ke angka hanya jika nilainya bukan "N/A" dan bukan kosong
+# Jika "N/A" → tetap string "N/A", jika angka → jadi float, jika "" → tetap ""
+def safe_numeric(val):
+    if val == "N/A" or val == "":
+        return val
+    try:
+        return float(val)
+    except (ValueError, TypeError):
+        return val
+
+for col in kolom_angka_mixed:
+    if col in excel_df.columns:
+        excel_df[col] = excel_df[col].apply(safe_numeric)
+
+excel_df.to_excel(output_excel, index=False, sheet_name='Pengadaan')
+
+# ======================================================
+# FORMAT EXCEL DENGAN OPENPYXL
+# ======================================================
+wb = load_workbook(output_excel)
+ws = wb['Pengadaan']
+
+# --- Warna & style header ---
+header_fill   = PatternFill('solid', start_color='1F4E79')   # biru tua
+header_font   = Font(name='Arial', bold=True, color='FFFFFF', size=10)
+header_align  = Alignment(horizontal='center', vertical='center', wrap_text=True)
+
+# --- Style data ---
+data_font     = Font(name='Arial', size=10)
+data_align_l  = Alignment(vertical='center', wrap_text=False)
+data_align_c  = Alignment(horizontal='center', vertical='center')
+data_align_r  = Alignment(horizontal='right', vertical='center')
+
+# --- Warna baris selang-seling ---
+fill_putih    = PatternFill('solid', start_color='FFFFFF')
+fill_biru_muda= PatternFill('solid', start_color='DCE6F1')
+
+# --- Border tipis ---
+thin = Side(style='thin', color='BFBFBF')
+border_thin = Border(left=thin, right=thin, top=thin, bottom=thin)
+
+# --- Format rupiah ---
+fmt_rupiah = '#,##0'
+
+# Kolom yang diberi format rupiah (cari index kolomnya)
+col_idx_angka = {
+    col: i+1
+    for i, col in enumerate(final_df.columns)
+    if col in kolom_angka
+}
+
+# Lebar kolom default per nama kolom
+lebar_kolom = {
+    'Kode RUP'              : 18,
+    'Satuan Kerja'          : 38,
+    'Nama Paket'            : 50,
+    'Metode Pengadaan'      : 22,
+    'Jenis Pengadaan'       : 32,
+    'Sumber Dana'           : 14,
+    'PDN'                   : 10,
+    'UKM'                   : 10,
+    'Nilai Pagu RUP'        : 20,
+    'Nilai Hasil Pemilihan' : 20,
+    'Status'                : 22,
+    'Kode Paket'            : 20,
+    'Nilai HPS'             : 20,
+    'Nilai PDN'             : 18,
+    'Nilai UMK'             : 18,
+    'Versi'                 : 12,
+    'Metode'                : 22,
+    'Sumber'                : 12,
+}
+
+# Terapkan lebar kolom
+for i, col in enumerate(final_df.columns, start=1):
+    ws.column_dimensions[get_column_letter(i)].width = lebar_kolom.get(col, 15)
+
+# Format header (baris 1)
+for cell in ws[1]:
+    cell.font      = header_font
+    cell.fill      = header_fill
+    cell.alignment = header_align
+    cell.border    = border_thin
+
+ws.row_dimensions[1].height = 32
+
+# Format baris data
+for row_idx, row in enumerate(ws.iter_rows(min_row=2, max_row=ws.max_row), start=2):
+    fill = fill_putih if row_idx % 2 == 0 else fill_biru_muda
+    for cell in row:
+        col_name = final_df.columns[cell.column - 1]
+        cell.font   = data_font
+        cell.fill   = fill
+        cell.border = border_thin
+
+        if col_name in kolom_angka:
+            cell.number_format = fmt_rupiah
+            cell.alignment     = data_align_r
+        elif col_name in ('PDN','UKM','Sumber Dana','Versi','Metode','Sumber','Status'):
+            cell.alignment = data_align_c
+        else:
+            cell.alignment = data_align_l
+
+# Freeze baris header
+ws.freeze_panes = 'A2'
+
+# Auto filter
+ws.auto_filter.ref = ws.dimensions
+
+wb.save(output_excel)
+
+print("Excel tersimpan :", output_excel)
+
 # ======================================================
 # SIMPAN LAST UPDATE
 # ======================================================
 with open(r'D:\rup-2026-inaproc\data\last-update-pengadaan.txt', "w") as f:
     f.write(datetime.now().strftime("%d %B %Y %H:%M WIB"))
 
-print("\nSELESAI | Total data:", len(final_df))
-print("Output  :", output_json)
+print("\nSELESAI | Total data :", len(final_df))
+print("JSON    :", output_json)
+print("Excel   :", output_excel)
