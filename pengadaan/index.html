@@ -48,7 +48,7 @@ function isAngka(val) {
 }
 
 async function loadData() {
-    const res = await fetch("../data/rekap_pengadaan.json");
+    const res = await fetch("/data/rekap_pengadaan.json");
     const data = await res.json();
     const tbody = document.getElementById("tableBody");
     tbody.innerHTML = "";
