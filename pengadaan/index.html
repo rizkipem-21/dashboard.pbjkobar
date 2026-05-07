@@ -173,16 +173,42 @@ document.getElementById("perPage").addEventListener("change", (e) => {
   });
 });
 
-// Export Excel – semua data dengan format kolom rupiah
+// Export Excel – semua data, kolom & format sama seperti tampilan web
 document.getElementById("downloadCurrent").addEventListener("click", () => {
-  // Kolom yang diformat rupiah
-  const kolomRupiah = ["Nilai Pagu RUP", "Nilai HPS", "Nilai Hasil Pemilihan", "Nilai PDN", "Nilai UMK"];
 
-  // Buat worksheet dari semua data
-  const ws = XLSX.utils.json_to_sheet(allData);
+  // Susun data sesuai kolom tampilan web + kolom Efisiensi
+  const exportData = allData.map((row, index) => {
+    const pagu  = row["Nilai Pagu RUP"];
+    const hasil = row["Nilai Hasil Pemilihan"];
 
-  // Terapkan format rupiah pada kolom angka
-  const range = XLSX.utils.decode_range(ws['!ref']);
+    let efisiensi = "N/A";
+    if (
+      pagu !== "" && pagu !== "N/A" && !isNaN(Number(pagu)) &&
+      hasil !== "" && hasil !== "N/A" && !isNaN(Number(hasil))
+    ) {
+      efisiensi = Number(pagu) - Number(hasil);
+    }
+
+    return {
+      "No"                    : index + 1,
+      "Kode RUP"              : row["Kode RUP"] ?? "",
+      "Satuan Kerja"          : row["Satuan Kerja"] ?? "",
+      "Nama Paket"            : row["Nama Paket"] ?? "",
+      "Jenis Pengadaan"       : row["Jenis Pengadaan"] ?? "",
+      "Metode Pengadaan"      : row["Metode Pengadaan"] ?? "",
+      "Status"                : row["Status"] ?? "",
+      "Nilai Pagu RUP"        : isNaN(Number(pagu)) ? (pagu ?? "") : Number(pagu),
+      "Nilai HPS"             : isNaN(Number(row["Nilai HPS"])) ? (row["Nilai HPS"] ?? "") : Number(row["Nilai HPS"]),
+      "Nilai Hasil Pemilihan" : hasil === "N/A" || hasil === "" ? (hasil ?? "") : Number(hasil),
+      "Efisiensi"             : efisiensi,
+    };
+  });
+
+  const ws = XLSX.utils.json_to_sheet(exportData);
+
+  // Format rupiah untuk kolom angka
+  const kolomRupiah = ["Nilai Pagu RUP", "Nilai HPS", "Nilai Hasil Pemilihan", "Efisiensi"];
+  const range   = XLSX.utils.decode_range(ws['!ref']);
   const headers = [];
   for (let c = range.s.c; c <= range.e.c; c++) {
     const cell = ws[XLSX.utils.encode_cell({ r: 0, c })];
@@ -200,16 +226,19 @@ document.getElementById("downloadCurrent").addEventListener("click", () => {
   }
 
   // Lebar kolom
-  ws['!cols'] = headers.map(h => {
-    const lebar = {
-      'Kode RUP': 18, 'Satuan Kerja': 38, 'Nama Paket': 50,
-      'Metode Pengadaan': 22, 'Jenis Pengadaan': 32, 'Sumber Dana': 14,
-      'PDN': 10, 'UKM': 10, 'Nilai Pagu RUP': 20, 'Nilai Hasil Pemilihan': 20,
-      'Status': 22, 'Kode Paket': 20, 'Nilai HPS': 20,
-      'Nilai PDN': 18, 'Nilai UMK': 18, 'Versi': 12, 'Metode': 22, 'Sumber': 12
-    };
-    return { wch: lebar[h] || 15 };
-  });
+  ws['!cols'] = [
+    { wch: 6  }, // No
+    { wch: 16 }, // Kode RUP
+    { wch: 35 }, // Satuan Kerja
+    { wch: 50 }, // Nama Paket
+    { wch: 30 }, // Jenis Pengadaan
+    { wch: 22 }, // Metode Pengadaan
+    { wch: 22 }, // Status
+    { wch: 20 }, // Nilai Pagu RUP
+    { wch: 20 }, // Nilai HPS
+    { wch: 20 }, // Nilai Hasil Pemilihan
+    { wch: 20 }, // Efisiensi
+  ];
 
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, "Pengadaan");
