@@ -143,11 +143,11 @@
     "Satuan Kerja": "Dinas Pekerjaan Umum dan Penataan Ruang",
     "Pagu Program": 105714344580.0,
     "Pagu Pengadaan": 105032048100.0,
-    "RUP Penyedia": 70065070432.0,
+    "RUP Penyedia": 104973280434.0,
     "RUP Swakelola": 35000000.0,
-    "Total RUP Terumumkan": 70100070432.0,
-    "Selisih RUP Terumumkan": -34931977668.0,
-    "Persentase": 66.74160096855239
+    "Total RUP Terumumkan": 105008280434.0,
+    "Selisih RUP Terumumkan": -23767666.0,
+    "Persentase": 99.97737103443191
   },
   {
     "Satuan Kerja": "Dinas Pemadam Kebakaran dan Penyelamatan",
@@ -213,21 +213,21 @@
     "Satuan Kerja": "Dinas Perikanan dan Ketahanan Pangan",
     "Pagu Program": 8823032229.0,
     "Pagu Pengadaan": 8063419229.0,
-    "RUP Penyedia": 8066956729.0,
+    "RUP Penyedia": 8063419229.0,
     "RUP Swakelola": 0.0,
-    "Total RUP Terumumkan": 8066956729.0,
-    "Selisih RUP Terumumkan": 3537500.0,
-    "Persentase": 100.0438709671361
+    "Total RUP Terumumkan": 8063419229.0,
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Dinas Perindustrian, Perdagangan, Koperasi, Usaha Kecil dan Menengah",
     "Pagu Program": 12570398857.0,
     "Pagu Pengadaan": 11668621099.0,
-    "RUP Penyedia": 11600157409.0,
+    "RUP Penyedia": 11668621099.0,
     "RUP Swakelola": 0.0,
-    "Total RUP Terumumkan": 11600157409.0,
-    "Selisih RUP Terumumkan": -68463690.0,
-    "Persentase": 99.41326666262333
+    "Total RUP Terumumkan": 11668621099.0,
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Dinas Perpustakaan dan Kearsipan",
@@ -303,11 +303,11 @@
     "Satuan Kerja": "Kecamatan Arut Selatan",
     "Pagu Program": 6754652808.0,
     "Pagu Pengadaan": 4701405808.0,
-    "RUP Penyedia": 4553522708.0,
+    "RUP Penyedia": 4656045808.0,
     "RUP Swakelola": 45360000.0,
-    "Total RUP Terumumkan": 4598882708.0,
-    "Selisih RUP Terumumkan": -102523100.0,
-    "Persentase": 97.81930970890569
+    "Total RUP Terumumkan": 4701405808.0,
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Kecamatan Arut Utara",
