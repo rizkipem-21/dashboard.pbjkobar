@@ -295,7 +295,7 @@ for _,r in df2.iterrows():
         'Nilai HPS':r.get('hps'),
         'Nilai PDN':nilai_pdn,
         'Nilai UMK':nilai_umk,
-        'Versi':pd.NA,
+        'Versi':"",
         'Metode':'Non Tender',
         'Sumber':'Sumber 2'
     })
@@ -334,7 +334,7 @@ for _,r in df3.iterrows():
         'Nilai HPS':pd.NA,
         'Nilai PDN':nilai_pdn,
         'Nilai UMK':nilai_umk,
-        'Versi':pd.NA,
+        'Versi':"",
         'Metode':'Pencatatan Non Tender',
         'Sumber':'Sumber 3'
     })
@@ -377,7 +377,7 @@ for _,r in df4.iterrows():
         'Nilai HPS':pd.NA,
         'Nilai PDN':nilai_pdn,
         'Nilai UMK':nilai_umk,
-        'Versi':pd.NA,
+        'Versi':"",
         'Metode':'Pencatatan Swakelola',
         'Sumber':'Sumber 4'
     })
@@ -413,7 +413,7 @@ for _,r in df1_2.iterrows():
             'Nilai HPS':pd.NA,
             'Nilai PDN':pd.NA,
             'Nilai UMK':pd.NA,
-            'Versi':pd.NA,
+            'Versi':"",
             'Metode':'Swakelola',
             'Sumber':'Sumber 1_2'
         })
@@ -491,7 +491,7 @@ for _,r in df5.iterrows():
         'Nilai HPS':r.get('hps'),
         'Nilai PDN':nilai_pdn,
         'Nilai UMK':nilai_umk,
-        'Versi':pd.NA,
+        'Versi':"",
         'Metode':'Tender',
         'Sumber':'Sumber 5'
     })
@@ -608,7 +608,7 @@ for _,r in df1.iterrows():
             'Nilai HPS':pd.NA,
             'Nilai PDN':pd.NA,
             'Nilai UMK':pd.NA,
-            'Versi':pd.NA,
+            'Versi':"",
             'Metode':r.get('metode_pengadaan'),
             'Sumber':'Sumber 1'
         })
@@ -651,6 +651,11 @@ cols = [
 ]
 
 final_df = final_df[cols]
+
+# ======================================================
+# BERSIHKAN NaN AGAR JSON VALID
+# ======================================================
+final_df = final_df.fillna("")
 
 # ======================================================
 # SIMPAN JSON
