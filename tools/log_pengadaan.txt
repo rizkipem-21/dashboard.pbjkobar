@@ -1,66 +1,149 @@
-[2026-05-05 09:19:10] START generate_pengadaan
-[2026-05-05 09:19:10] LOAD Sumber 1 | rows: 4729
-[2026-05-05 09:19:10] LOAD Sumber 1_2 | rows: 51
-[2026-05-05 09:19:10] LOAD Sumber 2 | rows: 169
-[2026-05-05 09:19:10] ERROR Sumber 2_1 | [Errno 2] No such file or directory: 'D:\\rup-2026-inaproc\\data\\Legacy_tender_non-tender-selesai_2026.json'
-[2026-05-05 09:19:11] LOAD Sumber 2_2 | rows: 107
-[2026-05-05 09:19:11] LOAD Sumber 2_3 | rows: 71
-[2026-05-05 09:19:11] LOAD Sumber 2_4 | rows: 64
-[2026-05-05 09:19:11] LOAD Sumber 2_5 | rows: 2
-[2026-05-05 09:19:11] LOAD Sumber 3 | rows: 24
-[2026-05-05 09:19:11] ERROR Sumber 4 | Expecting value: line 1 column 1 (char 0)
-[2026-05-05 09:19:11] LOAD Sumber 5 | rows: 37
-[2026-05-05 09:19:11] LOAD Sumber 5_1 | rows: 30
-[2026-05-05 09:19:11] ERROR Sumber 5_1_1 | [Errno 2] No such file or directory: 'D:\\rup-2026-inaproc\\data\\Legacy_tender_tender-nilai_2026.json'
-[2026-05-05 09:19:11] LOAD Sumber 5_2 | rows: 4
-[2026-05-05 09:19:11] LOAD Sumber 5_3 | rows: 4
-[2026-05-05 09:19:11] LOAD Sumber 5_4 | rows: 3
-[2026-05-05 09:19:11] ERROR Sumber 5_5 | Expecting value: line 1 column 1 (char 0)
-[2026-05-05 09:19:11] LOAD Sumber 6 | rows: 206
-[2026-05-05 09:19:11] ERROR Sumber 7 | Expecting value: line 1 column 1 (char 0)
-[2026-05-05 09:20:30] START generate_pengadaan
-[2026-05-05 09:20:31] LOAD Sumber 1 | rows: 4729
-[2026-05-05 09:20:31] LOAD Sumber 1_2 | rows: 51
-[2026-05-05 09:20:31] LOAD Sumber 2 | rows: 169
-[2026-05-05 09:20:31] ERROR Sumber 2_1 | [Errno 2] No such file or directory: 'D:\\rup-2026-inaproc\\data\\Legacy_tender_non-tender-selesai_2026.json'
-[2026-05-05 09:20:31] LOAD Sumber 2_2 | rows: 107
-[2026-05-05 09:20:31] LOAD Sumber 2_3 | rows: 71
-[2026-05-05 09:20:31] LOAD Sumber 2_4 | rows: 64
-[2026-05-05 09:20:31] LOAD Sumber 2_5 | rows: 2
-[2026-05-05 09:20:31] LOAD Sumber 3 | rows: 24
-[2026-05-05 09:20:31] ERROR Sumber 4 | Expecting value: line 1 column 1 (char 0)
-[2026-05-05 09:20:31] LOAD Sumber 5 | rows: 37
-[2026-05-05 09:20:31] LOAD Sumber 5_1 | rows: 30
-[2026-05-05 09:20:31] ERROR Sumber 5_1_1 | [Errno 2] No such file or directory: 'D:\\rup-2026-inaproc\\data\\Legacy_tender_tender-nilai_2026.json'
-[2026-05-05 09:20:31] LOAD Sumber 5_2 | rows: 4
-[2026-05-05 09:20:31] LOAD Sumber 5_3 | rows: 4
-[2026-05-05 09:20:31] LOAD Sumber 5_4 | rows: 3
-[2026-05-05 09:20:31] ERROR Sumber 5_5 | Expecting value: line 1 column 1 (char 0)
-[2026-05-05 09:20:31] LOAD Sumber 6 | rows: 206
-[2026-05-05 09:20:31] ERROR Sumber 7 | Expecting value: line 1 column 1 (char 0)
-[2026-05-05 09:20:31] EXPORT JSON berhasil: D:\rup-2026-inaproc\data\rekap_pengadaan.json
-[2026-05-05 09:20:31] TOTAL DATA: 418
-[2026-05-05 09:20:31] SELESAI generate_pengadaan
-[2026-05-05 09:40:35] START generate_pengadaan
-[2026-05-05 09:40:36] LOAD Sumber 1 | rows: 4729
-[2026-05-05 09:40:36] LOAD Sumber 1_2 | rows: 51
-[2026-05-05 09:40:36] LOAD Sumber 2 | rows: 173
-[2026-05-05 09:40:36] LOAD Sumber 2_1 | rows: 155
-[2026-05-05 09:40:36] LOAD Sumber 2_2 | rows: 107
-[2026-05-05 09:40:36] LOAD Sumber 2_3 | rows: 71
-[2026-05-05 09:40:36] LOAD Sumber 2_4 | rows: 64
-[2026-05-05 09:40:36] LOAD Sumber 2_5 | rows: 2
-[2026-05-05 09:40:36] LOAD Sumber 3 | rows: 24
-[2026-05-05 09:40:36] ERROR Sumber 4 | Expecting value: line 1 column 1 (char 0)
-[2026-05-05 09:40:36] LOAD Sumber 5 | rows: 37
-[2026-05-05 09:40:36] LOAD Sumber 5_1 | rows: 30
-[2026-05-05 09:40:36] ERROR Sumber 5_1_1 | [Errno 2] No such file or directory: 'D:\\rup-2026-inaproc\\data\\Legacy_tender_tender-nilai_2026.json'
-[2026-05-05 09:40:36] LOAD Sumber 5_2 | rows: 4
-[2026-05-05 09:40:36] LOAD Sumber 5_3 | rows: 4
-[2026-05-05 09:40:36] LOAD Sumber 5_4 | rows: 3
-[2026-05-05 09:40:36] ERROR Sumber 5_5 | Expecting value: line 1 column 1 (char 0)
-[2026-05-05 09:40:36] LOAD Sumber 6 | rows: 206
-[2026-05-05 09:40:36] ERROR Sumber 7 | Expecting value: line 1 column 1 (char 0)
-[2026-05-05 09:40:36] EXPORT JSON berhasil: D:\rup-2026-inaproc\data\rekap_pengadaan.json
-[2026-05-05 09:40:36] TOTAL DATA: 421
-[2026-05-05 09:40:36] SELESAI generate_pengadaan
+========================= 
+START 07/05/2026 14:48:36,27 
+DOWNLOAD DATA 
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_rup_paket-penyedia-terumumkan_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_rup_paket-swakelola-terumumkan_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-bapbast?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_non-tender-ekontrak-bapbast_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-kontrak?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_non-tender-ekontrak-kontrak_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-spmkspp?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_non-tender-ekontrak-spmkspp_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-sppbj?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_non-tender-ekontrak-sppbj_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/non-tender-pengumuman?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_non-tender-pengumuman_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/non-tender-selesai?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_non-tender-selesai_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/pengumuman?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_pengumuman_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-bapbast?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_tender-ekontrak-bapbast_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-kontrak?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_tender-ekontrak-kontrak_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-spmkspp?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_tender-ekontrak-spmkspp_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-sppbj?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_tender-ekontrak-sppbj_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/tender-selesai?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_tender-selesai_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/tender-selesai-nilai?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_tender-selesai-nilai_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/pencatatan-non-tender?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_pencatatan-non-tender_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/pencatatan-swakelola?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_pencatatan-swakelola_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/ekatalog-archive/paket-e-purchasing?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_ekatalog-archive_paket-e-purchasing_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/ekatalog/paket-e-purchasing?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_ekatalog_paket-e-purchasing_2026.json
+
+SELESAI DOWNLOAD SEMUA DATA PENGADAAN
+GENERATE REKAP 
+Load semua sumber...
+JSON tersimpan: D:\rup-2026-inaproc\data\rekap_pengadaan.json
+Generate Excel...
+Excel tersimpan : D:\rup-2026-inaproc\output\pengadaan\Paket Pengadaan Tahun 2026 (2026-05-07) (Api Gateway Legacy).xlsx
+
+SELESAI | Total data : 4875
+JSON    : D:\rup-2026-inaproc\data\rekap_pengadaan.json
+Excel   : D:\rup-2026-inaproc\output\pengadaan\Paket Pengadaan Tahun 2026 (2026-05-07) (Api Gateway Legacy).xlsx
+COPY EXCEL TERBARU 
+File terbaru: Paket Pengadaan Tahun 2026 (2026-05-07) (Api Gateway Legacy).xlsx 
+        1 file(s) copied.
+Copy selesai ke: D:\rup-2026-inaproc\data\master_pengadaan.xlsx 
+UPDATE LAST-UPDATE 
+GIT CONFIG 
+GIT STATUS 
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   data/Legacy_ekatalog_paket-e-purchasing_2026.json
+	modified:   data/Legacy_rup_paket-penyedia-terumumkan_2026.json
+	modified:   data/Legacy_rup_paket-swakelola-terumumkan_2026.json
+	modified:   data/Legacy_tender_non-tender-ekontrak-bapbast_2026.json
+	modified:   data/Legacy_tender_non-tender-ekontrak-kontrak_2026.json
+	modified:   data/Legacy_tender_non-tender-ekontrak-spmkspp_2026.json
+	modified:   data/Legacy_tender_non-tender-ekontrak-sppbj_2026.json
+	modified:   data/Legacy_tender_non-tender-pengumuman_2026.json
+	modified:   data/Legacy_tender_non-tender-selesai_2026.json
+	modified:   data/Legacy_tender_pencatatan-non-tender_2026.json
+	modified:   data/Legacy_tender_pengumuman_2026.json
+	modified:   data/Legacy_tender_tender-ekontrak-kontrak_2026.json
+	modified:   data/Legacy_tender_tender-ekontrak-spmkspp_2026.json
+	modified:   data/Legacy_tender_tender-ekontrak-sppbj_2026.json
+	modified:   data/Legacy_tender_tender-selesai-nilai_2026.json
+	modified:   data/Legacy_tender_tender-selesai_2026.json
+	modified:   data/last-update-pengadaan.txt
+	modified:   data/master_pengadaan.xlsx
+	modified:   scripts/pengadaan/generate_pengadaan.py
+	modified:   tools/log_pengadaan.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	tools/run_pengadaan.bat
+
+no changes added to commit (use "git add" and/or "git commit -a")
+GIT ADD 

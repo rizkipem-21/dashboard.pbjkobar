@@ -655,6 +655,16 @@ final_df = final_df[cols]
 # ======================================================
 # BERSIHKAN NaN AGAR JSON VALID
 # ======================================================
+# Kolom PDN & UKM: None/NaN artinya join tidak match → "N/A"
+# Kolom lainnya: None/NaN → ""
+def fill_na_value(series, na_value):
+    return series.apply(
+        lambda x: na_value if (x is None or (not isinstance(x, str) and pd.isna(x))) else x
+    )
+
+final_df['PDN'] = fill_na_value(final_df['PDN'], "N/A")
+final_df['UKM'] = fill_na_value(final_df['UKM'], "N/A")
+
 final_df = final_df.fillna("")
 
 # ======================================================
