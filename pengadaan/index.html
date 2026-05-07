@@ -27,7 +27,7 @@
     id="downloadCurrent"
     class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm"
   >
-    ⬇ Download Excel Halaman Ini
+    ⬇ Download Excel
   </button>
 
   <a
@@ -173,16 +173,47 @@ document.getElementById("perPage").addEventListener("change", (e) => {
   });
 });
 
-// Export Excel – hanya data halaman aktif
+// Export Excel – semua data dengan format kolom rupiah
 document.getElementById("downloadCurrent").addEventListener("click", () => {
-  const start    = (currentPage - 1) * perPage;
-  const end      = start + perPage;
-  const pageData = allData.slice(start, end);
+  // Kolom yang diformat rupiah
+  const kolomRupiah = ["Nilai Pagu RUP", "Nilai HPS", "Nilai Hasil Pemilihan", "Nilai PDN", "Nilai UMK"];
 
-  const ws = XLSX.utils.json_to_sheet(pageData);
+  // Buat worksheet dari semua data
+  const ws = XLSX.utils.json_to_sheet(allData);
+
+  // Terapkan format rupiah pada kolom angka
+  const range = XLSX.utils.decode_range(ws['!ref']);
+  const headers = [];
+  for (let c = range.s.c; c <= range.e.c; c++) {
+    const cell = ws[XLSX.utils.encode_cell({ r: 0, c })];
+    headers[c] = cell ? cell.v : "";
+  }
+  for (let r = 1; r <= range.e.r; r++) {
+    for (let c = range.s.c; c <= range.e.c; c++) {
+      if (kolomRupiah.includes(headers[c])) {
+        const addr = XLSX.utils.encode_cell({ r, c });
+        if (ws[addr] && typeof ws[addr].v === "number") {
+          ws[addr].z = '#,##0';
+        }
+      }
+    }
+  }
+
+  // Lebar kolom
+  ws['!cols'] = headers.map(h => {
+    const lebar = {
+      'Kode RUP': 18, 'Satuan Kerja': 38, 'Nama Paket': 50,
+      'Metode Pengadaan': 22, 'Jenis Pengadaan': 32, 'Sumber Dana': 14,
+      'PDN': 10, 'UKM': 10, 'Nilai Pagu RUP': 20, 'Nilai Hasil Pemilihan': 20,
+      'Status': 22, 'Kode Paket': 20, 'Nilai HPS': 20,
+      'Nilai PDN': 18, 'Nilai UMK': 18, 'Versi': 12, 'Metode': 22, 'Sumber': 12
+    };
+    return { wch: lebar[h] || 15 };
+  });
+
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, "Pengadaan");
-  XLSX.writeFile(wb, `pengadaan-halaman-${currentPage}.xlsx`);
+  XLSX.writeFile(wb, `Rekap Pengadaan 2026.xlsx`);
 });
 
 loadData();
