@@ -5,13 +5,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rekap Data Pengadaan 2026</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<!-- SheetJS untuk export Excel -->
 <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 </head>
 <body class="bg-gray-100 p-6">
 
-<h1 class="text-2xl font-bold mb-2">Rekap Data Pengadaan Tahun 2026</h1>
-<a href="../" class="text-blue-600 underline mb-4 inline-block">← Kembali ke Dashboard</a>
+<h1 class="text-2xl font-bold mb-1">Rekap Data Pengadaan Tahun 2026</h1>
+<p id="lastUpdate" class="text-xs text-gray-500 mb-2">Memuat last update...</p>
+<a href="../" class="text-blue-600 underline mb-4 inline-block text-sm">← Kembali ke Dashboard</a>
+
+<!-- ===== FILTER ===== -->
+<div class="bg-white rounded shadow p-4 mb-4">
+  <p class="text-sm font-semibold text-gray-700 mb-3">Filter Data</p>
+  <div class="flex flex-wrap gap-3">
+
+    <div class="flex flex-col gap-1">
+      <label class="text-xs text-gray-500">Satuan Kerja</label>
+      <input id="filterSatker" type="text" placeholder="Cari satuan kerja..."
+        class="border px-3 py-2 rounded text-sm w-56" />
+    </div>
+
+    <div class="flex flex-col gap-1">
+      <label class="text-xs text-gray-500">Nama Paket</label>
+      <input id="filterPaket" type="text" placeholder="Cari nama paket..."
+        class="border px-3 py-2 rounded text-sm w-64" />
+    </div>
+
+    <div class="flex flex-col gap-1">
+      <label class="text-xs text-gray-500">Jenis Pengadaan</label>
+      <select id="filterJenis" class="border px-3 py-2 rounded text-sm w-52">
+        <option value="">-- Semua --</option>
+      </select>
+    </div>
+
+    <div class="flex flex-col gap-1">
+      <label class="text-xs text-gray-500">Metode Pengadaan</label>
+      <select id="filterMetode" class="border px-3 py-2 rounded text-sm w-48">
+        <option value="">-- Semua --</option>
+      </select>
+    </div>
+
+    <div class="flex flex-col gap-1">
+      <label class="text-xs text-gray-500">Status</label>
+      <select id="filterStatus" class="border px-3 py-2 rounded text-sm w-44">
+        <option value="">-- Semua --</option>
+      </select>
+    </div>
+
+    <div class="flex flex-col justify-end">
+      <button id="resetFilter"
+        class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded text-sm">
+        Reset Filter
+      </button>
+    </div>
+
+  </div>
+</div>
 
 <!-- ===== KONTROL: per-page + tombol download ===== -->
 <div class="flex flex-wrap gap-3 items-center mb-4">
@@ -23,19 +71,14 @@
   </select>
   <span class="text-sm text-gray-500">baris per halaman</span>
 
-  <button
-    id="downloadCurrent"
-    class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm"
-  >
+  <button id="downloadCurrent"
+    class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm">
     ⬇ Download Excel
   </button>
 
-  <a
-    href="../data/master_pengadaan.xlsx"
-    download
+  <a href="../data/master_pengadaan.xlsx" download
     class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm"
-    style="text-decoration:none"
-  >
+    style="text-decoration:none">
     ⬇ Download Master Excel
   </a>
 </div>
@@ -78,36 +121,83 @@
 </div>
 
 <script>
-let allData = [];
+let allData    = [];
+let filtered   = [];
 let currentPage = 1;
-let perPage = 10;
+let perPage     = 10;
 
-// Format rupiah: null/kosong → "", angka → "Rp xxx"
 function rupiah(n) {
   if (n === null || n === undefined || n === "" || n === " ") return "";
   return "Rp " + Number(n).toLocaleString("id-ID");
 }
-
-// Cek apakah nilai angka valid (termasuk 0)
 function isAngka(val) {
   if (val === null || val === undefined || val === "" || val === " " || val === "N/A") return false;
   return !isNaN(Number(val));
 }
 
+// ===== LAST UPDATE =====
+async function loadLastUpdate() {
+  try {
+    const res  = await fetch("../data/last-update-pengadaan.txt");
+    const text = await res.text();
+    document.getElementById("lastUpdate").innerText = "Terakhir diperbarui: " + text.trim();
+  } catch {
+    document.getElementById("lastUpdate").innerText = "";
+  }
+}
+
+// ===== LOAD DATA =====
 async function loadData() {
   const res = await fetch("../data/rekap_pengadaan.json");
-  allData = await res.json();
+  allData   = await res.json();
+  populateDropdown("filterJenis",  "Jenis Pengadaan");
+  populateDropdown("filterMetode", "Metode Pengadaan");
+  populateDropdown("filterStatus", "Status");
+  applyFilter();
+}
+
+// ===== ISI DROPDOWN DARI DATA UNIK =====
+function populateDropdown(id, kolom) {
+  const select = document.getElementById(id);
+  const unik   = [...new Set(allData.map(r => r[kolom] ?? "").filter(v => v !== ""))].sort();
+  unik.forEach(val => {
+    const opt     = document.createElement("option");
+    opt.value     = val;
+    opt.innerText = val;
+    select.appendChild(opt);
+  });
+}
+
+// ===== TERAPKAN FILTER =====
+function applyFilter() {
+  const satker = document.getElementById("filterSatker").value.trim().toLowerCase();
+  const paket  = document.getElementById("filterPaket").value.trim().toLowerCase();
+  const jenis  = document.getElementById("filterJenis").value;
+  const metode = document.getElementById("filterMetode").value;
+  const status = document.getElementById("filterStatus").value;
+
+  filtered = allData.filter(row => {
+    if (satker && !(row["Satuan Kerja"] ?? "").toLowerCase().includes(satker)) return false;
+    if (paket  && !(row["Nama Paket"]   ?? "").toLowerCase().includes(paket))  return false;
+    if (jenis  && row["Jenis Pengadaan"]  !== jenis)  return false;
+    if (metode && row["Metode Pengadaan"] !== metode) return false;
+    if (status && row["Status"]           !== status) return false;
+    return true;
+  });
+
+  currentPage = 1;
   renderTable();
 }
 
+// ===== RENDER TABEL =====
 function renderTable() {
-  const tbody = document.getElementById("tableBody");
+  const tbody     = document.getElementById("tableBody");
   tbody.innerHTML = "";
 
-  const start = (currentPage - 1) * perPage;
-  const end   = start + perPage;
-  const pageData  = allData.slice(start, end);
-  const totalPage = Math.ceil(allData.length / perPage);
+  const start     = (currentPage - 1) * perPage;
+  const end       = start + perPage;
+  const pageData  = filtered.slice(start, end);
+  const totalPage = Math.ceil(filtered.length / perPage);
 
   pageData.forEach((row, index) => {
     const pagu  = row["Nilai Pagu RUP"];
@@ -137,13 +227,12 @@ function renderTable() {
     tbody.appendChild(tr);
   });
 
-  // Update info teks
-  const infoText = `Halaman ${currentPage} / ${totalPage}`;
+  const infoText = `Halaman ${currentPage} / ${Math.max(totalPage, 1)}`;
   document.getElementById("pageInfo").innerText  = infoText;
   document.getElementById("pageInfo2").innerText = infoText;
-  document.getElementById("totalInfo").innerText = `(Total: ${allData.length} data)`;
+  document.getElementById("totalInfo").innerText =
+    `(Menampilkan ${filtered.length} dari ${allData.length} data)`;
 
-  // Disable tombol prev/next
   const atFirst = currentPage <= 1;
   const atLast  = currentPage >= totalPage;
   document.getElementById("prevPage").disabled  = atFirst;
@@ -153,7 +242,6 @@ function renderTable() {
 }
 
 // ===== EVENT LISTENERS =====
-
 document.getElementById("perPage").addEventListener("change", (e) => {
   perPage = Number(e.target.value);
   currentPage = 1;
@@ -165,27 +253,43 @@ document.getElementById("perPage").addEventListener("change", (e) => {
     if (currentPage > 1) { currentPage--; renderTable(); }
   });
 });
-
 ["nextPage", "nextPage2"].forEach(id => {
   document.getElementById(id).addEventListener("click", () => {
-    const totalPage = Math.ceil(allData.length / perPage);
+    const totalPage = Math.ceil(filtered.length / perPage);
     if (currentPage < totalPage) { currentPage++; renderTable(); }
   });
 });
 
-// Export Excel – semua data, kolom & format sama seperti tampilan web
-document.getElementById("downloadCurrent").addEventListener("click", () => {
+// Filter realtime textbox
+["filterSatker", "filterPaket"].forEach(id => {
+  document.getElementById(id).addEventListener("input", applyFilter);
+});
+// Filter dropdown
+["filterJenis", "filterMetode", "filterStatus"].forEach(id => {
+  document.getElementById(id).addEventListener("change", applyFilter);
+});
+// Reset
+document.getElementById("resetFilter").addEventListener("click", () => {
+  document.getElementById("filterSatker").value = "";
+  document.getElementById("filterPaket").value  = "";
+  document.getElementById("filterJenis").value  = "";
+  document.getElementById("filterMetode").value = "";
+  document.getElementById("filterStatus").value = "";
+  applyFilter();
+});
 
-  // Susun data sesuai kolom tampilan web + kolom Efisiensi
-  const exportData = allData.map((row, index) => {
+// ===== DOWNLOAD EXCEL =====
+// Export berdasarkan data filtered (hasil filter aktif), semua halaman
+document.getElementById("downloadCurrent").addEventListener("click", () => {
+  const kolomRupiah = ["Nilai Pagu RUP", "Nilai HPS", "Nilai Hasil Pemilihan", "Efisiensi"];
+
+  const exportData = filtered.map((row, index) => {
     const pagu  = row["Nilai Pagu RUP"];
     const hasil = row["Nilai Hasil Pemilihan"];
 
     let efisiensi = "N/A";
-    if (
-      pagu !== "" && pagu !== "N/A" && !isNaN(Number(pagu)) &&
-      hasil !== "" && hasil !== "N/A" && !isNaN(Number(hasil))
-    ) {
+    if (pagu !== "" && pagu !== "N/A" && !isNaN(Number(pagu)) &&
+        hasil !== "" && hasil !== "N/A" && !isNaN(Number(hasil))) {
       efisiensi = Number(pagu) - Number(hasil);
     }
 
@@ -206,8 +310,6 @@ document.getElementById("downloadCurrent").addEventListener("click", () => {
 
   const ws = XLSX.utils.json_to_sheet(exportData);
 
-  // Format rupiah untuk kolom angka
-  const kolomRupiah = ["Nilai Pagu RUP", "Nilai HPS", "Nilai Hasil Pemilihan", "Efisiensi"];
   const range   = XLSX.utils.decode_range(ws['!ref']);
   const headers = [];
   for (let c = range.s.c; c <= range.e.c; c++) {
@@ -225,19 +327,10 @@ document.getElementById("downloadCurrent").addEventListener("click", () => {
     }
   }
 
-  // Lebar kolom
   ws['!cols'] = [
-    { wch: 6  }, // No
-    { wch: 16 }, // Kode RUP
-    { wch: 35 }, // Satuan Kerja
-    { wch: 50 }, // Nama Paket
-    { wch: 30 }, // Jenis Pengadaan
-    { wch: 22 }, // Metode Pengadaan
-    { wch: 22 }, // Status
-    { wch: 20 }, // Nilai Pagu RUP
-    { wch: 20 }, // Nilai HPS
-    { wch: 20 }, // Nilai Hasil Pemilihan
-    { wch: 20 }, // Efisiensi
+    { wch: 6  }, { wch: 16 }, { wch: 35 }, { wch: 50 },
+    { wch: 30 }, { wch: 22 }, { wch: 22 }, { wch: 20 },
+    { wch: 20 }, { wch: 20 }, { wch: 20 },
   ];
 
   const wb = XLSX.utils.book_new();
@@ -245,6 +338,8 @@ document.getElementById("downloadCurrent").addEventListener("click", () => {
   XLSX.writeFile(wb, `Rekap Pengadaan 2026.xlsx`);
 });
 
+// ===== INIT =====
+loadLastUpdate();
 loadData();
 </script>
 </body>
