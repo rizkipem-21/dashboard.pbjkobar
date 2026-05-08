@@ -70,7 +70,7 @@
   }
   .stat-card {
     flex: 1;
-    min-width: 160px;
+    min-width: 140px;
     border-radius: 10px;
     padding: 14px 18px;
     color: #fff;
@@ -100,6 +100,7 @@
   .stat-kuning { background: linear-gradient(135deg, #d4a000, #f5c800); color: #1a1a1a; }
   .stat-kuning .stat-label, .stat-kuning .stat-sub { opacity: 0.65; }
   .stat-hijau  { background: linear-gradient(135deg, #1e7e34, #2d9e47); }
+  .stat-abu    { background: linear-gradient(135deg, #475569, #64748b); }
 
   /* ===== FILTER CARD ===== */
   .filter-card {
@@ -305,7 +306,8 @@
   .badge-sppbj    { background: #ede9fe; color: #5b21b6; }
   .badge-spmkspp  { background: #fee2e2; color: #991b1b; }
   .badge-bapbast  { background: #d1fae5; color: #065f46; }
-  .badge-default  { background: #f1f5f9; color: #475569; }
+  .badge-default   { background: #f1f5f9; color: #475569; }
+  .badge-batal     { background: #f1f5f9; color: #64748b; border: 1px solid #cbd5e1; }
 </style>
 </head>
 <body>
@@ -332,12 +334,12 @@
   <div class="stat-card stat-biru">
     <span class="stat-label">Total Paket</span>
     <span class="stat-value" id="statTotal">-</span>
-    <span class="stat-sub">seluruh data</span>
+    <span class="stat-sub">sesuai filter aktif</span>
   </div>
   <div class="stat-card stat-merah">
-    <span class="stat-label">Ditampilkan</span>
+    <span class="stat-label">Belum Proses</span>
     <span class="stat-value" id="statFiltered">-</span>
-    <span class="stat-sub">setelah filter</span>
+    <span class="stat-sub">belum ada aktivitas</span>
   </div>
   <div class="stat-card stat-hijau">
     <span class="stat-label">Sudah Selesai</span>
@@ -347,7 +349,12 @@
   <div class="stat-card stat-kuning">
     <span class="stat-label">Sedang Proses</span>
     <span class="stat-value" id="statProses">-</span>
-    <span class="stat-sub">SPPBJ / Kontrak / SPMKSPP</span>
+    <span class="stat-sub">selain kategori lainnya</span>
+  </div>
+  <div class="stat-card stat-abu">
+    <span class="stat-label">Dibatalkan</span>
+    <span class="stat-value" id="statBatal">-</span>
+    <span class="stat-sub">Paket Dibatalkan</span>
   </div>
 </div>
 
@@ -469,11 +476,13 @@ function isAngka(val) {
 function badgeStatus(status) {
   const s = (status ?? "").toLowerCase();
   let cls = "badge-default";
-  if (s.includes("selesai"))    cls = "badge-selesai";
-  else if (s.includes("bapbast")) cls = "badge-bapbast";
-  else if (s.includes("spmkspp")) cls = "badge-spmkspp";
-  else if (s.includes("kontrak")) cls = "badge-kontrak";
-  else if (s.includes("sppbj"))   cls = "badge-sppbj";
+  if (s.includes("bapbast"))                          cls = "badge-bapbast";
+  else if (s.includes("completed") || s.includes("payment_outside_sistem") || s.includes("paket selesai") || (s.includes("selesai") && !s.includes("dibatalkan"))) cls = "badge-selesai";
+  else if (s.includes("dibatalkan"))                  cls = "badge-batal";
+  else if (s.includes("spmkspp"))                     cls = "badge-spmkspp";
+  else if (s.includes("kontrak"))                     cls = "badge-kontrak";
+  else if (s.includes("sppbj"))                       cls = "badge-sppbj";
+  else if (s.includes("pengumuman rup"))               cls = "badge-default";
   else if (s.includes("proses") || s.includes("pengumuman")) cls = "badge-proses";
   return `<span class="badge ${cls}">${status ?? ""}</span>`;
 }
@@ -530,18 +539,37 @@ function applyFilter() {
 }
 
 function updateStatCards() {
-  const selesai = allData.filter(r => {
+  // Belum Proses: status Pengumuman RUP
+  const belumProses = filtered.filter(r => {
     const s = (r["Status"] ?? "").toLowerCase();
-    return s.includes("selesai") || s.includes("bapbast");
+    return s === "pengumuman rup";
   }).length;
-  const proses = allData.filter(r => {
+
+  // Sudah Selesai: BAPBAST, completed, PAYMENT_OUTSIDE_SISTEM, Paket Selesai, *Selesai
+  const selesai = filtered.filter(r => {
     const s = (r["Status"] ?? "").toLowerCase();
-    return s.includes("sppbj") || s.includes("kontrak") || s.includes("spmkspp");
+    return s.includes("bapbast")
+        || s.includes("completed")
+        || s.includes("payment_outside_sistem")
+        || s.includes("paket selesai")
+        || (s.includes("selesai") && !s.includes("dibatalkan"));
   }).length;
-  document.getElementById("statTotal").innerText    = allData.length.toLocaleString("id-ID");
-  document.getElementById("statFiltered").innerText = filtered.length.toLocaleString("id-ID");
+
+  // Dibatalkan: Paket Dibatalkan
+  const batal = filtered.filter(r => {
+    const s = (r["Status"] ?? "").toLowerCase();
+    return s.includes("dibatalkan");
+  }).length;
+
+  // Sedang Proses: selain tiga kategori di atas
+  const proses = Math.max(filtered.length - belumProses - selesai - batal, 0);
+
+  document.getElementById("statTotal").innerText    = filtered.length.toLocaleString("id-ID");
+  document.getElementById("statFiltered").innerText = belumProses.toLocaleString("id-ID");
   document.getElementById("statSelesai").innerText  = selesai.toLocaleString("id-ID");
   document.getElementById("statProses").innerText   = proses.toLocaleString("id-ID");
+  const elBatal = document.getElementById("statBatal");
+  if (elBatal) elBatal.innerText = batal.toLocaleString("id-ID");
 }
 
 function renderTable() {
