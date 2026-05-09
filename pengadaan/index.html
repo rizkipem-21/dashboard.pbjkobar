@@ -677,7 +677,9 @@ document.getElementById("perPage").addEventListener("change", (e) => {
   })
 );
 ["filterSatker","filterPaket"].forEach(id =>
-  document.getElementById(id).addEventListener("input", applyFilter)
+  document.getElementById(id).addEventListener("keydown", (e) => {
+    if (e.key === "Enter") applyFilter();
+  })
 );
 ["filterJenis","filterMetode","filterCara","filterStatus"].forEach(id =>
   document.getElementById(id).addEventListener("change", applyFilter)
