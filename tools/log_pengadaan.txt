@@ -1582,3 +1582,323 @@ SELESAI 11/05/2026 10:02:00,23
 ========================= 
 START 11/05/2026 11:00:19,51 
 DOWNLOAD DATA 
+
+======================================
+  TAHUN 2026
+======================================
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_rup_paket-penyedia-terumumkan_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_rup_paket-swakelola-terumumkan_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-bapbast?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_non-tender-ekontrak-bapbast_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-kontrak?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_non-tender-ekontrak-kontrak_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-spmkspp?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  Gagal percobaan ke-1
+  Percobaan ke-2...
+  SUKSES
+FILE -> Legacy_tender_non-tender-ekontrak-spmkspp_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-sppbj?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  Gagal percobaan ke-1
+  Percobaan ke-2...
+  SUKSES
+FILE -> Legacy_tender_non-tender-ekontrak-sppbj_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/non-tender-pengumuman?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_non-tender-pengumuman_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/non-tender-selesai?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_non-tender-selesai_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/pengumuman?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_pengumuman_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-bapbast?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_tender-ekontrak-bapbast_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-kontrak?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_tender-ekontrak-kontrak_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-spmkspp?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_tender-ekontrak-spmkspp_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-sppbj?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_tender-ekontrak-sppbj_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/tender-selesai?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_tender-selesai_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/tender-selesai-nilai?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_tender-selesai-nilai_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/pencatatan-non-tender?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_pencatatan-non-tender_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/pencatatan-swakelola?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_pencatatan-swakelola_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/ekatalog-archive/paket-e-purchasing?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_ekatalog-archive_paket-e-purchasing_2026.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/ekatalog/paket-e-purchasing?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_ekatalog_paket-e-purchasing_2026.json
+
+======================================
+  TAHUN 2025
+======================================
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  Gagal percobaan ke-1
+  Percobaan ke-2...
+  SUKSES
+FILE -> Legacy_rup_paket-penyedia-terumumkan_2025.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_rup_paket-swakelola-terumumkan_2025.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-bapbast?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  Gagal percobaan ke-1
+  Percobaan ke-2...
+  Gagal percobaan ke-2
+  Percobaan ke-3...
+  Gagal percobaan ke-3
+  Percobaan ke-4...
+  SUKSES
+FILE -> Legacy_tender_non-tender-ekontrak-bapbast_2025.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-kontrak?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_non-tender-ekontrak-kontrak_2025.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-spmkspp?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_non-tender-ekontrak-spmkspp_2025.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-sppbj?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_non-tender-ekontrak-sppbj_2025.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/non-tender-pengumuman?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_non-tender-pengumuman_2025.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/non-tender-selesai?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_non-tender-selesai_2025.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/pengumuman?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_pengumuman_2025.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-bapbast?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_tender-ekontrak-bapbast_2025.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-kontrak?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_tender-ekontrak-kontrak_2025.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-spmkspp?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_tender-ekontrak-spmkspp_2025.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-sppbj?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_tender-ekontrak-sppbj_2025.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/tender-selesai?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  Gagal percobaan ke-1
+  Percobaan ke-2...
+  SUKSES
+FILE -> Legacy_tender_tender-selesai_2025.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/tender-selesai-nilai?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_tender-selesai-nilai_2025.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/pencatatan-non-tender?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_pencatatan-non-tender_2025.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/tender/pencatatan-swakelola?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_tender_pencatatan-swakelola_2025.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/ekatalog-archive/paket-e-purchasing?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_ekatalog-archive_paket-e-purchasing_2025.json
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/ekatalog/paket-e-purchasing?kode_klpd=D228&tahun=2025
+  Percobaan ke-1...
+  SUKSES
+FILE -> Legacy_ekatalog_paket-e-purchasing_2025.json
+
+======================================
+  TAHUN 2024
+======================================
+
+SKIP (sudah final): Legacy_rup_paket-penyedia-terumumkan_2024.json
+
+SKIP (sudah final): Legacy_rup_paket-swakelola-terumumkan_2024.json
+
+SKIP (sudah final): Legacy_tender_non-tender-ekontrak-bapbast_2024.json
+
+SKIP (sudah final): Legacy_tender_non-tender-ekontrak-kontrak_2024.json
+
+SKIP (sudah final): Legacy_tender_non-tender-ekontrak-spmkspp_2024.json
+
+SKIP (sudah final): Legacy_tender_non-tender-ekontrak-sppbj_2024.json
+
+SKIP (sudah final): Legacy_tender_non-tender-pengumuman_2024.json
+
+SKIP (sudah final): Legacy_tender_non-tender-selesai_2024.json
+
+SKIP (sudah final): Legacy_tender_pengumuman_2024.json
+
+SKIP (sudah final): Legacy_tender_tender-ekontrak-bapbast_2024.json
+
+SKIP (sudah final): Legacy_tender_tender-ekontrak-kontrak_2024.json
+
+SKIP (sudah final): Legacy_tender_tender-ekontrak-spmkspp_2024.json
+
+SKIP (sudah final): Legacy_tender_tender-ekontrak-sppbj_2024.json
+
+SKIP (sudah final): Legacy_tender_tender-selesai_2024.json
+
+SKIP (sudah final): Legacy_tender_tender-selesai-nilai_2024.json
+
+SKIP (sudah final): Legacy_tender_pencatatan-non-tender_2024.json
+
+SKIP (sudah final): Legacy_tender_pencatatan-swakelola_2024.json
+
+SKIP (sudah final): Legacy_ekatalog-archive_paket-e-purchasing_2024.json
+
+SKIP (sudah final): Legacy_ekatalog_paket-e-purchasing_2024.json
+
+SELESAI DOWNLOAD SEMUA DATA PENGADAAN
+GENERATE REKAP 
+=======================================================
+  PAKET PENGADAAN MULTI TAHUN
+  n=2026 | n-1=2025 | n-2=2024
+=======================================================
+Traceback (most recent call last):
+  File "D:\rup-2026-inaproc\scripts\pengadaan\generate_pengadaan.py", line 932, in <module>
+    hasil = process_tahun(t)
+  File "D:\rup-2026-inaproc\scripts\pengadaan\generate_pengadaan.py", line 50, in process_tahun
+    print(f'\n[SKIP] Tahun {tahun} sudah final \u2192 skip generate')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PBJ Rizki\AppData\Local\Programs\Python\Python314\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2192' in position 32: character maps to <undefined>
+COPY EXCEL TERBARU 
+File terbaru: Paket Pengadaan Tahun 2026 (2026-05-11) (Api Gateway Legacy).xlsx 
+        1 file(s) copied.
+Copy selesai ke: D:\rup-2026-inaproc\data\master_pengadaan.xlsx 
+UPDATE LAST-UPDATE 
+GIT CONFIG 
+GIT STATUS 
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   data/2025/Legacy_ekatalog-archive_paket-e-purchasing_2025.json
+	modified:   data/2025/Legacy_ekatalog_paket-e-purchasing_2025.json
+	modified:   data/2025/Legacy_rup_paket-penyedia-terumumkan_2025.json
+	modified:   data/2025/Legacy_rup_paket-swakelola-terumumkan_2025.json
+	modified:   data/2025/Legacy_tender_non-tender-ekontrak-bapbast_2025.json
+	modified:   data/2025/Legacy_tender_non-tender-ekontrak-kontrak_2025.json
+	modified:   data/2025/Legacy_tender_non-tender-ekontrak-spmkspp_2025.json
+	modified:   data/2025/Legacy_tender_non-tender-ekontrak-sppbj_2025.json
+	modified:   data/2025/Legacy_tender_non-tender-pengumuman_2025.json
+	modified:   data/2025/Legacy_tender_non-tender-selesai_2025.json
+	modified:   data/2025/Legacy_tender_pencatatan-non-tender_2025.json
+	modified:   data/2025/Legacy_tender_pencatatan-swakelola_2025.json
+	modified:   data/2025/Legacy_tender_pengumuman_2025.json
+	modified:   data/2025/Legacy_tender_tender-ekontrak-bapbast_2025.json
+	modified:   data/2025/Legacy_tender_tender-ekontrak-kontrak_2025.json
+	modified:   data/2025/Legacy_tender_tender-ekontrak-spmkspp_2025.json
+	modified:   data/2025/Legacy_tender_tender-ekontrak-sppbj_2025.json
+	modified:   data/2025/Legacy_tender_tender-selesai-nilai_2025.json
+	modified:   data/2025/Legacy_tender_tender-selesai_2025.json
+	modified:   data/2026/Legacy_ekatalog_paket-e-purchasing_2026.json
+	modified:   data/2026/Legacy_tender_non-tender-ekontrak-spmkspp_2026.json
+	modified:   data/2026/Legacy_tender_non-tender-ekontrak-sppbj_2026.json
+	modified:   data/2026/Legacy_tender_non-tender-pengumuman_2026.json
+	modified:   data/2026/Legacy_tender_non-tender-selesai_2026.json
+	modified:   data/2026/Legacy_tender_pencatatan-non-tender_2026.json
+	modified:   data/2026/Legacy_tender_pengumuman_2026.json
+	modified:   data/2026/Legacy_tender_tender-ekontrak-kontrak_2026.json
+	modified:   data/2026/Legacy_tender_tender-ekontrak-spmkspp_2026.json
+	modified:   data/2026/Legacy_tender_tender-ekontrak-sppbj_2026.json
+	modified:   data/2026/Legacy_tender_tender-selesai-nilai_2026.json
+	modified:   data/2026/Legacy_tender_tender-selesai_2026.json
+	modified:   data/last-update-pengadaan.txt
+	modified:   tools/log_pengadaan.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+GIT ADD 
