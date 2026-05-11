@@ -79,6 +79,26 @@ def process_tahun(tahun):
     sumber7     = p('ekatalog-archive_paket-e-purchasing')
 
     # ======================================================
+    # LOAD MASTER KAMUS PENYEDIA (OFFLINE)
+    # ======================================================
+    path_kamus = os.path.join(BASE_DIR, 'data', 'master', 'kamus_penyedia.json')
+    map_offline_penyedia = {}
+    if os.path.exists(path_kamus):
+        try:
+            with open(path_kamus, 'r', encoding='utf-8') as f:
+                kamus_list = json.load(f)
+                if isinstance(kamus_list, list):
+                    for item in kamus_list:
+                        nama = item.get('nama_penyedia', "")
+                        # Map kode_penyedia (S6) dan kd_penyedia (S7) ke nama
+                        if item.get('kode_penyedia'):
+                            map_offline_penyedia[str(item['kode_penyedia'])] = nama
+                        if item.get('kd_penyedia'):
+                            map_offline_penyedia[str(item['kd_penyedia'])] = nama
+        except Exception as e:
+            print(f"Gagal load kamus penyedia: {e}")
+
+    # ======================================================
     # LOAD JSON
     # ======================================================
     def load_json(path):
@@ -223,9 +243,9 @@ def process_tahun(tahun):
                 k = k.strip()
                 if k:
                     map_t_tgl_kontrak[k] = r.get('tgl_kontrak')
-                    
+
     # ======================================================
-    # MAP NAMA PENYEDIA
+    # MAP NAMA PENYEDIA (SUMBER 2 & 5 DARI JSON LOKAL)
     # ======================================================
     map_nt_penyedia = {}
     if not df2_3.empty and 'nama_penyedia' in df2_3.columns:
@@ -609,6 +629,10 @@ def process_tahun(tahun):
         if pd.isna(nilai_hasil):
             nilai_hasil=""
 
+        # MENGAMBIL NAMA PENYEDIA DARI KAMUS OFFLINE
+        kode_p = str(r.get('kode_penyedia', ""))
+        nama_p = map_offline_penyedia.get(kode_p, kode_p) if kode_p and kode_p != "None" else ""
+
         data_s6.append({
             'Kode RUP':r.get('rup_code_raw'),
             'Satuan Kerja':r.get('nama_satker'),
@@ -621,7 +645,7 @@ def process_tahun(tahun):
             'Nilai Pagu RUP':pagu,
             'Nilai Hasil Pemilihan':nilai_hasil,
             'Tanggal Kontrak':"",
-            'Nama Penyedia':r.get('kode_penyedia', ""),
+            'Nama Penyedia':nama_p,
             'Status':r.get('status'),
             'Kode Paket':r.get('order_id'),
             'Nilai HPS':pd.NA,
@@ -647,6 +671,10 @@ def process_tahun(tahun):
         if pd.isna(nilai_hasil):
             nilai_hasil=""
 
+        # MENGAMBIL NAMA PENYEDIA DARI KAMUS OFFLINE
+        kode_p = str(r.get('kd_penyedia', ""))
+        nama_p = map_offline_penyedia.get(kode_p, kode_p) if kode_p and kode_p != "None" else ""
+
         data_s7.append({
             'Kode RUP':r.get('kd_rup_raw'),
             'Satuan Kerja':r.get('nama_satker') if pd.notna(r.get('nama_satker')) else get_s1(kd,'nama_satker'),
@@ -659,7 +687,7 @@ def process_tahun(tahun):
             'Nilai Pagu RUP':pagu,
             'Nilai Hasil Pemilihan':nilai_hasil,
             'Tanggal Kontrak':"",
-            'Nama Penyedia':r.get('kd_penyedia', ""),
+            'Nama Penyedia':nama_p,
             'Status':r.get('paket_status_str'),
             'Kode Paket':r.get('kd_paket'),
             'Nilai HPS':pd.NA,
