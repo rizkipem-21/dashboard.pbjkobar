@@ -1,13 +1,13 @@
 # ==============================
-# AUTO DOWNLOAD PENGADAAN INAPROC (RETRY VERSION)
+# AUTO DOWNLOAD PENGADAAN INAPROC (MULTI TAHUN)
 # ==============================
 
-$baseDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$dataPath = Join-Path $baseDir "..\..\data"
+$baseDir  = Split-Path -Parent $MyInvocation.MyCommand.Path
+$dataRootPath = Join-Path $baseDir "..\..\data"
 
-# buat folder data jika belum ada
-if (!(Test-Path $dataPath)) {
-    New-Item -ItemType Directory -Path $dataPath | Out-Null
+# Buat folder data root jika belum ada
+if (!(Test-Path $dataRootPath)) {
+    New-Item -ItemType Directory -Path $dataRootPath | Out-Null
 }
 
 $token = "inprc7642391c38774272bf57ca25ac1d4544"
@@ -17,39 +17,44 @@ $headers = @{
 }
 
 # ============================================
-# DAFTAR ENDPOINT
+# HITUNG TAHUN n, n-1, n-2
 # ============================================
+$tahunN   = (Get-Date).Year        # 2026 (tahun berjalan)
+$tahunN1  = $tahunN - 1            # 2025
+$tahunN2  = $tahunN - 2            # 2024
 
-$urls = @(
-    "https://data.inaproc.id/api/legacy/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026",
-    "https://data.inaproc.id/api/legacy/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026",
-	"https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-bapbast?kode_klpd=D228&tahun=2026",
-    "https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-kontrak?kode_klpd=D228&tahun=2026",
-    "https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-spmkspp?kode_klpd=D228&tahun=2026",
-    "https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-sppbj?kode_klpd=D228&tahun=2026",
-    "https://data.inaproc.id/api/legacy/tender/non-tender-pengumuman?kode_klpd=D228&tahun=2026",
-	"https://data.inaproc.id/api/legacy/tender/non-tender-selesai?kode_klpd=D228&tahun=2026"
-    "https://data.inaproc.id/api/legacy/tender/pengumuman?kode_klpd=D228&tahun=2026",
-    "https://data.inaproc.id/api/legacy/tender/tender-ekontrak-bapbast?kode_klpd=D228&tahun=2026",
-    "https://data.inaproc.id/api/legacy/tender/tender-ekontrak-kontrak?kode_klpd=D228&tahun=2026",
-    "https://data.inaproc.id/api/legacy/tender/tender-ekontrak-spmkspp?kode_klpd=D228&tahun=2026",
-    "https://data.inaproc.id/api/legacy/tender/tender-ekontrak-sppbj?kode_klpd=D228&tahun=2026",
-    "https://data.inaproc.id/api/legacy/tender/tender-selesai?kode_klpd=D228&tahun=2026",
-    "https://data.inaproc.id/api/legacy/tender/tender-selesai-nilai?kode_klpd=D228&tahun=2026",
-    "https://data.inaproc.id/api/legacy/tender/pencatatan-non-tender?kode_klpd=D228&tahun=2026",
-    "https://data.inaproc.id/api/legacy/tender/pencatatan-swakelola?kode_klpd=D228&tahun=2026",
-    "https://data.inaproc.id/api/legacy/ekatalog-archive/paket-e-purchasing?kode_klpd=D228&tahun=2026",
-    "https://data.inaproc.id/api/legacy/ekatalog/paket-e-purchasing?kode_klpd=D228&tahun=2026"
+# ============================================
+# DAFTAR ENDPOINT (tanpa tahun, nanti diisi loop)
+# ============================================
+$endpoints = @(
+    "rup/paket-penyedia-terumumkan",
+    "rup/paket-swakelola-terumumkan",
+    "tender/non-tender-ekontrak-bapbast",
+    "tender/non-tender-ekontrak-kontrak",
+    "tender/non-tender-ekontrak-spmkspp",
+    "tender/non-tender-ekontrak-sppbj",
+    "tender/non-tender-pengumuman",
+    "tender/non-tender-selesai",
+    "tender/pengumuman",
+    "tender/tender-ekontrak-bapbast",
+    "tender/tender-ekontrak-kontrak",
+    "tender/tender-ekontrak-spmkspp",
+    "tender/tender-ekontrak-sppbj",
+    "tender/tender-selesai",
+    "tender/tender-selesai-nilai",
+    "tender/pencatatan-non-tender",
+    "tender/pencatatan-swakelola",
+    "ekatalog-archive/paket-e-purchasing",
+    "ekatalog/paket-e-purchasing"
 )
 
 # ============================================
 # FUNGSI DOWNLOAD DENGAN RETRY
 # ============================================
-
 function Download-WithRetry($url, $output) {
 
     $maxRetry = 5
-    $success = $false
+    $success  = $false
 
     for ($i = 1; $i -le $maxRetry; $i++) {
 
@@ -78,30 +83,52 @@ function Download-WithRetry($url, $output) {
 }
 
 # ============================================
-# LOOP DOWNLOAD
+# LOOP PER TAHUN
 # ============================================
+$daftarTahun = @($tahunN, $tahunN1, $tahunN2)
 
-foreach ($url in $urls) {
+foreach ($tahun in $daftarTahun) {
 
     Write-Host ""
-    Write-Host "DOWNLOAD:" $url -ForegroundColor Yellow
+    Write-Host "======================================" -ForegroundColor Cyan
+    Write-Host "  TAHUN $tahun" -ForegroundColor Cyan
+    Write-Host "======================================" -ForegroundColor Cyan
 
-    # ambil nama endpoint
-    $endpoint = ($url -split 'legacy/')[1] -split '\?'
-    $baseName = ($endpoint[0] -replace '/', '_')
-
-    if ($url -match "tahun=([0-9]{4})") {
-        $tahun = $matches[1]
-    } else {
-        $tahun = "unknown"
+    # Subfolder per tahun: data4, data5, data6
+    $dataPath = Join-Path $dataRootPath "$tahun"
+    if (!(Test-Path $dataPath)) {
+        New-Item -ItemType Directory -Path $dataPath | Out-Null
+        Write-Host "  Folder dibuat: $dataPath" -ForegroundColor DarkGray
     }
 
-    $filename = "Legacy_${baseName}_${tahun}.json"
-    $output = Join-Path $dataPath $filename
+    # Cek apakah tahun ini adalah n-2
+    $isN2 = ($tahun -eq $tahunN2)
 
-    Download-WithRetry $url $output
+    foreach ($endpoint in $endpoints) {
 
-    Write-Host "FILE -> $filename"
+        $url      = "https://data.inaproc.id/api/legacy/" + $endpoint + "?kode_klpd=D228&tahun=" + $tahun
+        $baseName = ($endpoint -replace '/', '_')
+        $filename = "Legacy_${baseName}_${tahun}.json"
+        $output   = Join-Path $dataPath $filename
+
+        # -----------------------------------------------
+        # LOGIK SKIP untuk tahun n-2
+        # File sudah ada → skip (data sudah final)
+        # File belum ada → download 1x
+        # -----------------------------------------------
+        if ($isN2 -and (Test-Path $output)) {
+            Write-Host ""
+            Write-Host "SKIP (sudah final): $filename" -ForegroundColor DarkGray
+            continue
+        }
+
+        Write-Host ""
+        Write-Host "DOWNLOAD: $url" -ForegroundColor Yellow
+
+        Download-WithRetry $url $output
+
+        Write-Host "FILE -> $filename"
+    }
 }
 
 Write-Host ""
