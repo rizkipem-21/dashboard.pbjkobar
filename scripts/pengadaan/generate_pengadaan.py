@@ -158,6 +158,27 @@ if not df5_3.empty and 'nilai_umk_kontrak' in df5_3.columns:
                 map_t_umk[k] = r.get('nilai_umk_kontrak')
 
 # ======================================================
+# MAP TANGGAL KONTRAK
+# ======================================================
+map_nt_tgl_kontrak = {}
+if not df2_3.empty and 'tgl_kontrak' in df2_3.columns:
+    for _, r in df2_3.iterrows():
+        kd_list = str(r.get('kd_nontender')).split(';')
+        for k in kd_list:
+            k = k.strip()
+            if k:
+                map_nt_tgl_kontrak[k] = r.get('tgl_kontrak')
+
+map_t_tgl_kontrak = {}
+if not df5_3.empty and 'tgl_kontrak' in df5_3.columns:
+    for _, r in df5_3.iterrows():
+        kd_list = str(r.get('kd_tender')).split(';')
+        for k in kd_list:
+            k = k.strip()
+            if k:
+                map_t_tgl_kontrak[k] = r.get('tgl_kontrak')
+
+# ======================================================
 # STANDARD KD RUP (RAW + EXPLODE)
 # ======================================================
 def split_kd_list(x):
@@ -290,6 +311,7 @@ for _,r in df2.iterrows():
         'UKM':get_s1(kd,'status_ukm'),
         'Nilai Pagu RUP':pagu,
         'Nilai Hasil Pemilihan':nilai_hasil,
+        'Tanggal Kontrak':next((map_nt_tgl_kontrak[k] for k in kd_nt_list if k in map_nt_tgl_kontrak), ""),
         'Status':status,
         'Kode Paket':r.get('kd_nontender'),
         'Nilai HPS':r.get('hps'),
@@ -329,6 +351,7 @@ for _,r in df3.iterrows():
         'UKM':get_s1(kd,'status_ukm'),
         'Nilai Pagu RUP':pagu,
         'Nilai Hasil Pemilihan':nilai_hasil,
+        'Tanggal Kontrak':r.get('tgl_selesai_paket',''),
         'Status':r.get('status_nontender_pct_ket'),
         'Kode Paket':r.get('kd_nontender_pct'),
         'Nilai HPS':pd.NA,
@@ -372,6 +395,7 @@ for _,r in df4.iterrows():
         'UKM':"UKM" if r.get('nilai_umk_pct',0)!=0 else "Tidak",
         'Nilai Pagu RUP':pagu,
         'Nilai Hasil Pemilihan':nilai_hasil,
+        'Tanggal Kontrak':r.get('tgl_selesai_paket',''),
         'Status':r.get('status_swakelola_pct_ket'),
         'Kode Paket':r.get('kd_swakelola_pct'),
         'Nilai HPS':pd.NA,
@@ -408,6 +432,7 @@ for _,r in df1_2.iterrows():
             'UKM':None,
             'Nilai Pagu RUP':r.get('pagu'),
             'Nilai Hasil Pemilihan':"",
+            'Tanggal Kontrak':"",
             'Status':'Pengumuman RUP',
             'Kode Paket':pd.NA,
             'Nilai HPS':pd.NA,
@@ -486,6 +511,7 @@ for _,r in df5.iterrows():
         'UKM':get_s1(kd,'status_ukm'),
         'Nilai Pagu RUP':pagu,
         'Nilai Hasil Pemilihan':nilai_hasil,
+        'Tanggal Kontrak':next((map_t_tgl_kontrak[k] for k in kd_t_list if k in map_t_tgl_kontrak), ""),
         'Status':status,
         'Kode Paket':r.get('kd_tender'),
         'Nilai HPS':r.get('hps'),
@@ -522,6 +548,7 @@ for _,r in df6.iterrows():
         'UKM':get_s1(kd,'status_ukm'),
         'Nilai Pagu RUP':pagu,
         'Nilai Hasil Pemilihan':nilai_hasil,
+        'Tanggal Kontrak':"",
         'Status':r.get('status'),
         'Kode Paket':r.get('order_id'),
         'Nilai HPS':pd.NA,
@@ -558,6 +585,7 @@ for _,r in df7.iterrows():
         'UKM':get_s1(kd,'status_ukm'),
         'Nilai Pagu RUP':pagu,
         'Nilai Hasil Pemilihan':nilai_hasil,
+        'Tanggal Kontrak':"",
         'Status':r.get('paket_status_str'),
         'Kode Paket':r.get('kd_paket'),
         'Nilai HPS':pd.NA,
@@ -603,6 +631,7 @@ for _,r in df1.iterrows():
             'UKM':'UKM' if r.get('status_ukm')=='UKM' else 'Non-UKM',
             'Nilai Pagu RUP':r.get('pagu'),
             'Nilai Hasil Pemilihan':"",
+            'Tanggal Kontrak':"",
             'Status':'Pengumuman RUP',
             'Kode Paket':pd.NA,
             'Nilai HPS':pd.NA,
@@ -647,7 +676,7 @@ final_df = clean_illegal_chars(final_df)
 cols = [
     'Kode RUP','Satuan Kerja','Nama Paket','Metode Pengadaan','Jenis Pengadaan',
     'Sumber Dana','PDN','UKM','Nilai Pagu RUP','Nilai Hasil Pemilihan',
-    'Status','Kode Paket','Nilai HPS','Nilai PDN','Nilai UMK','Versi','Metode','Sumber'
+    'Tanggal Kontrak','Status','Kode Paket','Nilai HPS','Nilai PDN','Nilai UMK','Versi','Metode','Sumber'
 ]
 
 final_df = final_df[cols]
@@ -697,6 +726,9 @@ output_excel = os.path.join(output_dir, nama_file)
 
 # Buat folder jika belum ada
 os.makedirs(output_dir, exist_ok=True)
+
+# Tanggal sama  → to_excel otomatis timpa file yang ada
+# Tanggal berbeda → file baru dibuat, file lama tetap tersimpan sebagai history
 
 # Kolom angka yang perlu diformat rupiah di Excel
 kolom_angka = ['Nilai Pagu RUP', 'Nilai Hasil Pemilihan', 'Nilai HPS', 'Nilai PDN', 'Nilai UMK']
@@ -780,6 +812,7 @@ lebar_kolom = {
     'UKM'                   : 10,
     'Nilai Pagu RUP'        : 20,
     'Nilai Hasil Pemilihan' : 20,
+    'Tanggal Kontrak'       : 18,
     'Status'                : 22,
     'Kode Paket'            : 20,
     'Nilai HPS'             : 20,
