@@ -223,6 +223,27 @@ def process_tahun(tahun):
                 k = k.strip()
                 if k:
                     map_t_tgl_kontrak[k] = r.get('tgl_kontrak')
+                    
+    # ======================================================
+    # MAP NAMA PENYEDIA
+    # ======================================================
+    map_nt_penyedia = {}
+    if not df2_3.empty and 'nama_penyedia' in df2_3.columns:
+        for _, r in df2_3.iterrows():
+            kd_list = str(r.get('kd_nontender')).split(';')
+            for k in kd_list:
+                k = k.strip()
+                if k:
+                    map_nt_penyedia[k] = r.get('nama_penyedia')
+
+    map_t_penyedia = {}
+    if not df5_3.empty and 'nama_penyedia' in df5_3.columns:
+        for _, r in df5_3.iterrows():
+            kd_list = str(r.get('kd_tender')).split(';')
+            for k in kd_list:
+                k = k.strip()
+                if k:
+                    map_t_penyedia[k] = r.get('nama_penyedia')
 
     # ======================================================
     # STANDARD KD RUP (RAW + EXPLODE)
@@ -358,6 +379,7 @@ def process_tahun(tahun):
             'Nilai Pagu RUP':pagu,
             'Nilai Hasil Pemilihan':nilai_hasil,
             'Tanggal Kontrak':format_tgl(next((map_nt_tgl_kontrak[k] for k in kd_nt_list if k in map_nt_tgl_kontrak), "")),
+            'Nama Penyedia':next((map_nt_penyedia[k] for k in kd_nt_list if k in map_nt_penyedia), ""),
             'Status':status,
             'Kode Paket':r.get('kd_nontender'),
             'Nilai HPS':r.get('hps'),
@@ -398,6 +420,7 @@ def process_tahun(tahun):
             'Nilai Pagu RUP':pagu,
             'Nilai Hasil Pemilihan':nilai_hasil,
             'Tanggal Kontrak':format_tgl(r.get('tgl_selesai_paket','')),
+            'Nama Penyedia':"",
             'Status':r.get('status_nontender_pct_ket'),
             'Kode Paket':r.get('kd_nontender_pct'),
             'Nilai HPS':pd.NA,
@@ -442,6 +465,7 @@ def process_tahun(tahun):
             'Nilai Pagu RUP':pagu,
             'Nilai Hasil Pemilihan':nilai_hasil,
             'Tanggal Kontrak':format_tgl(r.get('tgl_selesai_paket','')),
+            'Nama Penyedia':"",
             'Status':r.get('status_swakelola_pct_ket'),
             'Kode Paket':r.get('kd_swakelola_pct'),
             'Nilai HPS':pd.NA,
@@ -479,6 +503,7 @@ def process_tahun(tahun):
                 'Nilai Pagu RUP':r.get('pagu'),
                 'Nilai Hasil Pemilihan':"",
                 'Tanggal Kontrak':"",
+                'Nama Penyedia':"",
                 'Status':'Pengumuman RUP',
                 'Kode Paket':pd.NA,
                 'Nilai HPS':pd.NA,
@@ -558,6 +583,7 @@ def process_tahun(tahun):
             'Nilai Pagu RUP':pagu,
             'Nilai Hasil Pemilihan':nilai_hasil,
             'Tanggal Kontrak':format_tgl(next((map_t_tgl_kontrak[k] for k in kd_t_list if k in map_t_tgl_kontrak), "")),
+            'Nama Penyedia':next((map_t_penyedia[k] for k in kd_t_list if k in map_t_penyedia), ""),
             'Status':status,
             'Kode Paket':r.get('kd_tender'),
             'Nilai HPS':r.get('hps'),
@@ -595,6 +621,7 @@ def process_tahun(tahun):
             'Nilai Pagu RUP':pagu,
             'Nilai Hasil Pemilihan':nilai_hasil,
             'Tanggal Kontrak':"",
+            'Nama Penyedia':r.get('kode_penyedia', ""),
             'Status':r.get('status'),
             'Kode Paket':r.get('order_id'),
             'Nilai HPS':pd.NA,
@@ -632,6 +659,7 @@ def process_tahun(tahun):
             'Nilai Pagu RUP':pagu,
             'Nilai Hasil Pemilihan':nilai_hasil,
             'Tanggal Kontrak':"",
+            'Nama Penyedia':r.get('kd_penyedia', ""),
             'Status':r.get('paket_status_str'),
             'Kode Paket':r.get('kd_paket'),
             'Nilai HPS':pd.NA,
@@ -678,6 +706,7 @@ def process_tahun(tahun):
                 'Nilai Pagu RUP':r.get('pagu'),
                 'Nilai Hasil Pemilihan':"",
                 'Tanggal Kontrak':"",
+                'Nama Penyedia':"",
                 'Status':'Pengumuman RUP',
                 'Kode Paket':pd.NA,
                 'Nilai HPS':pd.NA,
@@ -722,7 +751,8 @@ def process_tahun(tahun):
     cols = [
         'Kode RUP','Satuan Kerja','Nama Paket','Metode Pengadaan','Jenis Pengadaan',
         'Sumber Dana','PDN','UKM','Nilai Pagu RUP','Nilai Hasil Pemilihan',
-        'Tanggal Kontrak','Status','Kode Paket','Nilai HPS','Nilai PDN','Nilai UMK','Versi','Metode','Sumber'
+        'Tanggal Kontrak','Nama Penyedia','Status','Kode Paket','Nilai HPS',
+        'Nilai PDN','Nilai UMK','Versi','Metode','Sumber'
     ]
 
     final_df = final_df[cols]
@@ -855,6 +885,7 @@ def process_tahun(tahun):
         'Nilai Pagu RUP'        : 20,
         'Nilai Hasil Pemilihan' : 20,
         'Tanggal Kontrak'       : 18,
+        'Nama Penyedia'         : 35,
         'Status'                : 22,
         'Kode Paket'            : 20,
         'Nilai HPS'             : 20,
