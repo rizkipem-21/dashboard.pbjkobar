@@ -9,6 +9,20 @@ from datetime import datetime
 import warnings
 warnings.filterwarnings('ignore')
 
+def format_tgl(val):
+    """Konversi 2026-04-22T00:00:00.000000Z atau 2026-04-22 menjadi 22-04-2026"""
+    if not val or (not isinstance(val, str) and pd.isna(val)):
+        return ""
+    try:
+        # Ambil hanya bagian tanggal yyyy-mm-dd
+        tgl = str(val).strip()[:10]
+        parts = tgl.split('-')
+        if len(parts) == 3:
+            return f"{parts[2]}-{parts[1]}-{parts[0]}"
+        return ""
+    except:
+        return ""
+
 # ======================================================
 # PATH SUMBER DATA
 # ======================================================
@@ -311,7 +325,7 @@ for _,r in df2.iterrows():
         'UKM':get_s1(kd,'status_ukm'),
         'Nilai Pagu RUP':pagu,
         'Nilai Hasil Pemilihan':nilai_hasil,
-        'Tanggal Kontrak':next((map_nt_tgl_kontrak[k] for k in kd_nt_list if k in map_nt_tgl_kontrak), ""),
+        'Tanggal Kontrak':format_tgl(next((map_nt_tgl_kontrak[k] for k in kd_nt_list if k in map_nt_tgl_kontrak), "")),
         'Status':status,
         'Kode Paket':r.get('kd_nontender'),
         'Nilai HPS':r.get('hps'),
@@ -351,7 +365,7 @@ for _,r in df3.iterrows():
         'UKM':get_s1(kd,'status_ukm'),
         'Nilai Pagu RUP':pagu,
         'Nilai Hasil Pemilihan':nilai_hasil,
-        'Tanggal Kontrak':r.get('tgl_selesai_paket',''),
+        'Tanggal Kontrak':format_tgl(r.get('tgl_selesai_paket','')),
         'Status':r.get('status_nontender_pct_ket'),
         'Kode Paket':r.get('kd_nontender_pct'),
         'Nilai HPS':pd.NA,
@@ -395,7 +409,7 @@ for _,r in df4.iterrows():
         'UKM':"UKM" if r.get('nilai_umk_pct',0)!=0 else "Tidak",
         'Nilai Pagu RUP':pagu,
         'Nilai Hasil Pemilihan':nilai_hasil,
-        'Tanggal Kontrak':r.get('tgl_selesai_paket',''),
+        'Tanggal Kontrak':format_tgl(r.get('tgl_selesai_paket','')),
         'Status':r.get('status_swakelola_pct_ket'),
         'Kode Paket':r.get('kd_swakelola_pct'),
         'Nilai HPS':pd.NA,
@@ -511,7 +525,7 @@ for _,r in df5.iterrows():
         'UKM':get_s1(kd,'status_ukm'),
         'Nilai Pagu RUP':pagu,
         'Nilai Hasil Pemilihan':nilai_hasil,
-        'Tanggal Kontrak':next((map_t_tgl_kontrak[k] for k in kd_t_list if k in map_t_tgl_kontrak), ""),
+        'Tanggal Kontrak':format_tgl(next((map_t_tgl_kontrak[k] for k in kd_t_list if k in map_t_tgl_kontrak), "")),
         'Status':status,
         'Kode Paket':r.get('kd_tender'),
         'Nilai HPS':r.get('hps'),
