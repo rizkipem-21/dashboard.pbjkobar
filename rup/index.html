@@ -201,16 +201,14 @@
   }
   .check-panel {
     display: none;
-    position: absolute;
-    top: calc(100% + 4px);
-    left: 0;
+    position: fixed;
     background: #fff;
     border: 1.5px solid #dde3ed;
     border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(26,58,107,0.12);
-    z-index: 100;
+    box-shadow: 0 4px 20px rgba(26,58,107,0.18);
+    z-index: 9999;
     min-width: 200px;
-    max-height: 220px;
+    max-height: 260px;
     overflow-y: auto;
     padding: 6px 0;
   }
@@ -299,15 +297,10 @@
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 12px rgba(26,58,107,0.09);
-    overflow-x: auto;
     margin-bottom: 24px;
-    overflow-y: visible;
+    overflow-x: auto;
   }
-  /* Buat seluruh halaman bisa scroll */
-  html, body {
-    height: auto;
-    overflow-y: auto;
-  }
+  html, body { height: auto; }
   table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
   thead tr { background: var(--lpse-biru); color: #fff; }
   thead th {
@@ -318,11 +311,34 @@
     letter-spacing: 0.3px;
     border-right: 1px solid rgba(255,255,255,0.12);
     white-space: nowrap;
-    position: sticky;
-    top: 0;
-    z-index: 100;
     background: var(--lpse-biru);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  }
+  /* Sticky header pakai fixed saat scroll */
+  #stickyHeader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: var(--lpse-biru);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    overflow-x: auto;
+  }
+  #stickyHeader table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+  }
+  #stickyHeader th {
+    padding: 11px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.78rem;
+    color: #fff;
+    border-right: 1px solid rgba(255,255,255,0.12);
+    white-space: nowrap;
+    background: var(--lpse-biru);
   }
   thead th:last-child { border-right: none; }
 
@@ -439,10 +455,27 @@
   <span id="totalInfo" style="font-size:0.78rem; color:#94a3b8; margin-left:4px;"></span>
 </div>
 
-<!-- ===== TABEL ===== -->
-<div class="table-wrap">
+<!-- ===== STICKY HEADER (muncul saat scroll) ===== -->
+<div id="stickyHeader">
   <table>
     <thead>
+      <tr>
+        <th style="width:50px;">No</th>
+        <th>Satuan Kerja</th>
+        <th style="text-align:right;">Pagu Program</th>
+        <th style="text-align:right;">Pagu Pengadaan</th>
+        <th style="text-align:right;">Total RUP Terumumkan</th>
+        <th style="text-align:right;">Selisih</th>
+        <th style="text-align:right;">Persentase</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+
+<!-- ===== TABEL ===== -->
+<div class="table-wrap" id="tableWrap">
+  <table id="mainTable">
+    <thead id="mainThead">
       <tr>
         <th>No</th>
         <th>Satuan Kerja</th>
@@ -602,6 +635,10 @@ function togglePersenPanel(e) {
   document.querySelectorAll(".check-panel").forEach(p => p.classList.remove("open"));
   document.querySelectorAll(".check-btn").forEach(b => b.classList.remove("open"));
   if (!isOpen) {
+    // Posisi panel mengikuti posisi tombol (fixed)
+    const rect = btn.getBoundingClientRect();
+    panel.style.top  = (rect.bottom + 4) + "px";
+    panel.style.left = rect.left + "px";
     panel.classList.add("open");
     btn.classList.add("open");
   }
@@ -643,6 +680,36 @@ function getCheckedPersen() {
 document.addEventListener("click", () => {
   document.querySelectorAll(".check-panel").forEach(p => p.classList.remove("open"));
   document.querySelectorAll(".check-btn").forEach(b => b.classList.remove("open"));
+});
+
+// ===== STICKY HEADER SCROLL LISTENER =====
+window.addEventListener("scroll", () => {
+  const thead  = document.getElementById("mainThead");
+  const sticky = document.getElementById("stickyHeader");
+  if (!thead) return;
+  const rect = thead.getBoundingClientRect();
+  if (rect.bottom <= 0) {
+    // Thead sudah melewati atas viewport → tampilkan sticky
+    sticky.style.display = "block";
+    // Samakan lebar kolom dengan tabel asli
+    const cols    = thead.querySelectorAll("th");
+    const sCols   = sticky.querySelectorAll("th");
+    cols.forEach((col, i) => {
+      if (sCols[i]) sCols[i].style.width = col.offsetWidth + "px";
+    });
+    // Sinkron scroll horizontal
+    const wrap = document.getElementById("tableWrap");
+    sticky.scrollLeft = wrap.scrollLeft;
+  } else {
+    sticky.style.display = "none";
+  }
+});
+
+// Sinkron scroll horizontal antara sticky dan tabel
+document.getElementById("tableWrap") && document.getElementById("tableWrap").addEventListener("scroll", () => {
+  const sticky = document.getElementById("stickyHeader");
+  const wrap   = document.getElementById("tableWrap");
+  if (sticky.style.display === "block") sticky.scrollLeft = wrap.scrollLeft;
 });
 
 loadData();
