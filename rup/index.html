@@ -237,6 +237,42 @@
     border-top: 1px solid #e8edf5;
     margin: 4px 0;
   }
+  .check-panel .check-footer {
+    display: flex;
+    gap: 6px;
+    padding: 8px 14px;
+    border-top: 1px solid #e8edf5;
+    margin-top: 4px;
+    position: sticky;
+    bottom: 0;
+    background: #fff;
+  }
+  .check-panel .btn-ok {
+    flex: 1;
+    background: var(--lpse-biru);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .check-panel .btn-ok:hover { background: #142e56; }
+  .check-panel .btn-batal {
+    flex: 1;
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 6px 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .check-panel .btn-batal:hover { background: #e2e8f0; }
 
   /* ===== TOMBOL ===== */
   .btn-reset {
@@ -438,6 +474,10 @@
           </div>
           <div class="check-divider"></div>
           <div id="persenList"></div>
+          <div class="check-footer">
+            <button class="btn-ok" onclick="applyPersenFilter()">✓ OK</button>
+            <button class="btn-batal" onclick="cancelPersenFilter()">✕ Batal</button>
+          </div>
         </div>
       </div>
     </div>
@@ -641,22 +681,50 @@ function togglePersenPanel(e) {
     panel.style.left = rect.left + "px";
     panel.classList.add("open");
     btn.classList.add("open");
+    savePersenSnapshot();  // simpan state sebelum dibuka
   }
 }
 
 function toggleAllPersen(el) {
   document.querySelectorAll("#persenList input[type=checkbox]")
     .forEach(cb => cb.checked = el.checked);
-  updatePersenLabel();
-  applyFilter();
+  // Tidak langsung apply — tunggu tombol OK
 }
 
 function onPersenChange() {
-  const all  = document.querySelectorAll("#persenList input[type=checkbox]");
-  const chk  = document.querySelectorAll("#persenList input[type=checkbox]:checked");
+  const all = document.querySelectorAll("#persenList input[type=checkbox]");
+  const chk = document.querySelectorAll("#persenList input[type=checkbox]:checked");
   document.getElementById("checkAll").checked = all.length === chk.length;
+  // Tidak langsung apply — tunggu tombol OK
+}
+
+// Simpan state checklist sebelum dibuka (untuk tombol Batal)
+let _persenSnapshot = [];
+
+function savePersenSnapshot() {
+  _persenSnapshot = [...document.querySelectorAll("#persenList input[type=checkbox]")]
+    .map(cb => cb.checked);
+}
+
+function applyPersenFilter() {
   updatePersenLabel();
   applyFilter();
+  closePersenPanel();
+}
+
+function cancelPersenFilter() {
+  // Kembalikan ke state sebelum dibuka
+  const cbs = document.querySelectorAll("#persenList input[type=checkbox]");
+  cbs.forEach((cb, i) => cb.checked = _persenSnapshot[i] ?? true);
+  const all = cbs.length;
+  const chk = [...cbs].filter(cb => cb.checked).length;
+  document.getElementById("checkAll").checked = all === chk;
+  closePersenPanel();
+}
+
+function closePersenPanel() {
+  document.getElementById("persenPanel").classList.remove("open");
+  document.getElementById("persenBtn").classList.remove("open");
 }
 
 function updatePersenLabel() {
@@ -676,10 +744,15 @@ function getCheckedPersen() {
   return chk;
 }
 
-// Tutup panel saat klik di luar
-document.addEventListener("click", () => {
-  document.querySelectorAll(".check-panel").forEach(p => p.classList.remove("open"));
-  document.querySelectorAll(".check-btn").forEach(b => b.classList.remove("open"));
+// Tutup panel saat klik di luar → sama seperti Batal
+document.addEventListener("click", (e) => {
+  const panel = document.getElementById("persenPanel");
+  const btn   = document.getElementById("persenBtn");
+  if (panel && panel.classList.contains("open")) {
+    if (!panel.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+      cancelPersenFilter();
+    }
+  }
 });
 
 // ===== STICKY HEADER SCROLL LISTENER =====
