@@ -150,7 +150,6 @@
   .stat-kuning { background: linear-gradient(135deg, #d4a000, #f5c800); color: #1a1a1a; }
   .stat-kuning .stat-label, .stat-kuning .stat-sub { opacity: 0.65; }
   .stat-hijau  { background: linear-gradient(135deg, #1e7e34, #2d9e47); }
-  .stat-abu    { background: linear-gradient(135deg, #475569, #64748b); }
 
   /* ===== FILTER CARD ===== */
   .filter-card {
@@ -374,7 +373,7 @@
   .td-rupiah    { text-align: right; font-variant-numeric: tabular-nums; }
   .td-center    { text-align: center; }
 
-  /* Status badge */
+  /* Status badge (Disesuaikan dengan kategori) */
   .badge {
     display: inline-block;
     padding: 2px 9px;
@@ -385,12 +384,7 @@
   }
   .badge-selesai  { background: #dcfce7; color: #166534; }
   .badge-proses   { background: #fef9c3; color: #854d0e; }
-  .badge-kontrak  { background: #dbeafe; color: #1e40af; }
-  .badge-sppbj    { background: #ede9fe; color: #5b21b6; }
-  .badge-spmkspp  { background: #fee2e2; color: #991b1b; }
-  .badge-bapbast  { background: #d1fae5; color: #065f46; }
-  .badge-default   { background: #f1f5f9; color: #475569; }
-  .badge-batal     { background: #f1f5f9; color: #64748b; border: 1px solid #cbd5e1; }
+  .badge-belum    { background: #fee2e2; color: #991b1b; } /* Merah muda untuk belum proses */
   
   /* Loading Overlay */
   #loadingOverlay {
@@ -464,22 +458,17 @@
   <div class="stat-card stat-merah">
     <span class="stat-label">Belum Proses</span>
     <span class="stat-value" id="statFiltered">-</span>
-    <span class="stat-sub">belum ada aktivitas</span>
-  </div>
-  <div class="stat-card stat-hijau">
-    <span class="stat-label">Sudah Selesai</span>
-    <span class="stat-value" id="statSelesai">-</span>
-    <span class="stat-sub">BAPBAST / Selesai</span>
+    <span class="stat-sub">Sumber 1</span>
   </div>
   <div class="stat-card stat-kuning">
     <span class="stat-label">Sedang Proses</span>
     <span class="stat-value" id="statProses">-</span>
-    <span class="stat-sub">selain kategori lainnya</span>
+    <span class="stat-sub">Proses SPSE/E-Katalog</span>
   </div>
-  <div class="stat-card stat-abu">
-    <span class="stat-label">Dibatalkan</span>
-    <span class="stat-value" id="statBatal">-</span>
-    <span class="stat-sub">Paket Dibatalkan</span>
+  <div class="stat-card stat-hijau">
+    <span class="stat-label">Sudah Selesai</span>
+    <span class="stat-value" id="statSelesai">-</span>
+    <span class="stat-sub">Selesai/Kontrak/BAPBAST</span>
   </div>
 </div>
 
@@ -522,8 +511,11 @@
 
     <div style="display:flex; flex-direction:column; gap:4px;">
       <label>Status</label>
-      <select id="filterStatus" style="width:130px;">
+      <select id="filterStatus" style="width:140px;">
         <option value="">-- Semua --</option>
+        <option value="Belum Proses">Belum Proses</option>
+        <option value="Sedang Proses">Sedang Proses</option>
+        <option value="Sudah Selesai">Sudah Selesai</option>
       </select>
     </div>
 
@@ -617,19 +609,60 @@ function isAngka(val) {
   return !isNaN(Number(val));
 }
 
-function badgeStatus(status) {
-  const s = (status ?? "").toLowerCase();
-  let cls = "badge-default";
-  if (s.includes("bapbast"))                          cls = "badge-bapbast";
-  else if (s.includes("completed") || s.includes("payment_outside_sistem") || s.includes("paket selesai") || (s.includes("selesai") && !s.includes("dibatalkan"))) cls = "badge-selesai";
-  else if (s.includes("dibatalkan") || s.includes("batal"))                   cls = "badge-batal";
-  else if (s.includes("spmkspp"))                     cls = "badge-spmkspp";
-  else if (s.includes("kontrak"))                     cls = "badge-kontrak";
-  else if (s.includes("sppbj"))                       cls = "badge-sppbj";
-  else if (s.includes("pengumuman rup") || s === "")  cls = "badge-default";
-  else if (s.includes("proses") || s.includes("pengumuman")) cls = "badge-proses";
+// Fungsi utama untuk mengklasifikasikan status sesuai rule
+function getKategoriStatus(row) {
+  const sumber = (row["Sumber"] || "").toLowerCase();
+  const s = (row["Status"] || "").toLowerCase();
+
+  // Sumber 1 dan 1_2 -> Belum Proses
+  if (sumber.includes("sumber 1")) {
+    return "Belum Proses";
+  }
   
-  return `<span class="badge ${cls}">${status ? status : "-"}</span>`;
+  // Sumber 2 dan Sumber 5 -> Tender & Non-Tender SPSE
+  if (sumber.includes("sumber 2") || sumber.includes("sumber 5")) {
+    const selesaiList = ["bapbast", "kontrak", "selesai", "spmkspp", "sppbj"];
+    if (selesaiList.some(kw => s.includes(kw))) {
+      return "Sudah Selesai";
+    }
+    return "Sedang Proses";
+  }
+
+  // Sumber 3 dan Sumber 4 -> Pencatatan
+  if (sumber.includes("sumber 3") || sumber.includes("sumber 4")) {
+    if (s.includes("paket selesai") || s.includes("selesai")) return "Sudah Selesai";
+    return "Sedang Proses";
+  }
+
+  // Sumber 6 -> E-Purchasing
+  if (sumber.includes("sumber 6")) {
+    if (s.includes("payment_outside") || s.includes("completed")) return "Sudah Selesai";
+    return "Sedang Proses";
+  }
+
+  // Sumber 7 -> E-Purchasing Archive
+  if (sumber.includes("sumber 7")) {
+    if (s.includes("paket selesai") || s.includes("selesai")) return "Sudah Selesai";
+    return "Sedang Proses";
+  }
+
+  // Fallback (Jaga-jaga jika ada sumber yang tidak tertangkap di atas)
+  if (s.includes("bapbast") || s.includes("selesai") || s.includes("sppbj") || s.includes("kontrak") || s.includes("spmkspp") || s.includes("payment") || s.includes("completed")) return "Sudah Selesai";
+  if (s.includes("pengumuman rup") || s === "" || s === "-") return "Belum Proses";
+  
+  return "Sedang Proses";
+}
+
+function badgeStatus(row) {
+  const rawStatus = row["Status"] || "-";
+  const kat = getKategoriStatus(row);
+  let cls = "badge-default";
+  
+  if (kat === "Sudah Selesai") cls = "badge-selesai";
+  else if (kat === "Sedang Proses") cls = "badge-proses";
+  else if (kat === "Belum Proses") cls = "badge-belum";
+  
+  return `<span class="badge ${cls}">${rawStatus}</span>`;
 }
 
 async function loadLastUpdate() {
@@ -674,7 +707,7 @@ async function loadDataByYear(year) {
   populateDropdown("filterCara",   "Metode");
   populateDropdown("filterJenis",  "Jenis Pengadaan");
   populateDropdown("filterMetode", "Metode Pengadaan");
-  populateDropdown("filterStatus", "Status");
+  // Dropdown filterStatus sekarang statis, tidak perlu di populate ulang
   
   applyFilter();
   document.getElementById("loadingOverlay").style.display = "none";
@@ -706,15 +739,21 @@ function applyFilter() {
   const cara     = document.getElementById("filterCara").value;
   const jenis    = document.getElementById("filterJenis").value;
   const metode   = document.getElementById("filterMetode").value;
-  const status   = document.getElementById("filterStatus").value;
+  const statusKat = document.getElementById("filterStatus").value;
 
   filtered = allData.filter(row => {
+    // Filter by text
     if (satker   && !(row["Satuan Kerja"] ?? "").toLowerCase().includes(satker)) return false;
     if (paket    && !(row["Nama Paket"]   ?? "").toLowerCase().includes(paket))  return false;
+    
+    // Filter by dropdown exact match
     if (cara     && row["Metode"]           !== cara)   return false;
     if (jenis    && row["Jenis Pengadaan"]  !== jenis)  return false;
     if (metode   && row["Metode Pengadaan"] !== metode) return false;
-    if (status   && row["Status"]           !== status) return false;
+    
+    // Filter by Custom Status Category
+    if (statusKat && getKategoriStatus(row) !== statusKat) return false;
+    
     return true;
   });
 
@@ -724,33 +763,14 @@ function applyFilter() {
 }
 
 function updateStatCards() {
-  const belumProses = filtered.filter(r => {
-    const s = (r["Status"] ?? "").toLowerCase();
-    return s === "pengumuman rup" || s === "";
-  }).length;
-
-  const selesai = filtered.filter(r => {
-    const s = (r["Status"] ?? "").toLowerCase();
-    return s.includes("bapbast")
-        || s.includes("completed")
-        || s.includes("payment_outside_sistem")
-        || s.includes("paket selesai")
-        || (s.includes("selesai") && !s.includes("dibatalkan") && !s.includes("batal"));
-  }).length;
-
-  const batal = filtered.filter(r => {
-    const s = (r["Status"] ?? "").toLowerCase();
-    return s.includes("dibatalkan") || s.includes("batal");
-  }).length;
-
-  const proses = Math.max(filtered.length - belumProses - selesai - batal, 0);
+  const belumProses = filtered.filter(r => getKategoriStatus(r) === "Belum Proses").length;
+  const proses      = filtered.filter(r => getKategoriStatus(r) === "Sedang Proses").length;
+  const selesai     = filtered.filter(r => getKategoriStatus(r) === "Sudah Selesai").length;
 
   document.getElementById("statTotal").innerText    = filtered.length.toLocaleString("id-ID");
   document.getElementById("statFiltered").innerText = belumProses.toLocaleString("id-ID");
-  document.getElementById("statSelesai").innerText  = selesai.toLocaleString("id-ID");
   document.getElementById("statProses").innerText   = proses.toLocaleString("id-ID");
-  const elBatal = document.getElementById("statBatal");
-  if (elBatal) elBatal.innerText = batal.toLocaleString("id-ID");
+  document.getElementById("statSelesai").innerText  = selesai.toLocaleString("id-ID");
 }
 
 function renderTable() {
@@ -796,7 +816,7 @@ function renderTable() {
       <td>${idDisplay}</td>
       <td style="max-width:350px; white-space:normal;">${textInfo}</td>
       <td>${jenisInfo}</td>
-      <td>${badgeStatus(row["Status"])}</td>
+      <td>${badgeStatus(row)}</td>
       <td class="td-rupiah">${nilaiPagu}</td>
       <td class="td-rupiah" style="font-weight:600; color:#1a3a6b;">${isAngka(hasil) ? rupiah(hasil) : (hasil ?? "-")}</td>
       <td class="td-rupiah">${efisiensiStr}</td>
