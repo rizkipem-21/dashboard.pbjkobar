@@ -84,3 +84,5 @@ echo PUSH STATUS: %ERRORLEVEL% >> tools\log_pengadaan.txt
 
 echo ========================= >> tools\log_pengadaan.txt
 echo SELESAI %date% %time% >> tools\log_pengadaan.txt
+
+mshta vbscript:Execute("CreateObject(""WScript.Shell"").Popup(""Proses update data Pengadaan telah SELESAI!"", 5, ""Notifikasi Sistem"", 64)(window.close)")
