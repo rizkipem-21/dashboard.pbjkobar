@@ -311,29 +311,32 @@
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 12px rgba(26,58,107,0.09);
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 70vh; /* Memberikan tinggi maksimal agar tabel bisa di-scroll secara internal */
     margin-bottom: 4px;
     position: relative;
-    min-height: 200px;
-    max-height: 70vh; /* Membatasi tinggi tabel agar bisa di-scroll secara internal */
   }
-  table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
-  thead tr {
-    color: #fff;
+  table { 
+    width: 100%; 
+    border-collapse: separate; /* Wajib separate agar posisi sticky berjalan mulus dengan border */
+    border-spacing: 0; 
+    font-size: 0.8rem; 
   }
   thead th {
-    position: sticky; /* Kunci header */
-    top: 0;           /* Tempel di paling atas */
-    z-index: 10;      /* Pastikan header berada di atas baris data */
-    background: var(--lpse-biru); /* Background dipindah ke th agar tidak transparan saat scroll */
+    position: sticky; /* KUNCI HEADER */
+    top: 0;           /* Tempel di atas */
+    z-index: 10;      /* Pastikan di atas baris data */
+    background: var(--lpse-biru); /* Warna biru langsung di TH */
+    color: #fff;
     padding: 11px 14px;
     text-align: left;
     font-weight: 600;
     font-size: 0.78rem;
     letter-spacing: 0.3px;
     border-right: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 2px solid var(--lpse-kuning); /* Border bawah header */
     white-space: nowrap;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Efek bayangan halus pemisah header dan data */
   }
   thead th:last-child { border-right: none; }
 
@@ -382,7 +385,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 10;
+    z-index: 20;
     display: none;
   }
   .loader {
