@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rekap Data Pengadaan 2026</title>
+<title>Rekap Data Pengadaan</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 <style>
@@ -66,6 +66,38 @@
     background: var(--lpse-kuning);
     border-color: var(--lpse-kuning);
     color: #1a3a6b;
+  }
+
+  /* ===== YEAR SELECTOR ===== */
+  .year-selector-wrap {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .year-selector-wrap label {
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .year-select {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .year-select:hover, .year-select:focus {
+    background: rgba(255,255,255,0.25);
+  }
+  .year-select option {
+    color: #1e293b;
+    background: #fff;
   }
 
   /* ===== BADGE STRIP ===== */
@@ -214,6 +246,13 @@
     display: inline-block;
   }
   .btn-master:hover { background: #142e56; }
+  
+  .btn-master.disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+    box-shadow: none;
+    pointer-events: none;
+  }
 
   /* ===== KONTROL BAR ===== */
   .control-bar {
@@ -274,6 +313,8 @@
     box-shadow: 0 2px 12px rgba(26,58,107,0.09);
     overflow: auto;
     margin-bottom: 4px;
+    position: relative;
+    min-height: 200px;
   }
   table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
   thead tr {
@@ -326,17 +367,49 @@
   .badge-bapbast  { background: #d1fae5; color: #065f46; }
   .badge-default   { background: #f1f5f9; color: #475569; }
   .badge-batal     { background: #f1f5f9; color: #64748b; border: 1px solid #cbd5e1; }
+  
+  /* Loading Overlay */
+  #loadingOverlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    display: none;
+  }
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--lpse-biru);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 8px;
+  }
+  @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
 <div class="page-header">
   <div class="page-header-top">
     <div>
-      <h1>📋 Rekap Data Pengadaan Tahun 2026</h1>
+      <h1 id="pageTitle">📋 Rekap Data Pengadaan</h1>
       <p id="lastUpdate" class="last-update">Memuat last update...</p>
       <p class="last-update" style="margin-top:2px;">Sumber data dari Inaproc API Gateway</p>
+      
+      <div class="year-selector-wrap">
+        <label for="selectYear">Tahun Anggaran:</label>
+        <select id="selectYear" class="year-select">
+          <option value="2026" selected>2026</option>
+          <option value="2025">2025</option>
+          <option value="2024">2024</option>
+        </select>
+      </div>
+      
     </div>
     <a href="../" class="btn-back" title="Kembali ke Dashboard">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
@@ -351,7 +424,6 @@
 
 <div style="padding: 0 20px;">
 
-<!-- Strip warna LPSE -->
 <div class="color-strip">
   <span style="background:var(--lpse-biru)"></span>
   <span style="background:var(--lpse-merah)"></span>
@@ -359,7 +431,6 @@
   <span style="background:var(--lpse-hijau)"></span>
 </div>
 
-<!-- Stat Cards -->
 <div class="stat-cards">
   <div class="stat-card stat-biru">
     <span class="stat-label">Total Paket</span>
@@ -388,7 +459,6 @@
   </div>
 </div>
 
-<!-- ===== FILTER ===== -->
 <div class="filter-card">
   <div class="filter-title">
     <span>🔍</span> Filter Data
@@ -403,6 +473,11 @@
     <div style="display:flex; flex-direction:column; gap:4px;">
       <label>Nama Paket</label>
       <input id="filterPaket" type="text" placeholder="Cari nama paket..." style="width:155px;" />
+    </div>
+    
+    <div style="display:flex; flex-direction:column; gap:4px;">
+      <label>Penyedia</label>
+      <input id="filterPenyedia" type="text" placeholder="Cari penyedia..." style="width:155px;" />
     </div>
 
     <div style="display:flex; flex-direction:column; gap:4px;">
@@ -420,13 +495,6 @@
     </div>
 
     <div style="display:flex; flex-direction:column; gap:4px;">
-      <label>Cara Pengadaan</label>
-      <select id="filterCara" style="width:140px;">
-        <option value="">-- Semua --</option>
-      </select>
-    </div>
-
-    <div style="display:flex; flex-direction:column; gap:4px;">
       <label>Status</label>
       <select id="filterStatus" style="width:130px;">
         <option value="">-- Semua --</option>
@@ -434,13 +502,12 @@
     </div>
 
     <div>
-      <button id="resetFilter" class="btn-reset">✕ Reset Filter</button>
+      <button id="resetFilter" class="btn-reset">✕ Reset</button>
     </div>
 
   </div>
 </div>
 
-<!-- ===== KONTROL BAR ===== -->
 <div class="control-bar">
   <label>Tampilkan:</label>
   <select id="perPage">
@@ -452,11 +519,10 @@
 
   <div style="margin-left:auto; display:flex; gap:8px;">
     <button id="downloadCurrent" class="btn-excel">⬇ Download Excel</button>
-    <a href="../data/master_pengadaan.xlsx" download class="btn-master">⬇ Download Master Excel</a>
+    <a href="#" id="downloadMaster" class="btn-master disabled">⬇ Download Master Excel</a>
   </div>
 </div>
 
-<!-- ===== PAGINATION ATAS ===== -->
 <div class="pagination">
   <button id="prevPage" class="btn-page">← Prev</button>
   <span id="pageInfo" class="page-info"></span>
@@ -464,21 +530,22 @@
   <span id="totalInfo" class="total-info"></span>
 </div>
 
-<!-- ===== TABEL ===== -->
 <div class="table-wrap">
+  <div id="loadingOverlay">
+    <div class="loader"></div>
+    <span style="font-size:0.85rem; color:#1a3a6b; font-weight:600;">Memuat Data...</span>
+  </div>
   <table>
     <thead>
       <tr>
         <th>No</th>
-        <th>Kode RUP</th>
-        <th>Satuan Kerja</th>
-        <th>Nama Paket</th>
-        <th>Jenis Pengadaan</th>
-        <th>Metode Pengadaan</th>
+        <th>Kode RUP / Kode Paket</th>
+        <th>Satuan Kerja / Nama Paket</th>
+        <th>Penyedia</th>
+        <th>Jenis / Metode</th>
         <th>Status</th>
-        <th>Nilai Pagu RUP</th>
-        <th>Nilai HPS</th>
-        <th>Nilai Hasil Pemilihan</th>
+        <th>Nilai Pagu / HPS</th>
+        <th>Hasil Pemilihan</th>
         <th>Efisiensi</th>
       </tr>
     </thead>
@@ -486,20 +553,18 @@
   </table>
 </div>
 
-<!-- ===== PAGINATION BAWAH ===== -->
 <div class="pagination" style="margin-top:12px; margin-bottom:32px;">
   <button id="prevPage2" class="btn-page">← Prev</button>
   <span id="pageInfo2" class="page-info"></span>
   <button id="nextPage2" class="btn-page">Next →</button>
 </div>
 
-</div><!-- end padding wrapper -->
-
-<script>
+</div><script>
 let allData    = [];
 let filtered   = [];
 let currentPage = 1;
 let perPage     = 10;
+let currentYear = "2026"; // Default tahun awal
 
 function rupiah(n) {
   if (n === null || n === undefined || n === "" || n === " ") return "";
@@ -515,13 +580,14 @@ function badgeStatus(status) {
   let cls = "badge-default";
   if (s.includes("bapbast"))                          cls = "badge-bapbast";
   else if (s.includes("completed") || s.includes("payment_outside_sistem") || s.includes("paket selesai") || (s.includes("selesai") && !s.includes("dibatalkan"))) cls = "badge-selesai";
-  else if (s.includes("dibatalkan"))                  cls = "badge-batal";
+  else if (s.includes("dibatalkan") || s.includes("batal"))                   cls = "badge-batal";
   else if (s.includes("spmkspp"))                     cls = "badge-spmkspp";
   else if (s.includes("kontrak"))                     cls = "badge-kontrak";
   else if (s.includes("sppbj"))                       cls = "badge-sppbj";
-  else if (s.includes("pengumuman rup"))               cls = "badge-default";
+  else if (s.includes("pengumuman rup") || s === "")  cls = "badge-default";
   else if (s.includes("proses") || s.includes("pengumuman")) cls = "badge-proses";
-  return `<span class="badge ${cls}">${status ?? ""}</span>`;
+  
+  return `<span class="badge ${cls}">${status ? status : "-"}</span>`;
 }
 
 async function loadLastUpdate() {
@@ -534,14 +600,53 @@ async function loadLastUpdate() {
   }
 }
 
-async function loadData() {
-  const res = await fetch("../data/rekap_pengadaan.json");
-  allData   = await res.json();
+// Fungsi Fetch Data per Tahun
+async function loadDataByYear(year) {
+  document.getElementById("loadingOverlay").style.display = "flex";
+  document.getElementById("pageTitle").innerText = `📋 Rekap Data Pengadaan Tahun ${year}`;
+  
+  // Mengatur ulang filter agar bersih saat ganti tahun
+  resetFilterInputs();
+  
+  try {
+    // Memanggil json sesuai struktur folder baru (data/2026/rekap_pengadaan_2026.json)
+    const url = `../data/${year}/rekap_pengadaan_${year}.json`;
+    const res = await fetch(url);
+    
+    if(!res.ok) throw new Error("Data tidak ditemukan");
+    
+    allData = await res.json();
+    
+    // Perbarui tautan download Master Excel
+    const masterLink = document.getElementById("downloadMaster");
+    masterLink.href = `../data/${year}/master_pengadaan_${year}.xlsx`;
+    masterLink.classList.remove("disabled");
+    
+  } catch (error) {
+    console.error(error);
+    allData = [];
+    alert(`Gagal memuat data untuk tahun ${year}. Pastikan data sudah di-generate.`);
+    
+    const masterLink = document.getElementById("downloadMaster");
+    masterLink.href = "#";
+    masterLink.classList.add("disabled");
+  }
+
+  // Isi dropdown filter
   populateDropdown("filterJenis",  "Jenis Pengadaan");
   populateDropdown("filterMetode", "Metode Pengadaan");
-  populateDropdown("filterCara",   "Metode");
   populateDropdown("filterStatus", "Status");
+  
   applyFilter();
+  document.getElementById("loadingOverlay").style.display = "none";
+}
+
+function resetFilterInputs() {
+  ["filterSatker","filterPaket","filterPenyedia"].forEach(id => document.getElementById(id).value = "");
+  ["filterJenis","filterMetode","filterStatus"].forEach(id => {
+      const el = document.getElementById(id);
+      el.innerHTML = '<option value="">-- Semua --</option>'; 
+  });
 }
 
 function populateDropdown(id, kolom) {
@@ -556,20 +661,20 @@ function populateDropdown(id, kolom) {
 }
 
 function applyFilter() {
-  const satker = document.getElementById("filterSatker").value.trim().toLowerCase();
-  const paket  = document.getElementById("filterPaket").value.trim().toLowerCase();
-  const jenis  = document.getElementById("filterJenis").value;
-  const metode = document.getElementById("filterMetode").value;
-  const cara   = document.getElementById("filterCara").value;
-  const status = document.getElementById("filterStatus").value;
+  const satker   = document.getElementById("filterSatker").value.trim().toLowerCase();
+  const paket    = document.getElementById("filterPaket").value.trim().toLowerCase();
+  const penyedia = document.getElementById("filterPenyedia").value.trim().toLowerCase();
+  const jenis    = document.getElementById("filterJenis").value;
+  const metode   = document.getElementById("filterMetode").value;
+  const status   = document.getElementById("filterStatus").value;
 
   filtered = allData.filter(row => {
-    if (satker && !(row["Satuan Kerja"] ?? "").toLowerCase().includes(satker)) return false;
-    if (paket  && !(row["Nama Paket"]   ?? "").toLowerCase().includes(paket))  return false;
-    if (jenis  && row["Jenis Pengadaan"]  !== jenis)  return false;
-    if (metode && row["Metode Pengadaan"] !== metode) return false;
-    if (cara   && row["Metode"]           !== cara)   return false;
-    if (status && row["Status"]           !== status) return false;
+    if (satker   && !(row["Satuan Kerja"] ?? "").toLowerCase().includes(satker)) return false;
+    if (paket    && !(row["Nama Paket"]   ?? "").toLowerCase().includes(paket))  return false;
+    if (penyedia && !(row["Nama Penyedia"] ?? "").toLowerCase().includes(penyedia)) return false;
+    if (jenis    && row["Jenis Pengadaan"]  !== jenis)  return false;
+    if (metode   && row["Metode Pengadaan"] !== metode) return false;
+    if (status   && row["Status"]           !== status) return false;
     return true;
   });
 
@@ -579,29 +684,25 @@ function applyFilter() {
 }
 
 function updateStatCards() {
-  // Belum Proses: status Pengumuman RUP
   const belumProses = filtered.filter(r => {
     const s = (r["Status"] ?? "").toLowerCase();
-    return s === "pengumuman rup";
+    return s === "pengumuman rup" || s === "";
   }).length;
 
-  // Sudah Selesai: BAPBAST, completed, PAYMENT_OUTSIDE_SISTEM, Paket Selesai, *Selesai
   const selesai = filtered.filter(r => {
     const s = (r["Status"] ?? "").toLowerCase();
     return s.includes("bapbast")
         || s.includes("completed")
         || s.includes("payment_outside_sistem")
         || s.includes("paket selesai")
-        || (s.includes("selesai") && !s.includes("dibatalkan"));
+        || (s.includes("selesai") && !s.includes("dibatalkan") && !s.includes("batal"));
   }).length;
 
-  // Dibatalkan: Paket Dibatalkan
   const batal = filtered.filter(r => {
     const s = (r["Status"] ?? "").toLowerCase();
-    return s.includes("dibatalkan");
+    return s.includes("dibatalkan") || s.includes("batal");
   }).length;
 
-  // Sedang Proses: selain tiga kategori di atas
   const proses = Math.max(filtered.length - belumProses - selesai - batal, 0);
 
   document.getElementById("statTotal").innerText    = filtered.length.toLocaleString("id-ID");
@@ -621,6 +722,10 @@ function renderTable() {
   const pageData  = filtered.slice(start, end);
   const totalPage = Math.ceil(filtered.length / perPage);
 
+  if (pageData.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="9" class="td-center" style="padding:20px; color:#64748b;">Tidak ada data ditemukan.</td></tr>`;
+  }
+
   pageData.forEach((row, index) => {
     const pagu  = row["Nilai Pagu RUP"];
     const hps   = row["Nilai HPS"];
@@ -630,19 +735,30 @@ function renderTable() {
     if (isAngka(pagu) && isAngka(hasil)) {
       efisiensiStr = `<span class="td-efisiensi">${rupiah(Number(pagu) - Number(hasil))}</span>`;
     }
+    
+    // Gabung Kolom untuk menghemat ruang tabel
+    const idDisplay = `<div style="font-family:monospace; color:#1a3a6b; font-weight:600;">RUP: ${row["Kode RUP"] ?? "-"}</div>
+                       <div style="font-size:0.75rem; color:#64748b; margin-top:2px;">PKT: ${row["Kode Paket"] ?? "-"}</div>`;
+                       
+    const textInfo = `<div style="font-weight:600; font-size:0.8rem; margin-bottom:3px; color:#1e293b;">${row["Satuan Kerja"] ?? "-"}</div>
+                      <div style="font-size:0.75rem; line-height:1.3; color:#475569;">${row["Nama Paket"] ?? "-"}</div>`;
+                      
+    const jenisInfo = `<div style="font-size:0.75rem; font-weight:600;">${row["Metode Pengadaan"] ?? "-"}</div>
+                       <div style="font-size:0.72rem; color:#64748b;">${row["Jenis Pengadaan"] ?? "-"}</div>`;
+                       
+    const nilaiPagu = `<div style="font-weight:600; color:#1e293b;">${isAngka(pagu) ? rupiah(pagu) : (pagu ?? "-")}</div>
+                       <div style="font-size:0.72rem; color:#64748b;">HPS: ${isAngka(hps) ? rupiah(hps) : (hps ?? "-")}</div>`;
 
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td class="td-center" style="color:#94a3b8;font-size:0.75rem;">${start + index + 1}</td>
-      <td style="font-family:monospace;font-size:0.78rem;color:#1a3a6b;font-weight:600;">${row["Kode RUP"] ?? ""}</td>
-      <td>${row["Satuan Kerja"] ?? ""}</td>
-      <td>${row["Nama Paket"] ?? ""}</td>
-      <td><span style="font-size:0.76rem;">${row["Jenis Pengadaan"] ?? ""}</span></td>
-      <td><span style="font-size:0.76rem;">${row["Metode Pengadaan"] ?? ""}</span></td>
+      <td>${idDisplay}</td>
+      <td style="max-width:280px; white-space:normal;">${textInfo}</td>
+      <td style="max-width:180px; white-space:normal; font-size:0.76rem;">${row["Nama Penyedia"] ?? "-"}</td>
+      <td>${jenisInfo}</td>
       <td>${badgeStatus(row["Status"])}</td>
-      <td class="td-rupiah">${isAngka(pagu)  ? rupiah(pagu)  : (pagu  ?? "")}</td>
-      <td class="td-rupiah">${isAngka(hps)   ? rupiah(hps)   : (hps   ?? "")}</td>
-      <td class="td-rupiah">${isAngka(hasil) ? rupiah(hasil) : (hasil ?? "")}</td>
+      <td class="td-rupiah">${nilaiPagu}</td>
+      <td class="td-rupiah" style="font-weight:600; color:#1a3a6b;">${isAngka(hasil) ? rupiah(hasil) : (hasil ?? "-")}</td>
       <td class="td-rupiah">${efisiensiStr}</td>
     `;
     tbody.appendChild(tr);
@@ -662,31 +778,41 @@ function renderTable() {
   document.getElementById("nextPage2").disabled = atLast;
 }
 
+// === EVENT LISTENERS ===
+document.getElementById("selectYear").addEventListener("change", (e) => {
+  currentYear = e.target.value;
+  loadDataByYear(currentYear);
+});
+
 document.getElementById("perPage").addEventListener("change", (e) => {
   perPage = Number(e.target.value); currentPage = 1; renderTable();
 });
+
 ["prevPage","prevPage2"].forEach(id =>
   document.getElementById(id).addEventListener("click", () => {
     if (currentPage > 1) { currentPage--; renderTable(); }
   })
 );
+
 ["nextPage","nextPage2"].forEach(id =>
   document.getElementById(id).addEventListener("click", () => {
     const totalPage = Math.ceil(filtered.length / perPage);
     if (currentPage < totalPage) { currentPage++; renderTable(); }
   })
 );
-["filterSatker","filterPaket"].forEach(id =>
+
+["filterSatker","filterPaket","filterPenyedia"].forEach(id =>
   document.getElementById(id).addEventListener("keydown", (e) => {
     if (e.key === "Enter") applyFilter();
   })
 );
-["filterJenis","filterMetode","filterCara","filterStatus"].forEach(id =>
+
+["filterJenis","filterMetode","filterStatus"].forEach(id =>
   document.getElementById(id).addEventListener("change", applyFilter)
 );
+
 document.getElementById("resetFilter").addEventListener("click", () => {
-  ["filterSatker","filterPaket"].forEach(id => document.getElementById(id).value = "");
-  ["filterJenis","filterMetode","filterCara","filterStatus"].forEach(id => document.getElementById(id).value = "");
+  resetFilterInputs();
   applyFilter();
 });
 
@@ -703,11 +829,12 @@ document.getElementById("downloadCurrent").addEventListener("click", () => {
     return {
       "No"                    : index + 1,
       "Kode RUP"              : row["Kode RUP"] ?? "",
+      "Kode Paket"            : row["Kode Paket"] ?? "",
       "Satuan Kerja"          : row["Satuan Kerja"] ?? "",
       "Nama Paket"            : row["Nama Paket"] ?? "",
+      "Nama Penyedia"         : row["Nama Penyedia"] ?? "",
       "Jenis Pengadaan"       : row["Jenis Pengadaan"] ?? "",
       "Metode Pengadaan"      : row["Metode Pengadaan"] ?? "",
-      "Cara Pengadaan"        : row["Metode"] ?? "",
       "Status"                : row["Status"] ?? "",
       "Nilai Pagu RUP"        : isNaN(Number(pagu)) ? (pagu ?? "") : Number(pagu),
       "Nilai HPS"             : isNaN(Number(row["Nilai HPS"])) ? (row["Nilai HPS"] ?? "") : Number(row["Nilai HPS"]),
@@ -732,17 +859,19 @@ document.getElementById("downloadCurrent").addEventListener("click", () => {
     }
   }
   ws['!cols'] = [
-    {wch:6},{wch:16},{wch:35},{wch:50},
-    {wch:30},{wch:22},{wch:22},{wch:22},
+    {wch:6},{wch:16},{wch:16},{wch:35},{wch:50},{wch:35},
+    {wch:30},{wch:22},{wch:22},
     {wch:20},{wch:20},{wch:20},{wch:20},
   ];
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, "Pengadaan");
-  XLSX.writeFile(wb, "Rekap Pengadaan 2026.xlsx");
+  XLSX.writeFile(wb, `Rekap_Pengadaan_${currentYear}.xlsx`);
 });
 
+// === INITIALIZATION ===
 loadLastUpdate();
-loadData();
+loadDataByYear(currentYear);
+
 </script>
 </body>
 </html>
