@@ -47,7 +47,7 @@ def process_tahun(tahun):
     data_dir    = os.path.join(BASE_DIR, 'data', str(tahun))
     output_json = os.path.join(data_dir, f'rekap_pengadaan_{tahun}.json')
     if tahun == tahun_n2 and os.path.exists(output_json):
-        print(f'\n[SKIP] Tahun {tahun} sudah final → skip generate')
+        print(f'\n[SKIP] Tahun {tahun} sudah final -> skip generate')
         return
 
     print(f'\n{"="*55}')
