@@ -320,16 +320,27 @@ def process_tahun(tahun):
         return df.map(lambda x: re.sub(r'[\x00-\x1F]', '', str(x)) if isinstance(x,str) else x)
 
     # ======================================================
-    # MAPPING SUMBER 1
+    # MAPPING SUMBER 1 (DENGAN PENYAMAAN TIPE DATA INTEGER)
     # ======================================================
-    df1_map = df1.set_index('kd_rup') if not df1.empty else pd.DataFrame()
+    if not df1.empty:
+        # Bersihkan data NaN lalu convert ke integer utuh
+        df1_clean = df1.dropna(subset=['kd_rup']).copy()
+        df1_clean['kd_rup'] = df1_clean['kd_rup'].apply(lambda x: int(float(str(x).strip())))
+        df1_map = df1_clean.set_index('kd_rup')
+    else:
+        df1_map = pd.DataFrame()
 
     def get_s1(kd, col):
         try:
             if pd.isna(kd) or df1_map.empty:
                 return None
-            val = df1_map.loc[int(kd), col]
-            return None if pd.isna(val) else val
+            # Samakan tipe data input ke integer
+            kd_match = int(float(str(kd).strip()))
+            
+            if kd_match in df1_map.index:
+                val = df1_map.loc[kd_match, col]
+                return None if pd.isna(val) else val
+            return None
         except:
             return None
 
@@ -633,19 +644,30 @@ def process_tahun(tahun):
         if pd.isna(nilai_hasil):
             nilai_hasil=""
 
-        # LOGIKA PDN & UMK MENGACU KE SUMBER 1
-        status_pdn_s1 = str(get_s1(kd, 'status_pdn')).strip().upper()
-        status_ukm_s1 = str(get_s1(kd, 'status_ukm')).strip().upper()
+        # PENYAMAAN TIPE DATA (String to Integer) & CEK MATCH KE SUMBER 1
+        try:
+            kd_match = int(float(str(kd).strip()))
+            is_match = not df1_map.empty and kd_match in df1_map.index
+        except:
+            kd_match = None
+            is_match = False
 
-        if status_pdn_s1 == 'PDN':
-            nilai_pdn_val = nilai_hasil
-        else:
-            nilai_pdn_val = 0
+        if is_match:
+            status_pdn_s1 = str(df1_map.loc[kd_match, 'status_pdn']).strip().upper()
+            status_ukm_s1 = str(df1_map.loc[kd_match, 'status_ukm']).strip().upper()
 
-        if status_ukm_s1 == 'UKM':
-            nilai_umk_val = nilai_hasil
+            if status_pdn_s1 == 'PDN':
+                nilai_pdn_val = nilai_hasil
+            else:
+                nilai_pdn_val = 0
+
+            if status_ukm_s1 == 'UKM':
+                nilai_umk_val = nilai_hasil
+            else:
+                nilai_umk_val = 0
         else:
-            nilai_umk_val = 0
+            nilai_pdn_val = "N/A"
+            nilai_umk_val = "N/A"
 
         # MENGAMBIL NAMA PENYEDIA DARI KAMUS OFFLINE
         kode_p = str(r.get('kode_penyedia', ""))
@@ -688,19 +710,30 @@ def process_tahun(tahun):
         if pd.isna(nilai_hasil):
             nilai_hasil=""
 
-        # LOGIKA PDN & UMK MENGACU KE SUMBER 1
-        status_pdn_s1 = str(get_s1(kd, 'status_pdn')).strip().upper()
-        status_ukm_s1 = str(get_s1(kd, 'status_ukm')).strip().upper()
+        # PENYAMAAN TIPE DATA (String to Integer) & CEK MATCH KE SUMBER 1
+        try:
+            kd_match = int(float(str(kd).strip()))
+            is_match = not df1_map.empty and kd_match in df1_map.index
+        except:
+            kd_match = None
+            is_match = False
 
-        if status_pdn_s1 == 'PDN':
-            nilai_pdn_val = nilai_hasil
-        else:
-            nilai_pdn_val = 0
+        if is_match:
+            status_pdn_s1 = str(df1_map.loc[kd_match, 'status_pdn']).strip().upper()
+            status_ukm_s1 = str(df1_map.loc[kd_match, 'status_ukm']).strip().upper()
 
-        if status_ukm_s1 == 'UKM':
-            nilai_umk_val = nilai_hasil
+            if status_pdn_s1 == 'PDN':
+                nilai_pdn_val = nilai_hasil
+            else:
+                nilai_pdn_val = 0
+
+            if status_ukm_s1 == 'UKM':
+                nilai_umk_val = nilai_hasil
+            else:
+                nilai_umk_val = 0
         else:
-            nilai_umk_val = 0
+            nilai_pdn_val = "N/A"
+            nilai_umk_val = "N/A"
 
         # MENGAMBIL NAMA PENYEDIA DARI KAMUS OFFLINE
         kode_p = str(r.get('kd_penyedia', ""))
@@ -803,7 +836,7 @@ def process_tahun(tahun):
     final_df = clean_illegal_chars(final_df)
 
     # ======================================================
-    # SUSUN KOLOM (Versi Dihapus)
+    # SUSUN KOLOM (Kolom Versi Dihapus)
     # ======================================================
     cols = [
         'Kode RUP','Satuan Kerja','Nama Paket','Metode Pengadaan','Jenis Pengadaan',
@@ -922,14 +955,7 @@ def process_tahun(tahun):
     # --- Format rupiah ---
     fmt_rupiah = '#,##0'
 
-    # Kolom yang diberi format rupiah (cari index kolomnya)
-    col_idx_angka = {
-        col: i+1
-        for i, col in enumerate(final_df.columns)
-        if col in kolom_angka
-    }
-
-    # Lebar kolom default per nama kolom
+    # Lebar kolom default per nama kolom (Kolom Versi sudah dihapus)
     lebar_kolom = {
         'Kode RUP'              : 18,
         'Satuan Kerja'          : 38,
