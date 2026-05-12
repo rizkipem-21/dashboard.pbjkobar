@@ -313,21 +313,21 @@
     box-shadow: 0 2px 12px rgba(26,58,107,0.09);
     overflow-x: auto;
     overflow-y: auto;
-    max-height: 70vh; /* Memberikan tinggi maksimal agar tabel bisa di-scroll secara internal */
+    max-height: 70vh;
     margin-bottom: 4px;
     position: relative;
   }
   table { 
     width: 100%; 
-    border-collapse: separate; /* Wajib separate agar posisi sticky berjalan mulus dengan border */
+    border-collapse: separate; 
     border-spacing: 0; 
     font-size: 0.8rem; 
   }
   thead th {
-    position: sticky; /* KUNCI HEADER */
-    top: 0;           /* Tempel di atas */
-    z-index: 10;      /* Pastikan di atas baris data */
-    background: var(--lpse-biru); /* Warna biru langsung di TH */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--lpse-biru);
     color: #fff;
     padding: 11px 14px;
     text-align: left;
@@ -335,7 +335,7 @@
     font-size: 0.78rem;
     letter-spacing: 0.3px;
     border-right: 1px solid rgba(255,255,255,0.12);
-    border-bottom: 2px solid var(--lpse-kuning); /* Border bawah header */
+    border-bottom: 2px solid var(--lpse-kuning);
     white-space: nowrap;
   }
   thead th:last-child { border-right: none; }
@@ -475,36 +475,31 @@
 
     <div style="display:flex; flex-direction:column; gap:4px;">
       <label>Satuan Kerja</label>
-      <input id="filterSatker" type="text" placeholder="Cari satuan kerja..." style="width:150px;" />
+      <input id="filterSatker" type="text" placeholder="Cari satuan kerja..." style="width:180px;" />
     </div>
 
     <div style="display:flex; flex-direction:column; gap:4px;">
       <label>Nama Paket</label>
-      <input id="filterPaket" type="text" placeholder="Cari nama paket..." style="width:155px;" />
-    </div>
-    
-    <div style="display:flex; flex-direction:column; gap:4px;">
-      <label>Penyedia</label>
-      <input id="filterPenyedia" type="text" placeholder="Cari penyedia..." style="width:155px;" />
+      <input id="filterPaket" type="text" placeholder="Cari nama paket..." style="width:185px;" />
     </div>
 
     <div style="display:flex; flex-direction:column; gap:4px;">
       <label>Jenis Pengadaan</label>
-      <select id="filterJenis" style="width:145px;">
+      <select id="filterJenis" style="width:160px;">
         <option value="">-- Semua --</option>
       </select>
     </div>
 
     <div style="display:flex; flex-direction:column; gap:4px;">
       <label>Metode Pengadaan</label>
-      <select id="filterMetode" style="width:140px;">
+      <select id="filterMetode" style="width:160px;">
         <option value="">-- Semua --</option>
       </select>
     </div>
 
     <div style="display:flex; flex-direction:column; gap:4px;">
       <label>Status</label>
-      <select id="filterStatus" style="width:130px;">
+      <select id="filterStatus" style="width:150px;">
         <option value="">-- Semua --</option>
       </select>
     </div>
@@ -549,7 +544,6 @@
         <th>No</th>
         <th>Kode RUP / Kode Paket</th>
         <th>Satuan Kerja / Nama Paket</th>
-        <th>Penyedia</th>
         <th>Jenis / Metode</th>
         <th>Status</th>
         <th>Nilai Pagu / HPS</th>
@@ -613,11 +607,9 @@ async function loadDataByYear(year) {
   document.getElementById("loadingOverlay").style.display = "flex";
   document.getElementById("pageTitle").innerText = `📋 Rekap Data Pengadaan Tahun ${year}`;
   
-  // Mengatur ulang filter agar bersih saat ganti tahun
   resetFilterInputs();
   
   try {
-    // Memanggil json sesuai struktur folder baru (data/2026/rekap_pengadaan_2026.json)
     const url = `../data/${year}/rekap_pengadaan_${year}.json`;
     const res = await fetch(url);
     
@@ -625,7 +617,6 @@ async function loadDataByYear(year) {
     
     allData = await res.json();
     
-    // Perbarui tautan download Master Excel
     const masterLink = document.getElementById("downloadMaster");
     masterLink.href = `../data/${year}/master_pengadaan_${year}.xlsx`;
     masterLink.classList.remove("disabled");
@@ -640,7 +631,6 @@ async function loadDataByYear(year) {
     masterLink.classList.add("disabled");
   }
 
-  // Isi dropdown filter
   populateDropdown("filterJenis",  "Jenis Pengadaan");
   populateDropdown("filterMetode", "Metode Pengadaan");
   populateDropdown("filterStatus", "Status");
@@ -650,7 +640,7 @@ async function loadDataByYear(year) {
 }
 
 function resetFilterInputs() {
-  ["filterSatker","filterPaket","filterPenyedia"].forEach(id => document.getElementById(id).value = "");
+  ["filterSatker","filterPaket"].forEach(id => document.getElementById(id).value = "");
   ["filterJenis","filterMetode","filterStatus"].forEach(id => {
       const el = document.getElementById(id);
       el.innerHTML = '<option value="">-- Semua --</option>'; 
@@ -671,7 +661,6 @@ function populateDropdown(id, kolom) {
 function applyFilter() {
   const satker   = document.getElementById("filterSatker").value.trim().toLowerCase();
   const paket    = document.getElementById("filterPaket").value.trim().toLowerCase();
-  const penyedia = document.getElementById("filterPenyedia").value.trim().toLowerCase();
   const jenis    = document.getElementById("filterJenis").value;
   const metode   = document.getElementById("filterMetode").value;
   const status   = document.getElementById("filterStatus").value;
@@ -679,7 +668,6 @@ function applyFilter() {
   filtered = allData.filter(row => {
     if (satker   && !(row["Satuan Kerja"] ?? "").toLowerCase().includes(satker)) return false;
     if (paket    && !(row["Nama Paket"]   ?? "").toLowerCase().includes(paket))  return false;
-    if (penyedia && !(row["Nama Penyedia"] ?? "").toLowerCase().includes(penyedia)) return false;
     if (jenis    && row["Jenis Pengadaan"]  !== jenis)  return false;
     if (metode   && row["Metode Pengadaan"] !== metode) return false;
     if (status   && row["Status"]           !== status) return false;
@@ -731,7 +719,7 @@ function renderTable() {
   const totalPage = Math.ceil(filtered.length / perPage);
 
   if (pageData.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="9" class="td-center" style="padding:20px; color:#64748b;">Tidak ada data ditemukan.</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="8" class="td-center" style="padding:20px; color:#64748b;">Tidak ada data ditemukan.</td></tr>`;
   }
 
   pageData.forEach((row, index) => {
@@ -744,7 +732,6 @@ function renderTable() {
       efisiensiStr = `<span class="td-efisiensi">${rupiah(Number(pagu) - Number(hasil))}</span>`;
     }
     
-    // Gabung Kolom untuk menghemat ruang tabel
     const idDisplay = `<div style="font-family:monospace; color:#1a3a6b; font-weight:600;">RUP: ${row["Kode RUP"] ?? "-"}</div>
                        <div style="font-size:0.75rem; color:#64748b; margin-top:2px;">PKT: ${row["Kode Paket"] ?? "-"}</div>`;
                        
@@ -761,8 +748,7 @@ function renderTable() {
     tr.innerHTML = `
       <td class="td-center" style="color:#94a3b8;font-size:0.75rem;">${start + index + 1}</td>
       <td>${idDisplay}</td>
-      <td style="max-width:280px; white-space:normal;">${textInfo}</td>
-      <td style="max-width:180px; white-space:normal; font-size:0.76rem;">${row["Nama Penyedia"] ?? "-"}</td>
+      <td style="max-width:350px; white-space:normal;">${textInfo}</td>
       <td>${jenisInfo}</td>
       <td>${badgeStatus(row["Status"])}</td>
       <td class="td-rupiah">${nilaiPagu}</td>
@@ -809,7 +795,7 @@ document.getElementById("perPage").addEventListener("change", (e) => {
   })
 );
 
-["filterSatker","filterPaket","filterPenyedia"].forEach(id =>
+["filterSatker","filterPaket"].forEach(id =>
   document.getElementById(id).addEventListener("keydown", (e) => {
     if (e.key === "Enter") applyFilter();
   })
@@ -840,7 +826,6 @@ document.getElementById("downloadCurrent").addEventListener("click", () => {
       "Kode Paket"            : row["Kode Paket"] ?? "",
       "Satuan Kerja"          : row["Satuan Kerja"] ?? "",
       "Nama Paket"            : row["Nama Paket"] ?? "",
-      "Nama Penyedia"         : row["Nama Penyedia"] ?? "",
       "Jenis Pengadaan"       : row["Jenis Pengadaan"] ?? "",
       "Metode Pengadaan"      : row["Metode Pengadaan"] ?? "",
       "Status"                : row["Status"] ?? "",
@@ -867,7 +852,7 @@ document.getElementById("downloadCurrent").addEventListener("click", () => {
     }
   }
   ws['!cols'] = [
-    {wch:6},{wch:16},{wch:16},{wch:35},{wch:50},{wch:35},
+    {wch:6},{wch:16},{wch:16},{wch:35},{wch:50},
     {wch:30},{wch:22},{wch:22},
     {wch:20},{wch:20},{wch:20},{wch:20},
   ];
