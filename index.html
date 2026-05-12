@@ -3,36 +3,215 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard PBJ 2026</title>
+  <title>Portal PBJ - Kabupaten Kotawaringin Barat</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            lpse: {
+              biru: '#1a3a6b',
+              merah: '#e63329',
+              kuning: '#f5c800',
+              hijau: '#2d9e47'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    
+    /* Scrollbar Kustom untuk Sidebar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+    /* CSS untuk Donut Chart Dummy */
+    .donut-chart {
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      /* Gradasi Donut: Biru LPSE 17%, Abu-abu sisanya */
+      background: conic-gradient(var(--lpse-biru) 0% 17.48%, #cbd5e1 17.48% 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .donut-inner {
+      width: 100px; height: 100px;
+      background: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column;
+    }
+  </style>
 </head>
+<body class="flex h-screen overflow-hidden bg-white text-gray-800">
 
-<body class="bg-gray-100">
+  <aside class="w-64 border-r border-gray-200 flex flex-col flex-shrink-0 z-10 bg-white shadow-[2px_0_8px_-4px_rgba(0,0,0,0.1)]">
+    
+    <div class="h-20 flex items-center px-6 border-b border-gray-100">
+      <div class="bg-lpse-merah text-white p-1.5 rounded-lg mr-3 shadow-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+        </svg>
+      </div>
+      <div>
+        <h1 class="text-xl font-bold tracking-tight leading-none text-gray-800">
+          DATA<br><span class="text-lpse-merah">PBJ</span>
+        </h1>
+      </div>
+    </div>
 
-  <header class="bg-blue-600 text-white py-6 shadow text-center">
-    <h1 class="text-3xl font-bold">Dashboard PBJ</h1>
-    <p class="text-sm">Kabupaten Kotawaringin Barat - Tahun 2026</p>
-  </header>
+    <div class="flex-1 overflow-y-auto py-6 px-4">
+      
+      <div class="mb-6">
+        <p class="text-xs font-semibold text-gray-400 mb-2 px-2">Monitoring</p>
+        <button onclick="switchTab('view-dashboard', this)" class="menu-item w-full flex items-center px-4 py-2.5 bg-lpse-merah text-white rounded-lg font-medium text-sm transition-colors text-left shadow-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          Profil Pengadaan
+        </button>
+      </div>
 
-  <main class="max-w-5xl mx-auto py-10 px-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-      <a href="rup/" class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition">
-        <h2 class="text-xl font-semibold">📊 Rekap RUP Tahun 2026</h2>
-        <p class="text-gray-500 mt-2">Data rencana umum pengadaan</p>
-      </a>
-
-      <a href="pengadaan/" class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition">
-        <h2 class="text-xl font-semibold">📑 Rekap Data Pengadaan Tahun 2026</h2>
-        <p class="text-gray-500 mt-2">Data paket pengadaan</p>
-      </a>
+      <div>
+        <p class="text-xs font-semibold text-gray-400 mb-2 px-2">Data</p>
+        <div class="space-y-1">
+          <button onclick="switchTab('view-rup', this)" class="menu-item w-full flex items-center px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg text-sm transition-colors text-left">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Rencana Umum Pengadaan
+          </button>
+          
+          <button onclick="switchTab('view-pengadaan', this)" class="menu-item w-full flex items-center px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg text-sm transition-colors text-left">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+            </svg>
+            Realisasi Pengadaan
+          </button>
+        </div>
+      </div>
 
     </div>
+  </aside>
+
+  <main class="flex-1 relative bg-white">
+
+    <div id="view-dashboard" class="view-panel absolute inset-0 overflow-y-auto p-8 lg:p-12">
+      
+      <div class="mb-8">
+        <h2 class="text-3xl font-bold text-gray-900">Dashboard PBJ Monitoring</h2>
+        <p class="text-gray-500 mt-1 italic text-sm">Live Monitoring Dashboard - Kabupaten Kotawaringin Barat</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Tahun Anggaran</label>
+          <select class="w-full border border-gray-200 bg-gray-50 rounded py-2 px-3 text-sm focus:outline-none">
+            <option>2026</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Jenis Instansi</label>
+          <div class="flex items-center border border-gray-200 bg-gray-50 rounded py-1.5 px-2">
+            <span class="bg-lpse-merah text-white text-xs px-2 py-0.5 rounded flex items-center shadow-sm">
+              Kabupaten <span class="ml-1 cursor-pointer hover:text-gray-200">&times;</span>
+            </span>
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Instansi</label>
+          <select class="w-full border border-gray-200 bg-gray-50 rounded py-2 px-3 text-sm focus:outline-none">
+            <option>KAB. KOTAWARINGIN BARAT</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Satuan Kerja</label>
+          <select class="w-full border border-gray-200 bg-gray-100 rounded py-2 px-3 text-sm text-gray-400" disabled>
+            <option>(Pilih Instansi dahulu)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <p class="text-xs text-gray-500 mb-2">Ringkasan Perencanaan dan Realisasi Pengadaan</p>
+        <div class="flex space-x-2">
+          <button class="border border-lpse-merah text-lpse-merah bg-red-50 px-5 py-1.5 rounded-full text-xs font-semibold">Nilai</button>
+          <button class="border border-gray-300 text-gray-600 bg-white hover:bg-gray-50 px-5 py-1.5 rounded-full text-xs transition">Paket</button>
+          <button class="border border-gray-300 text-gray-600 bg-white hover:bg-gray-50 px-5 py-1.5 rounded-full text-xs transition">Data</button>
+        </div>
+      </div>
+
+      <h3 class="text-xl font-bold text-gray-800 mb-4 mt-8">Perencanaan Pengadaan</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="border border-gray-200 rounded-xl p-6 shadow-sm flex flex-col justify-center min-h-[160px]">
+          <p class="text-sm text-gray-500 mb-4">Belanja Pengadaan</p>
+          <h4 class="text-2xl font-bold text-gray-900">Rp 27.986.573.305</h4>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-6 shadow-sm flex flex-col justify-center min-h-[160px]">
+          <p class="text-sm text-gray-500 mb-4">Total RUP</p>
+          <h4 class="text-2xl font-bold text-gray-900">Rp 4.891.035.773</h4>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-6 shadow-sm flex flex-col items-center justify-center min-h-[160px] relative">
+          <p class="text-sm font-bold text-gray-900 absolute top-6">% Pengisian RUP</p>
+          
+          <div class="mt-8 flex items-center justify-center relative w-full">
+            <div class="absolute left-0 text-[10px] text-gray-400 text-center">
+              Sisa Belanja<br>82.52%
+            </div>
+            
+            <div class="donut-chart">
+              <div class="donut-inner">
+                <span class="text-xl font-bold text-gray-800">17.48%</span>
+              </div>
+            </div>
+            
+            <div class="absolute right-0 text-[10px] text-gray-400 text-center">
+              Total RUP<br>17.48%
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="view-rup" class="view-panel hidden absolute inset-0">
+      <iframe src="rup/index.html" class="w-full h-full border-none"></iframe>
+    </div>
+
+    <div id="view-pengadaan" class="view-panel hidden absolute inset-0">
+      <iframe src="pengadaan/index.html" class="w-full h-full border-none"></iframe>
+    </div>
+
   </main>
 
-  <footer class="text-center text-gray-500 text-sm py-6">
-    © 2026 Pemerintah Kabupaten Kotawaringin Barat
-  </footer>
+  <script>
+    function switchTab(panelId, element) {
+      // 1. Sembunyikan semua area konten (panel)
+      document.querySelectorAll('.view-panel').forEach(panel => {
+        panel.classList.add('hidden');
+      });
+      
+      // 2. Tampilkan panel yang dipilih
+      document.getElementById(panelId).classList.remove('hidden');
+
+      // 3. Reset warna semua tombol menu di sidebar kembali ke abu-abu
+      document.querySelectorAll('.menu-item').forEach(btn => {
+        btn.classList.remove('bg-lpse-merah', 'text-white', 'shadow-sm');
+        btn.classList.add('text-gray-600', 'hover:bg-gray-100');
+      });
+
+      // 4. Ubah warna tombol menu yang sedang diklik menjadi aktif (merah)
+      element.classList.remove('text-gray-600', 'hover:bg-gray-100');
+      element.classList.add('bg-lpse-merah', 'text-white', 'shadow-sm');
+    }
+  </script>
 
 </body>
 </html>
