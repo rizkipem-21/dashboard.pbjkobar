@@ -405,7 +405,6 @@ def process_tahun(tahun):
             'Nilai HPS':r.get('hps'),
             'Nilai PDN':nilai_pdn,
             'Nilai UMK':nilai_umk,
-            'Versi':"",
             'Metode':'Non Tender',
             'Sumber':'Sumber 2'
         })
@@ -446,7 +445,6 @@ def process_tahun(tahun):
             'Nilai HPS':pd.NA,
             'Nilai PDN':nilai_pdn,
             'Nilai UMK':nilai_umk,
-            'Versi':"",
             'Metode':'Pencatatan Non Tender',
             'Sumber':'Sumber 3'
         })
@@ -491,7 +489,6 @@ def process_tahun(tahun):
             'Nilai HPS':pd.NA,
             'Nilai PDN':nilai_pdn,
             'Nilai UMK':nilai_umk,
-            'Versi':"",
             'Metode':'Pencatatan Swakelola',
             'Sumber':'Sumber 4'
         })
@@ -529,7 +526,6 @@ def process_tahun(tahun):
                 'Nilai HPS':pd.NA,
                 'Nilai PDN':pd.NA,
                 'Nilai UMK':pd.NA,
-                'Versi':"",
                 'Metode':'Swakelola',
                 'Sumber':'Sumber 1_2'
             })
@@ -618,8 +614,7 @@ def process_tahun(tahun):
             'Nilai HPS':r.get('hps'),
             'Nilai PDN':nilai_pdn,
             'Nilai UMK':nilai_umk,
-            'Versi':"",
-            'Metode':kategori_metode,  # <-- SUDAH DIUBAH MENJADI DINAMIS
+            'Metode':kategori_metode,
             'Sumber':'Sumber 5'
         })
 
@@ -637,6 +632,20 @@ def process_tahun(tahun):
         nilai_hasil = r.get('total')
         if pd.isna(nilai_hasil):
             nilai_hasil=""
+
+        # LOGIKA PDN & UMK MENGACU KE SUMBER 1
+        status_pdn_s1 = str(get_s1(kd, 'status_pdn')).strip().upper()
+        status_ukm_s1 = str(get_s1(kd, 'status_ukm')).strip().upper()
+
+        if status_pdn_s1 == 'PDN':
+            nilai_pdn_val = nilai_hasil
+        else:
+            nilai_pdn_val = 0
+
+        if status_ukm_s1 == 'UKM':
+            nilai_umk_val = nilai_hasil
+        else:
+            nilai_umk_val = 0
 
         # MENGAMBIL NAMA PENYEDIA DARI KAMUS OFFLINE
         kode_p = str(r.get('kode_penyedia', ""))
@@ -658,10 +667,9 @@ def process_tahun(tahun):
             'Status':r.get('status'),
             'Kode Paket':r.get('order_id'),
             'Nilai HPS':pd.NA,
-            'Nilai PDN':pd.NA,
-            'Nilai UMK':pd.NA,
-            'Versi':'Versi 6',
-            'Metode':'E-Purchasing',
+            'Nilai PDN':nilai_pdn_val,
+            'Nilai UMK':nilai_umk_val,
+            'Metode':'E-Purchasing V6',
             'Sumber':'Sumber 6'
         })
 
@@ -679,6 +687,20 @@ def process_tahun(tahun):
         nilai_hasil = r.get('total_harga')
         if pd.isna(nilai_hasil):
             nilai_hasil=""
+
+        # LOGIKA PDN & UMK MENGACU KE SUMBER 1
+        status_pdn_s1 = str(get_s1(kd, 'status_pdn')).strip().upper()
+        status_ukm_s1 = str(get_s1(kd, 'status_ukm')).strip().upper()
+
+        if status_pdn_s1 == 'PDN':
+            nilai_pdn_val = nilai_hasil
+        else:
+            nilai_pdn_val = 0
+
+        if status_ukm_s1 == 'UKM':
+            nilai_umk_val = nilai_hasil
+        else:
+            nilai_umk_val = 0
 
         # MENGAMBIL NAMA PENYEDIA DARI KAMUS OFFLINE
         kode_p = str(r.get('kd_penyedia', ""))
@@ -700,10 +722,9 @@ def process_tahun(tahun):
             'Status':r.get('paket_status_str'),
             'Kode Paket':r.get('kd_paket'),
             'Nilai HPS':pd.NA,
-            'Nilai PDN':pd.NA,
-            'Nilai UMK':pd.NA,
-            'Versi':'Versi 5',
-            'Metode':'E-Purchasing',
+            'Nilai PDN':nilai_pdn_val,
+            'Nilai UMK':nilai_umk_val,
+            'Metode':'E-Purchasing V5',
             'Sumber':'Sumber 7'
         })
 
@@ -749,7 +770,6 @@ def process_tahun(tahun):
                 'Nilai HPS':pd.NA,
                 'Nilai PDN':pd.NA,
                 'Nilai UMK':pd.NA,
-                'Versi':"",
                 'Metode':r.get('metode_pengadaan'),
                 'Sumber':'Sumber 1'
             })
@@ -783,13 +803,13 @@ def process_tahun(tahun):
     final_df = clean_illegal_chars(final_df)
 
     # ======================================================
-    # SUSUN KOLOM
+    # SUSUN KOLOM (Versi Dihapus)
     # ======================================================
     cols = [
         'Kode RUP','Satuan Kerja','Nama Paket','Metode Pengadaan','Jenis Pengadaan',
         'Sumber Dana','PDN','UKM','Nilai Pagu RUP','Nilai Hasil Pemilihan',
         'Tanggal Kontrak','Nama Penyedia','Status','Kode Paket','Nilai HPS',
-        'Nilai PDN','Nilai UMK','Versi','Metode','Sumber'
+        'Nilai PDN','Nilai UMK','Metode','Sumber'
     ]
 
     final_df = final_df[cols]
@@ -928,7 +948,6 @@ def process_tahun(tahun):
         'Nilai HPS'             : 20,
         'Nilai PDN'             : 18,
         'Nilai UMK'             : 18,
-        'Versi'                 : 12,
         'Metode'                : 22,
         'Sumber'                : 12,
     }
@@ -958,7 +977,7 @@ def process_tahun(tahun):
             if col_name in kolom_angka:
                 cell.number_format = fmt_rupiah
                 cell.alignment     = data_align_r
-            elif col_name in ('PDN','UKM','Sumber Dana','Versi','Metode','Sumber','Status'):
+            elif col_name in ('PDN','UKM','Sumber Dana','Metode','Sumber','Status'):
                 cell.alignment = data_align_c
             else:
                 cell.alignment = data_align_l

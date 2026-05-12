@@ -1251,3 +1251,14 @@ To https://github.com/rizkipem-21/rup-2026-inaproc.git
 PUSH STATUS: 0 
 ========================= 
 SELESAI 12/05/2026 12:39:35,42 
+========================= 
+START 12/05/2026 13:02:37,86 
+DOWNLOAD DATA 
+
+======================================
+  TAHUN 2026
+======================================
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026
+  Percobaan ke-1...
+^C
