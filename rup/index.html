@@ -113,6 +113,8 @@
     font-size: 0.72rem;
     opacity: 0.75;
   }
+
+  /* Urutan Warna: Biru, Merah, Kuning, Hijau */
   .stat-biru   { background: linear-gradient(135deg, #1a3a6b, #2563b0); }
   .stat-merah  { background: linear-gradient(135deg, #c0392b, #e63329); }
   .stat-kuning { background: linear-gradient(135deg, #d4a000, #f5c800); color: #1a1a1a; }
@@ -148,8 +150,7 @@
     margin-bottom: 4px;
     display: block;
   }
-  .filter-card input,
-  .filter-card select {
+  .filter-card input {
     border: 1.5px solid #dde3ed;
     border-radius: 7px;
     padding: 7px 11px;
@@ -159,8 +160,7 @@
     transition: border-color 0.2s;
     outline: none;
   }
-  .filter-card input:focus,
-  .filter-card select:focus {
+  .filter-card input:focus {
     border-color: var(--lpse-biru);
     background: #fff;
     box-shadow: 0 0 0 3px rgba(26,58,107,0.08);
@@ -228,10 +228,6 @@
     width: 14px; height: 14px;
     accent-color: var(--lpse-biru);
     cursor: pointer;
-    border: none;
-    padding: 0;
-    background: none;
-    box-shadow: none;
   }
   .check-panel .check-divider {
     border-top: 1px solid #e8edf5;
@@ -257,9 +253,7 @@
     font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s;
   }
-  .check-panel .btn-ok:hover { background: #142e56; }
   .check-panel .btn-batal {
     flex: 1;
     background: #f1f5f9;
@@ -270,11 +264,8 @@
     font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s;
   }
-  .check-panel .btn-batal:hover { background: #e2e8f0; }
 
-  /* ===== TOMBOL ===== */
   .btn-reset {
     background: #f1f5f9;
     color: #475569;
@@ -285,7 +276,6 @@
     font-weight: 600;
     cursor: pointer;
     transition: background 0.2s;
-    white-space: nowrap;
   }
   .btn-reset:hover { background: #e2e8f0; }
 
@@ -299,13 +289,8 @@
     font-weight: 600;
     cursor: pointer;
     box-shadow: 0 2px 6px rgba(45,158,71,0.25);
-    text-decoration: none;
-    display: inline-block;
-    transition: background 0.2s;
   }
-  .btn-excel:hover { background: #258a3d; }
 
-  /* ===== KONTROL BAR ===== */
   .control-bar {
     display: flex;
     flex-wrap: wrap;
@@ -317,16 +302,6 @@
     padding: 12px 16px;
     box-shadow: 0 1px 6px rgba(26,58,107,0.07);
   }
-  .control-bar label { font-size: 0.83rem; color: #475569; font-weight: 500; }
-  .control-bar select {
-    border: 1.5px solid #dde3ed;
-    border-radius: 7px;
-    padding: 6px 10px;
-    font-size: 0.83rem;
-    color: #1e293b;
-    background: #f8fafc;
-    outline: none;
-  }
 
   /* ===== TABEL ===== */
   .table-wrap {
@@ -336,7 +311,6 @@
     margin-bottom: 24px;
     overflow-x: auto;
   }
-  html, body { height: auto; }
   table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
   thead tr { background: var(--lpse-biru); color: #fff; }
   thead th {
@@ -347,25 +321,18 @@
     letter-spacing: 0.3px;
     border-right: 1px solid rgba(255,255,255,0.12);
     white-space: nowrap;
-    background: var(--lpse-biru);
   }
-  /* Sticky header pakai fixed saat scroll */
+  
   #stickyHeader {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     z-index: 999;
     background: var(--lpse-biru);
     box-shadow: 0 3px 8px rgba(0,0,0,0.25);
     overflow-x: auto;
   }
-  #stickyHeader table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.8rem;
-  }
+  #stickyHeader table { width: 100%; border-collapse: collapse; }
   #stickyHeader th {
     padding: 11px 14px;
     text-align: left;
@@ -374,15 +341,10 @@
     color: #fff;
     border-right: 1px solid rgba(255,255,255,0.12);
     white-space: nowrap;
-    background: var(--lpse-biru);
   }
-  thead th:last-child { border-right: none; }
 
-  tbody tr { transition: background 0.12s; }
   tbody tr:nth-child(even) { background: #f0f5fb; }
-  tbody tr:nth-child(odd)  { background: #fff; }
   tbody tr:hover { background: #dbeafe !important; }
-
   tbody td {
     padding: 9px 14px;
     border-bottom: 1px solid #e8edf5;
@@ -390,7 +352,6 @@
     vertical-align: middle;
     color: #1e293b;
   }
-  tbody td:last-child { border-right: none; }
   .td-rupiah  { text-align: right; font-variant-numeric: tabular-nums; }
   .td-center  { text-align: center; }
   .td-persen  { text-align: right; font-weight: 600; color: var(--lpse-biru); }
@@ -398,7 +359,6 @@
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
 <div class="page-header">
   <div class="page-header-top">
     <div>
@@ -407,128 +367,113 @@
       <p class="last-update" style="margin-top:2px;">Sumber data dari Inaproc API Gateway</p>
     </div>
     <a href="../" class="btn-back" title="Kembali ke Dashboard">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-        fill="none" stroke="currentColor" stroke-width="2.5"
-        stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-        <polyline points="9 22 9 12 15 12 15 22"/>
-      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
     </a>
   </div>
 </div>
 
 <div style="padding: 0 20px;">
 
-<!-- Strip warna LPSE -->
-<div class="color-strip">
-  <span style="background:var(--lpse-biru)"></span>
-  <span style="background:var(--lpse-merah)"></span>
-  <span style="background:var(--lpse-kuning)"></span>
-  <span style="background:var(--lpse-hijau)"></span>
-</div>
+  <div class="color-strip">
+    <span style="background:var(--lpse-biru)"></span>
+    <span style="background:var(--lpse-merah)"></span>
+    <span style="background:var(--lpse-kuning)"></span>
+    <span style="background:var(--lpse-hijau)"></span>
+  </div>
 
-<!-- ===== STAT CARDS ===== -->
-<div class="stat-cards">
-  <div class="stat-card stat-biru">
-    <span class="stat-label">Total Pagu Program</span>
-    <span class="stat-value" id="statPaguProgram">-</span>
-    <span class="stat-sub">seluruh data</span>
-  </div>
-  <div class="stat-card stat-merah">
-    <span class="stat-label">Total Pagu Pengadaan</span>
-    <span class="stat-value" id="statPaguPengadaan">-</span>
-    <span class="stat-sub">seluruh data</span>
-  </div>
-  <div class="stat-card stat-hijau">
-    <span class="stat-label">Total RUP Terumumkan</span>
-    <span class="stat-value" id="statRup">-</span>
-    <span class="stat-sub">seluruh data</span>
-  </div>
-  <div class="stat-card stat-kuning">
-    <span class="stat-label">Persentase Total</span>
-    <span class="stat-value" id="statPersen">-</span>
-    <span class="stat-sub">RUP / Pagu Pengadaan</span>
-  </div>
-</div>
-
-<!-- ===== FILTER ===== -->
-<div class="filter-card">
-  <div class="filter-title"><span>🔍</span> Filter Data</div>
-  <div style="display:flex; flex-wrap:nowrap; gap:10px; align-items:flex-end; overflow-x:auto; padding-bottom:4px;">
-
-    <div style="display:flex; flex-direction:column; gap:4px;">
-      <label>Satuan Kerja</label>
-      <input id="filterSatker" type="text" placeholder="Cari satuan kerja..." style="width:220px;" />
+  <div class="stat-cards">
+    <div class="stat-card stat-biru">
+      <span class="stat-label">Total Pagu Program</span>
+      <span class="stat-value" id="statPaguProgram">-</span>
+      <span class="stat-sub">seluruh data</span>
     </div>
+    <div class="stat-card stat-merah">
+      <span class="stat-label">Total Pagu Pengadaan</span>
+      <span class="stat-value" id="statPaguPengadaan">-</span>
+      <span class="stat-sub">seluruh data</span>
+    </div>
+    <div class="stat-card stat-kuning">
+      <span class="stat-label">Persentase Total</span>
+      <span class="stat-value" id="statPersen">-</span>
+      <span class="stat-sub">RUP / Pagu Pengadaan</span>
+    </div>
+    <div class="stat-card stat-hijau">
+      <span class="stat-label">Total RUP Terumumkan</span>
+      <span class="stat-value" id="statRup">-</span>
+      <span class="stat-sub">seluruh data</span>
+    </div>
+  </div>
 
-    <div style="display:flex; flex-direction:column; gap:4px;">
-      <label>Persentase</label>
-      <div class="check-dropdown">
-        <button class="check-btn" id="persenBtn" onclick="togglePersenPanel(event)">
-          <span id="persenBtnLabel">-- Semua --</span>
-        </button>
-        <div class="check-panel" id="persenPanel">
-          <div class="check-item">
-            <input type="checkbox" id="checkAll" checked onchange="toggleAllPersen(this)">
-            <label for="checkAll" style="cursor:pointer;font-weight:600;">Pilih Semua</label>
-          </div>
-          <div class="check-divider"></div>
-          <div id="persenList"></div>
-          <div class="check-footer">
-            <button class="btn-ok" onclick="applyPersenFilter()">✓ OK</button>
-            <button class="btn-batal" onclick="cancelPersenFilter()">✕ Batal</button>
+  <div class="filter-card">
+    <div class="filter-title"><span>🔍</span> Filter Data</div>
+    <div style="display:flex; flex-wrap:nowrap; gap:10px; align-items:flex-end; overflow-x:auto; padding-bottom:4px;">
+      <div style="display:flex; flex-direction:column; gap:4px;">
+        <label>Satuan Kerja</label>
+        <input id="filterSatker" type="text" placeholder="Cari satuan kerja..." style="width:220px;" />
+      </div>
+      <div style="display:flex; flex-direction:column; gap:4px;">
+        <label>Persentase</label>
+        <div class="check-dropdown">
+          <button class="check-btn" id="persenBtn" onclick="togglePersenPanel(event)">
+            <span id="persenBtnLabel">-- Semua --</span>
+          </button>
+          <div class="check-panel" id="persenPanel">
+            <div class="check-item">
+              <input type="checkbox" id="checkAll" checked onchange="toggleAllPersen(this)">
+              <label for="checkAll" style="cursor:pointer;font-weight:600;">Pilih Semua</label>
+            </div>
+            <div class="check-divider"></div>
+            <div id="persenList"></div>
+            <div class="check-footer">
+              <button class="btn-ok" onclick="applyPersenFilter()">✓ OK</button>
+              <button class="btn-batal" onclick="cancelPersenFilter()">✕ Batal</button>
+            </div>
           </div>
         </div>
       </div>
+      <div style="display:flex; flex-direction:column; justify-content:flex-end;">
+        <button id="resetFilter" class="btn-reset">✕ Reset Filter</button>
+      </div>
     </div>
-
-    <div style="display:flex; flex-direction:column; justify-content:flex-end;">
-      <button id="resetFilter" class="btn-reset">✕ Reset Filter</button>
-    </div>
-
   </div>
-</div>
 
-<!-- ===== KONTROL BAR ===== -->
-<div class="control-bar">
-  <button onclick="downloadExcel()" class="btn-excel">⬇ Download Excel</button>
-  <span id="totalInfo" style="font-size:0.78rem; color:#94a3b8; margin-left:4px;"></span>
-</div>
+  <div class="control-bar">
+    <button onclick="downloadExcel()" class="btn-excel">⬇ Download Excel</button>
+    <span id="totalInfo" style="font-size:0.78rem; color:#94a3b8; margin-left:4px;"></span>
+  </div>
 
-<!-- ===== STICKY HEADER (muncul saat scroll) ===== -->
-<div id="stickyHeader">
-  <table>
-    <thead>
-      <tr>
-        <th style="width:50px;">No</th>
-        <th>Satuan Kerja</th>
-        <th style="text-align:right;">Pagu Program</th>
-        <th style="text-align:right;">Pagu Pengadaan</th>
-        <th style="text-align:right;">Total RUP Terumumkan</th>
-        <th style="text-align:right;">Selisih</th>
-        <th style="text-align:right;">Persentase</th>
-      </tr>
-    </thead>
-  </table>
-</div>
+  <div id="stickyHeader">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:50px;">No</th>
+          <th>Satuan Kerja</th>
+          <th style="text-align:right;">Pagu Program</th>
+          <th style="text-align:right;">Pagu Pengadaan</th>
+          <th style="text-align:right;">Total RUP Terumumkan</th>
+          <th style="text-align:right;">Selisih</th>
+          <th style="text-align:right;">Persentase</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
 
-<!-- ===== TABEL ===== -->
-<div class="table-wrap" id="tableWrap">
-  <table id="mainTable">
-    <thead id="mainThead">
-      <tr>
-        <th>No</th>
-        <th>Satuan Kerja</th>
-        <th>Pagu Program</th>
-        <th>Pagu Pengadaan</th>
-        <th>Total RUP Terumumkan</th>
-        <th>Selisih</th>
-        <th>Persentase</th>
-      </tr>
-    </thead>
-    <tbody id="body"></tbody>
-  </table>
-</div>
+  <div class="table-wrap" id="tableWrap">
+    <table id="mainTable">
+      <thead id="mainThead">
+        <tr>
+          <th>No</th>
+          <th>Satuan Kerja</th>
+          <th>Pagu Program</th>
+          <th>Pagu Pengadaan</th>
+          <th>Total RUP Terumumkan</th>
+          <th>Selisih</th>
+          <th>Persentase</th>
+        </tr>
+      </thead>
+      <tbody id="body"></tbody>
+    </table>
+  </div>
 
 </div>
 
@@ -537,13 +482,16 @@ let rawData      = [];
 let filteredData = [];
 
 function rupiah(n) {
-  return "Rp " + Number(n || 0).toLocaleString("id-ID");
+  const num = Number(n || 0);
+  const prefix = num < 0 ? "-Rp " : "Rp ";
+  return prefix + Math.abs(num).toLocaleString("id-ID");
 }
 
 async function loadData() {
   const res = await fetch("../data/rekap_rup.json");
   rawData   = await res.json();
 
+  // Bersihkan data kosong
   rawData = rawData.filter(row =>
     !(Number(row["Pagu Program"] || 0) === 0 &&
       Number(row["Pagu Pengadaan"] || 0) === 0 &&
@@ -566,13 +514,11 @@ function applyFilter() {
 
   filteredData = rawData.filter(row => {
     if (satker && !(row["Satuan Kerja"] ?? "").toLowerCase().includes(satker)) return false;
-
     const checked = getCheckedPersen();
     if (checked !== null) {
       const p = Number(row["Persentase"] || 0).toFixed(2) + "%";
       if (!checked.includes(p)) return false;
     }
-
     return true;
   });
 
@@ -585,26 +531,31 @@ function renderTable() {
   body.innerHTML = "";
 
   filteredData.forEach((row, index) => {
+    const paguPengadaan = Number(row["Pagu Pengadaan"] || 0);
+    const rupTerumumkan = Number(row["Total RUP Terumumkan"] || 0);
+    
+    // PERHITUNGAN SELISIH: RUP Terumumkan - Pagu Pengadaan
+    const selisih = rupTerumumkan - paguPengadaan;
+    
     const persen = Number(row["Persentase"] || 0).toFixed(2) + "%";
+    
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td class="td-center" style="color:#94a3b8;font-size:0.75rem;">${index + 1}</td>
       <td>${row["Satuan Kerja"] ?? ""}</td>
       <td class="td-rupiah">${rupiah(row["Pagu Program"])}</td>
-      <td class="td-rupiah">${rupiah(row["Pagu Pengadaan"])}</td>
-      <td class="td-rupiah">${rupiah(row["Total RUP Terumumkan"])}</td>
-      <td class="td-rupiah">${rupiah(row["Selisih"])}</td>
+      <td class="td-rupiah">${rupiah(paguPengadaan)}</td>
+      <td class="td-rupiah">${rupiah(rupTerumumkan)}</td>
+      <td class="td-rupiah" style="color: ${selisih < 0 ? '#e63329' : '#1e293b'}">${rupiah(selisih)}</td>
       <td class="td-persen">${persen}</td>
     `;
     body.appendChild(tr);
   });
 
-  document.getElementById("totalInfo").innerText =
-    `(Menampilkan ${filteredData.length} dari ${rawData.length} data)`;
+  document.getElementById("totalInfo").innerText = `(Menampilkan ${filteredData.length} dari ${rawData.length} data)`;
 }
 
 function renderSummary() {
-  // Cards selalu pakai rawData — tidak terpengaruh filter
   let totalPaguProgram   = 0;
   let totalPaguPengadaan = 0;
   let totalRup           = 0;
@@ -624,45 +575,44 @@ function renderSummary() {
 }
 
 function downloadExcel() {
-  const ws = XLSX.utils.json_to_sheet(filteredData);
+  // Mapping ulang untuk Excel agar kolom selisih benar
+  const dataForExcel = filteredData.map((row, index) => ({
+    "No": index + 1,
+    "Satuan Kerja": row["Satuan Kerja"],
+    "Pagu Program": row["Pagu Program"],
+    "Pagu Pengadaan": row["Pagu Pengadaan"],
+    "Total RUP Terumumkan": row["Total RUP Terumumkan"],
+    "Selisih": Number(row["Total RUP Terumumkan"] || 0) - Number(row["Pagu Pengadaan"] || 0),
+    "Persentase": Number(row["Persentase"] || 0).toFixed(2) + "%"
+  }));
+  
+  const ws = XLSX.utils.json_to_sheet(dataForExcel);
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, "RUP");
-  XLSX.writeFile(wb, "rekap_rup.xlsx");
+  XLSX.writeFile(wb, "rekap_rup_2026.xlsx");
 }
 
-// Filter textbox: Enter untuk jalankan
 document.getElementById("filterSatker").addEventListener("keydown", (e) => {
   if (e.key === "Enter") applyFilter();
 });
 
-// Checklist persentase dihandle oleh toggleAllPersen dan applyFilter
-
-// Reset
 document.getElementById("resetFilter").addEventListener("click", () => {
   document.getElementById("filterSatker").value = "";
-  // centang semua persentase
   document.querySelectorAll("#persenList input[type=checkbox]").forEach(cb => cb.checked = true);
   document.getElementById("checkAll").checked = true;
   updatePersenLabel();
   applyFilter();
 });
 
-// ===== CHECKLIST PERSENTASE =====
 function buildPersenList() {
-  const unik = [...new Set(rawData.map(r =>
-    (Number(r["Persentase"] || 0).toFixed(2) + "%")
-  ))].sort((a, b) => parseFloat(a) - parseFloat(b));
-
+  const unik = [...new Set(rawData.map(r => (Number(r["Persentase"] || 0).toFixed(2) + "%")))].sort((a, b) => parseFloat(a) - parseFloat(b));
   const list = document.getElementById("persenList");
   list.innerHTML = "";
   unik.forEach(val => {
-    const id = "pct_" + val.replace(".","_");
+    const id = "pct_" + val.replace(".","_").replace("%","");
     const div = document.createElement("div");
     div.className = "check-item";
-    div.innerHTML = `
-      <input type="checkbox" id="${id}" value="${val}" checked onchange="onPersenChange()">
-      <label for="${id}" style="cursor:pointer;">${val}</label>
-    `;
+    div.innerHTML = `<input type="checkbox" id="${id}" value="${val}" checked onchange="onPersenChange()"><label for="${id}" style="cursor:pointer; flex:1;">${val}</label>`;
     list.appendChild(div);
   });
 }
@@ -671,39 +621,29 @@ function togglePersenPanel(e) {
   e.stopPropagation();
   const panel = document.getElementById("persenPanel");
   const btn   = document.getElementById("persenBtn");
-  const isOpen = panel.classList.contains("open");
-  document.querySelectorAll(".check-panel").forEach(p => p.classList.remove("open"));
-  document.querySelectorAll(".check-btn").forEach(b => b.classList.remove("open"));
-  if (!isOpen) {
-    // Posisi panel mengikuti posisi tombol (fixed)
+  if (!panel.classList.contains("open")) {
     const rect = btn.getBoundingClientRect();
-    panel.style.top  = (rect.bottom + 4) + "px";
+    panel.style.top = (rect.bottom + 4) + "px";
     panel.style.left = rect.left + "px";
     panel.classList.add("open");
     btn.classList.add("open");
-    savePersenSnapshot();  // simpan state sebelum dibuka
-  }
+    savePersenSnapshot();
+  } else { closePersenPanel(); }
 }
 
 function toggleAllPersen(el) {
-  document.querySelectorAll("#persenList input[type=checkbox]")
-    .forEach(cb => cb.checked = el.checked);
-  // Tidak langsung apply — tunggu tombol OK
+  document.querySelectorAll("#persenList input[type=checkbox]").forEach(cb => cb.checked = el.checked);
 }
 
 function onPersenChange() {
   const all = document.querySelectorAll("#persenList input[type=checkbox]");
   const chk = document.querySelectorAll("#persenList input[type=checkbox]:checked");
   document.getElementById("checkAll").checked = all.length === chk.length;
-  // Tidak langsung apply — tunggu tombol OK
 }
 
-// Simpan state checklist sebelum dibuka (untuk tombol Batal)
 let _persenSnapshot = [];
-
 function savePersenSnapshot() {
-  _persenSnapshot = [...document.querySelectorAll("#persenList input[type=checkbox]")]
-    .map(cb => cb.checked);
+  _persenSnapshot = [...document.querySelectorAll("#persenList input[type=checkbox]")].map(cb => cb.checked);
 }
 
 function applyPersenFilter() {
@@ -713,12 +653,9 @@ function applyPersenFilter() {
 }
 
 function cancelPersenFilter() {
-  // Kembalikan ke state sebelum dibuka
   const cbs = document.querySelectorAll("#persenList input[type=checkbox]");
   cbs.forEach((cb, i) => cb.checked = _persenSnapshot[i] ?? true);
-  const all = cbs.length;
-  const chk = [...cbs].filter(cb => cb.checked).length;
-  document.getElementById("checkAll").checked = all === chk;
+  onPersenChange();
   closePersenPanel();
 }
 
@@ -731,58 +668,41 @@ function updatePersenLabel() {
   const all = document.querySelectorAll("#persenList input[type=checkbox]");
   const chk = document.querySelectorAll("#persenList input[type=checkbox]:checked");
   const lbl = document.getElementById("persenBtnLabel");
-  if (chk.length === 0)          lbl.innerText = "Tidak ada";
+  if (chk.length === 0) lbl.innerText = "Tidak ada";
   else if (chk.length === all.length) lbl.innerText = "-- Semua --";
-  else                           lbl.innerText = chk.length + " dipilih";
+  else lbl.innerText = chk.length + " dipilih";
 }
 
 function getCheckedPersen() {
   const all = document.querySelectorAll("#persenList input[type=checkbox]");
-  const chk = [...document.querySelectorAll("#persenList input[type=checkbox]:checked")]
-    .map(cb => cb.value);
-  if (chk.length === all.length) return null; // semua → tidak filter
-  return chk;
+  const chk = [...document.querySelectorAll("#persenList input[type=checkbox]:checked")].map(cb => cb.value);
+  return chk.length === all.length ? null : chk;
 }
 
-// Tutup panel saat klik di luar → sama seperti Batal
 document.addEventListener("click", (e) => {
   const panel = document.getElementById("persenPanel");
   const btn   = document.getElementById("persenBtn");
-  if (panel && panel.classList.contains("open")) {
-    if (!panel.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
-      cancelPersenFilter();
-    }
+  if (panel.classList.contains("open") && !panel.contains(e.target) && !btn.contains(e.target)) {
+    cancelPersenFilter();
   }
 });
 
-// ===== STICKY HEADER SCROLL LISTENER =====
 window.addEventListener("scroll", () => {
-  const thead  = document.getElementById("mainThead");
+  const thead = document.getElementById("mainThead");
   const sticky = document.getElementById("stickyHeader");
   if (!thead) return;
   const rect = thead.getBoundingClientRect();
   if (rect.bottom <= 0) {
-    // Thead sudah melewati atas viewport → tampilkan sticky
     sticky.style.display = "block";
-    // Samakan lebar kolom dengan tabel asli
-    const cols    = thead.querySelectorAll("th");
-    const sCols   = sticky.querySelectorAll("th");
-    cols.forEach((col, i) => {
-      if (sCols[i]) sCols[i].style.width = col.offsetWidth + "px";
-    });
-    // Sinkron scroll horizontal
-    const wrap = document.getElementById("tableWrap");
-    sticky.scrollLeft = wrap.scrollLeft;
-  } else {
-    sticky.style.display = "none";
-  }
+    const cols = thead.querySelectorAll("th");
+    const sCols = sticky.querySelectorAll("th");
+    cols.forEach((col, i) => { if (sCols[i]) sCols[i].style.width = col.offsetWidth + "px"; });
+    sticky.scrollLeft = document.getElementById("tableWrap").scrollLeft;
+  } else { sticky.style.display = "none"; }
 });
 
-// Sinkron scroll horizontal antara sticky dan tabel
-document.getElementById("tableWrap") && document.getElementById("tableWrap").addEventListener("scroll", () => {
-  const sticky = document.getElementById("stickyHeader");
-  const wrap   = document.getElementById("tableWrap");
-  if (sticky.style.display === "block") sticky.scrollLeft = wrap.scrollLeft;
+document.getElementById("tableWrap").addEventListener("scroll", (e) => {
+  document.getElementById("stickyHeader").scrollLeft = e.target.scrollLeft;
 });
 
 loadData();
