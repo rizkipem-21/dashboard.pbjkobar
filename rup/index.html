@@ -301,6 +301,12 @@
     box-shadow: 0 2px 12px rgba(26,58,107,0.09);
     overflow-x: auto;
     margin-bottom: 24px;
+    overflow-y: visible;
+  }
+  /* Buat seluruh halaman bisa scroll */
+  html, body {
+    height: auto;
+    overflow-y: auto;
   }
   table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
   thead tr { background: var(--lpse-biru); color: #fff; }
@@ -314,9 +320,9 @@
     white-space: nowrap;
     position: sticky;
     top: 0;
-    z-index: 50;
+    z-index: 100;
     background: var(--lpse-biru);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
   }
   thead th:last-child { border-right: none; }
 
