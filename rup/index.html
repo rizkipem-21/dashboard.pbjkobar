@@ -4,224 +4,491 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rekapitulasi RUP Kabupaten Kotawaringin Barat Tahun 2026</title>
-
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-
 <style>
-th { cursor: pointer; position: sticky; top: 0; background: #e5e7eb; z-index: 5; }
-.filter-box {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    border: 1px solid #ccc;
-    padding: 10px;
-    z-index: 10;
-    max-height: 250px;
+  :root {
+    --lpse-biru  : #1a3a6b;
+    --lpse-biru2 : #1e4d8c;
+    --lpse-merah : #e63329;
+    --lpse-kuning: #f5c800;
+    --lpse-hijau : #2d9e47;
+  }
+
+  body {
+    background: #f0f4f8;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  /* ===== HEADER ===== */
+  .page-header {
+    background: linear-gradient(135deg, var(--lpse-biru) 0%, var(--lpse-biru2) 100%);
+    border-bottom: 4px solid var(--lpse-kuning);
+    padding: 20px 28px 16px;
+    margin-bottom: 24px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 16px rgba(26,58,107,0.18);
+  }
+  .page-header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .page-header h1 {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin: 0 0 2px 0;
+  }
+  .page-header .last-update {
+    color: rgba(255,255,255,0.72);
+    font-size: 0.75rem;
+  }
+  .btn-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+  .btn-back:hover {
+    background: var(--lpse-kuning);
+    border-color: var(--lpse-kuning);
+    color: #1a3a6b;
+  }
+
+  /* ===== COLOR STRIP ===== */
+  .color-strip {
+    display: flex;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  }
+  .color-strip span { flex: 1; }
+
+  /* ===== STAT CARDS ===== */
+  .stat-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .stat-card {
+    flex: 1;
+    min-width: 140px;
+    border-radius: 10px;
+    padding: 14px 18px;
+    color: #fff;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .stat-card .stat-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    opacity: 0.85;
+  }
+  .stat-card .stat-value {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+  }
+  .stat-card .stat-sub {
+    font-size: 0.72rem;
+    opacity: 0.75;
+  }
+  .stat-biru   { background: linear-gradient(135deg, #1a3a6b, #2563b0); }
+  .stat-merah  { background: linear-gradient(135deg, #c0392b, #e63329); }
+  .stat-kuning { background: linear-gradient(135deg, #d4a000, #f5c800); color: #1a1a1a; }
+  .stat-kuning .stat-label, .stat-kuning .stat-sub { opacity: 0.65; }
+  .stat-hijau  { background: linear-gradient(135deg, #1e7e34, #2d9e47); }
+
+  /* ===== FILTER CARD ===== */
+  .filter-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(26,58,107,0.09);
+    padding: 18px 20px;
+    margin-bottom: 16px;
+    border-top: 3px solid var(--lpse-biru);
+  }
+  .filter-card .filter-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--lpse-biru);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .filter-card label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .filter-card input,
+  .filter-card select {
+    border: 1.5px solid #dde3ed;
+    border-radius: 7px;
+    padding: 7px 11px;
+    font-size: 0.83rem;
+    color: #1e293b;
+    background: #f8fafc;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .filter-card input:focus,
+  .filter-card select:focus {
+    border-color: var(--lpse-biru);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(26,58,107,0.08);
+  }
+
+  /* ===== TOMBOL ===== */
+  .btn-reset {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 7px;
+    padding: 7px 16px;
+    font-size: 0.83rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .btn-reset:hover { background: #e2e8f0; }
+
+  .btn-excel {
+    background: var(--lpse-hijau);
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 8px 18px;
+    font-size: 0.83rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(45,158,71,0.25);
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+  .btn-excel:hover { background: #258a3d; }
+
+  /* ===== KONTROL BAR ===== */
+  .control-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 12px 16px;
+    box-shadow: 0 1px 6px rgba(26,58,107,0.07);
+  }
+  .control-bar label { font-size: 0.83rem; color: #475569; font-weight: 500; }
+  .control-bar select {
+    border: 1.5px solid #dde3ed;
+    border-radius: 7px;
+    padding: 6px 10px;
+    font-size: 0.83rem;
+    color: #1e293b;
+    background: #f8fafc;
+    outline: none;
+  }
+
+  /* ===== TABEL ===== */
+  .table-wrap {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(26,58,107,0.09);
     overflow: auto;
-    display: none;
-}
+    margin-bottom: 24px;
+    max-height: calc(100vh - 320px);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+  thead tr { background: var(--lpse-biru); color: #fff; }
+  thead th {
+    padding: 11px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.3px;
+    border-right: 1px solid rgba(255,255,255,0.12);
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--lpse-biru);
+  }
+  thead th:last-child { border-right: none; }
+
+  tbody tr { transition: background 0.12s; }
+  tbody tr:nth-child(even) { background: #f0f5fb; }
+  tbody tr:nth-child(odd)  { background: #fff; }
+  tbody tr:hover { background: #dbeafe !important; }
+
+  tbody td {
+    padding: 9px 14px;
+    border-bottom: 1px solid #e8edf5;
+    border-right: 1px solid #e8edf5;
+    vertical-align: middle;
+    color: #1e293b;
+  }
+  tbody td:last-child { border-right: none; }
+  .td-rupiah  { text-align: right; font-variant-numeric: tabular-nums; }
+  .td-center  { text-align: center; }
+  .td-persen  { text-align: right; font-weight: 600; color: var(--lpse-biru); }
 </style>
 </head>
+<body>
 
-<body class="bg-gray-100 p-6">
+<!-- ===== HEADER ===== -->
+<div class="page-header">
+  <div class="page-header-top">
+    <div>
+      <h1>📊 Rekapitulasi RUP Kabupaten Kotawaringin Barat Tahun 2026</h1>
+      <p id="lastUpdate" class="last-update">Memuat last update...</p>
+      <p class="last-update" style="margin-top:2px;">Sumber data dari Inaproc API Gateway</p>
+    </div>
+    <a href="../" class="btn-back" title="Kembali ke Dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+    </a>
+  </div>
+</div>
 
-<h1 class="text-2xl font-bold mb-1">
-Rekapitulasi RUP Kabupaten Kotawaringin Barat Tahun 2026
-</h1>
-<div class="text-sm text-gray-600 mb-4" id="lastUpdate"></div>
+<div style="padding: 0 20px;">
 
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4" id="summary"></div>
+<!-- Strip warna LPSE -->
+<div class="color-strip">
+  <span style="background:var(--lpse-biru)"></span>
+  <span style="background:var(--lpse-merah)"></span>
+  <span style="background:var(--lpse-kuning)"></span>
+  <span style="background:var(--lpse-hijau)"></span>
+</div>
 
-<button onclick="downloadExcel()" class="mb-4 bg-green-600 text-white px-4 py-2 rounded">
-Download Excel
-</button>
+<!-- ===== STAT CARDS ===== -->
+<div class="stat-cards">
+  <div class="stat-card stat-biru">
+    <span class="stat-label">Total Pagu Program</span>
+    <span class="stat-value" id="statPaguProgram">-</span>
+    <span class="stat-sub">seluruh data</span>
+  </div>
+  <div class="stat-card stat-merah">
+    <span class="stat-label">Total Pagu Pengadaan</span>
+    <span class="stat-value" id="statPaguPengadaan">-</span>
+    <span class="stat-sub">seluruh data</span>
+  </div>
+  <div class="stat-card stat-hijau">
+    <span class="stat-label">Total RUP Terumumkan</span>
+    <span class="stat-value" id="statRup">-</span>
+    <span class="stat-sub">seluruh data</span>
+  </div>
+  <div class="stat-card stat-kuning">
+    <span class="stat-label">Persentase Total</span>
+    <span class="stat-value" id="statPersen">-</span>
+    <span class="stat-sub">RUP / Pagu Pengadaan</span>
+  </div>
+</div>
 
-<div class="bg-white rounded shadow max-h-[70vh] overflow-auto">
-<table class="min-w-full text-sm text-left border" id="table">
-<thead>
-<tr id="headerRow"></tr>
-</thead>
-<tbody id="body"></tbody>
-</table>
+<!-- ===== FILTER ===== -->
+<div class="filter-card">
+  <div class="filter-title"><span>🔍</span> Filter Data</div>
+  <div style="display:flex; flex-wrap:nowrap; gap:10px; align-items:flex-end; overflow-x:auto; padding-bottom:4px;">
+
+    <div style="display:flex; flex-direction:column; gap:4px;">
+      <label>Satuan Kerja</label>
+      <input id="filterSatker" type="text" placeholder="Cari satuan kerja..." style="width:220px;" />
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:4px;">
+      <label>Persentase</label>
+      <select id="filterPersen" style="width:170px;">
+        <option value="">-- Semua --</option>
+        <option value="0">0% (Belum ada RUP)</option>
+        <option value="below50">Di bawah 50%</option>
+        <option value="50to99">50% - 99%</option>
+        <option value="100">100% (Lengkap)</option>
+      </select>
+    </div>
+
+    <div style="display:flex; flex-direction:column; justify-content:flex-end;">
+      <button id="resetFilter" class="btn-reset">✕ Reset Filter</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== KONTROL BAR ===== -->
+<div class="control-bar">
+  <button onclick="downloadExcel()" class="btn-excel">⬇ Download Excel</button>
+  <span id="totalInfo" style="font-size:0.78rem; color:#94a3b8; margin-left:4px;"></span>
+</div>
+
+<!-- ===== TABEL ===== -->
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Satuan Kerja</th>
+        <th>Pagu Program</th>
+        <th>Pagu Pengadaan</th>
+        <th>Total RUP Terumumkan</th>
+        <th>Selisih</th>
+        <th>Persentase</th>
+      </tr>
+    </thead>
+    <tbody id="body"></tbody>
+  </table>
+</div>
+
 </div>
 
 <script>
-let rawData = [];
+let rawData      = [];
 let filteredData = [];
-let filters = {};
 
-function rupiah(n){
-    return "Rp " + Number(n || 0).toLocaleString("id-ID");
+function rupiah(n) {
+  return "Rp " + Number(n || 0).toLocaleString("id-ID");
 }
 
-async function loadData(){
-    const res = await fetch("../data/rekap_rup.json");
-    rawData = await res.json();
+async function loadData() {
+  const res = await fetch("../data/rekap_rup.json");
+  rawData   = await res.json();
 
-    rawData = rawData.filter(row => {
-        return !(Number(row["Pagu Program"] || 0) === 0 &&
-                 Number(row["Pagu Pengadaan"] || 0) === 0 &&
-                 Number(row["Total RUP Terumumkan"] || 0) === 0);
-    });
+  rawData = rawData.filter(row =>
+    !(Number(row["Pagu Program"] || 0) === 0 &&
+      Number(row["Pagu Pengadaan"] || 0) === 0 &&
+      Number(row["Total RUP Terumumkan"] || 0) === 0)
+  );
 
-    filteredData = [...rawData];
+  filteredData = [...rawData];
+  applyFilter();
 
-    renderHeader();
-    renderTable();
-    renderSummary();
-
-    fetch("../data/last-update-rup.txt")
-        .then(res => res.text())
-        .then(txt => {
-            document.getElementById("lastUpdate").innerText = "Update terakhir: " + txt;
-        });
+  try {
+    const res2 = await fetch("../data/last-update-rup.txt");
+    const txt  = await res2.text();
+    document.getElementById("lastUpdate").innerText = "🕒 Terakhir diperbarui: " + txt.trim();
+  } catch { document.getElementById("lastUpdate").innerText = ""; }
 }
 
-function renderHeader(){
-    const header = document.getElementById("headerRow");
-    header.innerHTML = "";
+function applyFilter() {
+  const satker = document.getElementById("filterSatker").value.trim().toLowerCase();
+  const persen = document.getElementById("filterPersen").value;
 
-    const thNo = document.createElement("th");
-    thNo.className = "px-4 py-2 border";
-    thNo.innerText = "No.";
-    header.appendChild(thNo);
+  filteredData = rawData.filter(row => {
+    if (satker && !(row["Satuan Kerja"] ?? "").toLowerCase().includes(satker)) return false;
 
-    Object.keys(rawData[0]).forEach(col => {
-        const th = document.createElement("th");
-        th.className = "px-4 py-2 border";
+    if (persen !== "") {
+      const p = Number(row["Persentase"] || 0);
+      if (persen === "0"       && p !== 0)          return false;
+      if (persen === "below50" && (p <= 0 || p >= 50)) return false;
+      if (persen === "50to99"  && (p < 50 || p >= 100)) return false;
+      if (persen === "100"     && p < 100)           return false;
+    }
 
-        th.innerHTML = `
-            ${col} ▼
-            <div class="filter-box" id="filter-${col}"></div>
-        `;
+    return true;
+  });
 
-        th.onclick = (e) => {
-            e.stopPropagation();
-            openFilter(col);
-        };
-
-        header.appendChild(th);
-    });
+  renderTable();
+  renderSummary();
 }
 
-function openFilter(column){
-    document.querySelectorAll(".filter-box").forEach(el => el.style.display = "none");
+function renderTable() {
+  const body = document.getElementById("body");
+  body.innerHTML = "";
 
-    const box = document.getElementById("filter-"+column);
-    box.style.display = "block";
-
-    const values = [...new Set(rawData.map(d => d[column]))];
-
-    box.innerHTML = `
-        <label><input type="checkbox" onclick="toggleAll('${column}', this)" checked> Select All</label><br>
-        ${values.map(v => `
-            <label>
-                <input type="checkbox" value="${v}" checked onchange="applyFilter('${column}')"> ${v}
-            </label><br>
-        `).join("")}
-        <button onclick="applyFilter('${column}')" class="mt-2 bg-blue-500 text-white px-2 py-1 rounded">OK</button>
+  filteredData.forEach((row, index) => {
+    const persen = Number(row["Persentase"] || 0).toFixed(2) + "%";
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td class="td-center" style="color:#94a3b8;font-size:0.75rem;">${index + 1}</td>
+      <td>${row["Satuan Kerja"] ?? ""}</td>
+      <td class="td-rupiah">${rupiah(row["Pagu Program"])}</td>
+      <td class="td-rupiah">${rupiah(row["Pagu Pengadaan"])}</td>
+      <td class="td-rupiah">${rupiah(row["Total RUP Terumumkan"])}</td>
+      <td class="td-rupiah">${rupiah(row["Selisih"])}</td>
+      <td class="td-persen">${persen}</td>
     `;
+    body.appendChild(tr);
+  });
+
+  document.getElementById("totalInfo").innerText =
+    `(Menampilkan ${filteredData.length} dari ${rawData.length} data)`;
 }
 
-function toggleAll(column, el){
-    const box = document.getElementById("filter-"+column);
-    box.querySelectorAll("input[type=checkbox]").forEach(cb => {
-        if(cb !== el) cb.checked = el.checked;
-    });
+function renderSummary() {
+  // Cards selalu pakai rawData — tidak terpengaruh filter
+  let totalPaguProgram   = 0;
+  let totalPaguPengadaan = 0;
+  let totalRup           = 0;
+
+  rawData.forEach(d => {
+    totalPaguProgram   += Number(d["Pagu Program"] || 0);
+    totalPaguPengadaan += Number(d["Pagu Pengadaan"] || 0);
+    totalRup           += Number(d["Total RUP Terumumkan"] || 0);
+  });
+
+  const persenTotal = totalPaguPengadaan === 0 ? 0 : (totalRup / totalPaguPengadaan) * 100;
+
+  document.getElementById("statPaguProgram").innerText  = rupiah(totalPaguProgram);
+  document.getElementById("statPaguPengadaan").innerText = rupiah(totalPaguPengadaan);
+  document.getElementById("statRup").innerText          = rupiah(totalRup);
+  document.getElementById("statPersen").innerText       = persenTotal.toFixed(2) + "%";
 }
 
-function applyFilter(column){
-    const box = document.getElementById("filter-"+column);
-    const checked = [...box.querySelectorAll("input[type=checkbox]:checked")]
-        .map(cb => cb.value);
-
-    filters[column] = checked;
-
-    filteredData = rawData.filter(row => {
-        return Object.keys(filters).every(col => {
-            if(!filters[col] || filters[col].length === 0) return true;
-            return filters[col].includes(String(row[col]));
-        });
-    });
-
-    renderTable();
-    renderSummary();
+function downloadExcel() {
+  const ws = XLSX.utils.json_to_sheet(filteredData);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "RUP");
+  XLSX.writeFile(wb, "rekap_rup.xlsx");
 }
 
-function renderTable(){
-    const body = document.getElementById("body");
-    body.innerHTML = "";
+// Filter textbox: Enter untuk jalankan
+document.getElementById("filterSatker").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") applyFilter();
+});
 
-    filteredData.forEach((row, index) => {
+// Filter dropdown: langsung
+document.getElementById("filterPersen").addEventListener("change", applyFilter);
 
-        // ✅ HANYA INI YANG DIUBAH
-        let tr = `<tr class='border ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}'>`;
-
-        tr += `<td class="px-4 py-2 border">${index + 1}</td>`;
-
-        Object.keys(row).forEach(col => {
-            let val = row[col];
-
-            if(col.includes("Pagu") || col.includes("RUP") || col.includes("Selisih")){
-                val = rupiah(val);
-            }
-
-            if(col === "Persentase"){
-                val = Number(val).toFixed(2) + "%";
-            }
-
-            tr += `<td class="px-4 py-2 border">${val}</td>`;
-        });
-
-        tr += "</tr>";
-        body.innerHTML += tr;
-    });
-}
-
-function renderSummary(){
-    let totalPaguProgram = 0;
-    let totalPaguPengadaan = 0;
-    let totalRup = 0;
-
-    filteredData.forEach(d => {
-        totalPaguProgram += Number(d["Pagu Program"] || 0);
-        totalPaguPengadaan += Number(d["Pagu Pengadaan"] || 0);
-        totalRup += Number(d["Total RUP Terumumkan"] || 0);
-    });
-
-    const persenTotal = totalPaguPengadaan === 0 ? 0 : (totalRup / totalPaguPengadaan) * 100;
-
-    document.getElementById("summary").innerHTML = `
-        <div class="bg-white p-4 shadow rounded">
-            <b>Total Pagu Program</b><br>${rupiah(totalPaguProgram)}
-        </div>
-        <div class="bg-white p-4 shadow rounded">
-            <b>Total Pagu Pengadaan</b><br>${rupiah(totalPaguPengadaan)}
-        </div>
-        <div class="bg-white p-4 shadow rounded">
-            <b>Total RUP Terumumkan</b><br>${rupiah(totalRup)}
-        </div>
-        <div class="bg-white p-4 shadow rounded">
-            <b>Persentase Total</b><br>${persenTotal.toFixed(2)}%
-        </div>
-    `;
-}
-
-function downloadExcel(){
-    const ws = XLSX.utils.json_to_sheet(filteredData);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "RUP");
-    XLSX.writeFile(wb, "rekap_rup.xlsx");
-}
-
-document.addEventListener("click", () => {
-    document.querySelectorAll(".filter-box").forEach(el => el.style.display = "none");
+// Reset
+document.getElementById("resetFilter").addEventListener("click", () => {
+  document.getElementById("filterSatker").value = "";
+  document.getElementById("filterPersen").value = "";
+  applyFilter();
 });
 
 loadData();
 </script>
-
 </body>
 </html>
