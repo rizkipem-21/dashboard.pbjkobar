@@ -311,34 +311,49 @@
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 12px rgba(26,58,107,0.09);
-    overflow-x: auto;
-    overflow-y: auto;
-    max-height: 70vh;
-    margin-bottom: 4px;
+    margin-bottom: 24px;
     position: relative;
   }
   table { 
     width: 100%; 
-    border-collapse: separate; 
-    border-spacing: 0; 
+    border-collapse: collapse; 
     font-size: 0.8rem; 
   }
-  thead th {
-    position: sticky;
-    top: 0;
-    z-index: 10;
+  thead tr {
     background: var(--lpse-biru);
     color: #fff;
+  }
+  thead th {
     padding: 11px 14px;
     text-align: left;
     font-weight: 600;
     font-size: 0.78rem;
     letter-spacing: 0.3px;
     border-right: 1px solid rgba(255,255,255,0.12);
-    border-bottom: 2px solid var(--lpse-kuning);
     white-space: nowrap;
   }
   thead th:last-child { border-right: none; }
+
+  /* Element Sticky Header */
+  #stickyHeader {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 999;
+    background: var(--lpse-biru);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+  }
+  #stickyHeader table { width: 100%; border-collapse: collapse; }
+  #stickyHeader th {
+    padding: 11px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.78rem;
+    color: #fff;
+    border-right: 1px solid rgba(255,255,255,0.12);
+    white-space: nowrap;
+  }
+  #stickyHeader th:last-child { border-right: none; }
 
   tbody tr { transition: background 0.12s; }
   tbody tr:nth-child(even) { background: #f0f5fb; }
@@ -533,22 +548,39 @@
   <span id="totalInfo" class="total-info"></span>
 </div>
 
-<div class="table-wrap">
-  <div id="loadingOverlay">
-    <div class="loader"></div>
-    <span style="font-size:0.85rem; color:#1a3a6b; font-weight:600;">Memuat Data...</span>
-  </div>
+<div id="stickyHeader">
   <table>
     <thead>
       <tr>
-        <th>No</th>
+        <th style="width:50px; text-align:center;">No</th>
         <th>Kode RUP / Kode Paket</th>
         <th>Satuan Kerja / Nama Paket</th>
         <th>Jenis / Metode</th>
         <th>Status</th>
-        <th>Nilai Pagu / HPS</th>
-        <th>Hasil Pemilihan</th>
-        <th>Efisiensi</th>
+        <th style="text-align:right;">Nilai Pagu / HPS</th>
+        <th style="text-align:right;">Hasil Pemilihan</th>
+        <th style="text-align:right;">Efisiensi</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+
+<div class="table-wrap" id="tableWrap">
+  <div id="loadingOverlay">
+    <div class="loader"></div>
+    <span style="font-size:0.85rem; color:#1a3a6b; font-weight:600;">Memuat Data...</span>
+  </div>
+  <table id="mainTable">
+    <thead id="mainThead">
+      <tr>
+        <th style="width:50px; text-align:center;">No</th>
+        <th>Kode RUP / Kode Paket</th>
+        <th>Satuan Kerja / Nama Paket</th>
+        <th>Jenis / Metode</th>
+        <th>Status</th>
+        <th style="text-align:right;">Nilai Pagu / HPS</th>
+        <th style="text-align:right;">Hasil Pemilihan</th>
+        <th style="text-align:right;">Efisiensi</th>
       </tr>
     </thead>
     <tbody id="tableBody"></tbody>
@@ -859,6 +891,25 @@ document.getElementById("downloadCurrent").addEventListener("click", () => {
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, "Pengadaan");
   XLSX.writeFile(wb, `Rekap_Pengadaan_${currentYear}.xlsx`);
+});
+
+// LOGIKA STICKY HEADER (Window Scroll)
+window.addEventListener("scroll", () => {
+  const thead = document.getElementById("mainThead");
+  const sticky = document.getElementById("stickyHeader");
+  if (!thead) return;
+  const rect = thead.getBoundingClientRect();
+  
+  if (rect.bottom <= 0) {
+    sticky.style.display = "block";
+    const cols = thead.querySelectorAll("th");
+    const sCols = sticky.querySelectorAll("th");
+    cols.forEach((col, i) => { 
+      if (sCols[i]) sCols[i].style.width = col.offsetWidth + "px"; 
+    });
+  } else { 
+    sticky.style.display = "none"; 
+  }
 });
 
 // === INITIALIZATION ===
