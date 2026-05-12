@@ -114,7 +114,7 @@
     opacity: 0.75;
   }
 
-  /* Urutan Warna: Biru, Merah, Kuning, Hijau */
+  /* Mapping Warna Baru sesuai urutan Bar: Biru, Merah, Kuning, Hijau */
   .stat-biru   { background: linear-gradient(135deg, #1a3a6b, #2563b0); }
   .stat-merah  { background: linear-gradient(135deg, #c0392b, #e63329); }
   .stat-kuning { background: linear-gradient(135deg, #d4a000, #f5c800); color: #1a1a1a; }
@@ -159,6 +159,7 @@
     background: #f8fafc;
     transition: border-color 0.2s;
     outline: none;
+    width: 220px;
   }
   .filter-card input:focus {
     border-color: var(--lpse-biru);
@@ -167,10 +168,7 @@
   }
 
   /* ===== CHECKLIST DROPDOWN ===== */
-  .check-dropdown {
-    position: relative;
-    display: inline-block;
-  }
+  .check-dropdown { position: relative; display: inline-block; }
   .check-btn {
     border: 1.5px solid #dde3ed;
     border-radius: 7px;
@@ -183,7 +181,6 @@
     text-align: left;
     position: relative;
     outline: none;
-    transition: border-color 0.2s;
   }
   .check-btn::after {
     content: "▾";
@@ -193,11 +190,6 @@
     transform: translateY(-50%);
     color: #64748b;
     font-size: 0.75rem;
-  }
-  .check-btn:focus, .check-btn.open {
-    border-color: var(--lpse-biru);
-    background: #fff;
-    box-shadow: 0 0 0 3px rgba(26,58,107,0.08);
   }
   .check-panel {
     display: none;
@@ -214,143 +206,63 @@
   }
   .check-panel.open { display: block; }
   .check-panel .check-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 14px;
-    font-size: 0.82rem;
-    color: #1e293b;
-    cursor: pointer;
-    transition: background 0.12s;
+    display: flex; align-items: center; gap: 8px;
+    padding: 6px 14px; font-size: 0.82rem; color: #1e293b; cursor: pointer;
   }
   .check-panel .check-item:hover { background: #f0f5fb; }
-  .check-panel .check-item input[type=checkbox] {
-    width: 14px; height: 14px;
-    accent-color: var(--lpse-biru);
-    cursor: pointer;
-  }
-  .check-panel .check-divider {
-    border-top: 1px solid #e8edf5;
-    margin: 4px 0;
-  }
-  .check-panel .check-footer {
-    display: flex;
-    gap: 6px;
-    padding: 8px 14px;
-    border-top: 1px solid #e8edf5;
-    margin-top: 4px;
-    position: sticky;
-    bottom: 0;
-    background: #fff;
-  }
   .check-panel .btn-ok {
-    flex: 1;
-    background: var(--lpse-biru);
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 6px 0;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
+    background: var(--lpse-biru); color: #fff; border: none;
+    border-radius: 6px; padding: 6px 0; font-size: 0.8rem; font-weight: 600; cursor: pointer;
   }
   .check-panel .btn-batal {
-    flex: 1;
-    background: #f1f5f9;
-    color: #475569;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    padding: 6px 0;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
+    background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1;
+    border-radius: 6px; padding: 6px 0; font-size: 0.8rem; font-weight: 600; cursor: pointer;
   }
 
   .btn-reset {
-    background: #f1f5f9;
-    color: #475569;
-    border: 1.5px solid #cbd5e1;
-    border-radius: 7px;
-    padding: 7px 16px;
-    font-size: 0.83rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
+    background: #f1f5f9; color: #475569; border: 1.5px solid #cbd5e1;
+    border-radius: 7px; padding: 7px 16px; font-size: 0.83rem; font-weight: 600; cursor: pointer;
   }
-  .btn-reset:hover { background: #e2e8f0; }
 
   .btn-excel {
-    background: var(--lpse-hijau);
-    color: #fff;
-    border: none;
-    border-radius: 7px;
-    padding: 8px 18px;
-    font-size: 0.83rem;
-    font-weight: 600;
-    cursor: pointer;
+    background: var(--lpse-hijau); color: #fff; border: none;
+    border-radius: 7px; padding: 8px 18px; font-size: 0.83rem; font-weight: 600; cursor: pointer;
     box-shadow: 0 2px 6px rgba(45,158,71,0.25);
   }
 
   .control-bar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-    background: #fff;
-    border-radius: 10px;
-    padding: 12px 16px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    margin-bottom: 14px; background: #fff; border-radius: 10px; padding: 12px 16px;
     box-shadow: 0 1px 6px rgba(26,58,107,0.07);
   }
 
   /* ===== TABEL ===== */
   .table-wrap {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 12px rgba(26,58,107,0.09);
-    margin-bottom: 24px;
-    overflow-x: auto;
+    background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(26,58,107,0.09);
+    margin-bottom: 24px; overflow-x: auto;
   }
   table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
   thead tr { background: var(--lpse-biru); color: #fff; }
   thead th {
-    padding: 11px 14px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 0.78rem;
-    letter-spacing: 0.3px;
-    border-right: 1px solid rgba(255,255,255,0.12);
-    white-space: nowrap;
+    padding: 11px 14px; text-align: left; font-weight: 600; font-size: 0.78rem;
+    border-right: 1px solid rgba(255,255,255,0.12); white-space: nowrap;
   }
   
   #stickyHeader {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 999;
-    background: var(--lpse-biru);
-    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
-    overflow-x: auto;
+    display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+    background: var(--lpse-biru); box-shadow: 0 3px 8px rgba(0,0,0,0.25); overflow-x: auto;
   }
   #stickyHeader table { width: 100%; border-collapse: collapse; }
   #stickyHeader th {
-    padding: 11px 14px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 0.78rem;
-    color: #fff;
-    border-right: 1px solid rgba(255,255,255,0.12);
-    white-space: nowrap;
+    padding: 11px 14px; text-align: left; font-weight: 600; font-size: 0.78rem;
+    color: #fff; border-right: 1px solid rgba(255,255,255,0.12); white-space: nowrap;
   }
 
   tbody tr:nth-child(even) { background: #f0f5fb; }
   tbody tr:hover { background: #dbeafe !important; }
   tbody td {
-    padding: 9px 14px;
-    border-bottom: 1px solid #e8edf5;
-    border-right: 1px solid #e8edf5;
-    vertical-align: middle;
-    color: #1e293b;
+    padding: 9px 14px; border-bottom: 1px solid #e8edf5; border-right: 1px solid #e8edf5;
+    vertical-align: middle; color: #1e293b;
   }
   .td-rupiah  { text-align: right; font-variant-numeric: tabular-nums; }
   .td-center  { text-align: center; }
@@ -393,14 +305,14 @@
       <span class="stat-sub">seluruh data</span>
     </div>
     <div class="stat-card stat-kuning">
-      <span class="stat-label">Persentase Total</span>
-      <span class="stat-value" id="statPersen">-</span>
-      <span class="stat-sub">RUP / Pagu Pengadaan</span>
-    </div>
-    <div class="stat-card stat-hijau">
       <span class="stat-label">Total RUP Terumumkan</span>
       <span class="stat-value" id="statRup">-</span>
       <span class="stat-sub">seluruh data</span>
+    </div>
+    <div class="stat-card stat-hijau">
+      <span class="stat-label">Persentase Total</span>
+      <span class="stat-value" id="statPersen">-</span>
+      <span class="stat-sub">RUP / Pagu Pengadaan</span>
     </div>
   </div>
 
@@ -409,7 +321,7 @@
     <div style="display:flex; flex-wrap:nowrap; gap:10px; align-items:flex-end; overflow-x:auto; padding-bottom:4px;">
       <div style="display:flex; flex-direction:column; gap:4px;">
         <label>Satuan Kerja</label>
-        <input id="filterSatker" type="text" placeholder="Cari satuan kerja..." style="width:220px;" />
+        <input id="filterSatker" type="text" placeholder="Cari satuan kerja..." />
       </div>
       <div style="display:flex; flex-direction:column; gap:4px;">
         <label>Persentase</label>
@@ -490,18 +402,14 @@ function rupiah(n) {
 async function loadData() {
   const res = await fetch("../data/rekap_rup.json");
   rawData   = await res.json();
-
-  // Bersihkan data kosong
   rawData = rawData.filter(row =>
     !(Number(row["Pagu Program"] || 0) === 0 &&
       Number(row["Pagu Pengadaan"] || 0) === 0 &&
       Number(row["Total RUP Terumumkan"] || 0) === 0)
   );
-
   filteredData = [...rawData];
   buildPersenList();
   applyFilter();
-
   try {
     const res2 = await fetch("../data/last-update-rup.txt");
     const txt  = await res2.text();
@@ -511,7 +419,6 @@ async function loadData() {
 
 function applyFilter() {
   const satker = document.getElementById("filterSatker").value.trim().toLowerCase();
-
   filteredData = rawData.filter(row => {
     if (satker && !(row["Satuan Kerja"] ?? "").toLowerCase().includes(satker)) return false;
     const checked = getCheckedPersen();
@@ -521,7 +428,6 @@ function applyFilter() {
     }
     return true;
   });
-
   renderTable();
   renderSummary();
 }
@@ -529,16 +435,11 @@ function applyFilter() {
 function renderTable() {
   const body = document.getElementById("body");
   body.innerHTML = "";
-
   filteredData.forEach((row, index) => {
     const paguPengadaan = Number(row["Pagu Pengadaan"] || 0);
     const rupTerumumkan = Number(row["Total RUP Terumumkan"] || 0);
-    
-    // PERHITUNGAN SELISIH: RUP Terumumkan - Pagu Pengadaan
-    const selisih = rupTerumumkan - paguPengadaan;
-    
+    const selisih = rupTerumumkan - paguPengadaan; // RUP - Pagu Pengadaan
     const persen = Number(row["Persentase"] || 0).toFixed(2) + "%";
-    
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td class="td-center" style="color:#94a3b8;font-size:0.75rem;">${index + 1}</td>
@@ -551,23 +452,17 @@ function renderTable() {
     `;
     body.appendChild(tr);
   });
-
   document.getElementById("totalInfo").innerText = `(Menampilkan ${filteredData.length} dari ${rawData.length} data)`;
 }
 
 function renderSummary() {
-  let totalPaguProgram   = 0;
-  let totalPaguPengadaan = 0;
-  let totalRup           = 0;
-
+  let totalPaguProgram = 0, totalPaguPengadaan = 0, totalRup = 0;
   rawData.forEach(d => {
     totalPaguProgram   += Number(d["Pagu Program"] || 0);
     totalPaguPengadaan += Number(d["Pagu Pengadaan"] || 0);
     totalRup           += Number(d["Total RUP Terumumkan"] || 0);
   });
-
   const persenTotal = totalPaguPengadaan === 0 ? 0 : (totalRup / totalPaguPengadaan) * 100;
-
   document.getElementById("statPaguProgram").innerText  = rupiah(totalPaguProgram);
   document.getElementById("statPaguPengadaan").innerText = rupiah(totalPaguPengadaan);
   document.getElementById("statRup").innerText          = rupiah(totalRup);
@@ -575,7 +470,6 @@ function renderSummary() {
 }
 
 function downloadExcel() {
-  // Mapping ulang untuk Excel agar kolom selisih benar
   const dataForExcel = filteredData.map((row, index) => ({
     "No": index + 1,
     "Satuan Kerja": row["Satuan Kerja"],
@@ -585,17 +479,13 @@ function downloadExcel() {
     "Selisih": Number(row["Total RUP Terumumkan"] || 0) - Number(row["Pagu Pengadaan"] || 0),
     "Persentase": Number(row["Persentase"] || 0).toFixed(2) + "%"
   }));
-  
   const ws = XLSX.utils.json_to_sheet(dataForExcel);
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, "RUP");
   XLSX.writeFile(wb, "rekap_rup_2026.xlsx");
 }
 
-document.getElementById("filterSatker").addEventListener("keydown", (e) => {
-  if (e.key === "Enter") applyFilter();
-});
-
+document.getElementById("filterSatker").addEventListener("keydown", (e) => { if (e.key === "Enter") applyFilter(); });
 document.getElementById("resetFilter").addEventListener("click", () => {
   document.getElementById("filterSatker").value = "";
   document.querySelectorAll("#persenList input[type=checkbox]").forEach(cb => cb.checked = true);
@@ -631,10 +521,7 @@ function togglePersenPanel(e) {
   } else { closePersenPanel(); }
 }
 
-function toggleAllPersen(el) {
-  document.querySelectorAll("#persenList input[type=checkbox]").forEach(cb => cb.checked = el.checked);
-}
-
+function toggleAllPersen(el) { document.querySelectorAll("#persenList input[type=checkbox]").forEach(cb => cb.checked = el.checked); }
 function onPersenChange() {
   const all = document.querySelectorAll("#persenList input[type=checkbox]");
   const chk = document.querySelectorAll("#persenList input[type=checkbox]:checked");
@@ -642,28 +529,15 @@ function onPersenChange() {
 }
 
 let _persenSnapshot = [];
-function savePersenSnapshot() {
-  _persenSnapshot = [...document.querySelectorAll("#persenList input[type=checkbox]")].map(cb => cb.checked);
-}
-
-function applyPersenFilter() {
-  updatePersenLabel();
-  applyFilter();
-  closePersenPanel();
-}
-
+function savePersenSnapshot() { _persenSnapshot = [...document.querySelectorAll("#persenList input[type=checkbox]")].map(cb => cb.checked); }
+function applyPersenFilter() { updatePersenLabel(); applyFilter(); closePersenPanel(); }
 function cancelPersenFilter() {
   const cbs = document.querySelectorAll("#persenList input[type=checkbox]");
   cbs.forEach((cb, i) => cb.checked = _persenSnapshot[i] ?? true);
   onPersenChange();
   closePersenPanel();
 }
-
-function closePersenPanel() {
-  document.getElementById("persenPanel").classList.remove("open");
-  document.getElementById("persenBtn").classList.remove("open");
-}
-
+function closePersenPanel() { document.getElementById("persenPanel").classList.remove("open"); document.getElementById("persenBtn").classList.remove("open"); }
 function updatePersenLabel() {
   const all = document.querySelectorAll("#persenList input[type=checkbox]");
   const chk = document.querySelectorAll("#persenList input[type=checkbox]:checked");
@@ -672,7 +546,6 @@ function updatePersenLabel() {
   else if (chk.length === all.length) lbl.innerText = "-- Semua --";
   else lbl.innerText = chk.length + " dipilih";
 }
-
 function getCheckedPersen() {
   const all = document.querySelectorAll("#persenList input[type=checkbox]");
   const chk = [...document.querySelectorAll("#persenList input[type=checkbox]:checked")].map(cb => cb.value);
@@ -680,30 +553,23 @@ function getCheckedPersen() {
 }
 
 document.addEventListener("click", (e) => {
-  const panel = document.getElementById("persenPanel");
-  const btn   = document.getElementById("persenBtn");
-  if (panel.classList.contains("open") && !panel.contains(e.target) && !btn.contains(e.target)) {
-    cancelPersenFilter();
-  }
+  const panel = document.getElementById("persenPanel"), btn = document.getElementById("persenBtn");
+  if (panel.classList.contains("open") && !panel.contains(e.target) && !btn.contains(e.target)) cancelPersenFilter();
 });
 
 window.addEventListener("scroll", () => {
-  const thead = document.getElementById("mainThead");
-  const sticky = document.getElementById("stickyHeader");
+  const thead = document.getElementById("mainThead"), sticky = document.getElementById("stickyHeader");
   if (!thead) return;
   const rect = thead.getBoundingClientRect();
   if (rect.bottom <= 0) {
     sticky.style.display = "block";
-    const cols = thead.querySelectorAll("th");
-    const sCols = sticky.querySelectorAll("th");
+    const cols = thead.querySelectorAll("th"), sCols = sticky.querySelectorAll("th");
     cols.forEach((col, i) => { if (sCols[i]) sCols[i].style.width = col.offsetWidth + "px"; });
     sticky.scrollLeft = document.getElementById("tableWrap").scrollLeft;
   } else { sticky.style.display = "none"; }
 });
 
-document.getElementById("tableWrap").addEventListener("scroll", (e) => {
-  document.getElementById("stickyHeader").scrollLeft = e.target.scrollLeft;
-});
+document.getElementById("tableWrap").addEventListener("scroll", (e) => { document.getElementById("stickyHeader").scrollLeft = e.target.scrollLeft; });
 
 loadData();
 </script>
