@@ -166,6 +166,80 @@
     box-shadow: 0 0 0 3px rgba(26,58,107,0.08);
   }
 
+  /* ===== CHECKLIST DROPDOWN ===== */
+  .check-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  .check-btn {
+    border: 1.5px solid #dde3ed;
+    border-radius: 7px;
+    padding: 7px 32px 7px 11px;
+    font-size: 0.83rem;
+    color: #1e293b;
+    background: #f8fafc;
+    cursor: pointer;
+    width: 180px;
+    text-align: left;
+    position: relative;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .check-btn::after {
+    content: "▾";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    font-size: 0.75rem;
+  }
+  .check-btn:focus, .check-btn.open {
+    border-color: var(--lpse-biru);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(26,58,107,0.08);
+  }
+  .check-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    background: #fff;
+    border: 1.5px solid #dde3ed;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(26,58,107,0.12);
+    z-index: 100;
+    min-width: 200px;
+    max-height: 220px;
+    overflow-y: auto;
+    padding: 6px 0;
+  }
+  .check-panel.open { display: block; }
+  .check-panel .check-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    color: #1e293b;
+    cursor: pointer;
+    transition: background 0.12s;
+  }
+  .check-panel .check-item:hover { background: #f0f5fb; }
+  .check-panel .check-item input[type=checkbox] {
+    width: 14px; height: 14px;
+    accent-color: var(--lpse-biru);
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+  }
+  .check-panel .check-divider {
+    border-top: 1px solid #e8edf5;
+    margin: 4px 0;
+  }
+
   /* ===== TOMBOL ===== */
   .btn-reset {
     background: #f1f5f9;
@@ -225,9 +299,8 @@
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 12px rgba(26,58,107,0.09);
-    overflow: auto;
+    overflow-x: auto;
     margin-bottom: 24px;
-    max-height: calc(100vh - 320px);
   }
   table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
   thead tr { background: var(--lpse-biru); color: #fff; }
@@ -241,8 +314,9 @@
     white-space: nowrap;
     position: sticky;
     top: 0;
-    z-index: 5;
+    z-index: 50;
     background: var(--lpse-biru);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
   }
   thead th:last-child { border-right: none; }
 
@@ -331,13 +405,19 @@
 
     <div style="display:flex; flex-direction:column; gap:4px;">
       <label>Persentase</label>
-      <select id="filterPersen" style="width:170px;">
-        <option value="">-- Semua --</option>
-        <option value="0">0% (Belum ada RUP)</option>
-        <option value="below50">Di bawah 50%</option>
-        <option value="50to99">50% - 99%</option>
-        <option value="100">100% (Lengkap)</option>
-      </select>
+      <div class="check-dropdown">
+        <button class="check-btn" id="persenBtn" onclick="togglePersenPanel(event)">
+          <span id="persenBtnLabel">-- Semua --</span>
+        </button>
+        <div class="check-panel" id="persenPanel">
+          <div class="check-item">
+            <input type="checkbox" id="checkAll" checked onchange="toggleAllPersen(this)">
+            <label for="checkAll" style="cursor:pointer;font-weight:600;">Pilih Semua</label>
+          </div>
+          <div class="check-divider"></div>
+          <div id="persenList"></div>
+        </div>
+      </div>
     </div>
 
     <div style="display:flex; flex-direction:column; justify-content:flex-end;">
@@ -392,6 +472,7 @@ async function loadData() {
   );
 
   filteredData = [...rawData];
+  buildPersenList();
   applyFilter();
 
   try {
@@ -403,17 +484,14 @@ async function loadData() {
 
 function applyFilter() {
   const satker = document.getElementById("filterSatker").value.trim().toLowerCase();
-  const persen = document.getElementById("filterPersen").value;
 
   filteredData = rawData.filter(row => {
     if (satker && !(row["Satuan Kerja"] ?? "").toLowerCase().includes(satker)) return false;
 
-    if (persen !== "") {
-      const p = Number(row["Persentase"] || 0);
-      if (persen === "0"       && p !== 0)          return false;
-      if (persen === "below50" && (p <= 0 || p >= 50)) return false;
-      if (persen === "50to99"  && (p < 50 || p >= 100)) return false;
-      if (persen === "100"     && p < 100)           return false;
+    const checked = getCheckedPersen();
+    if (checked !== null) {
+      const p = Number(row["Persentase"] || 0).toFixed(2) + "%";
+      if (!checked.includes(p)) return false;
     }
 
     return true;
@@ -478,14 +556,87 @@ document.getElementById("filterSatker").addEventListener("keydown", (e) => {
   if (e.key === "Enter") applyFilter();
 });
 
-// Filter dropdown: langsung
-document.getElementById("filterPersen").addEventListener("change", applyFilter);
+// Checklist persentase dihandle oleh toggleAllPersen dan applyFilter
 
 // Reset
 document.getElementById("resetFilter").addEventListener("click", () => {
   document.getElementById("filterSatker").value = "";
-  document.getElementById("filterPersen").value = "";
+  // centang semua persentase
+  document.querySelectorAll("#persenList input[type=checkbox]").forEach(cb => cb.checked = true);
+  document.getElementById("checkAll").checked = true;
+  updatePersenLabel();
   applyFilter();
+});
+
+// ===== CHECKLIST PERSENTASE =====
+function buildPersenList() {
+  const unik = [...new Set(rawData.map(r =>
+    (Number(r["Persentase"] || 0).toFixed(2) + "%")
+  ))].sort((a, b) => parseFloat(a) - parseFloat(b));
+
+  const list = document.getElementById("persenList");
+  list.innerHTML = "";
+  unik.forEach(val => {
+    const id = "pct_" + val.replace(".","_");
+    const div = document.createElement("div");
+    div.className = "check-item";
+    div.innerHTML = `
+      <input type="checkbox" id="${id}" value="${val}" checked onchange="onPersenChange()">
+      <label for="${id}" style="cursor:pointer;">${val}</label>
+    `;
+    list.appendChild(div);
+  });
+}
+
+function togglePersenPanel(e) {
+  e.stopPropagation();
+  const panel = document.getElementById("persenPanel");
+  const btn   = document.getElementById("persenBtn");
+  const isOpen = panel.classList.contains("open");
+  document.querySelectorAll(".check-panel").forEach(p => p.classList.remove("open"));
+  document.querySelectorAll(".check-btn").forEach(b => b.classList.remove("open"));
+  if (!isOpen) {
+    panel.classList.add("open");
+    btn.classList.add("open");
+  }
+}
+
+function toggleAllPersen(el) {
+  document.querySelectorAll("#persenList input[type=checkbox]")
+    .forEach(cb => cb.checked = el.checked);
+  updatePersenLabel();
+  applyFilter();
+}
+
+function onPersenChange() {
+  const all  = document.querySelectorAll("#persenList input[type=checkbox]");
+  const chk  = document.querySelectorAll("#persenList input[type=checkbox]:checked");
+  document.getElementById("checkAll").checked = all.length === chk.length;
+  updatePersenLabel();
+  applyFilter();
+}
+
+function updatePersenLabel() {
+  const all = document.querySelectorAll("#persenList input[type=checkbox]");
+  const chk = document.querySelectorAll("#persenList input[type=checkbox]:checked");
+  const lbl = document.getElementById("persenBtnLabel");
+  if (chk.length === 0)          lbl.innerText = "Tidak ada";
+  else if (chk.length === all.length) lbl.innerText = "-- Semua --";
+  else                           lbl.innerText = chk.length + " dipilih";
+}
+
+function getCheckedPersen() {
+  const all = document.querySelectorAll("#persenList input[type=checkbox]");
+  const chk = [...document.querySelectorAll("#persenList input[type=checkbox]:checked")]
+    .map(cb => cb.value);
+  if (chk.length === all.length) return null; // semua → tidak filter
+  return chk;
+}
+
+// Tutup panel saat klik di luar
+document.addEventListener("click", () => {
+  document.querySelectorAll(".check-panel").forEach(p => p.classList.remove("open"));
+  document.querySelectorAll(".check-btn").forEach(b => b.classList.remove("open"));
 });
 
 loadData();
