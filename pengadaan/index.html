@@ -315,13 +315,17 @@
     margin-bottom: 4px;
     position: relative;
     min-height: 200px;
+    max-height: 70vh; /* Membatasi tinggi tabel agar bisa di-scroll secara internal */
   }
   table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
   thead tr {
-    background: var(--lpse-biru);
     color: #fff;
   }
   thead th {
+    position: sticky; /* Kunci header */
+    top: 0;           /* Tempel di paling atas */
+    z-index: 10;      /* Pastikan header berada di atas baris data */
+    background: var(--lpse-biru); /* Background dipindah ke th agar tidak transparan saat scroll */
     padding: 11px 14px;
     text-align: left;
     font-weight: 600;
@@ -329,6 +333,7 @@
     letter-spacing: 0.3px;
     border-right: 1px solid rgba(255,255,255,0.12);
     white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Efek bayangan halus pemisah header dan data */
   }
   thead th:last-child { border-right: none; }
 
