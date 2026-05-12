@@ -591,6 +591,15 @@ def process_tahun(tahun):
 
         pagu = get_pagu_multi(kd_list,'s1')
 
+        # --- LOGIKA BARU UNTUK MEMISAHKAN TENDER & SELEKSI ---
+        mtd_pemilihan = str(r.get('mtd_pemilihan', '')).strip()
+        if mtd_pemilihan.lower() == 'seleksi':
+            kategori_metode = 'Seleksi'
+        elif mtd_pemilihan.lower() == 'tender cepat':
+            kategori_metode = 'Tender Cepat'
+        else:
+            kategori_metode = 'Tender'
+
         data_s5.append({
             'Kode RUP':r.get('kd_rup_raw'),
             'Satuan Kerja':r.get('nama_satker'),
@@ -610,7 +619,7 @@ def process_tahun(tahun):
             'Nilai PDN':nilai_pdn,
             'Nilai UMK':nilai_umk,
             'Versi':"",
-            'Metode':'Tender',
+            'Metode':kategori_metode,  # <-- SUDAH DIUBAH MENJADI DINAMIS
             'Sumber':'Sumber 5'
         })
 
