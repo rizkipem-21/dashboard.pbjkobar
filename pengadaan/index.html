@@ -311,7 +311,6 @@
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 12px rgba(26,58,107,0.09);
-    overflow-x: auto;
     margin-bottom: 24px;
     position: relative;
   }
@@ -491,31 +490,38 @@
 
     <div style="display:flex; flex-direction:column; gap:4px;">
       <label>Satuan Kerja</label>
-      <input id="filterSatker" type="text" placeholder="Cari satuan kerja..." style="width:180px;" />
+      <input id="filterSatker" type="text" placeholder="Cari satuan kerja..." style="width:160px;" />
     </div>
 
     <div style="display:flex; flex-direction:column; gap:4px;">
       <label>Nama Paket</label>
-      <input id="filterPaket" type="text" placeholder="Cari nama paket..." style="width:185px;" />
+      <input id="filterPaket" type="text" placeholder="Cari nama paket..." style="width:160px;" />
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:4px;">
+      <label>Cara Pengadaan</label>
+      <select id="filterCara" style="width:145px;">
+        <option value="">-- Semua --</option>
+      </select>
     </div>
 
     <div style="display:flex; flex-direction:column; gap:4px;">
       <label>Jenis Pengadaan</label>
-      <select id="filterJenis" style="width:160px;">
+      <select id="filterJenis" style="width:145px;">
         <option value="">-- Semua --</option>
       </select>
     </div>
 
     <div style="display:flex; flex-direction:column; gap:4px;">
       <label>Metode Pengadaan</label>
-      <select id="filterMetode" style="width:160px;">
+      <select id="filterMetode" style="width:145px;">
         <option value="">-- Semua --</option>
       </select>
     </div>
 
     <div style="display:flex; flex-direction:column; gap:4px;">
       <label>Status</label>
-      <select id="filterStatus" style="width:150px;">
+      <select id="filterStatus" style="width:130px;">
         <option value="">-- Semua --</option>
       </select>
     </div>
@@ -664,6 +670,7 @@ async function loadDataByYear(year) {
     masterLink.classList.add("disabled");
   }
 
+  populateDropdown("filterCara",   "Metode");
   populateDropdown("filterJenis",  "Jenis Pengadaan");
   populateDropdown("filterMetode", "Metode Pengadaan");
   populateDropdown("filterStatus", "Status");
@@ -674,15 +681,15 @@ async function loadDataByYear(year) {
 
 function resetFilterInputs() {
   ["filterSatker","filterPaket"].forEach(id => document.getElementById(id).value = "");
-  ["filterJenis","filterMetode","filterStatus"].forEach(id => {
+  ["filterCara","filterJenis","filterMetode","filterStatus"].forEach(id => {
       const el = document.getElementById(id);
-      el.value = ""; // Hanya mereset pilihan
+      el.value = ""; 
   });
 }
 
 function populateDropdown(id, kolom) {
   const select = document.getElementById(id);
-  select.innerHTML = '<option value="">-- Semua --</option>'; // Bersihkan list tiap ganti tahun
+  select.innerHTML = '<option value="">-- Semua --</option>'; 
   const unik   = [...new Set(allData.map(r => r[kolom] ?? "").filter(v => v !== ""))].sort();
   unik.forEach(val => {
     const opt     = document.createElement("option");
@@ -695,6 +702,7 @@ function populateDropdown(id, kolom) {
 function applyFilter() {
   const satker   = document.getElementById("filterSatker").value.trim().toLowerCase();
   const paket    = document.getElementById("filterPaket").value.trim().toLowerCase();
+  const cara     = document.getElementById("filterCara").value;
   const jenis    = document.getElementById("filterJenis").value;
   const metode   = document.getElementById("filterMetode").value;
   const status   = document.getElementById("filterStatus").value;
@@ -702,6 +710,7 @@ function applyFilter() {
   filtered = allData.filter(row => {
     if (satker   && !(row["Satuan Kerja"] ?? "").toLowerCase().includes(satker)) return false;
     if (paket    && !(row["Nama Paket"]   ?? "").toLowerCase().includes(paket))  return false;
+    if (cara     && row["Metode"]           !== cara)   return false;
     if (jenis    && row["Jenis Pengadaan"]  !== jenis)  return false;
     if (metode   && row["Metode Pengadaan"] !== metode) return false;
     if (status   && row["Status"]           !== status) return false;
@@ -773,7 +782,8 @@ function renderTable() {
                       <div style="font-size:0.75rem; line-height:1.3; color:#475569;">${row["Nama Paket"] ?? "-"}</div>`;
                       
     const jenisInfo = `<div style="font-size:0.75rem; font-weight:600;">${row["Metode Pengadaan"] ?? "-"}</div>
-                       <div style="font-size:0.72rem; color:#64748b;">${row["Jenis Pengadaan"] ?? "-"}</div>`;
+                       <div style="font-size:0.72rem; color:#64748b;">${row["Jenis Pengadaan"] ?? "-"}</div>
+                       <div style="font-size:0.72rem; color:#e63329; font-weight:600; margin-top:2px;">${row["Metode"] ?? "-"}</div>`;
                        
     const nilaiPagu = `<div style="font-weight:600; color:#1e293b;">${isAngka(pagu) ? rupiah(pagu) : (pagu ?? "-")}</div>
                        <div style="font-size:0.72rem; color:#64748b;">HPS: ${isAngka(hps) ? rupiah(hps) : (hps ?? "-")}</div>`;
@@ -805,7 +815,6 @@ function renderTable() {
   document.getElementById("nextPage").disabled  = atLast;
   document.getElementById("nextPage2").disabled = atLast;
   
-  // Trigger ulang scroll event agar lebar sticky header menyesuaikan tabel baru
   window.dispatchEvent(new Event('scroll'));
 }
 
@@ -838,7 +847,7 @@ document.getElementById("perPage").addEventListener("change", (e) => {
   })
 );
 
-["filterJenis","filterMetode","filterStatus"].forEach(id =>
+["filterCara","filterJenis","filterMetode","filterStatus"].forEach(id =>
   document.getElementById(id).addEventListener("change", applyFilter)
 );
 
@@ -863,6 +872,7 @@ document.getElementById("downloadCurrent").addEventListener("click", () => {
       "Kode Paket"            : row["Kode Paket"] ?? "",
       "Satuan Kerja"          : row["Satuan Kerja"] ?? "",
       "Nama Paket"            : row["Nama Paket"] ?? "",
+      "Cara Pengadaan"        : row["Metode"] ?? "",
       "Jenis Pengadaan"       : row["Jenis Pengadaan"] ?? "",
       "Metode Pengadaan"      : row["Metode Pengadaan"] ?? "",
       "Status"                : row["Status"] ?? "",
@@ -890,7 +900,7 @@ document.getElementById("downloadCurrent").addEventListener("click", () => {
   }
   ws['!cols'] = [
     {wch:6},{wch:16},{wch:16},{wch:35},{wch:50},
-    {wch:30},{wch:22},{wch:22},
+    {wch:20},{wch:30},{wch:22},{wch:22},
     {wch:20},{wch:20},{wch:20},{wch:20},
   ];
   const wb = XLSX.utils.book_new();
