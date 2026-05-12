@@ -91,7 +91,7 @@
     min-width: 140px;
     border-radius: 10px;
     padding: 14px 18px;
-    color: #fff;
+    color: #fff; /* Teks putih semua */
     box-shadow: 0 3px 10px rgba(0,0,0,0.15);
     display: flex;
     flex-direction: column;
@@ -102,23 +102,25 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.6px;
-    opacity: 0.85;
+    opacity: 0.9;
+    color: #fff;
   }
   .stat-card .stat-value {
     font-size: 1.1rem;
     font-weight: 800;
     letter-spacing: -0.3px;
+    color: #fff;
   }
   .stat-card .stat-sub {
     font-size: 0.72rem;
-    opacity: 0.75;
+    opacity: 0.8;
+    color: #fff;
   }
 
-  /* Mapping Warna Baru sesuai urutan Bar: Biru, Merah, Kuning, Hijau */
+  /* Gradasi Background Card */
   .stat-biru   { background: linear-gradient(135deg, #1a3a6b, #2563b0); }
   .stat-merah  { background: linear-gradient(135deg, #c0392b, #e63329); }
-  .stat-kuning { background: linear-gradient(135deg, #d4a000, #f5c800); color: #1a1a1a; }
-  .stat-kuning .stat-label, .stat-kuning .stat-sub { opacity: 0.65; }
+  .stat-kuning { background: linear-gradient(135deg, #d4a000, #f5c800); }
   .stat-hijau  { background: linear-gradient(135deg, #1e7e34, #2d9e47); }
 
   /* ===== FILTER CARD ===== */
@@ -199,24 +201,36 @@
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(26,58,107,0.18);
     z-index: 9999;
-    min-width: 200px;
-    max-height: 260px;
+    min-width: 220px;
+    max-height: 300px;
+    flex-direction: column;
+    padding: 0;
+  }
+  .check-panel.open { display: flex; }
+  .check-list-container {
     overflow-y: auto;
+    flex-grow: 1;
     padding: 6px 0;
   }
-  .check-panel.open { display: block; }
-  .check-panel .check-item {
+  .check-item {
     display: flex; align-items: center; gap: 8px;
     padding: 6px 14px; font-size: 0.82rem; color: #1e293b; cursor: pointer;
   }
-  .check-panel .check-item:hover { background: #f0f5fb; }
+  .check-item:hover { background: #f0f5fb; }
+  .check-panel input[type=checkbox] { width: 14px; height: 14px; accent-color: var(--lpse-biru); }
+  .check-divider { border-top: 1px solid #e8edf5; margin: 4px 0; }
+  .check-footer {
+    display: flex; gap: 8px; padding: 10px 14px;
+    background: #f8fafc; border-top: 1px solid #e8edf5;
+    border-radius: 0 0 8px 8px;
+  }
   .check-panel .btn-ok {
-    background: var(--lpse-biru); color: #fff; border: none;
-    border-radius: 6px; padding: 6px 0; font-size: 0.8rem; font-weight: 600; cursor: pointer;
+    flex: 1; background: var(--lpse-biru); color: #fff; border: none;
+    border-radius: 6px; padding: 7px 0; font-size: 0.8rem; font-weight: 600; cursor: pointer;
   }
   .check-panel .btn-batal {
-    background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1;
-    border-radius: 6px; padding: 6px 0; font-size: 0.8rem; font-weight: 600; cursor: pointer;
+    flex: 1; background: #fff; color: #475569; border: 1px solid #cbd5e1;
+    border-radius: 6px; padding: 7px 0; font-size: 0.8rem; font-weight: 600; cursor: pointer;
   }
 
   .btn-reset {
@@ -330,12 +344,14 @@
             <span id="persenBtnLabel">-- Semua --</span>
           </button>
           <div class="check-panel" id="persenPanel">
-            <div class="check-item">
-              <input type="checkbox" id="checkAll" checked onchange="toggleAllPersen(this)">
-              <label for="checkAll" style="cursor:pointer;font-weight:600;">Pilih Semua</label>
+            <div class="check-list-container">
+              <div class="check-item">
+                <input type="checkbox" id="checkAll" checked onchange="toggleAllPersen(this)">
+                <label for="checkAll" style="cursor:pointer;font-weight:600;">Pilih Semua</label>
+              </div>
+              <div class="check-divider"></div>
+              <div id="persenList"></div>
             </div>
-            <div class="check-divider"></div>
-            <div id="persenList"></div>
             <div class="check-footer">
               <button class="btn-ok" onclick="applyPersenFilter()">✓ OK</button>
               <button class="btn-batal" onclick="cancelPersenFilter()">✕ Batal</button>
@@ -386,11 +402,10 @@
       <tbody id="body"></tbody>
     </table>
   </div>
-
 </div>
 
 <script>
-let rawData      = [];
+let rawData = [];
 let filteredData = [];
 
 function rupiah(n) {
@@ -401,7 +416,7 @@ function rupiah(n) {
 
 async function loadData() {
   const res = await fetch("../data/rekap_rup.json");
-  rawData   = await res.json();
+  rawData = await res.json();
   rawData = rawData.filter(row =>
     !(Number(row["Pagu Program"] || 0) === 0 &&
       Number(row["Pagu Pengadaan"] || 0) === 0 &&
@@ -412,7 +427,7 @@ async function loadData() {
   applyFilter();
   try {
     const res2 = await fetch("../data/last-update-rup.txt");
-    const txt  = await res2.text();
+    const txt = await res2.text();
     document.getElementById("lastUpdate").innerText = "🕒 Terakhir diperbarui: " + txt.trim();
   } catch { document.getElementById("lastUpdate").innerText = ""; }
 }
@@ -438,7 +453,7 @@ function renderTable() {
   filteredData.forEach((row, index) => {
     const paguPengadaan = Number(row["Pagu Pengadaan"] || 0);
     const rupTerumumkan = Number(row["Total RUP Terumumkan"] || 0);
-    const selisih = rupTerumumkan - paguPengadaan; // RUP - Pagu Pengadaan
+    const selisih = rupTerumumkan - paguPengadaan;
     const persen = Number(row["Persentase"] || 0).toFixed(2) + "%";
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -458,48 +473,23 @@ function renderTable() {
 function renderSummary() {
   let totalPaguProgram = 0, totalPaguPengadaan = 0, totalRup = 0;
   rawData.forEach(d => {
-    totalPaguProgram   += Number(d["Pagu Program"] || 0);
+    totalPaguProgram += Number(d["Pagu Program"] || 0);
     totalPaguPengadaan += Number(d["Pagu Pengadaan"] || 0);
-    totalRup           += Number(d["Total RUP Terumumkan"] || 0);
+    totalRup += Number(d["Total RUP Terumumkan"] || 0);
   });
   const persenTotal = totalPaguPengadaan === 0 ? 0 : (totalRup / totalPaguPengadaan) * 100;
-  document.getElementById("statPaguProgram").innerText  = rupiah(totalPaguProgram);
+  document.getElementById("statPaguProgram").innerText = rupiah(totalPaguProgram);
   document.getElementById("statPaguPengadaan").innerText = rupiah(totalPaguPengadaan);
-  document.getElementById("statRup").innerText          = rupiah(totalRup);
-  document.getElementById("statPersen").innerText       = persenTotal.toFixed(2) + "%";
+  document.getElementById("statRup").innerText = rupiah(totalRup);
+  document.getElementById("statPersen").innerText = persenTotal.toFixed(2) + "%";
 }
-
-function downloadExcel() {
-  const dataForExcel = filteredData.map((row, index) => ({
-    "No": index + 1,
-    "Satuan Kerja": row["Satuan Kerja"],
-    "Pagu Program": row["Pagu Program"],
-    "Pagu Pengadaan": row["Pagu Pengadaan"],
-    "Total RUP Terumumkan": row["Total RUP Terumumkan"],
-    "Selisih": Number(row["Total RUP Terumumkan"] || 0) - Number(row["Pagu Pengadaan"] || 0),
-    "Persentase": Number(row["Persentase"] || 0).toFixed(2) + "%"
-  }));
-  const ws = XLSX.utils.json_to_sheet(dataForExcel);
-  const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, "RUP");
-  XLSX.writeFile(wb, "rekap_rup_2026.xlsx");
-}
-
-document.getElementById("filterSatker").addEventListener("keydown", (e) => { if (e.key === "Enter") applyFilter(); });
-document.getElementById("resetFilter").addEventListener("click", () => {
-  document.getElementById("filterSatker").value = "";
-  document.querySelectorAll("#persenList input[type=checkbox]").forEach(cb => cb.checked = true);
-  document.getElementById("checkAll").checked = true;
-  updatePersenLabel();
-  applyFilter();
-});
 
 function buildPersenList() {
   const unik = [...new Set(rawData.map(r => (Number(r["Persentase"] || 0).toFixed(2) + "%")))].sort((a, b) => parseFloat(a) - parseFloat(b));
   const list = document.getElementById("persenList");
   list.innerHTML = "";
   unik.forEach(val => {
-    const id = "pct_" + val.replace(".","_").replace("%","");
+    const id = "pct_" + val.replace(".", "_").replace("%", "");
     const div = document.createElement("div");
     div.className = "check-item";
     div.innerHTML = `<input type="checkbox" id="${id}" value="${val}" checked onchange="onPersenChange()"><label for="${id}" style="cursor:pointer; flex:1;">${val}</label>`;
@@ -510,7 +500,7 @@ function buildPersenList() {
 function togglePersenPanel(e) {
   e.stopPropagation();
   const panel = document.getElementById("persenPanel");
-  const btn   = document.getElementById("persenBtn");
+  const btn = document.getElementById("persenBtn");
   if (!panel.classList.contains("open")) {
     const rect = btn.getBoundingClientRect();
     panel.style.top = (rect.bottom + 4) + "px";
@@ -551,6 +541,31 @@ function getCheckedPersen() {
   const chk = [...document.querySelectorAll("#persenList input[type=checkbox]:checked")].map(cb => cb.value);
   return chk.length === all.length ? null : chk;
 }
+
+function downloadExcel() {
+  const dataForExcel = filteredData.map((row, index) => ({
+    "No": index + 1,
+    "Satuan Kerja": row["Satuan Kerja"],
+    "Pagu Program": row["Pagu Program"],
+    "Pagu Pengadaan": row["Pagu Pengadaan"],
+    "Total RUP Terumumkan": row["Total RUP Terumumkan"],
+    "Selisih": Number(row["Total RUP Terumumkan"] || 0) - Number(row["Pagu Pengadaan"] || 0),
+    "Persentase": Number(row["Persentase"] || 0).toFixed(2) + "%"
+  }));
+  const ws = XLSX.utils.json_to_sheet(dataForExcel);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "RUP");
+  XLSX.writeFile(wb, "rekap_rup_2026.xlsx");
+}
+
+document.getElementById("filterSatker").addEventListener("keydown", (e) => { if (e.key === "Enter") applyFilter(); });
+document.getElementById("resetFilter").addEventListener("click", () => {
+  document.getElementById("filterSatker").value = "";
+  document.querySelectorAll("#persenList input[type=checkbox]").forEach(cb => cb.checked = true);
+  document.getElementById("checkAll").checked = true;
+  updatePersenLabel();
+  applyFilter();
+});
 
 document.addEventListener("click", (e) => {
   const panel = document.getElementById("persenPanel"), btn = document.getElementById("persenBtn");
