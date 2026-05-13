@@ -231,3 +231,101 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 GIT ADD 
+warning: in the working copy of 'tools/log_rup.txt', LF will be replaced by CRLF the next time Git touches it
+GIT COMMIT 
+[main bf6d744] Auto update RUP 13/05/2026 15:00:50,79
+ 7 files changed, 181423 insertions(+), 181360 deletions(-)
+GIT PUSH 
+To https://github.com/rizkipem-21/rup-2026-inaproc.git
+   e49d560..bf6d744  main -> main
+PUSH STATUS: 0 
+========================= 
+SELESAI 13/05/2026 15:01:02,99 
+========================= 
+START 13/05/2026 16:00:18,85 
+RUN GENERATE RUP MULTI-TAHUN 
+==================================================
+ AUTO GENERATE RUP (DOWNLOAD RETRY & MULTI TAHUN) 
+==================================================
+
+
+--- MENGUNDUH DATA TAHUN 2026 ---
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026
+  Percobaan ke-1... SUKSES
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026
+  Percobaan ke-1... SUKSES
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/master-satker?kode_klpd=D228&tahun=2026
+  Percobaan ke-1... SUKSES
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/program-master?kode_klpd=D228&tahun=2026
+  Percobaan ke-1... SUKSES
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2026
+  Percobaan ke-1... SUKSES
+
+--- MEMPROSES DATA TAHUN 2026 ---
+Traceback (most recent call last):
+  File "D:\rup-2026-inaproc\scripts\rup\generate_rup.py", line 243, in <module>
+    total_all += process_tahun(t)
+                 ~~~~~~~~~~~~~^^^
+  File "D:\rup-2026-inaproc\scripts\rup\generate_rup.py", line 197, in process_tahun
+    df_final.to_excel(path_history, index=False, sheet_name='Rekap RUP')
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PBJ Rizki\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\core\generic.py", line 2312, in to_excel
+    formatter.write(
+    ~~~~~~~~~~~~~~~^
+        excel_writer,
+        ^^^^^^^^^^^^^
+    ...<6 lines>...
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\PBJ Rizki\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\formats\excel.py", line 1003, in write
+    writer = ExcelWriter(
+        writer,
+    ...<2 lines>...
+        engine_kwargs=engine_kwargs,
+    )
+  File "C:\Users\PBJ Rizki\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 62, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<3 lines>...
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\PBJ Rizki\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_base.py", line 1281, in __init__
+    self._handles = get_handle(
+                    ~~~~~~~~~~^
+        path, mode, storage_options=storage_options, is_text=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\PBJ Rizki\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\common.py", line 935, in get_handle
+    handle = open(handle, ioargs.mode)
+PermissionError: [Errno 13] Permission denied: 'D:\\rup-2026-inaproc\\output\\rup\\2026\\Rekap RUP Tahun 2026 (2026-05-13) Legacy.xlsx'
+UPDATE LAST-UPDATE 
+GIT CONFIG 
+GIT STATUS 
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   data/2026/Legacy_rup_master-satker_2026.json
+	modified:   data/2026/Legacy_rup_paket-penyedia-terumumkan_2026.json
+	modified:   data/2026/Legacy_rup_paket-swakelola-terumumkan_2026.json
+	modified:   data/2026/Legacy_rup_program-master_2026.json
+	modified:   data/2026/Legacy_rup_struktur-anggaran-pd_2026.json
+	modified:   data/last-update-rup.txt
+	modified:   tools/log_rup.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+GIT ADD 
