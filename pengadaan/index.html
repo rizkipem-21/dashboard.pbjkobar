@@ -141,14 +141,10 @@
     font-weight: 800;
     letter-spacing: -0.5px;
   }
-  .stat-card .stat-sub {
-    font-size: 0.72rem;
-    opacity: 0.75;
-  }
   .stat-biru   { background: linear-gradient(135deg, #1a3a6b, #2563b0); }
   .stat-merah  { background: linear-gradient(135deg, #c0392b, #e63329); }
   .stat-kuning { background: linear-gradient(135deg, #d4a000, #f5c800); color: #1a1a1a; }
-  .stat-kuning .stat-label, .stat-kuning .stat-sub { opacity: 0.65; }
+  .stat-kuning .stat-label { opacity: 0.65; }
   .stat-hijau  { background: linear-gradient(135deg, #1e7e34, #2d9e47); }
 
   /* ===== FILTER CARD ===== */
@@ -453,22 +449,18 @@
   <div class="stat-card stat-biru">
     <span class="stat-label">Total Paket</span>
     <span class="stat-value" id="statTotal">-</span>
-    <span class="stat-sub">sesuai filter aktif</span>
   </div>
   <div class="stat-card stat-merah">
     <span class="stat-label">Belum Proses</span>
     <span class="stat-value" id="statFiltered">-</span>
-    <span class="stat-sub">Sumber 1</span>
   </div>
   <div class="stat-card stat-kuning">
     <span class="stat-label">Sedang Proses</span>
     <span class="stat-value" id="statProses">-</span>
-    <span class="stat-sub">Proses SPSE/E-Katalog</span>
   </div>
   <div class="stat-card stat-hijau">
     <span class="stat-label">Sudah Selesai</span>
     <span class="stat-value" id="statSelesai">-</span>
-    <span class="stat-sub">Selesai/Kontrak/BAPBAST</span>
   </div>
 </div>
 
@@ -486,13 +478,6 @@
     <div style="display:flex; flex-direction:column; gap:4px;">
       <label>Nama Paket</label>
       <input id="filterPaket" type="text" placeholder="Cari nama paket..." style="width:185px;" />
-    </div>
-
-    <div style="display:flex; flex-direction:column; gap:4px;">
-      <label>Cara Pengadaan</label>
-      <select id="filterCara" style="width:145px;">
-        <option value="">-- Semua --</option>
-      </select>
     </div>
 
     <div style="display:flex; flex-direction:column; gap:4px;">
@@ -516,6 +501,13 @@
         <option value="Belum Proses">Belum Proses</option>
         <option value="Sedang Proses">Sedang Proses</option>
         <option value="Sudah Selesai">Sudah Selesai</option>
+      </select>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:4px;">
+      <label>Cara Pengadaan</label>
+      <select id="filterCara" style="width:145px;">
+        <option value="">-- Semua --</option>
       </select>
     </div>
 
