@@ -5,14 +5,12 @@
 import pandas as pd
 import json
 import os
-import shutil
 import requests
 import time
 from datetime import datetime
 import warnings
 from openpyxl import load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
-from openpyxl.utils import get_column_letter
 
 warnings.filterwarnings("ignore")
 
@@ -20,16 +18,15 @@ warnings.filterwarnings("ignore")
 # KONFIGURASI TAHUN DINAMIS (AUTOPILOT)
 # ======================================================
 BASE_DIR = r'D:\rup-2026-inaproc'
-tahun_n  = datetime.now().year       # 2026
-tahun_n1 = tahun_n - 1               # 2025
-tahun_n2 = tahun_n - 2               # 2024
+tahun_n  = datetime.now().year       # Tahun berjalan
+tahun_n1 = tahun_n - 1               # Tahun lalu
+tahun_n2 = tahun_n - 2               # Dua tahun lalu
 daftar_tahun = [tahun_n, tahun_n1, tahun_n2]
 
 # Konfigurasi API
 TOKEN = "inprc7642391c38774272bf57ca25ac1d4544"
 HEADERS = {
     "Authorization": f"Bearer {TOKEN}",
-    # Tambahkan User-Agent ini untuk menghindari Error 403 Forbidden
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
 }
 ENDPOINTS = [
@@ -41,7 +38,7 @@ ENDPOINTS = [
 ]
 
 # ======================================================
-# FUNGSI 1: DOWNLOAD DATA API DENGAN RETRY (TIRU PS1)
+# FUNGSI 1: DOWNLOAD DATA API DENGAN RETRY
 # ======================================================
 def download_data_api_with_retry(tahun):
     print(f"\n--- MENGUNDUH DATA TAHUN {tahun} ---")
@@ -123,7 +120,7 @@ def process_tahun(tahun):
         print(f"Data Master kosong. Melewati tahun {tahun}.")
         return 0
 
-    # 1. Master Satker - Samakan Type Data (Integer)
+    # 1. Master Satker
     if 'kd_satker' in df_master.columns:
         df_master['kd_satker'] = pd.to_numeric(df_master['kd_satker'], errors='coerce')
     
@@ -159,15 +156,13 @@ def process_tahun(tahun):
     df = df.merge(struktur, on='kd_satker', how='left')
     df.fillna(0, inplace=True)
 
-    # 6. Kalkulasi
+    # 6. Kalkulasi (Rumus Asli)
     df['Total RUP Terumumkan'] = df['RUP Penyedia'] + df['RUP Swakelola']
     df['Selisih RUP Terumumkan'] = df['Total RUP Terumumkan'] - df['Pagu Pengadaan']
-    
-    # Dikembalikan menggunakan perhitungan persentase asli milik Anda
     df['Persentase'] = (
         df['Total RUP Terumumkan'] / df['Pagu Pengadaan']
     ).replace([float('inf')], 0).fillna(0) * 100
-    
+
     # 7. Finalisasi Data
     df_final = df[['Satuan Kerja', 'Pagu Program', 'Pagu Pengadaan', 'RUP Penyedia', 
                    'RUP Swakelola', 'Total RUP Terumumkan', 'Selisih RUP Terumumkan', 'Persentase']]
@@ -181,7 +176,7 @@ def process_tahun(tahun):
         json.dump(df_final.to_dict(orient='records'), f, ensure_ascii=False, indent=2)
 
     # ======================================================
-    # SIMPAN EXCEL
+    # SIMPAN EXCEL (HISTORY SAJA)
     # ======================================================
     tgl = datetime.now().strftime('%Y-%m-%d')
     nama_file_history = f"Rekap RUP Tahun {tahun} ({tgl}) Legacy.xlsx"
@@ -190,7 +185,6 @@ def process_tahun(tahun):
     os.makedirs(output_history_dir, exist_ok=True)
     
     path_history = os.path.join(output_history_dir, nama_file_history)
-    path_master  = os.path.join(data_dir, f"master_rup_{tahun}.xlsx")
 
     df_final.to_excel(path_history, index=False, sheet_name='Rekap RUP')
 
@@ -215,9 +209,9 @@ def process_tahun(tahun):
             if cell.column == 8: cell.number_format = '0.00"%"'
 
     wb.save(path_history)
-    shutil.copy2(path_history, path_master)
 
     print(f"DONE -> JSON: rekap_rup_{tahun}.json")
+    print(f"DONE -> EXCEL: {path_history}")
     return len(df_final)
 
 # ======================================================
