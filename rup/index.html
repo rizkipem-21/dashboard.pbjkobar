@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rekapitulasi RUP Kabupaten Kotawaringin Barat</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 <style>
   :root {
     --lpse-biru  : #1a3a6b;
@@ -314,7 +315,7 @@
 
       <button id="resetFilter" class="btn-reset">✕ Reset Filter</button>
       
-      <button onclick="downloadExcel()" class="btn-excel">⬇ Download Excel</button>
+      <button onclick="downloadExcelFormatted()" class="btn-excel">⬇ Download Excel</button>
     </div>
   </div>
 
@@ -466,48 +467,84 @@ function renderSummary() {
   document.getElementById("statPersen").innerText = persenTotal.toFixed(2) + "%";
 }
 
-// === LOGIKA EXCEL ALA PENGADAAN ===
-function downloadExcel() {
-  const kolomRupiah = ["Pagu Program", "Pagu Pengadaan", "RUP Terumumkan", "Selisih"];
-  
-  const dataForExcel = filteredData.map((row, index) => ({
-    "No": index + 1,
-    "Satuan Kerja": row["Satuan Kerja"],
-    "Pagu Program": Number(row["Pagu Program"] || 0),
-    "Pagu Pengadaan": Number(row["Pagu Pengadaan"] || 0),
-    "RUP Terumumkan": Number(row["Total RUP Terumumkan"] || 0),
-    "Selisih": Number(row["Total RUP Terumumkan"] || 0) - Number(row["Pagu Pengadaan"] || 0),
-    "Persentase": Number(row["Persentase"] || 0) / 100
-  }));
+// === EXCEL DOWNLOAD BERWARNA (MENGGUNAKAN EXCELJS) ===
+async function downloadExcelFormatted() {
+  if (filteredData.length === 0) return alert("Tidak ada data untuk didownload.");
 
-  const ws = XLSX.utils.json_to_sheet(dataForExcel);
-  const range = XLSX.utils.decode_range(ws['!ref']);
-  
-  // Format Header & Angka
-  const headers = [];
-  for (let c = range.s.c; c <= range.e.c; c++) {
-    const cell = ws[XLSX.utils.encode_cell({r:0,c})];
-    headers[c] = cell ? cell.v : "";
-  }
+  const workbook = new ExcelJS.Workbook();
+  const worksheet = workbook.addWorksheet('Rekap RUP');
 
-  for (let r = 1; r <= range.e.r; r++) {
-    for (let c = range.s.c; c <= range.e.c; c++) {
-      const addr = XLSX.utils.encode_cell({r,c});
-      if (!ws[addr]) continue;
-      
-      if (kolomRupiah.includes(headers[c])) {
-        ws[addr].z = '#,##0';
-      } else if (headers[c] === "Persentase") {
-        ws[addr].z = '0.00%';
+  // Definisi Kolom & Lebar
+  worksheet.columns = [
+    { header: 'No', key: 'no', width: 6, style: { alignment: { horizontal: 'center', vertical: 'middle' } } },
+    { header: 'Satuan Kerja', key: 'satker', width: 45, style: { alignment: { vertical: 'middle', wrapText: true } } },
+    { header: 'Pagu Program', key: 'program', width: 22, style: { numFmt: '"Rp" #,##0', alignment: { horizontal: 'right', vertical: 'middle' } } },
+    { header: 'Pagu Pengadaan', key: 'pengadaan', width: 22, style: { numFmt: '"Rp" #,##0', alignment: { horizontal: 'right', vertical: 'middle' } } },
+    { header: 'Total RUP Terumumkan', key: 'rup', width: 25, style: { numFmt: '"Rp" #,##0', alignment: { horizontal: 'right', vertical: 'middle' } } },
+    { header: 'Selisih', key: 'selisih', width: 22, style: { numFmt: '"Rp" #,##0', alignment: { horizontal: 'right', vertical: 'middle' } } },
+    { header: 'Persentase', key: 'persen', width: 15, style: { numFmt: '0.00%', alignment: { horizontal: 'right', vertical: 'middle' }, font: { bold: true, color: { argb: 'FF1A3A6B' } } } }
+  ];
+
+  // Styling Header (Biru Tua + Teks Putih)
+  const headerRow = worksheet.getRow(1);
+  headerRow.height = 25;
+  headerRow.eachCell((cell) => {
+    cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1A3A6B' } };
+    cell.font = { color: { argb: 'FFFFFFFF' }, bold: true };
+    cell.alignment = { horizontal: 'center', vertical: 'middle' };
+    cell.border = { top: {style:'thin'}, left: {style:'thin'}, bottom: {style:'thin'}, right: {style:'thin'} };
+  });
+
+  // Memasukkan Data dan Memberi Warna
+  filteredData.forEach((row, index) => {
+    const program = Number(row["Pagu Program"] || 0);
+    const pengadaan = Number(row["Pagu Pengadaan"] || 0);
+    const rup = Number(row["Total RUP Terumumkan"] || 0);
+    const selisih = rup - pengadaan;
+    const persen = Number(row["Persentase"] || 0) / 100;
+
+    const dataRow = worksheet.addRow({
+      no: index + 1,
+      satker: row["Satuan Kerja"],
+      program: program,
+      pengadaan: pengadaan,
+      rup: rup,
+      selisih: selisih,
+      persen: persen
+    });
+
+    dataRow.eachCell((cell, colNum) => {
+      // Border Tipis untuk semua sel
+      cell.border = {
+        top: {style:'thin', color: {argb: 'FFE8EDF5'}},
+        left: {style:'thin', color: {argb: 'FFE8EDF5'}},
+        bottom: {style:'thin', color: {argb: 'FFE8EDF5'}},
+        right: {style:'thin', color: {argb: 'FFE8EDF5'}}
+      };
+
+      // Efek Garis Zebra (Baris Genap jadi biru sangat muda)
+      if ((index + 1) % 2 === 0) {
+        cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFF0F5FB' } };
       }
-    }
-  }
 
-  ws['!cols'] = [{wch:6}, {wch:50}, {wch:22}, {wch:22}, {wch:22}, {wch:22}, {wch:12}];
-  
-  const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, "Rekap RUP");
-  XLSX.writeFile(wb, `Rekap_RUP_${currentYear}_Download.xlsx`);
+      // Selisih Merah jika Minus (Kolom F / 6)
+      if (colNum === 6) {
+        if (selisih < 0) {
+          cell.font = { color: { argb: 'FFE63329' } }; // Merah
+        } else {
+          cell.font = { color: { argb: 'FF1E293B' } }; // Hitam Default
+        }
+      } 
+      // Warna Default Text Sel Selain Persen & Minus
+      else if (colNum !== 7) {
+        cell.font = { color: { argb: 'FF1E293B' } };
+      }
+    });
+  });
+
+  // Ekspor & Download File
+  const buffer = await workbook.xlsx.writeBuffer();
+  saveAs(new Blob([buffer]), `Rekap_RUP_Kobar_${currentYear}.xlsx`);
 }
 
 // === LOGIKA DROPDOWN PERSEN ===
