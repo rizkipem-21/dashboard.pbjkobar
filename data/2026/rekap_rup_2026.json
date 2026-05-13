@@ -102,12 +102,12 @@
   {
     "Satuan Kerja": "Dinas Kesehatan",
     "Pagu Program": 31403981295.0,
-    "Pagu Pengadaan": 27986573305.0,
+    "Pagu Pengadaan": 173440671695.0,
     "RUP Penyedia": 4891035773.0,
     "RUP Swakelola": 0.0,
     "Total RUP Terumumkan": 4891035773.0,
-    "Selisih RUP Terumumkan": -23095537532.0,
-    "Persentase": 17.476365254499314
+    "Selisih RUP Terumumkan": -168549635922.0,
+    "Persentase": 2.8200050917705255
   },
   {
     "Satuan Kerja": "Dinas Komunikasi, Informatika, Statistik dan Persandian",
@@ -122,12 +122,12 @@
   {
     "Satuan Kerja": "Dinas Lingkungan Hidup",
     "Pagu Program": 16651038363.0,
-    "Pagu Pengadaan": 16457164991.0,
+    "Pagu Pengadaan": 15288269163.0,
     "RUP Penyedia": 15288269163.0,
     "RUP Swakelola": 0.0,
     "Total RUP Terumumkan": 15288269163.0,
-    "Selisih RUP Terumumkan": -1168895828.0,
-    "Persentase": 92.89734393111306
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Dinas Pariwisata",
@@ -262,12 +262,12 @@
   {
     "Satuan Kerja": "Dinas Sosial",
     "Pagu Program": 2664782630.0,
-    "Pagu Pengadaan": 1863517230.0,
+    "Pagu Pengadaan": 1858317230.0,
     "RUP Penyedia": 1858317230.0,
     "RUP Swakelola": 0.0,
     "Total RUP Terumumkan": 1858317230.0,
-    "Selisih RUP Terumumkan": -5200000.0,
-    "Persentase": 99.72095777187958
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Dinas Tenaga Kerja dan Transmigrasi",
@@ -303,11 +303,11 @@
     "Satuan Kerja": "Kecamatan Arut Selatan",
     "Pagu Program": 6754652808.0,
     "Pagu Pengadaan": 4701405808.0,
-    "RUP Penyedia": 4656045808.0,
+    "RUP Penyedia": 4556645808.0,
     "RUP Swakelola": 45360000.0,
-    "Total RUP Terumumkan": 4701405808.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 100.0
+    "Total RUP Terumumkan": 4602005808.0,
+    "Selisih RUP Terumumkan": -99400000.0,
+    "Persentase": 97.88573877560496
   },
   {
     "Satuan Kerja": "Kecamatan Arut Utara",
@@ -773,11 +773,11 @@
     "Satuan Kerja": "Sekretariat DPRD",
     "Pagu Program": 16485728018.0,
     "Pagu Pengadaan": 8905641688.0,
-    "RUP Penyedia": 8665245838.0,
+    "RUP Penyedia": 8755641688.0,
     "RUP Swakelola": 150000000.0,
-    "Total RUP Terumumkan": 8815245838.0,
-    "Selisih RUP Terumumkan": -90395850.0,
-    "Persentase": 98.98495972365691
+    "Total RUP Terumumkan": 8905641688.0,
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Sekretariat Daerah",
