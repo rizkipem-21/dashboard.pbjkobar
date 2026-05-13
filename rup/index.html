@@ -454,7 +454,6 @@ function renderTable() {
 
 function renderSummary() {
   let tProgram = 0, tPengadaan = 0, tRup = 0;
-  // Summary dihitung dari rawData tahun tersebut (bukan filtered) agar angka stat tetap murni
   rawData.forEach(d => {
     tProgram += Number(d["Pagu Program"] || 0);
     tPengadaan += Number(d["Pagu Pengadaan"] || 0);
@@ -467,25 +466,25 @@ function renderSummary() {
   document.getElementById("statPersen").innerText = persenTotal.toFixed(2) + "%";
 }
 
-// === EXCEL DOWNLOAD BERWARNA (MENGGUNAKAN EXCELJS) ===
+// === EXCEL DOWNLOAD BERWARNA + RUMUS TOTAL ===
 async function downloadExcelFormatted() {
   if (filteredData.length === 0) return alert("Tidak ada data untuk didownload.");
 
   const workbook = new ExcelJS.Workbook();
   const worksheet = workbook.addWorksheet('Rekap RUP');
 
-  // Definisi Kolom & Lebar
+  // Definisi Kolom
   worksheet.columns = [
-    { header: 'No', key: 'no', width: 6, style: { alignment: { horizontal: 'center', vertical: 'middle' } } },
-    { header: 'Satuan Kerja', key: 'satker', width: 45, style: { alignment: { vertical: 'middle', wrapText: true } } },
-    { header: 'Pagu Program', key: 'program', width: 22, style: { numFmt: '"Rp" #,##0', alignment: { horizontal: 'right', vertical: 'middle' } } },
-    { header: 'Pagu Pengadaan', key: 'pengadaan', width: 22, style: { numFmt: '"Rp" #,##0', alignment: { horizontal: 'right', vertical: 'middle' } } },
-    { header: 'Total RUP Terumumkan', key: 'rup', width: 25, style: { numFmt: '"Rp" #,##0', alignment: { horizontal: 'right', vertical: 'middle' } } },
-    { header: 'Selisih', key: 'selisih', width: 22, style: { numFmt: '"Rp" #,##0', alignment: { horizontal: 'right', vertical: 'middle' } } },
-    { header: 'Persentase', key: 'persen', width: 15, style: { numFmt: '0.00%', alignment: { horizontal: 'right', vertical: 'middle' }, font: { bold: true, color: { argb: 'FF1A3A6B' } } } }
+    { header: 'No', key: 'no', width: 6 },
+    { header: 'Satuan Kerja', key: 'satker', width: 45 },
+    { header: 'Pagu Program', key: 'program', width: 22 },
+    { header: 'Pagu Pengadaan', key: 'pengadaan', width: 22 },
+    { header: 'Total RUP Terumumkan', key: 'rup', width: 25 },
+    { header: 'Selisih', key: 'selisih', width: 22 },
+    { header: 'Persentase', key: 'persen', width: 15 }
   ];
 
-  // Styling Header (Biru Tua + Teks Putih)
+  // Styling Header
   const headerRow = worksheet.getRow(1);
   headerRow.height = 25;
   headerRow.eachCell((cell) => {
@@ -495,7 +494,7 @@ async function downloadExcelFormatted() {
     cell.border = { top: {style:'thin'}, left: {style:'thin'}, bottom: {style:'thin'}, right: {style:'thin'} };
   });
 
-  // Memasukkan Data dan Memberi Warna
+  // Memasukkan Data
   filteredData.forEach((row, index) => {
     const program = Number(row["Pagu Program"] || 0);
     const pengadaan = Number(row["Pagu Pengadaan"] || 0);
@@ -514,35 +513,68 @@ async function downloadExcelFormatted() {
     });
 
     dataRow.eachCell((cell, colNum) => {
-      // Border Tipis untuk semua sel
       cell.border = {
         top: {style:'thin', color: {argb: 'FFE8EDF5'}},
         left: {style:'thin', color: {argb: 'FFE8EDF5'}},
         bottom: {style:'thin', color: {argb: 'FFE8EDF5'}},
         right: {style:'thin', color: {argb: 'FFE8EDF5'}}
       };
-
-      // Efek Garis Zebra (Baris Genap jadi biru sangat muda)
       if ((index + 1) % 2 === 0) {
         cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFF0F5FB' } };
       }
+      
+      // Format Rupiah untuk kolom uang
+      if ([3, 4, 5, 6].includes(colNum)) {
+        cell.numFmt = '"Rp" #,##0';
+        cell.alignment = { horizontal: 'right', vertical: 'middle' };
+      }
+      
+      // Warna Merah untuk Selisih Minus
+      if (colNum === 6 && selisih < 0) {
+        cell.font = { color: { argb: 'FFE63329' } };
+      }
 
-      // Selisih Merah jika Minus (Kolom F / 6)
-      if (colNum === 6) {
-        if (selisih < 0) {
-          cell.font = { color: { argb: 'FFE63329' } }; // Merah
-        } else {
-          cell.font = { color: { argb: 'FF1E293B' } }; // Hitam Default
-        }
-      } 
-      // Warna Default Text Sel Selain Persen & Minus
-      else if (colNum !== 7) {
-        cell.font = { color: { argb: 'FF1E293B' } };
+      // Format Persen
+      if (colNum === 7) {
+        cell.numFmt = '0.00%';
+        cell.font = { bold: true, color: { argb: 'FF1A3A6B' } };
+        cell.alignment = { horizontal: 'right', vertical: 'middle' };
       }
     });
   });
 
-  // Ekspor & Download File
+  // === TAMBAHKAN BARIS TOTAL ===
+  const lastDataRow = filteredData.length + 1;
+  const totalRowIndex = lastDataRow + 1;
+  const totalRow = worksheet.addRow([]);
+  
+  totalRow.getCell(2).value = 'TOTAL';
+  // Rumus SUM
+  totalRow.getCell(3).value = { formula: `SUM(C2:C${lastDataRow})` };
+  totalRow.getCell(4).value = { formula: `SUM(D2:D${lastDataRow})` };
+  totalRow.getCell(5).value = { formula: `SUM(E2:E${lastDataRow})` };
+  // Rumus Selisih Total (Total RUP - Total Pagu)
+  totalRow.getCell(6).value = { formula: `E${totalRowIndex}-D${totalRowIndex}` };
+  // Rumus Persentase Total (Total RUP / Total Pagu)
+  totalRow.getCell(7).value = { formula: `IF(D${totalRowIndex}=0, 0, E${totalRowIndex}/D${totalRowIndex})` };
+
+  // Styling Baris Total
+  totalRow.height = 22;
+  totalRow.eachCell((cell, colNum) => {
+    cell.font = { bold: true, color: { argb: 'FF1A3A6B' } };
+    cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFF5C800' } }; // Kuning LPSE
+    cell.border = { top: {style:'thin'}, left: {style:'thin'}, bottom: {style:'thin'}, right: {style:'thin'} };
+    
+    if ([3, 4, 5, 6].includes(colNum)) {
+      cell.numFmt = '"Rp" #,##0';
+      cell.alignment = { horizontal: 'right', vertical: 'middle' };
+    }
+    if (colNum === 7) {
+      cell.numFmt = '0.00%';
+      cell.alignment = { horizontal: 'right', vertical: 'middle' };
+    }
+  });
+
   const buffer = await workbook.xlsx.writeBuffer();
   saveAs(new Blob([buffer]), `Rekap_RUP_Kobar_${currentYear}.xlsx`);
 }
