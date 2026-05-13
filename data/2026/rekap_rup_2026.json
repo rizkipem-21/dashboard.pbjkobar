@@ -43,11 +43,11 @@
     "Satuan Kerja": "Badan Pendapatan Daerah",
     "Pagu Program": 3303046861.0,
     "Pagu Pengadaan": 2636937261.0,
-    "RUP Penyedia": 2012875221.0,
+    "RUP Penyedia": 2212875221.0,
     "RUP Swakelola": 624062040.0,
-    "Total RUP Terumumkan": 2636937261.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 100.0
+    "Total RUP Terumumkan": 2836937261.0,
+    "Selisih RUP Terumumkan": 200000000.0,
+    "Persentase": 107.58455663538065
   },
   {
     "Satuan Kerja": "Badan Perencanaan Pembangunan, Riset dan Inovasi Daerah",
@@ -193,11 +193,11 @@
     "Satuan Kerja": "Dinas Pendidikan dan Kebudayaan",
     "Pagu Program": 63843390000.0,
     "Pagu Pengadaan": 61655471600.0,
-    "RUP Penyedia": 9362346492.0,
+    "RUP Penyedia": 9378701632.0,
     "RUP Swakelola": 52187493800.0,
-    "Total RUP Terumumkan": 61549840292.0,
-    "Selisih RUP Terumumkan": -105631308.0,
-    "Persentase": 99.82867488438771
+    "Total RUP Terumumkan": 61566195432.0,
+    "Selisih RUP Terumumkan": -89276168.0,
+    "Persentase": 99.85520154873002
   },
   {
     "Satuan Kerja": "Dinas Perhubungan",
