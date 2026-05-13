@@ -112,3 +112,70 @@ Untracked files:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 GIT ADD 
+warning: in the working copy of 'tools/log_rup.txt', LF will be replaced by CRLF the next time Git touches it
+GIT COMMIT 
+[main 980b825] Auto update RUP 13/05/2026  9:53:20,57
+ 23 files changed, 943990 insertions(+), 941582 deletions(-)
+ create mode 100644 data/2024/rekap_rup_2024.json
+ create mode 100644 data/2025/rekap_rup_2025.json
+ create mode 100644 data/2026/rekap_rup_2026.json
+ create mode 100644 tools/log_rup.txt
+GIT PUSH 
+To https://github.com/rizkipem-21/rup-2026-inaproc.git
+   6c2e172..980b825  main -> main
+PUSH STATUS: 0 
+========================= 
+SELESAI 13/05/2026  9:53:46,29 
+========================= 
+START 13/05/2026 10:00:18,82 
+RUN GENERATE RUP MULTI-TAHUN 
+==================================================
+ AUTO GENERATE RUP (DOWNLOAD RETRY & MULTI TAHUN) 
+==================================================
+
+
+--- MENGUNDUH DATA TAHUN 2026 ---
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026
+  Percobaan ke-1... SUKSES
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026
+  Percobaan ke-1... SUKSES
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/master-satker?kode_klpd=D228&tahun=2026
+  Percobaan ke-1... SUKSES
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/program-master?kode_klpd=D228&tahun=2026
+  Percobaan ke-1... SUKSES
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2026
+  Percobaan ke-1... SUKSES
+
+--- MEMPROSES DATA TAHUN 2026 ---
+DONE -> JSON: rekap_rup_2026.json
+DONE -> EXCEL: D:\rup-2026-inaproc\output\rup\2026\Rekap RUP Tahun 2026 (2026-05-13) Legacy.xlsx
+[SKIP] Tahun 2025 sudah ada (final).
+[SKIP] Tahun 2024 sudah ada (final).
+
+==================================================
+ PROSES SELESAI SELURUHNYA!
+==================================================
+GIT CONFIG 
+GIT STATUS 
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   data/2026/Legacy_rup_master-satker_2026.json
+	modified:   data/2026/Legacy_rup_paket-penyedia-terumumkan_2026.json
+	modified:   data/2026/Legacy_rup_paket-swakelola-terumumkan_2026.json
+	modified:   data/2026/Legacy_rup_program-master_2026.json
+	modified:   data/2026/Legacy_rup_struktur-anggaran-pd_2026.json
+	modified:   data/2026/rekap_rup_2026.json
+	modified:   data/last-update-rup.txt
+	modified:   tools/log_rup.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+GIT ADD 
