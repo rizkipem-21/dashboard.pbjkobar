@@ -1983,3 +1983,24 @@ Untracked files:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 GIT ADD 
+warning: in the working copy of 'tools/log_pengadaan.txt', LF will be replaced by CRLF the next time Git touches it
+GIT COMMIT 
+[main 22c3fef] auto update pengadaan 13/05/2026  8:56:24,95
+ 55 files changed, 913237 insertions(+), 1434353 deletions(-)
+ create mode 100644 data/2024/Legacy_rup_master-satker_2024.json
+ create mode 100644 data/2024/Legacy_rup_program-master_2024.json
+ create mode 100644 data/2024/Legacy_rup_struktur-anggaran-pd_2024.json
+ create mode 100644 data/2025/Legacy_rup_master-satker_2025.json
+ create mode 100644 data/2025/Legacy_rup_program-master_2025.json
+ create mode 100644 data/2025/Legacy_rup_struktur-anggaran-pd_2025.json
+ create mode 100644 data/2026/Legacy_rup_master-satker_2026.json
+ create mode 100644 data/2026/Legacy_rup_program-master_2026.json
+ create mode 100644 data/2026/Legacy_rup_struktur-anggaran-pd_2026.json
+ delete mode 100644 scripts/rup/download_rup.ps1
+ delete mode 100644 scripts/rup/generate_excel.py
+GIT PUSH 
+To https://github.com/rizkipem-21/rup-2026-inaproc.git
+   669b2d6..22c3fef  main -> main
+PUSH STATUS: 0 
+========================= 
+SELESAI 13/05/2026  8:56:52,24 

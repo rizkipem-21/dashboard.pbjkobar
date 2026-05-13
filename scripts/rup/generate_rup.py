@@ -27,7 +27,11 @@ daftar_tahun = [tahun_n, tahun_n1, tahun_n2]
 
 # Konfigurasi API
 TOKEN = "inprc7642391c38774272bf57ca25ac1d4544"
-HEADERS = {"Authorization": f"Bearer {TOKEN}"}
+HEADERS = {
+    "Authorization": f"Bearer {TOKEN}",
+    # Tambahkan User-Agent ini untuk menghindari Error 403 Forbidden
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+}
 ENDPOINTS = [
     "rup/paket-penyedia-terumumkan",
     "rup/paket-swakelola-terumumkan",
