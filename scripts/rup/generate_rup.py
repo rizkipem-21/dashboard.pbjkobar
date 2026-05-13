@@ -162,8 +162,12 @@ def process_tahun(tahun):
     # 6. Kalkulasi
     df['Total RUP Terumumkan'] = df['RUP Penyedia'] + df['RUP Swakelola']
     df['Selisih RUP Terumumkan'] = df['Total RUP Terumumkan'] - df['Pagu Pengadaan']
-    df['Persentase'] = (df['Total RUP Terumumkan'] / df['Pagu Pengadaan'].replace(0, 1)) * 100
-
+    
+    # Dikembalikan menggunakan perhitungan persentase asli milik Anda
+    df['Persentase'] = (
+        df['Total RUP Terumumkan'] / df['Pagu Pengadaan']
+    ).replace([float('inf')], 0).fillna(0) * 100
+    
     # 7. Finalisasi Data
     df_final = df[['Satuan Kerja', 'Pagu Program', 'Pagu Pengadaan', 'RUP Penyedia', 
                    'RUP Swakelola', 'Total RUP Terumumkan', 'Selisih RUP Terumumkan', 'Persentase']]
