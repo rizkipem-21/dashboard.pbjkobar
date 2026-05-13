@@ -156,12 +156,20 @@ def process_tahun(tahun):
     df = df.merge(struktur, on='kd_satker', how='left')
     df.fillna(0, inplace=True)
 
-    # 6. Kalkulasi (Rumus Asli)
+    # 6. Kalkulasi (Aman dari ZeroDivisionError)
+    # Pastikan tipe data menjadi float sebelum menjumlah atau membagi
+    df['RUP Penyedia'] = pd.to_numeric(df['RUP Penyedia'], errors='coerce').fillna(0)
+    df['RUP Swakelola'] = pd.to_numeric(df['RUP Swakelola'], errors='coerce').fillna(0)
+    df['Pagu Pengadaan'] = pd.to_numeric(df['Pagu Pengadaan'], errors='coerce').fillna(0)
+
     df['Total RUP Terumumkan'] = df['RUP Penyedia'] + df['RUP Swakelola']
     df['Selisih RUP Terumumkan'] = df['Total RUP Terumumkan'] - df['Pagu Pengadaan']
+    
+    # Mencegah error bagi 0 dengan merubah nilai 0 pada pembagi menjadi NaN (kosong)
     df['Persentase'] = (
-        df['Total RUP Terumumkan'] / df['Pagu Pengadaan']
-    ).replace([float('inf')], 0).fillna(0) * 100
+        df['Total RUP Terumumkan'].astype(float) / 
+        df['Pagu Pengadaan'].astype(float).replace(0, float('nan'))
+    ).fillna(0) * 100
 
     # 7. Finalisasi Data
     df_final = df[['Satuan Kerja', 'Pagu Program', 'Pagu Pengadaan', 'RUP Penyedia', 
