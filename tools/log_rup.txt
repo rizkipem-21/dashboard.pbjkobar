@@ -495,3 +495,11 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 GIT ADD 
+warning: in the working copy of 'tools/log_pengadaan.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tools/log_rup.txt', LF will be replaced by CRLF the next time Git touches it
+GIT COMMIT 
+[main de114c7] Auto update RUP 14/05/2026 18:03:20,18
+ 42 files changed, 931121 insertions(+), 930362 deletions(-)
+GIT PUSH 
+fatal: Unable to persist credentials with the 'wincredman' credential store.
+See https://aka.ms/gcm/credstores for more information.

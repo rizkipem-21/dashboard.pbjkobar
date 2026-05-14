@@ -252,3 +252,60 @@ SKIP (sudah final): Legacy_ekatalog_paket-e-purchasing_2024.json
 
 SELESAI DOWNLOAD SEMUA DATA PENGADAAN
 GENERATE REKAP 
+=======================================================
+  PAKET PENGADAAN MULTI TAHUN
+  n=2026 | n-1=2025 | n-2=2024
+=======================================================
+
+[SKIP] Tahun 2024 sudah final -> skip generate
+
+=======================================================
+  GENERATE TAHUN 2025
+=======================================================
+Load semua sumber tahun 2025...
+JSON tersimpan: D:\rup-2026-inaproc\data\2025\rekap_pengadaan_2025.json
+Generate Excel tahun 2025...
+Excel tersimpan : D:\rup-2026-inaproc\output\pengadaan\2025\Paket Pengadaan Tahun 2025 (2026-05-14) (Api Gateway Legacy).xlsx
+Master Excel   : D:\rup-2026-inaproc\data\2025\master_pengadaan_2025.xlsx
+
+SELESAI TAHUN 2025 | Total data: 10586
+JSON  : D:\rup-2026-inaproc\data\2025\rekap_pengadaan_2025.json
+Excel : D:\rup-2026-inaproc\output\pengadaan\2025\Paket Pengadaan Tahun 2025 (2026-05-14) (Api Gateway Legacy).xlsx
+
+=======================================================
+  GENERATE TAHUN 2026
+=======================================================
+Load semua sumber tahun 2026...
+JSON tersimpan: D:\rup-2026-inaproc\data\2026\rekap_pengadaan_2026.json
+Generate Excel tahun 2026...
+Excel tersimpan : D:\rup-2026-inaproc\output\pengadaan\2026\Paket Pengadaan Tahun 2026 (2026-05-14) (Api Gateway Legacy).xlsx
+Master Excel   : D:\rup-2026-inaproc\data\2026\master_pengadaan_2026.xlsx
+
+SELESAI TAHUN 2026 | Total data: 4880
+JSON  : D:\rup-2026-inaproc\data\2026\rekap_pengadaan_2026.json
+Excel : D:\rup-2026-inaproc\output\pengadaan\2026\Paket Pengadaan Tahun 2026 (2026-05-14) (Api Gateway Legacy).xlsx
+
+=======================================================
+  SEMUA TAHUN SELESAI | Total seluruh data: 15466
+=======================================================
+COPY EXCEL TERBARU 
+ERROR: Tidak ada file Excel ditemukan di D:\rup-2026-inaproc\output\pengadaan 
+UPDATE LAST-UPDATE 
+GIT CONFIG 
+GIT STATUS 
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   data/2025/master_pengadaan_2025.xlsx
+	modified:   data/2026/master_pengadaan_2026.xlsx
+	modified:   data/2026/rekap_pengadaan_2026.json
+	modified:   data/last-update-pengadaan.txt
+	modified:   tools/log_pengadaan.txt
+	modified:   tools/log_rup.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+GIT ADD 
