@@ -2286,3 +2286,28 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 GIT ADD 
+warning: in the working copy of 'tools/log_pengadaan.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tools/log_rup.txt', LF will be replaced by CRLF the next time Git touches it
+GIT COMMIT 
+[main d54d70c] Auto update pengadaan 18/05/2026 13:03:56,65
+ 40 files changed, 919146 insertions(+), 918925 deletions(-)
+GIT PUSH 
+fatal: Unable to persist credentials with the 'wincredman' credential store.
+See https://aka.ms/gcm/credstores for more information.
+fatal: Unable to persist credentials with the 'wincredman' credential store.
+See https://aka.ms/gcm/credstores for more information.
+To https://github.com/rizkipem-21/rup-2026-inaproc.git
+   f293089..d54d70c  main -> main
+PUSH STATUS: 0 
+SELESAI 18/05/2026 13:04:18,36 
+========================= 
+========================= 
+START 18/05/2026 14:00:00,72 
+DOWNLOAD DATA 
+The argument 'scripts\pengadaan\download_pengadaan.ps1' to the -File parameter does not exist. Provide the path to an existing '.ps1' file as an argument to the -File parameter.
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+GENERATE REKAP 
