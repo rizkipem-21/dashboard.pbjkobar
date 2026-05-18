@@ -62,3 +62,100 @@ To https://github.com/rizkipem-21/rup-2026-inaproc.git
 PUSH STATUS: 0 
 ========================= 
 SELESAI 18/05/2026  8:00:38,23 
+========================= 
+START 18/05/2026  9:00:00,59 
+RUN GENERATE RUP MULTI-TAHUN 
+==================================================
+ AUTO GENERATE RUP (DOWNLOAD RETRY & MULTI TAHUN) 
+==================================================
+
+
+--- MENGUNDUH DATA TAHUN 2026 ---
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026
+  Percobaan ke-1... SUKSES
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026
+  Percobaan ke-1... SUKSES
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/master-satker?kode_klpd=D228&tahun=2026
+  Percobaan ke-1... SUKSES
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/program-master?kode_klpd=D228&tahun=2026
+  Percobaan ke-1... SUKSES
+
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2026
+  Percobaan ke-1... SUKSES
+
+--- MEMPROSES DATA TAHUN 2026 ---
+DONE -> JSON: rekap_rup_2026.json
+DONE -> EXCEL: D:\rup-2026-inaproc\output\rup\2026\Rekap RUP Tahun 2026 (2026-05-18) Legacy.xlsx
+[SKIP] Tahun 2025 sudah ada (final).
+[SKIP] Tahun 2024 sudah ada (final).
+
+==================================================
+ PROSES SELESAI SELURUHNYA!
+==================================================
+UPDATE LAST-UPDATE 
+GIT CONFIG 
+GIT STATUS 
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   data/2025/Legacy_ekatalog-archive_paket-e-purchasing_2025.json
+	modified:   data/2025/Legacy_ekatalog_paket-e-purchasing_2025.json
+	modified:   data/2025/Legacy_rup_paket-penyedia-terumumkan_2025.json
+	modified:   data/2025/Legacy_rup_paket-swakelola-terumumkan_2025.json
+	modified:   data/2025/Legacy_tender_non-tender-ekontrak-bapbast_2025.json
+	modified:   data/2025/Legacy_tender_non-tender-ekontrak-kontrak_2025.json
+	modified:   data/2025/Legacy_tender_non-tender-ekontrak-spmkspp_2025.json
+	modified:   data/2025/Legacy_tender_non-tender-ekontrak-sppbj_2025.json
+	modified:   data/2025/Legacy_tender_non-tender-pengumuman_2025.json
+	modified:   data/2025/Legacy_tender_non-tender-selesai_2025.json
+	modified:   data/2025/Legacy_tender_pencatatan-non-tender_2025.json
+	modified:   data/2025/Legacy_tender_pencatatan-swakelola_2025.json
+	modified:   data/2025/Legacy_tender_pengumuman_2025.json
+	modified:   data/2025/Legacy_tender_tender-ekontrak-bapbast_2025.json
+	modified:   data/2025/Legacy_tender_tender-ekontrak-kontrak_2025.json
+	modified:   data/2025/Legacy_tender_tender-ekontrak-spmkspp_2025.json
+	modified:   data/2025/Legacy_tender_tender-ekontrak-sppbj_2025.json
+	modified:   data/2025/Legacy_tender_tender-selesai-nilai_2025.json
+	modified:   data/2025/Legacy_tender_tender-selesai_2025.json
+	modified:   data/2025/master_pengadaan_2025.xlsx
+	modified:   data/2025/rekap_pengadaan_2025.json
+	modified:   data/2026/Legacy_ekatalog-archive_paket-e-purchasing_2026.json
+	modified:   data/2026/Legacy_ekatalog_paket-e-purchasing_2026.json
+	modified:   data/2026/Legacy_rup_master-satker_2026.json
+	modified:   data/2026/Legacy_rup_paket-penyedia-terumumkan_2026.json
+	modified:   data/2026/Legacy_rup_paket-swakelola-terumumkan_2026.json
+	modified:   data/2026/Legacy_rup_program-master_2026.json
+	modified:   data/2026/Legacy_rup_struktur-anggaran-pd_2026.json
+	modified:   data/2026/Legacy_tender_non-tender-ekontrak-bapbast_2026.json
+	modified:   data/2026/Legacy_tender_non-tender-ekontrak-kontrak_2026.json
+	modified:   data/2026/Legacy_tender_non-tender-ekontrak-spmkspp_2026.json
+	modified:   data/2026/Legacy_tender_non-tender-ekontrak-sppbj_2026.json
+	modified:   data/2026/Legacy_tender_non-tender-pengumuman_2026.json
+	modified:   data/2026/Legacy_tender_non-tender-selesai_2026.json
+	modified:   data/2026/Legacy_tender_pencatatan-non-tender_2026.json
+	modified:   data/2026/Legacy_tender_pencatatan-swakelola_2026.json
+	modified:   data/2026/Legacy_tender_pengumuman_2026.json
+	modified:   data/2026/Legacy_tender_tender-ekontrak-bapbast_2026.json
+	modified:   data/2026/Legacy_tender_tender-ekontrak-kontrak_2026.json
+	modified:   data/2026/Legacy_tender_tender-ekontrak-spmkspp_2026.json
+	modified:   data/2026/Legacy_tender_tender-ekontrak-sppbj_2026.json
+	modified:   data/2026/Legacy_tender_tender-selesai-nilai_2026.json
+	modified:   data/2026/Legacy_tender_tender-selesai_2026.json
+	modified:   data/2026/master_pengadaan_2026.xlsx
+	modified:   data/2026/rekap_pengadaan_2026.json
+	modified:   data/last-update-pengadaan.txt
+	modified:   data/last-update-rup.txt
+	modified:   scripts/pengadaan/generate_pengadaan.py
+	modified:   tools/log_pengadaan.txt
+	modified:   tools/log_rup.txt
+	modified:   tools/run_pengadaan.bat
+
+no changes added to commit (use "git add" and/or "git commit -a")
+GIT ADD 

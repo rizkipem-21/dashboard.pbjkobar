@@ -62,6 +62,12 @@ set hh=!hh: =!
 echo UPDATE LAST-UPDATE >> tools\log_pengadaan.txt
 echo !dd! !bulan! !yyyy! ^| !hh!.!mn! WIB > data\last-update-pengadaan.txt
 
+:: -----------------------------------------------------------------
+:: PROSES GIT
+:: -----------------------------------------------------------------
+:: FIX LOCK (Mencegah error Git nyangkut sebelum perintah Git apapun berjalan)
+del /f /q .git\index.lock >nul 2>&1
+
 echo GIT CONFIG >> tools\log_pengadaan.txt
 git config user.name "rizkipem-21"
 git config user.email "rizki.pem@gmail.com"
@@ -69,20 +75,17 @@ git config user.email "rizki.pem@gmail.com"
 echo GIT STATUS >> tools\log_pengadaan.txt
 git status >> tools\log_pengadaan.txt 2>&1
 
-:: FIX LOCK
-del /f /q .git\index.lock >nul 2>&1
-
 echo GIT ADD >> tools\log_pengadaan.txt
 git add . >> tools\log_pengadaan.txt 2>&1
 
 echo GIT COMMIT >> tools\log_pengadaan.txt
-git commit -m "auto update pengadaan %date% %time%" >> tools\log_pengadaan.txt 2>&1
+git commit -m "Auto update pengadaan %date% %time%" >> tools\log_pengadaan.txt 2>&1
 
 echo GIT PUSH >> tools\log_pengadaan.txt
 git push origin main >> tools\log_pengadaan.txt 2>&1
 echo PUSH STATUS: %ERRORLEVEL% >> tools\log_pengadaan.txt
 
-echo ========================= >> tools\log_pengadaan.txt
 echo SELESAI %date% %time% >> tools\log_pengadaan.txt
+echo ========================= >> tools\log_pengadaan.txt
 
 mshta vbscript:Execute("CreateObject(""WScript.Shell"").Popup(""Proses update data Pengadaan telah SELESAI!"", 5, ""Notifikasi Sistem"", 4160)(window.close)")
