@@ -10,7 +10,7 @@ import shutil
 import warnings
 import requests
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from openpyxl import load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
@@ -29,9 +29,9 @@ HEADERS  = {
     "Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"
 }
 
-tahun_n      = datetime.now().year       # 2026 (tahun berjalan)
-tahun_n1     = tahun_n - 1               # 2025
-tahun_n2     = tahun_n - 2               # 2024
+tahun_n      = datetime.now().year       # Tahun berjalan
+tahun_n1     = tahun_n - 1               # Tahun lalu
+tahun_n2     = tahun_n - 2               # Dua tahun lalu
 daftar_tahun = [tahun_n2, tahun_n1, tahun_n] # Urutan pemrosesan dari terlama ke terbaru
 
 # 19 Daftar Endpoint API Inaproc
@@ -58,6 +58,33 @@ ENDPOINTS = [
 ]
 
 # ======================================================
+# FUNGSI LOG & LAST-UPDATE (PENGGANTI .BAT)
+# ======================================================
+LOG_FILE = os.path.join(BASE_DIR, 'tools', 'log_pengadaan.txt')
+os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
+
+def log_print(*args, **kwargs):
+    """Mencetak ke layar terminal sekaligus ke file log txt"""
+    msg = " ".join(str(a) for a in args)
+    print(msg, **kwargs)
+    
+    if 'end' in kwargs and kwargs['end'] == " ": return
+    
+    with open(LOG_FILE, 'a', encoding='utf-8') as f:
+        f.write(msg + '\n')
+
+def get_waktu_indonesia():
+    """Mengambil waktu pasti WIB (UTC+7) dengan Bulan Indonesia"""
+    tz_wib = timezone(timedelta(hours=7))
+    sekarang = datetime.now(tz_wib)
+    bulan_indo = {
+        1: 'Januari', 2: 'Februari', 3: 'Maret', 4: 'April',
+        5: 'Mei', 6: 'Juni', 7: 'Juli', 8: 'Agustus',
+        9: 'September', 10: 'Oktober', 11: 'November', 12: 'Desember'
+    }
+    return f"{sekarang.day} {bulan_indo[sekarang.month]} {sekarang.year} | {sekarang.strftime('%H.%M')} WIB"
+
+# ======================================================
 # HELPER FUNCTIONS
 # ======================================================
 def format_tgl(val):
@@ -80,27 +107,26 @@ def download_with_retry(url, output_path):
     
     for i in range(1, max_retry + 1):
         try:
-            print(f"  Percobaan ke-{i}...")
+            log_print(f"  Percobaan ke-{i}...", end=" ")
             response = requests.get(url, headers=HEADERS, timeout=30)
             
             if response.status_code == 200:
-                # Validasi apakah response berisi JSON yang benar
                 data_json = response.json()
                 if data_json is not None:
                     with open(output_path, 'w', encoding='utf-8') as f:
                         json.dump(data_json, f, ensure_ascii=False, indent=2)
-                    print("  -> SUKSES")
+                    log_print("-> SUKSES")
                     success = True
                     break
             else:
-                print(f"  -> Gagal HTTP {response.status_code}")
+                log_print(f"-> Gagal HTTP {response.status_code}")
         except Exception as e:
-            print(f"  -> Gagal error: {e}")
+            log_print(f"-> Gagal error: {e}")
         
         time.sleep(2)
         
     if not success:
-        print("  -> GAGAL TOTAL -> Membuat file JSON kosong []")
+        log_print("  -> GAGAL TOTAL -> Membuat file JSON kosong []")
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write("[]")
 
@@ -128,12 +154,12 @@ def process_tahun(tahun):
     
     # LOGIKA SKIP UTK TAHUN n-2 YANG SUDAH FINAL
     if tahun == tahun_n2 and os.path.exists(output_json):
-        print(f"\n[SKIP] Tahun {tahun} sudah final -> Lewati download & generate")
+        log_print(f"\n[SKIP] Tahun {tahun} sudah final -> Lewati download & generate")
         return None
 
-    print(f'\n{"="*55}')
-    print(f'   PROSES DATA TAHUN {tahun}')
-    print(f'{"="*55}')
+    log_print(f'\n{"="*55}')
+    log_print(f'   PROSES DATA TAHUN {tahun}')
+    log_print(f'{"="*55}')
 
     os.makedirs(data_dir, exist_ok=True)
     is_n2 = (tahun == tahun_n2)
@@ -141,7 +167,7 @@ def process_tahun(tahun):
     # ----------------======================================
     # PHASE 1: DOWNLOAD DATA DARI API INAPROC
     # ----------------======================================
-    print(f"Memulai proses download API untuk Tahun {tahun}...")
+    log_print(f"Memulai proses download API untuk Tahun {tahun}...")
     for endpoint in ENDPOINTS:
         url = f"https://data.inaproc.id/api/legacy/{endpoint}?kode_klpd=D228&tahun={tahun}"
         base_name = endpoint.replace('/', '_')
@@ -150,16 +176,16 @@ def process_tahun(tahun):
 
         # Skip download per file jika tahun n-2 sudah punya file mentahnya
         if is_n2 and os.path.exists(output_file):
-            print(f"SKIP Download (Sudah Final Lokal): {filename}")
+            log_print(f"SKIP Download (Sudah Final Lokal): {filename}")
             continue
 
-        print(f"DOWNLOAD: {url}")
+        log_print(f"DOWNLOAD: {url}")
         download_with_retry(url, output_file)
 
     # ----------------======================================
     # PHASE 2: PROCESSING & COMPILING DATA
     # ------------------------------------------------======
-    print(f"\nLoading semua file JSON hasil unduhan...")
+    log_print(f"\nLoading semua file JSON hasil unduhan...")
     def p(nama): return os.path.join(data_dir, f'Legacy_{nama}_{tahun}.json')
     
     df1     = load_json(p('rup_paket-penyedia-terumumkan'))
@@ -454,7 +480,7 @@ def process_tahun(tahun):
 
     # Swakelola/Penyedia Murni (Sumber 1) yang sama sekali belum dieksekusi proses pengadaannya
     set_all_executed = get_set(df2, 'kd_rup_raw').union(get_set(df3, 'kd_rup_raw')).union(get_set(df4, 'kd_rup_raw'))\
-                       .union(get_set(df5, 'kd_rup_raw')).union(get_set(df6, 'rup_code_raw')).union(get_set(df7, 'kd_rup_raw'))
+                      .union(get_set(df5, 'kd_rup_raw')).union(get_set(df6, 'rup_code_raw')).union(get_set(df7, 'kd_rup_raw'))
     
     data_s1=[]
     for _, r in df1.iterrows():
@@ -487,7 +513,7 @@ def process_tahun(tahun):
     # SIMPAN REKAP FORMAT JSON
     with open(output_json, "w", encoding="utf-8") as f:
         json.dump(final_df.to_dict(orient='records'), f, ensure_ascii=False, indent=2)
-    print(f"JSON Rekap sukses dibuat: {output_json}")
+    log_print(f"JSON Rekap sukses dibuat: {output_json}")
 
     # ----------------======================================
     # PHASE 3: GENERATE EXCEL MAESTRO VIA OPENPYXL
@@ -560,23 +586,24 @@ def process_tahun(tahun):
     ws.freeze_panes = 'A2'
     ws.auto_filter.ref = ws.dimensions
     wb.save(output_excel_path)
-    print(f"Excel Berwarna Berhasil Terformat: {output_excel_path}")
+    log_print(f"Excel Berwarna Berhasil Terformat: {output_excel_path}")
 
     # Kopi Hasil ke folder web terintegrasi
     master_excel = os.path.join(data_dir, f'master_pengadaan_{tahun}.xlsx')
     shutil.copy2(output_excel_path, master_excel)
     
-    print(f'SELESAI GENERATE TAHUN {tahun} | Total paket data: {len(final_df)}')
+    log_print(f'SELESAI GENERATE TAHUN {tahun} | Total paket data: {len(final_df)}')
     return len(final_df)
 
 # ======================================================
 # PROGRAM BERJALAN UTAMA (__main__)
 # ======================================================
 if __name__ == '__main__':
-    print("="*55)
-    print(f" AUTOMATION SYSTEM PENGADAAN BARANG DAN JASA")
-    print(f" Target Sinkronisasi: {daftar_tahun}")
-    print("="*55)
+    log_print("\n" + "="*55)
+    log_print(f"START {get_waktu_indonesia()}")
+    log_print(f"AUTOMATION SYSTEM PENGADAAN BARANG DAN JASA")
+    log_print(f"Target Sinkronisasi: {daftar_tahun}")
+    log_print("="*55)
 
     total_seluruh_paket = 0
     for t in daftar_tahun:
@@ -584,10 +611,12 @@ if __name__ == '__main__':
         if hasil_proses:
             total_seluruh_paket += hasil_proses
 
-    # Membuat rekaman berkas teks penanda update sistem sukses
+    # ----------------------------------------------------
+    # UPDATE FILE LAST-UPDATE UNTUK WEBSITE
+    # ----------------------------------------------------
     with open(os.path.join(BASE_DIR, 'data', 'last-update-pengadaan.txt'), 'w', encoding='utf-8') as f:
-        f.write(datetime.now().strftime("%d %B %Y | %H:%M WIB"))
+        f.write(get_waktu_indonesia())
 
-    print("\n" + "="*55)
-    print(f" SINKRONISASI PBJ ALL-TAHUN SELESAI | Total: {total_seluruh_paket} Paket")
-    print("="*55)
+    log_print("\n" + "="*55)
+    log_print(f"SINKRONISASI PBJ ALL-TAHUN SELESAI PADA {get_waktu_indonesia()} | Total: {total_seluruh_paket} Paket")
+    log_print("="*55)

@@ -7,7 +7,7 @@ import json
 import os
 import requests
 import time
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 import warnings
 from openpyxl import load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
@@ -38,10 +38,39 @@ ENDPOINTS = [
 ]
 
 # ======================================================
+# FUNGSI LOG & LAST-UPDATE (PENGGANTI .BAT)
+# ======================================================
+LOG_FILE = os.path.join(BASE_DIR, 'tools', 'log_rup.txt')
+os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
+
+def log_print(*args, **kwargs):
+    """Mencetak ke layar terminal sekaligus ke file log txt"""
+    msg = " ".join(str(a) for a in args)
+    print(msg, **kwargs) # Cetak ke layar
+    
+    # Jangan tulis enter bawaan print yang ada di 'end' ke file log untuk merapikan
+    if 'end' in kwargs and kwargs['end'] == " ": return
+    
+    with open(LOG_FILE, 'a', encoding='utf-8') as f:
+        f.write(msg + '\n')
+
+def get_waktu_indonesia():
+    """Mengambil waktu pasti WIB (UTC+7) dengan Bulan Indonesia"""
+    tz_wib = timezone(timedelta(hours=7))
+    sekarang = datetime.now(tz_wib)
+    bulan_indo = {
+        1: 'Januari', 2: 'Februari', 3: 'Maret', 4: 'April',
+        5: 'Mei', 6: 'Juni', 7: 'Juli', 8: 'Agustus',
+        9: 'September', 10: 'Oktober', 11: 'November', 12: 'Desember'
+    }
+    return f"{sekarang.day} {bulan_indo[sekarang.month]} {sekarang.year} | {sekarang.strftime('%H.%M')} WIB"
+
+
+# ======================================================
 # FUNGSI 1: DOWNLOAD DATA API DENGAN RETRY
 # ======================================================
 def download_data_api_with_retry(tahun):
-    print(f"\n--- MENGUNDUH DATA TAHUN {tahun} ---")
+    log_print(f"\n--- MENGUNDUH DATA TAHUN {tahun} ---")
     data_dir = os.path.join(BASE_DIR, 'data', str(tahun))
     os.makedirs(data_dir, exist_ok=True)
 
@@ -54,30 +83,30 @@ def download_data_api_with_retry(tahun):
         max_retry = 5
         success = False
 
-        print(f"\nDOWNLOAD: {url}")
+        log_print(f"\nDOWNLOAD: {url}")
         
         for i in range(1, max_retry + 1):
             try:
-                print(f"  Percobaan ke-{i}...", end=" ")
+                log_print(f"  Percobaan ke-{i}...", end=" ")
                 response = requests.get(url, headers=HEADERS, timeout=60)
                 
                 if response.status_code == 200:
                     data = response.json()
                     with open(output_path, 'w', encoding='utf-8') as f:
                         json.dump(data, f, ensure_ascii=False, indent=2)
-                    print("SUKSES")
+                    log_print("SUKSES")
                     success = True
                     break
                 else:
-                    print(f"GAGAL (Status {response.status_code})")
+                    log_print(f"GAGAL (Status {response.status_code})")
             except Exception as e:
-                print(f"ERROR: {e}")
+                log_print(f"ERROR: {e}")
             
             if i < max_retry:
                 time.sleep(2) # Jeda 2 detik sebelum coba lagi
 
         if not success:
-            print(f"  GAGAL TOTAL -> buat file kosong")
+            log_print(f"  GAGAL TOTAL -> buat file kosong")
             with open(output_path, 'w', encoding='utf-8') as f:
                 f.write("[]")
 
@@ -99,7 +128,7 @@ def load_json_local(path):
 # FUNGSI 2: PROSES DATA & GENERATE EXCEL
 # ======================================================
 def process_tahun(tahun):
-    print(f"\n--- MEMPROSES DATA TAHUN {tahun} ---")
+    log_print(f"\n--- MEMPROSES DATA TAHUN {tahun} ---")
     data_dir = os.path.join(BASE_DIR, 'data', str(tahun))
     
     # Path Sumber
@@ -117,7 +146,7 @@ def process_tahun(tahun):
     df_struktur  = pd.DataFrame(load_json_local(s_struktur))
 
     if df_master.empty: 
-        print(f"Data Master kosong. Melewati tahun {tahun}.")
+        log_print(f"Data Master kosong. Melewati tahun {tahun}.")
         return 0
 
     # 1. Master Satker
@@ -125,29 +154,29 @@ def process_tahun(tahun):
         df_master['kd_satker'] = pd.to_numeric(df_master['kd_satker'], errors='coerce')
     
     df_master = df_master[df_master['tahun_aktif'].astype(str).str.contains(str(tahun), na=False)]
-    master_satker = df_master[['kd_satker','nama_satker']].drop_duplicates().dropna(subset=['kd_satker'])
+    master_satker = df_master[['kd_satker', 'nama_satker']].drop_duplicates().dropna(subset=['kd_satker'])
     master_satker['kd_satker'] = master_satker['kd_satker'].astype(int)
-    master_satker.rename(columns={'nama_satker':'Satuan Kerja'}, inplace=True)
+    master_satker.rename(columns={'nama_satker': 'Satuan Kerja'}, inplace=True)
 
     # 2. Aggregasi Pagu
     for d in [df_penyedia, df_swakelola, df_program, df_struktur]:
         if not d.empty and 'kd_satker' in d.columns:
             d['kd_satker'] = pd.to_numeric(d['kd_satker'], errors='coerce')
 
-    rup_penyedia = df_penyedia.groupby('kd_satker', as_index=False)['pagu'].sum().rename(columns={'pagu':'RUP Penyedia'}) if not df_penyedia.empty else pd.DataFrame(columns=['kd_satker', 'RUP Penyedia'])
-    rup_swakelola = df_swakelola.groupby('kd_satker', as_index=False)['pagu'].sum().rename(columns={'pagu':'RUP Swakelola'}) if not df_swakelola.empty else pd.DataFrame(columns=['kd_satker', 'RUP Swakelola'])
+    rup_penyedia = df_penyedia.groupby('kd_satker', as_index=False)['pagu'].sum().rename(columns={'pagu': 'RUP Penyedia'}) if not df_penyedia.empty else pd.DataFrame(columns=['kd_satker', 'RUP Penyedia'])
+    rup_swakelola = df_swakelola.groupby('kd_satker', as_index=False)['pagu'].sum().rename(columns={'pagu': 'RUP Swakelola'}) if not df_swakelola.empty else pd.DataFrame(columns=['kd_satker', 'RUP Swakelola'])
     
     # 3. Pagu Program
     if not df_program.empty:
         kolom_ada = [c for c in ['kd_satker', 'nama_program', 'kd_program'] if c in df_program.columns]
         df_program = df_program.drop_duplicates(subset=kolom_ada)
         df_program = df_program[~df_program['nama_program'].astype(str).str.contains(r'( M$|\(M\)$)', regex=True)]
-        pagu_program = df_program.groupby('kd_satker', as_index=False)['pagu_program'].sum().rename(columns={'pagu_program':'Pagu Program'})
+        pagu_program = df_program.groupby('kd_satker', as_index=False)['pagu_program'].sum().rename(columns={'pagu_program': 'Pagu Program'})
     else:
         pagu_program = pd.DataFrame(columns=['kd_satker', 'Pagu Program'])
 
     # 4. Struktur Anggaran
-    struktur = df_struktur.groupby('kd_satker', as_index=False)['belanja_pengadaan'].sum().rename(columns={'belanja_pengadaan':'Pagu Pengadaan'}) if not df_struktur.empty else pd.DataFrame(columns=['kd_satker', 'Pagu Pengadaan'])
+    struktur = df_struktur.groupby('kd_satker', as_index=False)['belanja_pengadaan'].sum().rename(columns={'belanja_pengadaan': 'Pagu Pengadaan'}) if not df_struktur.empty else pd.DataFrame(columns=['kd_satker', 'Pagu Pengadaan'])
 
     # 5. Merge Semua
     df = master_satker.merge(pagu_program, on='kd_satker', how='left')
@@ -157,7 +186,6 @@ def process_tahun(tahun):
     df.fillna(0, inplace=True)
 
     # 6. Kalkulasi (Aman dari ZeroDivisionError)
-    # Pastikan tipe data menjadi float sebelum menjumlah atau membagi
     df['RUP Penyedia'] = pd.to_numeric(df['RUP Penyedia'], errors='coerce').fillna(0)
     df['RUP Swakelola'] = pd.to_numeric(df['RUP Swakelola'], errors='coerce').fillna(0)
     df['Pagu Pengadaan'] = pd.to_numeric(df['Pagu Pengadaan'], errors='coerce').fillna(0)
@@ -165,7 +193,6 @@ def process_tahun(tahun):
     df['Total RUP Terumumkan'] = df['RUP Penyedia'] + df['RUP Swakelola']
     df['Selisih RUP Terumumkan'] = df['Total RUP Terumumkan'] - df['Pagu Pengadaan']
     
-    # Mencegah error bagi 0 dengan merubah nilai 0 pada pembagi menjadi NaN (kosong)
     df['Persentase'] = (
         df['Total RUP Terumumkan'].astype(float) / 
         df['Pagu Pengadaan'].astype(float).replace(0, float('nan'))
@@ -218,17 +245,18 @@ def process_tahun(tahun):
 
     wb.save(path_history)
 
-    print(f"DONE -> JSON: rekap_rup_{tahun}.json")
-    print(f"DONE -> EXCEL: {path_history}")
+    log_print(f"DONE -> JSON: rekap_rup_{tahun}.json")
+    log_print(f"DONE -> EXCEL: {path_history}")
     return len(df_final)
 
 # ======================================================
 # MAIN EXECUTION
 # ======================================================
 if __name__ == "__main__":
-    print("==================================================")
-    print(" AUTO GENERATE RUP (DOWNLOAD RETRY & MULTI TAHUN) ")
-    print("==================================================\n")
+    log_print("\n==================================================")
+    log_print(f"START {get_waktu_indonesia()}")
+    log_print("AUTO GENERATE RUP (DOWNLOAD RETRY & MULTI TAHUN)")
+    log_print("==================================================")
 
     total_all = 0
     for t in daftar_tahun:
@@ -236,15 +264,18 @@ if __name__ == "__main__":
         
         # LOGIKA SKIP UNTUK TAHUN LALU (n-1 dan n-2)
         if t != tahun_n and os.path.exists(output_json_cek):
-            print(f"[SKIP] Tahun {t} sudah ada (final).")
+            log_print(f"\n[SKIP] Tahun {t} sudah ada (final).")
             continue
         
         download_data_api_with_retry(t)
         total_all += process_tahun(t)
     
-    with open(os.path.join(BASE_DIR, "data", "last-update-rup.txt"), "w") as f:
-        f.write(datetime.now().strftime("%d %B %Y %H:%M WIB"))
+    # ----------------------------------------------------
+    # UPDATE FILE LAST-UPDATE UNTUK WEBSITE
+    # ----------------------------------------------------
+    with open(os.path.join(BASE_DIR, "data", "last-update-rup.txt"), "w", encoding='utf-8') as f:
+        f.write(get_waktu_indonesia())
     
-    print("\n" + "="*50)
-    print(f" PROSES SELESAI SELURUHNYA!")
-    print("="*50)
+    log_print("\n" + "="*50)
+    log_print(f"PROSES SELESAI SELURUHNYA PADA {get_waktu_indonesia()}")
+    log_print("==================================================")

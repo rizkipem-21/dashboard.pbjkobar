@@ -3327,3 +3327,28 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 GIT ADD 
+warning: in the working copy of 'tools/log_pengadaan.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tools/log_rup.txt', LF will be replaced by CRLF the next time Git touches it
+GIT COMMIT 
+[main a2adcd7] Auto update pengadaan 19/05/2026 11:10:36,14
+ 41 files changed, 895055 insertions(+), 925564 deletions(-)
+GIT PUSH 
+To https://github.com/rizkipem-21/rup-2026-inaproc.git
+   5b476ba..a2adcd7  main -> main
+PUSH STATUS: 0 
+SELESAI 19/05/2026 11:11:30,58 
+========================= 
+
+=======================================================
+START 19 Mei 2026 | 11.50 WIB
+AUTOMATION SYSTEM PENGADAAN BARANG DAN JASA
+Target Sinkronisasi: [2024, 2025, 2026]
+=======================================================
+
+[SKIP] Tahun 2024 sudah final -> Lewati download & generate
+
+=======================================================
+   PROSES DATA TAHUN 2025
+=======================================================
+Memulai proses download API untuk Tahun 2025...
+DOWNLOAD: https://data.inaproc.id/api/legacy/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2025
