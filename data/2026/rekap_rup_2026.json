@@ -102,12 +102,12 @@
   {
     "Satuan Kerja": "Dinas Kesehatan",
     "Pagu Program": 31403981295.0,
-    "Pagu Pengadaan": 173440671695.0,
+    "Pagu Pengadaan": 4891035773.0,
     "RUP Penyedia": 4891035773.0,
     "RUP Swakelola": 0.0,
     "Total RUP Terumumkan": 4891035773.0,
-    "Selisih RUP Terumumkan": -168549635922.0,
-    "Persentase": 2.8200050917705255
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Dinas Komunikasi, Informatika, Statistik dan Persandian",
@@ -193,11 +193,11 @@
     "Satuan Kerja": "Dinas Pendidikan dan Kebudayaan",
     "Pagu Program": 63843390000.0,
     "Pagu Pengadaan": 61655471600.0,
-    "RUP Penyedia": 9362346492.0,
+    "RUP Penyedia": 9459393688.0,
     "RUP Swakelola": 52187493800.0,
-    "Total RUP Terumumkan": 61549840292.0,
-    "Selisih RUP Terumumkan": -105631308.0,
-    "Persentase": 99.82867488438771
+    "Total RUP Terumumkan": 61646887488.0,
+    "Selisih RUP Terumumkan": -8584112.0,
+    "Persentase": 99.98607729082718
   },
   {
     "Satuan Kerja": "Dinas Perhubungan",
@@ -752,12 +752,12 @@
   {
     "Satuan Kerja": "Rumah Sakit Umum Daerah Sultan Imanuddin",
     "Pagu Program": 136086000000.0,
-    "Pagu Pengadaan": 85676806400.0,
+    "Pagu Pengadaan": 84956806400.0,
     "RUP Penyedia": 84956806400.0,
     "RUP Swakelola": 0.0,
     "Total RUP Terumumkan": 84956806400.0,
-    "Selisih RUP Terumumkan": -720000000.0,
-    "Persentase": 99.15963254204583
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Satuan Polisi Pamong Praja",

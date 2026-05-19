@@ -11,7 +11,7 @@ ENV TZ=Asia/Jakarta
 WORKDIR /app
 
 # 5. Salin file requirements atau langsung instal library Python yang dibutuhkan
-RUN pip install --no-cache-requests pandas openpyxl
+RUN pip install --no-cache-dir requests pandas openpyxl
 
 # 6. Salin seluruh file proyek lokal ke dalam kontainer Docker
 COPY . .

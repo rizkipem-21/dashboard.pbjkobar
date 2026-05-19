@@ -1,6 +1,6 @@
 @echo off
 setlocal enabledelayedexpansion
-cd /d D:\rup-2026-inaproc
+cd /d D:\dashboard-pbj-inaproc
 
 echo ========================= >> tools\log_pengadaan.txt
 echo START %date% %time% >> tools\log_pengadaan.txt

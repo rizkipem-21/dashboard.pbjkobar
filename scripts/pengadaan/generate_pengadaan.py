@@ -20,7 +20,7 @@ warnings.filterwarnings('ignore')
 # ======================================================
 # KONFIGURASI UTAMA
 # ======================================================
-BASE_DIR = r'D:\rup-2026-inaproc'
+BASE_DIR = r'D:\dashboard-pbj-inaproc'
 TOKEN    = "inprc7642391c38774272bf57ca25ac1d4544"
 HEADERS  = {
     "Authorization": f"Bearer {TOKEN}",
