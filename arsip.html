@@ -1,0 +1,85 @@
+<div class="arsip-container">
+    <h2>Arsip Data PBJ</h2>
+    
+    <div style="margin-bottom: 20px;">
+        <button onclick="loadArsip('rup')" style="padding: 10px 20px; cursor: pointer; background: #1F4E79; color: white; border: none; border-radius: 5px;">Buka Arsip RUP</button>
+        <button onclick="loadArsip('pengadaan')" style="padding: 10px 20px; cursor: pointer; background: #28a745; color: white; border: none; border-radius: 5px; margin-left: 10px;">Buka Arsip Pengadaan</button>
+    </div>
+
+    <table style="width: 100%; border-collapse: collapse; text-align: left; font-family: Arial, sans-serif;">
+        <thead style="background-color: #f4f4f4; border-bottom: 2px solid #ddd;">
+            <tr>
+                <th style="padding: 12px;">Nama File Arsip</th>
+                <th style="padding: 12px; width: 150px; text-align: center;">Aksi</th>
+            </tr>
+        </thead>
+        <tbody id="tabel-arsip">
+            <tr>
+                <td colspan="2" style="padding: 20px; text-align: center; color: #666;">
+                    Silakan klik tombol di atas untuk memuat arsip. <br>
+                    <small><i>(Browser mungkin akan meminta Password Admin)</i></small>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+function loadArsip(kategori) {
+    const tableBody = document.getElementById('tabel-arsip');
+    tableBody.innerHTML = '<tr><td colspan="2" style="padding: 20px; text-align: center;">Sedang memuat data...</td></tr>';
+
+    // Mendeteksi tahun berjalan otomatis (karena foldernya dipisah per tahun)
+    const tahunSekarang = new Date().getFullYear();
+    const urlArsip = `/arsip/${kategori}/${tahunSekarang}/`; 
+    // Catatan: Jika struktur foldernya tidak pakai tahun, ubah jadi `/arsip/${kategori}/`
+
+    fetch(urlArsip)
+        .then(response => {
+            if (response.status === 401) {
+                throw new Error("Akses Ditolak. Harap masukkan Username dan Password yang benar.");
+            }
+            if (!response.ok) {
+                throw new Error("Folder tidak ditemukan atau belum ada file.");
+            }
+            return response.text();
+        })
+        .then(htmlString => {
+            // Mengubah HTML kaku dari Nginx menjadi data yang bisa dibaca JS
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(htmlString, 'text/html');
+            const links = htmlDoc.querySelectorAll('a');
+            
+            tableBody.innerHTML = ''; // Kosongkan tabel
+            let adaFile = false;
+
+            links.forEach(link => {
+                const fileName = decodeURIComponent(link.getAttribute('href'));
+                
+                // Abaikan link navigasi kembali ("../")
+                if (fileName !== '../') {
+                    adaFile = true;
+                    const row = document.createElement('tr');
+                    row.style.borderBottom = '1px solid #ddd';
+                    
+                    row.innerHTML = `
+                        <td style="padding: 12px;">${fileName}</td>
+                        <td style="padding: 12px; text-align: center;">
+                            <a href="${urlArsip}${encodeURIComponent(fileName)}" download style="display: inline-block; padding: 6px 12px; background: #ffc107; color: #000; text-decoration: none; border-radius: 4px; font-size: 14px; font-weight: bold;">
+                                📥 Unduh
+                            </a>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                }
+            });
+
+            if (!adaFile) {
+                tableBody.innerHTML = '<tr><td colspan="2" style="padding: 20px; text-align: center;">Belum ada arsip di folder ini.</td></tr>';
+            }
+        })
+        .catch(error => {
+            tableBody.innerHTML = `<tr><td colspan="2" style="padding: 20px; text-align: center; color: red;"><b>Error:</b> ${error.message}</td></tr>`;
+        });
+}
+</script>
