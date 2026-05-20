@@ -303,11 +303,11 @@
     "Satuan Kerja": "Kecamatan Arut Selatan",
     "Pagu Program": 6754652808.0,
     "Pagu Pengadaan": 4701405808.0,
-    "RUP Penyedia": 4556645808.0,
-    "RUP Swakelola": 45360000.0,
-    "Total RUP Terumumkan": 4602005808.0,
-    "Selisih RUP Terumumkan": -99400000.0,
-    "Persentase": 97.88573877560496
+    "RUP Penyedia": 4606645808.0,
+    "RUP Swakelola": 94760000.0,
+    "Total RUP Terumumkan": 4701405808.0,
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Kecamatan Arut Utara",
@@ -583,11 +583,11 @@
     "Satuan Kerja": "Puskesmas Karang Mulya",
     "Pagu Program": 2329517398.0,
     "Pagu Pengadaan": 887410440.0,
-    "RUP Penyedia": 373349529.0,
+    "RUP Penyedia": 887410440.0,
     "RUP Swakelola": 0.0,
-    "Total RUP Terumumkan": 373349529.0,
-    "Selisih RUP Terumumkan": -514060911.0,
-    "Persentase": 42.071798141117206
+    "Total RUP Terumumkan": 887410440.0,
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Puskesmas Kotawaringin Lama",
@@ -783,11 +783,11 @@
     "Satuan Kerja": "Sekretariat Daerah",
     "Pagu Program": 26241869559.0,
     "Pagu Pengadaan": 12042200559.0,
-    "RUP Penyedia": 11800421726.0,
+    "RUP Penyedia": 11974816209.0,
     "RUP Swakelola": 0.0,
-    "Total RUP Terumumkan": 11800421726.0,
-    "Selisih RUP Terumumkan": -241778833.0,
-    "Persentase": 97.99223711799667
+    "Total RUP Terumumkan": 11974816209.0,
+    "Selisih RUP Terumumkan": -67384350.0,
+    "Persentase": 99.44043159163598
   },
   {
     "Satuan Kerja": "Workshop dan Peralatan Konstruksi",
