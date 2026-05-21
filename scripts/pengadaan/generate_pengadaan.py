@@ -34,7 +34,7 @@ tahun_n1     = tahun_n - 1               # Tahun lalu
 tahun_n2     = tahun_n - 2               # Dua tahun lalu
 daftar_tahun = [tahun_n2, tahun_n1, tahun_n] # Urutan pemrosesan dari terlama ke terbaru
 
-# 19 Daftar Endpoint API Inaproc
+# 20 Daftar Endpoint API Inaproc (Sudah ditambahkan instansi-satker)
 ENDPOINTS = [
     "rup/paket-penyedia-terumumkan",
     "rup/paket-swakelola-terumumkan",
@@ -54,7 +54,8 @@ ENDPOINTS = [
     "tender/pencatatan-non-tender",
     "tender/pencatatan-swakelola",
     "ekatalog-archive/paket-e-purchasing",
-    "ekatalog/paket-e-purchasing"
+    "ekatalog/paket-e-purchasing",
+    "ekatalog-archive/instansi-satker"
 ]
 
 # ======================================================
@@ -233,6 +234,7 @@ def process_tahun(tahun):
     df5_5   = load_json(p('tender_tender-ekontrak-bapbast'))
     df6     = load_json(p('ekatalog_paket-e-purchasing'))
     df7     = load_json(p('ekatalog-archive_paket-e-purchasing'))
+    df7_1   = load_json(p('ekatalog-archive_instansi-satker'))
 
     # ======================================================
     # FILTER DATA JANGAN AMBIL YANG GAGAL / DIBATALKAN
@@ -424,7 +426,7 @@ def process_tahun(tahun):
         for k in kd_t_list:
             if k in set_t_bapbast: status='BAPBAST'; break
             elif k in set_t_spmkspp: status='SPMKSPP'; break
-            elif k in set_t_kontrak: status='Kontrak'; break
+            elif k in set_t_kontrak: status='Contracts'; status='Kontrak'; break
             elif k in set_t_sppbj: status='SPPBJ'; break
             elif k in set_t_selesai: status='Tender Selesai'; break
 
@@ -477,6 +479,17 @@ def process_tahun(tahun):
 
     # Processing SUMBER 7 (E-Purchasing V5 Archive)
     data_s7=[]
+    
+    # KODE BARU: Membuat dictionary pemetaan dari df7_1 (instansi-satker)
+    map_satker_v5 = {}
+    if not df7_1.empty:
+        for _, row_s in df7_1.iterrows():
+            kd_s = row_s.get('kd_satker')
+            if pd.notna(kd_s):
+                try: key_s = str(int(float(kd_s)))
+                except: key_s = str(kd_s).strip()
+                map_satker_v5[key_s] = row_s.get('nama_satker', '')
+
     for _, r in df7.iterrows():
         kd = r.get('kd_rup')
         nilai_hasil = r.get('total_harga')
@@ -494,8 +507,15 @@ def process_tahun(tahun):
         kode_p = str(r.get('kd_penyedia', ""))
         nama_p = map_offline_penyedia.get(kode_p, kode_p) if kode_p and kode_p != "None" else ""
 
+        # KODE BARU: Melakukan pencocokan satker_id pada df7 ke kd_satker pada df7_1
+        sid = r.get('satker_id')
+        try: key_id = str(int(float(sid))) if pd.notna(sid) else ""
+        except: key_id = str(sid).strip() if pd.notna(sid) else ""
+        nama_satker_s7 = map_satker_v5.get(key_id, "")
+
         data_s7.append({
-            'Kode RUP': r.get('kd_rup_raw'), 'Satuan Kerja': r.get('nama_satker') if pd.notna(r.get('nama_satker')) else get_s1(kd, 'nama_satker'),
+            'Kode RUP': r.get('kd_rup_raw'), 
+            'Satuan Kerja': nama_satker_s7, # Diubah menggunakan hasil pencocokan baru
             'Nama Paket': r.get('nama_paket'), 'Metode Pengadaan': 'E-Purchasing', 'Jenis Pengadaan': get_s1(kd, 'jenis_pengadaan'), 'Sumber Dana': r.get('nama_sumber_dana'),
             'PDN': get_s1(kd, 'status_pdn'), 'UKM': get_s1(kd, 'status_ukm'), 'Nilai Pagu RUP': get_pagu_multi(r.get('kd_rup_list'), 's1'),
             'Nilai Hasil Pemilihan': nilai_hasil, 'Tanggal Kontrak': "", 'Nama Penyedia': nama_p, 'Status': r.get('paket_status_str'),
