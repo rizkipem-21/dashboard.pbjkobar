@@ -142,12 +142,12 @@
   {
     "Satuan Kerja": "Dinas Pekerjaan Umum dan Penataan Ruang",
     "Pagu Program": 105714344580.0,
-    "Pagu Pengadaan": 105032048101.0,
+    "Pagu Pengadaan": 105032048100.0,
     "RUP Penyedia": 104997048100.0,
     "RUP Swakelola": 35000000.0,
     "Total RUP Terumumkan": 105032048100.0,
-    "Selisih RUP Terumumkan": -1.0,
-    "Persentase": 99.9999999990479
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Dinas Pemadam Kebakaran dan Penyelamatan",
@@ -591,13 +591,13 @@
   },
   {
     "Satuan Kerja": "Puskesmas Kotawaringin Lama",
-    "Pagu Program": 1625413050.0,
-    "Pagu Pengadaan": 327199887.0,
+    "Pagu Program": 1424797850.0,
+    "Pagu Pengadaan": 1424797850.0,
     "RUP Penyedia": 212772837.0,
     "RUP Swakelola": 0.0,
     "Total RUP Terumumkan": 212772837.0,
-    "Selisih RUP Terumumkan": -114427050.0,
-    "Persentase": 65.02839562410973
+    "Selisih RUP Terumumkan": -1212025013.0,
+    "Persentase": 14.93354562543732
   },
   {
     "Satuan Kerja": "Puskesmas Kumai",
@@ -784,10 +784,10 @@
     "Pagu Program": 26241869559.0,
     "Pagu Pengadaan": 11974816559.0,
     "RUP Penyedia": 11799027759.0,
-    "RUP Swakelola": 0.0,
-    "Total RUP Terumumkan": 11799027759.0,
-    "Selisih RUP Terumumkan": -175788800.0,
-    "Persentase": 98.53201258546311
+    "RUP Swakelola": 175788800.0,
+    "Total RUP Terumumkan": 11974816559.0,
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Workshop dan Peralatan Konstruksi",
