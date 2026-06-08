@@ -362,7 +362,7 @@ def process_tahun(tahun):
 
         data_s2.append({
             'Kode RUP': r.get('kd_rup_raw'), 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'),
-            'Metode Pengadaan': r.get('mtd_pemilihan'), 'Jenis Pengadaan': r.get('jenis_pengadaan'), 'Sumber Dana': r.get('sumber_dana'),
+            'Metode Pemilihan': r.get('mtd_pemilihan'), 'Jenis Pengadaan': r.get('jenis_pengadaan'), 'Sumber Dana': r.get('sumber_dana'),
             'PDN': get_s1(kd, 'status_pdn'), 'UKM': get_s1(kd, 'status_ukm'), 'Nilai Pagu RUP': get_pagu_multi(kd_list, 's1'),
             'Nilai Hasil Pemilihan': nilai_hasil, 'Tanggal Kontrak': format_tgl(next((map_nt_tgl_kontrak[k] for k in kd_nt_list if k in map_nt_tgl_kontrak), "")),
             'Nama Penyedia': next((map_nt_penyedia[k] for k in kd_nt_list if k in map_nt_penyedia), ""), 'Status': status,
@@ -377,7 +377,7 @@ def process_tahun(tahun):
         kd = r.get('kd_rup')
         data_s3.append({
             'Kode RUP': r.get('kd_rup_raw'), 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'),
-            'Metode Pengadaan': r.get('mtd_pemilihan'), 'Jenis Pengadaan': r.get('kategori_pengadaan'), 'Sumber Dana': r.get('sumber_dana'),
+            'Metode Pemilihan': r.get('mtd_pemilihan'), 'Jenis Pengadaan': r.get('kategori_pengadaan'), 'Sumber Dana': r.get('sumber_dana'),
             'PDN': get_s1(kd, 'status_pdn'), 'UKM': get_s1(kd, 'status_ukm'), 'Nilai Pagu RUP': get_pagu_multi(r.get('kd_rup_list'), 's1'),
             'Nilai Hasil Pemilihan': "" if pd.isna(r.get('total_realisasi')) else r.get('total_realisasi'), 'Tanggal Kontrak': format_tgl(r.get('tgl_selesai_paket', '')),
             'Nama Penyedia': "", 'Status': r.get('status_nontender_pct_ket'), 'Kode Paket': r.get('kd_nontender_pct'), 'Nilai HPS': pd.NA,
@@ -393,7 +393,7 @@ def process_tahun(tahun):
         jenis = f"Swakelola {int(swakelola_map[kd])}" if kd in swakelola_map else "N/A"
         data_s4.append({
             'Kode RUP': r.get('kd_rup_raw'), 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'),
-            'Metode Pengadaan': 'Swakelola', 'Jenis Pengadaan': jenis, 'Sumber Dana': r.get('sumber_dana'),
+            'Metode Pemilihan': 'Swakelola', 'Jenis Pengadaan': jenis, 'Sumber Dana': r.get('sumber_dana'),
             'PDN': "PDN" if r.get('nilai_pdn_pct', 0)!=0 else "Tidak", 'UKM': "UKM" if r.get('nilai_umk_pct', 0)!=0 else "Tidak",
             'Nilai Pagu RUP': get_pagu_multi(r.get('kd_rup_list'), 's1_2'), 'Nilai Hasil Pemilihan': "" if pd.isna(r.get('total_realisasi')) else r.get('total_realisasi'),
             'Tanggal Kontrak': format_tgl(r.get('tgl_selesai_paket', '')), 'Nama Penyedia': "", 'Status': r.get('status_swakelola_pct_ket'),
@@ -410,7 +410,7 @@ def process_tahun(tahun):
         if str(kd) not in set_all_s4:
             jenis = f"Swakelola {int(swakelola_map[kd])}" if kd in swakelola_map else "N/A"
             data_s1_2.append({
-                'Kode RUP': kd, 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'), 'Metode Pengadaan': 'Swakelola',
+                'Kode RUP': kd, 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'), 'Metode Pemilihan': 'Swakelola',
                 'Jenis Pengadaan': jenis, 'Sumber Dana': None, 'PDN': None, 'UKM': None, 'Nilai Pagu RUP': r.get('pagu'), 'Nilai Hasil Pemilihan': "",
                 'Tanggal Kontrak': "", 'Nama Penyedia': "", 'Status': 'Pengumuman RUP', 'Kode Paket': pd.NA, 'Nilai HPS': pd.NA, 'Nilai PDN': pd.NA, 'Nilai UMK': pd.NA,
                 'Metode': 'Swakelola', 'Sumber': 'Sumber 1_2'
@@ -439,7 +439,7 @@ def process_tahun(tahun):
 
         data_s5.append({
             'Kode RUP': r.get('kd_rup_raw'), 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'),
-            'Metode Pengadaan': r.get('mtd_pemilihan'), 'Jenis Pengadaan': r.get('jenis_pengadaan'), 'Sumber Dana': r.get('sumber_dana'),
+            'Metode Pemilihan': r.get('mtd_pemilihan'), 'Jenis Pengadaan': r.get('jenis_pengadaan'), 'Sumber Dana': r.get('sumber_dana'),
             'PDN': get_s1(kd, 'status_pdn'), 'UKM': get_s1(kd, 'status_ukm'), 'Nilai Pagu RUP': get_pagu_multi(r.get('kd_rup_list'), 's1'),
             'Nilai Hasil Pemilihan': nilai_hasil, 'Tanggal Kontrak': format_tgl(next((map_t_tgl_kontrak[k] for k in kd_t_list if k in map_t_tgl_kontrak), "")),
             'Nama Penyedia': next((map_t_penyedia[k] for k in kd_t_list if k in map_t_penyedia), ""), 'Status': status,
@@ -469,7 +469,7 @@ def process_tahun(tahun):
 
         data_s6.append({
             'Kode RUP': r.get('rup_code_raw'), 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('rup_name'),
-            'Metode Pengadaan': 'E-Purchasing', 'Jenis Pengadaan': get_s1(kd, 'jenis_pengadaan'), 'Sumber Dana': r.get('funding_source'),
+            'Metode Pemilihan': 'E-Purchasing', 'Jenis Pengadaan': get_s1(kd, 'jenis_pengadaan'), 'Sumber Dana': r.get('funding_source'),
             'PDN': get_s1(kd, 'status_pdn'), 'UKM': get_s1(kd, 'status_ukm'), 'Nilai Pagu RUP': get_pagu_multi(r.get('rup_code_list'), 's1'),
             'Nilai Hasil Pemilihan': nilai_hasil, 'Tanggal Kontrak': "", 'Nama Penyedia': nama_p, 'Status': r.get('status'),
             'Kode Paket': r.get('order_id'), 'Nilai HPS': pd.NA, 'Nilai PDN': nilai_pdn_val, 'Nilai UMK': nilai_umk_val,
@@ -525,7 +525,7 @@ def process_tahun(tahun):
         data_s7.append({
             'Kode RUP': r.get('kd_rup_raw'), 
             'Satuan Kerja': nama_satker_s7,
-            'Nama Paket': r.get('nama_paket'), 'Metode Pengadaan': 'E-Purchasing', 'Jenis Pengadaan': get_s1(kd, 'jenis_pengadaan'), 'Sumber Dana': r.get('nama_sumber_dana'),
+            'Nama Paket': r.get('nama_paket'), 'Metode Pemilihan': 'E-Purchasing', 'Jenis Pengadaan': get_s1(kd, 'jenis_pengadaan'), 'Sumber Dana': r.get('nama_sumber_dana'),
             'PDN': get_s1(kd, 'status_pdn'), 'UKM': get_s1(kd, 'status_ukm'), 'Nilai Pagu RUP': get_pagu_multi(r.get('kd_rup_list'), 's1'),
             'Nilai Hasil Pemilihan': nilai_hasil, 'Tanggal Kontrak': "", 'Nama Penyedia': nama_p, 
             'Status': status_s7, # Diubah sesuai instruksi
@@ -544,7 +544,7 @@ def process_tahun(tahun):
         kd = r.get('kd_rup')
         if str(kd) not in set_all_executed:
             data_s1.append({
-                'Kode RUP': kd, 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'), 'Metode Pengadaan': r.get('metode_pengadaan'),
+                'Kode RUP': kd, 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'), 'Metode Pemilihan': r.get('metode_pengadaan'),
                 'Jenis Pengadaan': r.get('jenis_pengadaan'), 'Sumber Dana': None, 'PDN': 'PDN' if r.get('status_pdn')=='PDN' else 'Non-PDN',
                 'UKM': 'UKM' if r.get('status_ukm')=='UKM' else 'Non-UKM', 'Nilai Pagu RUP': r.get('pagu'), 'Nilai Hasil Pemilihan': "",
                 'Tanggal Kontrak': "", 'Nama Penyedia': "", 'Status': 'Belum Proses', 'Kode Paket': pd.NA, 'Nilai HPS': pd.NA, 'Nilai PDN': pd.NA, 'Nilai UMK': pd.NA,
@@ -557,7 +557,7 @@ def process_tahun(tahun):
     final_df = final_df.map(lambda x: re.sub(r'[\x00-\x1F]', '', str(x)) if isinstance(x, str) else x)
 
     cols = [
-        'Kode RUP', 'Satuan Kerja', 'Nama Paket', 'Metode Pengadaan', 'Jenis Pengadaan',
+        'Kode RUP', 'Satuan Kerja', 'Nama Paket', 'Metode Pemilihan', 'Jenis Pengadaan',
         'Sumber Dana', 'PDN', 'UKM', 'Nilai Pagu RUP', 'Nilai Hasil Pemilihan',
         'Tanggal Kontrak', 'Nama Penyedia', 'Status', 'Kode Paket', 'Nilai HPS',
         'Nilai PDN', 'Nilai UMK', 'Metode', 'Sumber'
@@ -614,7 +614,7 @@ def process_tahun(tahun):
                         top=Side(style='thin', color='BFBFBF'), bottom=Side(style='thin', color='BFBFBF'))
 
     lebar_kolom = {
-        'Kode RUP': 18, 'Satuan Kerja': 38, 'Nama Paket': 50, 'Metode Pengadaan': 22, 'Jenis Pengadaan': 32,
+        'Kode RUP': 18, 'Satuan Kerja': 38, 'Nama Paket': 50, 'Metode Pemilihan': 22, 'Jenis Pengadaan': 32,
         'Sumber Dana': 14, 'PDN': 10, 'UKM': 10, 'Nilai Pagu RUP': 20, 'Nilai Hasil Pemilihan': 20,
         'Tanggal Kontrak': 18, 'Nama Penyedia': 35, 'Status': 22, 'Kode Paket': 20, 'Nilai HPS': 20,
         'Nilai PDN': 18, 'Nilai UMK': 18, 'Metode': 22, 'Sumber': 12
