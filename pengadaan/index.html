@@ -427,6 +427,9 @@
   }
   @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 </style>
+
+<script src="../js/config.js"></script>
+
 </head>
 <body>
 
@@ -647,6 +650,21 @@
 
 </div>
 
+<div id="modalPassword" class="fixed inset-0 bg-black/50 z-[9999] hidden items-center justify-center backdrop-blur-sm transition-opacity">
+  <div class="bg-white p-6 rounded-xl shadow-2xl w-80 transform transition-all">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="text-2xl">🔒</span>
+      <h3 class="text-lg font-bold text-gray-800">Akses Terkunci</h3>
+    </div>
+    <p class="text-xs text-gray-500 mb-4">Masukkan password untuk mengunduh Master Excel.</p>
+    <input type="password" id="inputPassword" placeholder="Masukkan Password..." class="w-full border-2 border-gray-200 rounded-lg p-2.5 mb-5 focus:outline-none focus:border-[#1a3a6b] text-sm" />
+    <div class="flex justify-end gap-2">
+      <button onclick="tutupModal()" class="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 font-semibold text-sm transition-colors">Batal</button>
+      <button onclick="cekPassword()" class="px-4 py-2 text-white rounded-lg font-semibold text-sm transition-colors" style="background-color: var(--lpse-biru);">Download</button>
+    </div>
+  </div>
+</div>
+
 <script>
 let allData     = [];
 let filtered    = [];
@@ -742,14 +760,17 @@ async function loadDataByYear(year) {
     
     allData = await res.json();
     
+    // Simpan link ke dataset, JANGAN langsung ke href agar tidak bisa ditembus klik kanan
     const masterLink = document.getElementById("downloadMaster");
-    masterLink.href = `../data/${year}/master_pengadaan_${year}.xlsx`;
+    masterLink.dataset.fileurl = `../data/${year}/master_pengadaan_${year}.xlsx`;
+    masterLink.href = "#"; 
     masterLink.classList.remove("disabled");
   } catch (error) {
     console.error(error);
     allData = [];
     alert(`Gagal memuat data untuk tahun ${year}. Pastikan data sudah di-generate.`);
     const masterLink = document.getElementById("downloadMaster");
+    masterLink.dataset.fileurl = "";
     masterLink.href = "#";
     masterLink.classList.add("disabled");
   }
@@ -882,7 +903,7 @@ function applyFilter() {
     if (checkedJenis  !== null && !checkedJenis.includes(row["Jenis Pengadaan"])) return false;
     if (checkedMetode !== null && !checkedMetode.includes(row["Metode Pemilihan"])) return false;
     
-    // Logika Khusus Cara Pengadaan (Dulu Metode)
+    // Logika Khusus Cara Pengadaan
     if (checkedCara !== null) {
       let valCara = (row["Cara Pengadaan"] ?? "").trim().toLowerCase();
       let matchFound = false;
@@ -1043,6 +1064,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// LOGIKA DOWNLOAD EXCEL HARIAN (TANPA PASSWORD)
 document.getElementById("downloadCurrent").addEventListener("click", () => {
   const kolomRupiah = ["Nilai Pagu RUP", "Nilai HPS", "Nilai Hasil Pemilihan", "Efisiensi"];
   const exportData = filtered.map((row, index) => {
@@ -1093,6 +1115,46 @@ document.getElementById("downloadCurrent").addEventListener("click", () => {
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, "Pengadaan");
   XLSX.writeFile(wb, `Rekap_Pengadaan_${currentYear}.xlsx`);
+});
+
+// === LOGIKA DOWNLOAD MASTER EXCEL DENGAN PASSWORD ===
+document.getElementById("downloadMaster").addEventListener("click", (e) => {
+  e.preventDefault(); 
+  if (e.target.classList.contains("disabled")) return;
+  bukaModal();
+});
+
+function bukaModal() {
+  const modal = document.getElementById("modalPassword");
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+  document.getElementById("inputPassword").value = "";
+  setTimeout(() => document.getElementById("inputPassword").focus(), 100);
+}
+
+function tutupModal() {
+  const modal = document.getElementById("modalPassword");
+  modal.classList.add("hidden");
+  modal.classList.remove("flex");
+}
+
+function cekPassword() {
+  const pwd = document.getElementById("inputPassword").value;
+  
+  // ========================================================
+  // UBAH PASSWORD DI SINI AGAR SAMA DENGAN MENU ARSIP
+  // ========================================================
+  if (pwd === MASTER_PASSWORD) {
+    tutupModal();
+    const link = document.getElementById("downloadMaster").dataset.fileurl;
+    if (link) window.location.href = link;
+  } else {
+    alert("Password Salah! Akses Ditolak.");
+  }
+}
+
+document.getElementById("inputPassword").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") cekPassword();
 });
 
 // LOGIKA STICKY HEADER (Window Scroll)
