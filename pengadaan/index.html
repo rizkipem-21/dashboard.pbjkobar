@@ -427,9 +427,6 @@
   }
   @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 </style>
-
-<script src="../js/config.js"></script>
-
 </head>
 <body>
 
@@ -666,6 +663,11 @@
 </div>
 
 <script>
+// ========================================================
+// PASSWORD MASTER
+// ========================================================
+const MASTER_PASSWORD = "RahasiaKobar123";
+
 let allData     = [];
 let filtered    = [];
 let currentPage = 1;
@@ -760,10 +762,9 @@ async function loadDataByYear(year) {
     
     allData = await res.json();
     
-    // Simpan link ke dataset, JANGAN langsung ke href agar tidak bisa ditembus klik kanan
     const masterLink = document.getElementById("downloadMaster");
     masterLink.dataset.fileurl = `../data/${year}/master_pengadaan_${year}.xlsx`;
-    masterLink.href = "#"; 
+    masterLink.href = "#";
     masterLink.classList.remove("disabled");
   } catch (error) {
     console.error(error);
@@ -1119,7 +1120,7 @@ document.getElementById("downloadCurrent").addEventListener("click", () => {
 
 // === LOGIKA DOWNLOAD MASTER EXCEL DENGAN PASSWORD ===
 document.getElementById("downloadMaster").addEventListener("click", (e) => {
-  e.preventDefault(); 
+  e.preventDefault();
   if (e.target.classList.contains("disabled")) return;
   bukaModal();
 });
@@ -1141,9 +1142,6 @@ function tutupModal() {
 function cekPassword() {
   const pwd = document.getElementById("inputPassword").value;
   
-  // ========================================================
-  // UBAH PASSWORD DI SINI AGAR SAMA DENGAN MENU ARSIP
-  // ========================================================
   if (pwd === MASTER_PASSWORD) {
     tutupModal();
     const link = document.getElementById("downloadMaster").dataset.fileurl;

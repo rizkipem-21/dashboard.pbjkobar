@@ -65,7 +65,6 @@ LOG_FILE = os.path.join(BASE_DIR, 'tools', 'log_pengadaan.txt')
 os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
 
 def log_print(*args, **kwargs):
-    """Mencetak ke layar terminal sekaligus ke file log txt"""
     msg = " ".join(str(a) for a in args)
     print(msg, **kwargs)
     
@@ -75,7 +74,6 @@ def log_print(*args, **kwargs):
         f.write(msg + '\n')
 
 def get_waktu_indonesia():
-    """Mengambil waktu pasti WIB (UTC+7) dengan Bulan Indonesia"""
     tz_wib = timezone(timedelta(hours=7))
     sekarang = datetime.now(tz_wib)
     bulan_indo = {
@@ -89,7 +87,6 @@ def get_waktu_indonesia():
 # HELPER FUNCTIONS
 # ======================================================
 def format_tgl(val):
-    """Konversi format tanggal API menjadi DD-MM-YYYY"""
     if not val or (not isinstance(val, str) and pd.isna(val)):
         return ""
     try:
@@ -102,14 +99,13 @@ def format_tgl(val):
         return ""
 
 def download_with_retry(url, output_path):
-    """Fungsi download API Gateway dengan fitur retry hingga 5 kali"""
     max_retry = 5
     success = False
     
     for i in range(1, max_retry + 1):
         try:
             log_print(f"  Percobaan ke-{i}...", end=" ")
-            response = requests.get(url, headers=HEADERS, timeout=30)
+            response = requests.get(url, headers=HEADERS, timeout=90) # Timeout diubah ke 90 sesuai diskusi
             
             if response.status_code == 200:
                 data_json = response.json()
@@ -132,7 +128,6 @@ def download_with_retry(url, output_path):
             f.write("[]")
 
 def load_json(path):
-    """Load JSON file aman ke dalam Pandas DataFrame"""
     try:
         with open(path, 'r', encoding='utf-8-sig') as f:
             data = json.load(f)
@@ -147,7 +142,6 @@ def load_json(path):
         return pd.DataFrame()
 
 def bersihkan_arsip_bulanan(folder_path):
-    """Fitur untuk menghapus riwayat Excel bulan lalu, sisakan hanya 1 file akhir bulan"""
     if not os.path.exists(folder_path): return
     
     bulan_ini = datetime.now().strftime("%Y-%m")
@@ -165,7 +159,6 @@ def bersihkan_arsip_bulanan(folder_path):
             
     for bulan, list_file in arsip_bulanan.items():
         if bulan != bulan_ini:
-            # Urutkan dari tanggal awal ke akhir, hapus semua kecuali hari terakhir
             list_file.sort(key=lambda x: x[0])
             file_yang_dihapus = list_file[:-1]
             for tgl, nama_file in file_yang_dihapus:
@@ -179,7 +172,6 @@ def process_tahun(tahun):
     data_dir = os.path.join(BASE_DIR, 'data', str(tahun))
     output_json = os.path.join(data_dir, f'rekap_pengadaan_{tahun}.json')
     
-    # LOGIKA SKIP UTK TAHUN n-2 YANG SUDAH FINAL
     if tahun == tahun_n2 and os.path.exists(output_json):
         log_print(f"\n[SKIP] Tahun {tahun} sudah final -> Lewati download & generate")
         return None
@@ -191,9 +183,6 @@ def process_tahun(tahun):
     os.makedirs(data_dir, exist_ok=True)
     is_n2 = (tahun == tahun_n2)
 
-    # ----------------======================================
-    # PHASE 1: DOWNLOAD DATA DARI API INAPROC
-    # ----------------======================================
     log_print(f"Memulai proses download API untuk Tahun {tahun}...")
     for endpoint in ENDPOINTS:
         url = f"https://data.inaproc.id/api/legacy/{endpoint}?kode_klpd=D228&tahun={tahun}"
@@ -201,7 +190,6 @@ def process_tahun(tahun):
         filename = f"Legacy_{base_name}_{tahun}.json"
         output_file = os.path.join(data_dir, filename)
 
-        # Skip download per file jika tahun n-2 sudah punya file mentahnya
         if is_n2 and os.path.exists(output_file):
             log_print(f"SKIP Download (Sudah Final Lokal): {filename}")
             continue
@@ -209,9 +197,6 @@ def process_tahun(tahun):
         log_print(f"DOWNLOAD: {url}")
         download_with_retry(url, output_file)
 
-    # ----------------======================================
-    # PHASE 2: PROCESSING & COMPILING DATA
-    # ------------------------------------------------======
     log_print(f"\nLoading semua file JSON hasil unduhan...")
     def p(nama): return os.path.join(data_dir, f'Legacy_{nama}_{tahun}.json')
     
@@ -236,22 +221,15 @@ def process_tahun(tahun):
     df7     = load_json(p('ekatalog-archive_paket-e-purchasing'))
     df7_1   = load_json(p('ekatalog-archive_instansi-satker'))
 
-    # ======================================================
-    # FILTER DATA JANGAN AMBIL YANG GAGAL / DIBATALKAN
-    # ======================================================
     if not df2.empty and 'status_nontender' in df2.columns:
         df2 = df2[df2['status_nontender'] != 'Gagal/Batal']
 
     if not df5.empty and 'status_tender' in df5.columns:
         df5 = df5[df5['status_tender'] != 'Gagal/Batal']
 
-    # FIX REKUES USER: Sumber 3 Paket Dibatalkan dibuang (tidak diambil)
     if not df3.empty and 'status_nontender_pct_ket' in df3.columns:
         df3 = df3[df3['status_nontender_pct_ket'].astype(str).str.strip() != 'Paket Dibatalkan']
 
-    # ======================================================
-    # LOGIKA RELASI DAN MAPPING DATA PBJ
-    # ======================================================
     def get_set(df, col):
         if df.empty or col not in df.columns: return set()
         return set(df[col].astype(str).str.split(';').explode().str.strip())
@@ -268,7 +246,6 @@ def process_tahun(tahun):
     set_t_spmkspp = get_set(df5_4, 'kd_tender')
     set_t_bapbast = get_set(df5_5, 'kd_tender')
 
-    # Map Nilai Kontrak & Komponen Finansial
     def build_multi_kd_map(df, kd_col, val_col):
         m = {}
         if not df.empty and val_col in df.columns:
@@ -289,7 +266,6 @@ def process_tahun(tahun):
     map_nt_penyedia    = build_multi_kd_map(df2_3, 'kd_nontender', 'nama_penyedia')
     map_t_penyedia     = build_multi_kd_map(df5_3, 'kd_tender', 'nama_penyedia')
 
-    # Load Kamus Kamus Penyedia Offline
     path_kamus = os.path.join(BASE_DIR, 'data', 'master', 'kamus_penyedia.json')
     map_offline_penyedia = {}
     if os.path.exists(path_kamus):
@@ -303,7 +279,6 @@ def process_tahun(tahun):
                        if item.get('kd_penyedia'): map_offline_penyedia[str(item['kd_penyedia'])] = nama
         except: pass
 
-    # Standardize RUP KD Function
     def split_kd_list(x):
         return [int(i.strip()) for i in str(x).split(';') if i.strip().isdigit()]
 
@@ -361,12 +336,12 @@ def process_tahun(tahun):
         nilai_umk = next((map_nt_umk[k] for k in kd_nt_list if k in map_nt_umk), "N/A")
 
         data_s2.append({
-            'Kode RUP': r.get('kd_rup_raw'), 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'),
+            'Kode Paket': r.get('kd_nontender'), 'Kode RUP': r.get('kd_rup_raw'), 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'),
             'Metode Pemilihan': r.get('mtd_pemilihan'), 'Jenis Pengadaan': r.get('jenis_pengadaan'), 'Sumber Dana': r.get('sumber_dana'),
             'PDN': get_s1(kd, 'status_pdn'), 'UKM': get_s1(kd, 'status_ukm'), 'Nilai Pagu RUP': get_pagu_multi(kd_list, 's1'),
             'Nilai Hasil Pemilihan': nilai_hasil, 'Tanggal Kontrak': format_tgl(next((map_nt_tgl_kontrak[k] for k in kd_nt_list if k in map_nt_tgl_kontrak), "")),
             'Nama Penyedia': next((map_nt_penyedia[k] for k in kd_nt_list if k in map_nt_penyedia), ""), 'Status': status,
-            'Kode Paket': r.get('kd_nontender'), 'Nilai HPS': r.get('hps'), 'Nilai PDN': nilai_pdn, 'Nilai UMK': nilai_umk,
+            'Nilai HPS': r.get('hps'), 'Nilai PDN': nilai_pdn, 'Nilai UMK': nilai_umk,
             'Cara Pengadaan': 'Non Tender', 'Sumber': 'Sumber 2'
         })
     df_s2 = pd.DataFrame(data_s2)
@@ -376,11 +351,11 @@ def process_tahun(tahun):
     for _, r in df3.iterrows():
         kd = r.get('kd_rup')
         data_s3.append({
-            'Kode RUP': r.get('kd_rup_raw'), 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'),
+            'Kode Paket': r.get('kd_nontender_pct'), 'Kode RUP': r.get('kd_rup_raw'), 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'),
             'Metode Pemilihan': r.get('mtd_pemilihan'), 'Jenis Pengadaan': r.get('kategori_pengadaan'), 'Sumber Dana': r.get('sumber_dana'),
             'PDN': get_s1(kd, 'status_pdn'), 'UKM': get_s1(kd, 'status_ukm'), 'Nilai Pagu RUP': get_pagu_multi(r.get('kd_rup_list'), 's1'),
             'Nilai Hasil Pemilihan': "" if pd.isna(r.get('total_realisasi')) else r.get('total_realisasi'), 'Tanggal Kontrak': format_tgl(r.get('tgl_selesai_paket', '')),
-            'Nama Penyedia': "", 'Status': r.get('status_nontender_pct_ket'), 'Kode Paket': r.get('kd_nontender_pct'), 'Nilai HPS': pd.NA,
+            'Nama Penyedia': "", 'Status': r.get('status_nontender_pct_ket'), 'Nilai HPS': pd.NA,
             'Nilai PDN': r.get('nilai_pdn_pct'), 'Nilai UMK': r.get('nilai_umk_pct'), 'Cara Pengadaan': 'Pencatatan Non Tender', 'Sumber': 'Sumber 3'
         })
     df_s3 = pd.DataFrame(data_s3)
@@ -392,12 +367,12 @@ def process_tahun(tahun):
         kd = r.get('kd_rup')
         jenis = f"Swakelola {int(swakelola_map[kd])}" if kd in swakelola_map else "N/A"
         data_s4.append({
-            'Kode RUP': r.get('kd_rup_raw'), 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'),
+            'Kode Paket': r.get('kd_swakelola_pct'), 'Kode RUP': r.get('kd_rup_raw'), 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'),
             'Metode Pemilihan': 'Swakelola', 'Jenis Pengadaan': jenis, 'Sumber Dana': r.get('sumber_dana'),
             'PDN': "PDN" if r.get('nilai_pdn_pct', 0)!=0 else "Tidak", 'UKM': "UKM" if r.get('nilai_umk_pct', 0)!=0 else "Tidak",
             'Nilai Pagu RUP': get_pagu_multi(r.get('kd_rup_list'), 's1_2'), 'Nilai Hasil Pemilihan': "" if pd.isna(r.get('total_realisasi')) else r.get('total_realisasi'),
             'Tanggal Kontrak': format_tgl(r.get('tgl_selesai_paket', '')), 'Nama Penyedia': "", 'Status': r.get('status_swakelola_pct_ket'),
-            'Kode Paket': r.get('kd_swakelola_pct'), 'Nilai HPS': pd.NA, 'Nilai PDN': r.get('nilai_pdn_pct'), 'Nilai UMK': r.get('nilai_umk_pct'),
+            'Nilai HPS': pd.NA, 'Nilai PDN': r.get('nilai_pdn_pct'), 'Nilai UMK': r.get('nilai_umk_pct'),
             'Cara Pengadaan': 'Pencatatan Swakelola', 'Sumber': 'Sumber 4'
         })
     df_s4 = pd.DataFrame(data_s4)
@@ -410,9 +385,9 @@ def process_tahun(tahun):
         if str(kd) not in set_all_s4:
             jenis = f"Swakelola {int(swakelola_map[kd])}" if kd in swakelola_map else "N/A"
             data_s1_2.append({
-                'Kode RUP': kd, 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'), 'Metode Pemilihan': 'Swakelola',
+                'Kode Paket': pd.NA, 'Kode RUP': kd, 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'), 'Metode Pemilihan': 'Swakelola',
                 'Jenis Pengadaan': jenis, 'Sumber Dana': None, 'PDN': None, 'UKM': None, 'Nilai Pagu RUP': r.get('pagu'), 'Nilai Hasil Pemilihan': "",
-                'Tanggal Kontrak': "", 'Nama Penyedia': "", 'Status': 'Pengumuman RUP', 'Kode Paket': pd.NA, 'Nilai HPS': pd.NA, 'Nilai PDN': pd.NA, 'Nilai UMK': pd.NA,
+                'Tanggal Kontrak': "", 'Nama Penyedia': "", 'Status': 'Pengumuman RUP', 'Nilai HPS': pd.NA, 'Nilai PDN': pd.NA, 'Nilai UMK': pd.NA,
                 'Cara Pengadaan': 'Swakelola', 'Sumber': 'Sumber 1_2'
             })
     df_s1_2 = pd.DataFrame(data_s1_2)
@@ -438,12 +413,12 @@ def process_tahun(tahun):
         kat_metode = 'Seleksi' if mtd == 'seleksi' else ('Tender Cepat' if mtd == 'tender cepat' else 'Tender')
 
         data_s5.append({
-            'Kode RUP': r.get('kd_rup_raw'), 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'),
+            'Kode Paket': r.get('kd_tender'), 'Kode RUP': r.get('kd_rup_raw'), 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'),
             'Metode Pemilihan': r.get('mtd_pemilihan'), 'Jenis Pengadaan': r.get('jenis_pengadaan'), 'Sumber Dana': r.get('sumber_dana'),
             'PDN': get_s1(kd, 'status_pdn'), 'UKM': get_s1(kd, 'status_ukm'), 'Nilai Pagu RUP': get_pagu_multi(r.get('kd_rup_list'), 's1'),
             'Nilai Hasil Pemilihan': nilai_hasil, 'Tanggal Kontrak': format_tgl(next((map_t_tgl_kontrak[k] for k in kd_t_list if k in map_t_tgl_kontrak), "")),
             'Nama Penyedia': next((map_t_penyedia[k] for k in kd_t_list if k in map_t_penyedia), ""), 'Status': status,
-            'Kode Paket': r.get('kd_tender'), 'Nilai HPS': r.get('hps'), 'Nilai PDN': nilai_pdn, 'Nilai UMK': nilai_umk,
+            'Nilai HPS': r.get('hps'), 'Nilai PDN': nilai_pdn, 'Nilai UMK': nilai_umk,
             'Cara Pengadaan': kat_metode, 'Sumber': 'Sumber 5'
         })
     df_s5 = pd.DataFrame(data_s5)
@@ -468,19 +443,17 @@ def process_tahun(tahun):
         nama_p = map_offline_penyedia.get(kode_p, kode_p) if kode_p and kode_p != "None" else ""
 
         data_s6.append({
-            'Kode RUP': r.get('rup_code_raw'), 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('rup_name'),
+            'Kode Paket': r.get('order_id'), 'Kode RUP': r.get('rup_code_raw'), 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('rup_name'),
             'Metode Pemilihan': 'E-Purchasing', 'Jenis Pengadaan': get_s1(kd, 'jenis_pengadaan'), 'Sumber Dana': r.get('funding_source'),
             'PDN': get_s1(kd, 'status_pdn'), 'UKM': get_s1(kd, 'status_ukm'), 'Nilai Pagu RUP': get_pagu_multi(r.get('rup_code_list'), 's1'),
             'Nilai Hasil Pemilihan': nilai_hasil, 'Tanggal Kontrak': "", 'Nama Penyedia': nama_p, 'Status': r.get('status'),
-            'Kode Paket': r.get('order_id'), 'Nilai HPS': pd.NA, 'Nilai PDN': nilai_pdn_val, 'Nilai UMK': nilai_umk_val,
+            'Nilai HPS': pd.NA, 'Nilai PDN': nilai_pdn_val, 'Nilai UMK': nilai_umk_val,
             'Cara Pengadaan': 'E-Purchasing V6', 'Sumber': 'Sumber 6'
         })
     df_s6 = pd.DataFrame(data_s6)
 
     # Processing SUMBER 7 (E-Purchasing V5 Archive)
     data_s7=[]
-
-    # KODE BARU: Membuat dictionary pemetaan dari df7_1 (instansi-satker)
     map_satker_v5 = {}
     if not df7_1.empty:
         for _, row_s in df7_1.iterrows():
@@ -507,13 +480,11 @@ def process_tahun(tahun):
         kode_p = str(r.get('kd_penyedia', ""))
         nama_p = map_offline_penyedia.get(kode_p, kode_p) if kode_p and kode_p != "None" else ""
 
-        # KODE BARU: Melakukan pencocokan satker_id pada df7 ke kd_satker pada df7_1
         sid = r.get('satker_id')
         try: key_id = str(int(float(sid))) if pd.notna(sid) else ""
         except: key_id = str(sid).strip() if pd.notna(sid) else ""
         nama_satker_s7 = map_satker_v5.get(key_id, "")
 
-        # KODE BARU: Logika Status Sumber 7 yang dimodifikasi
         paket_status_str = r.get('paket_status_str')
         if paket_status_str == "Paket Proses":
             status_s7 = r.get('status_paket')
@@ -523,19 +494,16 @@ def process_tahun(tahun):
             status_s7 = paket_status_str
 
         data_s7.append({
-            'Kode RUP': r.get('kd_rup_raw'), 
-            'Satuan Kerja': nama_satker_s7,
+            'Kode Paket': r.get('no_paket'), 'Kode RUP': r.get('kd_rup_raw'), 'Satuan Kerja': nama_satker_s7,
             'Nama Paket': r.get('nama_paket'), 'Metode Pemilihan': 'E-Purchasing', 'Jenis Pengadaan': get_s1(kd, 'jenis_pengadaan'), 'Sumber Dana': r.get('nama_sumber_dana'),
             'PDN': get_s1(kd, 'status_pdn'), 'UKM': get_s1(kd, 'status_ukm'), 'Nilai Pagu RUP': get_pagu_multi(r.get('kd_rup_list'), 's1'),
             'Nilai Hasil Pemilihan': nilai_hasil, 'Tanggal Kontrak': "", 'Nama Penyedia': nama_p, 
-            'Status': status_s7, # Diubah sesuai instruksi
-            'Kode Paket': r.get('no_paket'), # Diubah dari kd_paket ke no_paket
-            'Nilai HPS': pd.NA, 'Nilai PDN': nilai_pdn_val, 'Nilai UMK': nilai_umk_val,
+            'Status': status_s7, 'Nilai HPS': pd.NA, 'Nilai PDN': nilai_pdn_val, 'Nilai UMK': nilai_umk_val,
             'Cara Pengadaan': 'E-Purchasing V5', 'Sumber': 'Sumber 7'
         })
     df_s7 = pd.DataFrame(data_s7)
 
-    # Swakelola/Penyedia Murni (Sumber 1) yang sama sekali belum dieksekusi proses pengadaannya
+    # Swakelola/Penyedia Murni (Sumber 1)
     set_all_executed = get_set(df2, 'kd_rup_raw').union(get_set(df3, 'kd_rup_raw')).union(get_set(df4, 'kd_rup_raw'))\
                      .union(get_set(df5, 'kd_rup_raw')).union(get_set(df6, 'rup_code_raw')).union(get_set(df7, 'kd_rup_raw'))
 
@@ -544,15 +512,14 @@ def process_tahun(tahun):
         kd = r.get('kd_rup')
         if str(kd) not in set_all_executed:
             data_s1.append({
-                'Kode RUP': kd, 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'), 'Metode Pemilihan': r.get('metode_pengadaan'),
+                'Kode Paket': pd.NA, 'Kode RUP': kd, 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'), 'Metode Pemilihan': r.get('metode_pengadaan'),
                 'Jenis Pengadaan': r.get('jenis_pengadaan'), 'Sumber Dana': None, 'PDN': 'PDN' if r.get('status_pdn')=='PDN' else 'Non-PDN',
                 'UKM': 'UKM' if r.get('status_ukm')=='UKM' else 'Non-UKM', 'Nilai Pagu RUP': r.get('pagu'), 'Nilai Hasil Pemilihan': "",
-                'Tanggal Kontrak': "", 'Nama Penyedia': "", 'Status': 'Belum Proses', 'Kode Paket': pd.NA, 'Nilai HPS': pd.NA, 'Nilai PDN': pd.NA, 'Nilai UMK': pd.NA,
+                'Tanggal Kontrak': "", 'Nama Penyedia': "", 'Status': 'Belum Proses', 'Nilai HPS': pd.NA, 'Nilai PDN': pd.NA, 'Nilai UMK': pd.NA,
                 'Cara Pengadaan': r.get('metode_pengadaan'), 'Sumber': 'Sumber 1'
             })
     df_s1 = pd.DataFrame(data_s1)
 
-    # Gabungkan semua sumber data secara aman tanpa duplikasi kronis
     final_df = pd.concat([df_s2, df_s3, df_s4, df_s1_2, df_s5, df_s6, df_s7, df_s1], ignore_index=True)
     final_df = final_df.map(lambda x: re.sub(r'[\x00-\x1F]', '', str(x)) if isinstance(x, str) else x)
 
@@ -567,14 +534,10 @@ def process_tahun(tahun):
     final_df['UKM'] = final_df['UKM'].fillna("N/A")
     final_df = final_df.fillna("")
 
-    # SIMPAN REKAP FORMAT JSON
     with open(output_json, "w", encoding="utf-8") as f:
         json.dump(final_df.to_dict(orient='records'), f, ensure_ascii=False, indent=2)
     log_print(f"JSON Rekap sukses dibuat: {output_json}")
 
-    # ----------------======================================
-    # PHASE 3: GENERATE EXCEL MAESTRO VIA OPENPYXL
-    # ----------------======================================
     tahun_label = str(df1['tahun_anggaran'].iloc[0]) if not df1.empty and 'tahun_anggaran' in df1.columns else str(tahun)
     tgl_now = datetime.now().strftime('%Y-%m-%d')
     nama_file_excel = f'Paket Pengadaan Tahun {tahun_label} ({tgl_now}) (Api Gateway Legacy).xlsx'
@@ -599,7 +562,6 @@ def process_tahun(tahun):
 
     excel_df.to_excel(output_excel_path, index=False, sheet_name='Pengadaan')
 
-    # Styling Excel Menggunakan Aturan Identik LPSE
     wb = load_workbook(output_excel_path)
     ws = wb['Pengadaan']
 
@@ -646,13 +608,9 @@ def process_tahun(tahun):
     wb.save(output_excel_path)
     log_print(f"Excel Berwarna Berhasil Terformat: {output_excel_path}")
 
-    # Kopi Hasil ke folder web terintegrasi
     master_excel = os.path.join(data_dir, f'master_pengadaan_{tahun}.xlsx')
     shutil.copy2(output_excel_path, master_excel)
 
-    # ----------------------------------------------------
-    # FITUR PEMBERSIHAN ARSIP BULANAN & BUKU DAFTAR (PENGADAAN)
-    # ----------------------------------------------------
     bersihkan_arsip_bulanan(output_dir_excel)
     if os.path.exists(output_dir_excel):
         file_tersisa = [f for f in os.listdir(output_dir_excel) if f.endswith('.xlsx')]
@@ -662,9 +620,6 @@ def process_tahun(tahun):
     log_print(f'SELESAI GENERATE TAHUN {tahun} | Total paket data: {len(final_df)}')
     return len(final_df)
 
-# ======================================================
-# PROGRAM BERJALAN UTAMA (__main__)
-# ======================================================
 if __name__ == '__main__':
     log_print("\n" + "="*55)
     log_print(f"START {get_waktu_indonesia()}")
@@ -678,9 +633,6 @@ if __name__ == '__main__':
         if hasil_proses:
             total_seluruh_paket += hasil_proses
 
-    # ----------------------------------------------------
-    # UPDATE FILE LAST-UPDATE UNTUK WEBSITE
-    # ----------------------------------------------------
     with open(os.path.join(BASE_DIR, 'data', 'last-update-pengadaan.txt'), 'w', encoding='utf-8') as f:
         f.write(get_waktu_indonesia())
 

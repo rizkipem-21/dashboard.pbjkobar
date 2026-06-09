@@ -45,7 +45,7 @@
       border-bottom: 4px solid var(--lpse-kuning);
       padding: 20px 28px 16px;
       margin-bottom: 24px;
-      border-radius: 0 0 12px 12px; 
+      border-radius: 0 0 12px 12px;
       box-shadow: 0 4px 16px rgba(26,58,107,0.18);
     }
     .page-header h1 { 
@@ -53,10 +53,10 @@
       font-size: 1.5rem; 
       font-weight: 700; 
       letter-spacing: 0.3px; 
-      margin: 0 0 2px 0; 
+      margin: 0 0 2px 0;
     }
     .page-header .last-update { 
-      color: rgba(255,255,255,0.72); 
+      color: rgba(255,255,255,0.72);
       font-size: 0.75rem; 
     }
 
@@ -84,7 +84,7 @@
     
     .btn-detail {
       background: #f1f5f9; color: var(--lpse-biru); padding: 8px 16px; border-radius: 6px;
-      font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: background 0.2s, color 0.2s; border:none;
+      font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: background 0.2s, color 0.2s; border: none;
     }
     .btn-detail:hover { background: var(--lpse-biru); color: #fff; }
 
@@ -303,7 +303,6 @@
           </div>
 
           <div style="margin-bottom: 25px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; border-bottom: 2px solid #f1f5f9; padding-bottom: 20px;">
-            
             <div style="background: var(--lpse-biru); padding: 8px 16px; border-radius: 6px; display: inline-flex; align-items: center; gap: 10px;">
               <label style="color: white; font-size: 0.85rem; font-weight: bold;">Tahun Arsip:</label>
               <select id="selectYearArsip" style="padding: 4px 10px; border-radius: 4px; border: none; outline: none; font-weight: bold; cursor: pointer; color: #1e293b;">
@@ -312,9 +311,9 @@
                 <option value="2024">2024</option>
               </select>
             </div>
-
-            <button onclick="loadArsip('rup')" class="btn-detail" style="background: var(--lpse-biru); color: white; display: flex; align-items: center; padding: 8px 16px; margin: 0;">📂 Buka Arsip RUP</button>
-            <button onclick="loadArsip('pengadaan')" class="btn-detail" style="background: var(--lpse-hijau); color: white; display: flex; align-items: center; padding: 8px 16px; margin: 0;">📂 Buka Arsip Pengadaan</button>
+            
+            <button onclick="triggerLoadArsip('rup')" class="btn-detail" style="background: var(--lpse-biru); color: white; display: flex; align-items: center; padding: 8px 16px; margin: 0;">📂 Buka Arsip RUP</button>
+            <button onclick="triggerLoadArsip('pengadaan')" class="btn-detail" style="background: var(--lpse-hijau); color: white; display: flex; align-items: center; padding: 8px 16px; margin: 0;">📂 Buka Arsip Pengadaan</button>
           </div>
 
           <div class="overflow-x-auto">
@@ -338,10 +337,32 @@
         </div>
       </div>
     </div>
-
   </main>
 
+  <div id="modalPassword" class="fixed inset-0 bg-black/50 z-[9999] hidden items-center justify-center backdrop-blur-sm transition-opacity">
+    <div class="bg-white p-6 rounded-xl shadow-2xl w-80 transform transition-all">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-2xl">🔒</span>
+        <h3 class="text-lg font-bold text-gray-800">Akses Terkunci</h3>
+      </div>
+      <p class="text-xs text-gray-500 mb-4">Masukkan password untuk melanjutkan akses.</p>
+      <input type="password" id="inputPassword" placeholder="Masukkan Password..." class="w-full border-2 border-gray-200 rounded-lg p-2.5 mb-5 focus:outline-none focus:border-[#1a3a6b] text-sm" />
+      <div class="flex justify-end gap-2">
+        <button onclick="tutupModal()" class="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 font-semibold text-sm transition-colors">Batal</button>
+        <button onclick="cekPassword()" class="px-4 py-2 text-white rounded-lg font-semibold text-sm transition-colors" style="background-color: var(--lpse-biru);">Proses</button>
+      </div>
+    </div>
+  </div>
+
   <script>
+    // ========================================================
+    // PASSWORD MASTER UNTUK DASHBOARD UTAMA
+    // ========================================================
+    const MASTER_PASSWORD = "RahasiaKobar123";
+
+    let pendingDownloadUrl = "";
+    let pendingArsipCategory = "";
+
     // === FUNGSI LOGIKA TAB (SIDEBAR) ===
     function switchTab(panelId, element, hashName) {
       document.querySelectorAll('.view-panel').forEach(panel => panel.classList.add('hidden'));
@@ -362,7 +383,7 @@
       if (panelId === 'view-rup' || panelId === 'view-pengadaan') {
         const iframe = document.getElementById(panelId).querySelector('iframe');
         if (iframe) {
-          iframe.src = iframe.src; 
+          iframe.src = iframe.src;
         }
       }
 
@@ -413,18 +434,18 @@
     async function fetchLastUpdateText(type) {
       try {
         const res = await fetch(`data/last-update-${type}.txt`);
-        if(res.ok) {
+        if (res.ok) {
           const text = await res.text();
           const elements = document.querySelectorAll(type === "rup" ? ".updateRup" : ".updatePengadaan");
           elements.forEach(el => el.innerText = text.trim());
         }
-      } catch(e) { /* ignore */ }
+      } catch (e) { /* ignore */ }
     }
 
     async function processRUP(year) {
       try {
         const res = await fetch(`data/${year}/rekap_rup_${year}.json`);
-        if(!res.ok) throw new Error("No Data");
+        if (!res.ok) throw new Error("No Data");
         const data = await res.json();
         
         let tProgram = 0, tPengadaan = 0, tRup = 0;
@@ -439,7 +460,7 @@
         document.getElementById("rupStatPengadaan").innerText = rupiah(tPengadaan);
         document.getElementById("rupStatTerumumkan").innerText = rupiah(tRup);
         document.getElementById("rupStatPersen").innerText = persenTotal.toFixed(2) + "%";
-      } catch(e) {
+      } catch (e) {
         document.getElementById("rupStatProgram").innerText = "Rp 0";
         document.getElementById("rupStatPengadaan").innerText = "Rp 0";
         document.getElementById("rupStatTerumumkan").innerText = "Rp 0";
@@ -450,22 +471,22 @@
     async function processPengadaan(year) {
       try {
         const res = await fetch(`data/${year}/rekap_pengadaan_${year}.json`);
-        if(!res.ok) throw new Error("No Data");
+        if (!res.ok) throw new Error("No Data");
         const data = await res.json();
         
         let belum = 0, proses = 0, selesai = 0;
         data.forEach(row => {
           const kat = getKategoriStatus(row);
-          if(kat === "Belum Proses") belum++;
-          else if(kat === "Sedang Proses") proses++;
-          else if(kat === "Sudah Selesai") selesai++;
+          if (kat === "Belum Proses") belum++;
+          else if (kat === "Sedang Proses") proses++;
+          else if (kat === "Sudah Selesai") selesai++;
         });
 
         document.getElementById("pengStatTotal").innerText = data.length.toLocaleString("id-ID");
         document.getElementById("pengStatBelum").innerText = belum.toLocaleString("id-ID");
         document.getElementById("pengStatProses").innerText = proses.toLocaleString("id-ID");
         document.getElementById("pengStatSelesai").innerText = selesai.toLocaleString("id-ID");
-      } catch(e) {
+      } catch (e) {
         document.getElementById("pengStatTotal").innerText = "0";
         document.getElementById("pengStatBelum").innerText = "0";
         document.getElementById("pengStatProses").innerText = "0";
@@ -482,58 +503,74 @@
       document.getElementById("loadingOverlayDashboard").style.display = "none";
     }
 
-    // === FUNGSI LOGIKA TABEL ARSIP (TERPISAH & BERGEMBOK) ===
-    let arsipSudahLogin = false; 
+    // === FUNGSI LOGIKA TABEL ARSIP BERGEMBOK ===
+    
+    function bukaModal() { 
+      document.getElementById("modalPassword").classList.replace("hidden", "flex"); 
+      document.getElementById("inputPassword").value = "";
+      setTimeout(() => document.getElementById("inputPassword").focus(), 100); 
+    }
+    
+    function tutupModal() { 
+      document.getElementById("modalPassword").classList.replace("flex", "hidden"); 
+      pendingDownloadUrl = ""; 
+      pendingArsipCategory = ""; 
+    }
 
-    function loadArsip(kategori) {
-      const tableBody = document.getElementById('tabel-arsip');
-      
-      // 1. TANYAKAN PASSWORD (Hanya jika belum login di sesi ini)
-      if (!arsipSudahLogin) {
-        const passwordSistem = "RahasiaKobar123"; 
-        const inputUser = prompt("Masukkan Password Akses Arsip Tim PBJ:");
-        
-        if (inputUser === null) {
-          tableBody.innerHTML = '<tr><td colspan="2" style="padding: 30px; text-align: center; color: #64748b;">Akses dibatalkan.</td></tr>';
-          return;
-        }
-        if (inputUser !== passwordSistem) {
-          tableBody.innerHTML = '<tr><td colspan="2" style="padding: 30px; text-align: center; color: var(--lpse-merah);"><b>Akses Ditolak:</b> Password salah!</td></tr>';
-          return;
-        }
-        arsipSudahLogin = true; 
+    function cekPassword() {
+      const pwd = document.getElementById("inputPassword").value;
+      if (pwd === MASTER_PASSWORD) {
+        tutupModal();
+        if (pendingDownloadUrl) window.location.href = pendingDownloadUrl;
+        else if (pendingArsipCategory) executeLoadArsip(pendingArsipCategory);
+      } else { 
+        alert("Password Salah!"); 
       }
+    }
 
-      tableBody.innerHTML = '<tr><td colspan="2" style="padding: 30px; text-align: center;"><div class="loader" style="margin: 0 auto;"></div><p style="margin-top:10px;">Sedang memuat data arsip...</p></td></tr>';
+    document.getElementById("inputPassword").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") cekPassword();
+    });
 
-      // 2. MENGAMBIL DATA DARI TOMBOL TAHUN KHUSUS ARSIP (BUKAN DASHBOARD GLOBAL)
+    function triggerLoadArsip(kategori) {
+      pendingArsipCategory = kategori;
+      bukaModal();
+    }
+
+    function confirmDownload(url) {
+      pendingDownloadUrl = url;
+      bukaModal();
+    }
+
+    function executeLoadArsip(kategori) {
+      const tableBody = document.getElementById('tabel-arsip');
       const tahunArsip = document.getElementById("selectYearArsip").value;
       const urlJson = `output/${kategori}/${tahunArsip}/daftar_arsip.json`;
       const urlFolder = `output/${kategori}/${tahunArsip}/`;
 
-      // 3. MEMBACA FILE BUKU DAFTAR (JSON)
+      tableBody.innerHTML = '<tr><td colspan="2" style="padding: 30px; text-align: center;"><div class="loader" style="margin: 0 auto;"></div><p style="margin-top:10px;">Sedang memuat data arsip...</p></td></tr>';
+
       fetch(urlJson)
         .then(response => {
           if (!response.ok) throw new Error(`Belum ada file arsip yang digenerate untuk Tahun ${tahunArsip}.`);
           return response.json();
         })
         .then(dataFiles => {
-          tableBody.innerHTML = ''; 
+          tableBody.innerHTML = '';
           if (dataFiles.length === 0) {
             tableBody.innerHTML = `<tr><td colspan="2" style="padding: 30px; text-align: center; color: #64748b;">Folder kosong. Belum ada arsip untuk Tahun ${tahunArsip}.</td></tr>`;
             return;
           }
 
-          // Urutkan file terbaru ke posisi atas
           dataFiles.sort().reverse().forEach(fileName => {
             const row = document.createElement('tr');
             row.style.borderBottom = '1px solid #e2e8f0';
             row.innerHTML = `
               <td style="padding: 16px 14px; color: #334155; font-size: 0.95rem;">📄 ${fileName}</td>
               <td style="padding: 16px 14px; text-align: center;">
-                <a href="${urlFolder}${encodeURIComponent(fileName)}" download style="display: inline-block; padding: 6px 16px; background: var(--lpse-kuning); color: #1a1a1a; text-decoration: none; border-radius: 6px; font-size: 0.85rem; font-weight: 700; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <button onclick="confirmDownload('${urlFolder}${encodeURIComponent(fileName)}')" style="display: inline-block; padding: 6px 16px; background: var(--lpse-kuning); color: #1a1a1a; text-decoration: none; border-radius: 6px; font-size: 0.85rem; font-weight: 700; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border:none; cursor:pointer;">
                   ⬇ Unduh
-                </a>
+                </button>
               </td>
             `;
             tableBody.appendChild(row);
