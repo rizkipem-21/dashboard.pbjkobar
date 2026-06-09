@@ -796,9 +796,18 @@ function buildAllChecklists() {
     listContainer.innerHTML = "";
     items.forEach(val => {
       const id = `chk_${f}_${val.replace(/[^a-zA-Z0-9]/g, '_')}`;
+      
+      // Tambahkan garis pembatas khusus untuk "Sudah Realisasi"
+      if (f === 'status' && val === 'Sudah Realisasi') {
+        const line = document.createElement("div");
+        line.style.cssText = "border-top: 1px dashed #cbd5e1; margin: 6px 0;";
+        listContainer.appendChild(line);
+      }
+
       const div = document.createElement("div");
       div.className = "check-item";
-      div.innerHTML = `<input type="checkbox" id="${id}" value="${val}" checked onchange="updateCheckAll('${f}')">
+      // Ubah fungsi onchange memanggil handleFilterChange
+      div.innerHTML = `<input type="checkbox" id="${id}" value="${val}" checked onchange="handleFilterChange('${f}', this)">
                        <label for="${id}" style="cursor:pointer; flex:1;">${val}</label>`;
       listContainer.appendChild(div);
     });
@@ -872,6 +881,42 @@ function getCheckedValues(type) {
 }
 
 // === LOGIKA FILTER & TABEL ===
+function handleFilterChange(type, el) {
+  const realisasiCb = document.getElementById('chk_status_Sudah_Realisasi');
+
+  // Jika user MENCENTANG "Sudah Realisasi"
+  if (type === 'status' && el.value === 'Sudah Realisasi' && el.checked) {
+    // 1. Matikan teks pencarian
+    document.getElementById("filterKodePaket").value = "";
+    document.getElementById("filterSatker").value = "";
+    document.getElementById("filterPaket").value = "";
+
+    // 2. Uncheck semua status lain
+    document.querySelectorAll('#list_status input[type=checkbox]').forEach(cb => {
+      if (cb.value !== 'Sudah Realisasi') cb.checked = false;
+    });
+    document.getElementById('all_status').checked = false;
+
+    // 3. Uncheck grup filter lainnya (Jenis, Metode, Cara)
+    ['jenis', 'metode', 'cara'].forEach(f => {
+      document.querySelectorAll(`#list_${f} input[type=checkbox]`).forEach(cb => cb.checked = false);
+      const allCb = document.getElementById(`all_${f}`);
+      if (allCb) allCb.checked = false;
+      updateFilterLabel(f);
+    });
+  } 
+  // Jika user mencentang opsi LAIN, pastikan "Sudah Realisasi" mati
+  else if (el.checked) {
+    if (realisasiCb && realisasiCb.checked) realisasiCb.checked = false;
+    updateCheckAll(type);
+  } else {
+    updateCheckAll(type);
+  }
+
+  updateFilterLabel(type);
+  applyFilter();
+}
+
 function resetFilterInputs() {
   document.getElementById("filterKodePaket").value = "";
   document.getElementById("filterSatker").value = "";
@@ -894,36 +939,59 @@ function applyFilter() {
   const checkedCara   = getCheckedValues("cara");
   const checkedStatus = getCheckedValues("status");
 
+  // Deteksi apakah mode "Sudah Realisasi" sedang aktif (eksklusif)
+  const isRealisasiMode = checkedStatus !== null && checkedStatus.includes("Sudah Realisasi");
+
   filtered = allData.filter(row => {
-    // 1. Text Search
+    // 1. Text Search (Diabaikan jika isRealisasiMode aktif, karena text input sudah dikosongkan)
     if (kodePaket && !(String(row["Kode Paket"] ?? "")).toLowerCase().includes(kodePaket)) return false;
     if (satker && !(row["Satuan Kerja"] ?? "").toLowerCase().includes(satker)) return false;
     if (paket  && !(row["Nama Paket"]   ?? "").toLowerCase().includes(paket))  return false;
     
-    // 2. Checklist Check
-    if (checkedJenis  !== null && !checkedJenis.includes(row["Jenis Pengadaan"])) return false;
-    if (checkedMetode !== null && !checkedMetode.includes(row["Metode Pemilihan"])) return false;
-    
-    // Logika Khusus Cara Pengadaan
-    if (checkedCara !== null) {
-      let valCara = (row["Cara Pengadaan"] ?? "").trim().toLowerCase();
-      let matchFound = false;
-
-      for (let chk of checkedCara) {
-        if (chk === "Tender" && (valCara === "tender" || valCara === "seleksi" || valCara === "tender cepat")) matchFound = true;
-        if (chk === "Non Tender" && (valCara === "non tender" || valCara === "penunjukan langsung" || valCara === "pengadaan langsung")) matchFound = true;
-        if (chk === "Pencatatan Non Tender" && (valCara === "pencatatan non tender" || valCara === "dikecualikan")) matchFound = true;
-        if (chk === "E-Purchasing V5" && valCara === "e-purchasing v5") matchFound = true;
-        if (chk === "E-Purchasing V6" && (valCara === "e-purchasing v6" || valCara === "e-purchasing")) matchFound = true;
-        if (chk === "Swakelola" && (valCara === "pencatatan swakelola" || valCara === "swakelola")) matchFound = true;
+    // 2. Jika MODE REALISASI AKTIF, abaikan filter Checklist lain
+    if (isRealisasiMode) {
+      // Ambil status mentah langsung dari kolom
+      let rawStatus = (row["Status"] || "").trim().toLowerCase();
+      
+      // Buang data yang statusnya mengandung "berlangsung", "pengumuman rup", atau kosong
+      if (rawStatus.includes("berlangsung") || rawStatus.includes("pengumuman rup") || rawStatus === "" || rawStatus === "-") {
+        return false;
       }
+      // Jika lolos dari syarat di atas, data ini masuk
+      return true; 
+    } 
+    
+    // 3. JIKA MODE STANDAR (Bukan Realisasi), jalankan semua filter bawaan
+    else {
+      // Cek Jenis & Metode
+      if (checkedJenis  !== null && !checkedJenis.includes(row["Jenis Pengadaan"])) return false;
+      if (checkedMetode !== null && !checkedMetode.includes(row["Metode Pemilihan"])) return false;
+      
+      // Cek Cara Pengadaan
+      if (checkedCara !== null) {
+        let valCara = (row["Cara Pengadaan"] ?? "").trim().toLowerCase();
+        let matchFound = false;
 
-      if (!matchFound) return false;
+        for (let chk of checkedCara) {
+          if (chk === "Tender" && (valCara === "tender" || valCara === "seleksi" || valCara === "tender cepat")) matchFound = true;
+          if (chk === "Non Tender" && (valCara === "non tender" || valCara === "penunjukan langsung" || valCara === "pengadaan langsung")) matchFound = true;
+          if (chk === "Pencatatan Non Tender" && (valCara === "pencatatan non tender" || valCara === "dikecualikan")) matchFound = true;
+          if (chk === "E-Purchasing V5" && valCara === "e-purchasing v5") matchFound = true;
+          if (chk === "E-Purchasing V6" && (valCara === "e-purchasing v6" || valCara === "e-purchasing")) matchFound = true;
+          if (chk === "Swakelola" && (valCara === "pencatatan swakelola" || valCara === "swakelola")) matchFound = true;
+        }
+
+        if (!matchFound) return false;
+      }
+      
+      // Cek Status Standar (Belum/Sedang/Sudah Selesai)
+      if (checkedStatus !== null) {
+        let kat = getKategoriStatus(row);
+        if (!checkedStatus.includes(kat)) return false;
+      }
+      
+      return true;
     }
-    
-    if (checkedStatus !== null && !checkedStatus.includes(getKategoriStatus(row))) return false;
-    
-    return true;
   });
 
   currentPage = 1;
