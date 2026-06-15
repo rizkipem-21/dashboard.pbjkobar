@@ -42,12 +42,12 @@
   {
     "Satuan Kerja": "Badan Pendapatan Daerah",
     "Pagu Program": 3303046861.0,
-    "Pagu Pengadaan": 2636937261.0,
+    "Pagu Pengadaan": 2856470351.0,
     "RUP Penyedia": 2012875221.0,
     "RUP Swakelola": 624062040.0,
     "Total RUP Terumumkan": 2636937261.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 100.0
+    "Selisih RUP Terumumkan": -219533090.0,
+    "Persentase": 92.31453286664973
   },
   {
     "Satuan Kerja": "Badan Perencanaan Pembangunan, Riset dan Inovasi Daerah",
@@ -163,11 +163,11 @@
     "Satuan Kerja": "Dinas Pemberdayaan Masyarakat dan Desa",
     "Pagu Program": 4714718047.0,
     "Pagu Pengadaan": 1662695697.0,
-    "RUP Penyedia": 1662695697.0,
+    "RUP Penyedia": 1626495497.0,
     "RUP Swakelola": 0.0,
-    "Total RUP Terumumkan": 1662695697.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 100.0
+    "Total RUP Terumumkan": 1626495497.0,
+    "Selisih RUP Terumumkan": -36200200.0,
+    "Persentase": 97.82280064444048
   },
   {
     "Satuan Kerja": "Dinas Pemberdayaan Perempuan dan Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana",
@@ -263,11 +263,11 @@
     "Satuan Kerja": "Dinas Sosial",
     "Pagu Program": 2664782630.0,
     "Pagu Pengadaan": 1858317230.0,
-    "RUP Penyedia": 1975294025.0,
+    "RUP Penyedia": 1858317230.0,
     "RUP Swakelola": 0.0,
-    "Total RUP Terumumkan": 1975294025.0,
-    "Selisih RUP Terumumkan": 116976795.0,
-    "Persentase": 106.2947699731547
+    "Total RUP Terumumkan": 1858317230.0,
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Dinas Tenaga Kerja dan Transmigrasi",
