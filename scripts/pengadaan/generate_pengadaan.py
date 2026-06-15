@@ -48,30 +48,6 @@ tahun_n1     = tahun_n - 1               # Tahun lalu
 tahun_n2     = tahun_n - 2               # Dua tahun lalu
 daftar_tahun = [tahun_n2, tahun_n1, tahun_n] # Urutan pemrosesan dari terlama ke terbaru
 
-# 20 Daftar Endpoint API Inaproc
-ENDPOINTS = [
-    "rup/paket-penyedia-terumumkan",
-    "rup/paket-swakelola-terumumkan",
-    "tender/non-tender-ekontrak-bapbast",
-    "tender/non-tender-ekontrak-kontrak",
-    "tender/non-tender-ekontrak-spmkspp",
-    "tender/non-tender-ekontrak-sppbj",
-    "tender/non-tender-pengumuman",
-    "tender/non-tender-selesai",
-    "tender/pengumuman",
-    "tender/tender-ekontrak-bapbast",
-    "tender/tender-ekontrak-kontrak",
-    "tender/tender-ekontrak-spmkspp",
-    "tender/tender-ekontrak-sppbj",
-    "tender/tender-selesai",
-    "tender/tender-selesai-nilai",
-    "tender/pencatatan-non-tender",
-    "tender/pencatatan-swakelola",
-    "ekatalog-archive/paket-e-purchasing",
-    "ekatalog/paket-e-purchasing",
-    "ekatalog-archive/instansi-satker"
-]
-
 # ======================================================
 # FUNGSI LOG & LAST-UPDATE (PENGGANTI .BAT)
 # ======================================================
@@ -112,34 +88,101 @@ def format_tgl(val):
     except:
         return ""
 
-def download_with_retry(url, output_path):
-    max_retry = 5
-    success = False
-    
-    for i in range(1, max_retry + 1):
-        try:
-            log_print(f"  Percobaan ke-{i}...", end=" ")
-            response = requests.get(url, headers=HEADERS, timeout=90) # Timeout diubah ke 90 sesuai diskusi
+def get_file_path(data_dir, base_name, tahun):
+    """Mencari file V1, jika tidak ada fallback ke Legacy"""
+    v1_path = os.path.join(data_dir, f"v1_{base_name}_{tahun}.json")
+    legacy_path = os.path.join(data_dir, f"Legacy_{base_name}_{tahun}.json")
+    if os.path.exists(v1_path): return v1_path
+    return legacy_path
+
+def download_data_pengadaan(tahun, is_n2, data_dir):
+    txt_path = os.path.join(BASE_DIR, 'scripts', 'pengadaan', 'url_pengadaan.txt')
+    if not os.path.exists(txt_path):
+        log_print(f"ERROR: File URL tidak ditemukan di {txt_path}")
+        return
+
+    with open(txt_path, 'r', encoding='utf-8') as f:
+        urls = [line.strip() for line in f if line.strip()]
+
+    for raw_url in urls:
+        target_url = raw_url.replace('{tahun}', str(tahun))
+        is_v1 = '/v1/' in target_url
+        tipe = "v1" if is_v1 else "Legacy"
+
+        # Otomatis mengekstrak nama (misal: tender_pengumuman)
+        match = re.search(r'api/(?:v1|legacy)/(.*?)\?', target_url)
+        if not match: continue
+        base_name = match.group(1).replace('/', '_')
+        
+        filename = f"{tipe}_{base_name}_{tahun}.json"
+        output_path = os.path.join(data_dir, filename)
+
+        if is_n2 and os.path.exists(output_path):
+            log_print(f"SKIP Download (Sudah Final Lokal): {filename}")
+            continue
+
+        log_print(f"\nDOWNLOAD [{tipe.upper()}]: {target_url}")
+
+        if is_v1:
+            # JALUR V1 (CURSOR)
+            all_data = []
+            cursor = None
+            req_count = 1
+            first_response = None
+            while True:
+                url_cursor = target_url
+                if cursor:
+                    sep = "&" if "?" in target_url else "?"
+                    url_cursor = f"{target_url}{sep}cursor={cursor}"
+
+                success = False
+                resp_data = None
+                for i in range(1, 6):
+                    try:
+                        log_print(f"  Request ke-{req_count} (Coba {i})...", end=" ")
+                        resp = requests.get(url_cursor, headers=HEADERS, timeout=90)
+                        if resp.status_code == 200:
+                            resp_data = resp.json()
+                            log_print("SUKSES")
+                            success = True
+                            break
+                        else: log_print(f"GAGAL ({resp.status_code})")
+                    except Exception as e: log_print(f"ERROR: {e}")
+                    if i < 5: time.sleep(2)
+                
+                if not success: break
+                if req_count == 1: first_response = resp_data
+                
+                if resp_data and 'data' in resp_data: all_data.extend(resp_data['data'])
+                elif resp_data and isinstance(resp_data, list): all_data.extend(resp_data)
+                
+                if resp_data and 'meta' in resp_data and resp_data['meta'].get('has_more'):
+                    cursor = resp_data['meta'].get('cursor')
+                    req_count += 1
+                else: break
             
-            if response.status_code == 200:
-                data_json = response.json()
-                if data_json is not None:
-                    with open(output_path, 'w', encoding='utf-8') as f:
-                        json.dump(data_json, f, ensure_ascii=False, indent=2)
-                    log_print("-> SUKSES")
-                    success = True
-                    break
-            else:
-                log_print(f"-> Gagal HTTP {response.status_code}")
-        except Exception as e:
-            log_print(f"-> Gagal error: {e}")
-        
-        time.sleep(2)
-        
-    if not success:
-        log_print("  -> GAGAL TOTAL -> Membuat file JSON kosong []")
-        with open(output_path, 'w', encoding='utf-8') as f:
-            f.write("[]")
+            with open(output_path, 'w', encoding='utf-8') as f:
+                if len(all_data) == 0 and first_response: json.dump(first_response, f, ensure_ascii=False, indent=2)
+                else: json.dump(all_data, f, ensure_ascii=False, indent=2)
+
+        else:
+            # JALUR LEGACY
+            success = False
+            for i in range(1, 6):
+                try:
+                    log_print(f"  Percobaan ke-{i}...", end=" ")
+                    resp = requests.get(target_url, headers=HEADERS, timeout=90)
+                    if resp.status_code == 200:
+                        with open(output_path, 'w', encoding='utf-8') as f:
+                            json.dump(resp.json(), f, ensure_ascii=False, indent=2)
+                        log_print("SUKSES")
+                        success = True
+                        break
+                    else: log_print(f"GAGAL ({resp.status_code})")
+                except Exception as e: log_print(f"ERROR: {e}")
+                if i < 5: time.sleep(2)
+            if not success:
+                with open(output_path, 'w', encoding='utf-8') as f: f.write("[]")
 
 def load_json(path):
     try:
@@ -198,21 +241,10 @@ def process_tahun(tahun):
     is_n2 = (tahun == tahun_n2)
 
     log_print(f"Memulai proses download API untuk Tahun {tahun}...")
-    for endpoint in ENDPOINTS:
-        url = f"https://data.inaproc.id/api/legacy/{endpoint}?kode_klpd=D228&tahun={tahun}"
-        base_name = endpoint.replace('/', '_')
-        filename = f"Legacy_{base_name}_{tahun}.json"
-        output_file = os.path.join(data_dir, filename)
-
-        if is_n2 and os.path.exists(output_file):
-            log_print(f"SKIP Download (Sudah Final Lokal): {filename}")
-            continue
-
-        log_print(f"DOWNLOAD: {url}")
-        download_with_retry(url, output_file)
+    download_data_pengadaan(tahun, is_n2, data_dir)
 
     log_print(f"\nLoading semua file JSON hasil unduhan...")
-    def p(nama): return os.path.join(data_dir, f'Legacy_{nama}_{tahun}.json')
+    def p(nama): return get_file_path(data_dir, nama, tahun)
     
     df1     = load_json(p('rup_paket-penyedia-terumumkan'))
     df1_2   = load_json(p('rup_paket-swakelola-terumumkan'))
@@ -243,6 +275,10 @@ def process_tahun(tahun):
 
     if not df3.empty and 'status_nontender_pct_ket' in df3.columns:
         df3 = df3[df3['status_nontender_pct_ket'].astype(str).str.strip() != 'Paket Dibatalkan']
+
+    if not df6.empty and 'status' in df6.columns:
+        status_batal_v6 = ['CANCELLED_ON_NEGOTIATION', 'CANCELLED_ON_REVIEW', 'CANCELLED']
+        df6 = df6[~df6['status'].isin(status_batal_v6)]
 
     def get_set(df, col):
         if df.empty or col not in df.columns: return set()
@@ -306,16 +342,19 @@ def process_tahun(tahun):
     for d, c in [(df1,'kd_rup'), (df1_2,'kd_rup'), (df2,'kd_rup'), (df3,'kd_rup'), (df4,'kd_rup'), (df5,'kd_rup'), (df6,'rup_code'), (df7,'kd_rup')]:
         standardize_kd_rup(d, c)
 
-    map_pagu_s1   = df1.set_index('kd_rup')['pagu'] if not df1.empty else {}
-    map_pagu_s1_2 = df1_2.set_index('kd_rup')['pagu'] if not df1_2.empty else {}
+    # Tambahkan drop_duplicates agar tidak ada kd_rup ganda yang membingungkan Pandas
+    map_pagu_s1   = df1.drop_duplicates(subset=['kd_rup']).set_index('kd_rup')['pagu'] if not df1.empty and 'kd_rup' in df1.columns else {}
+    map_pagu_s1_2 = df1_2.drop_duplicates(subset=['kd_rup']).set_index('kd_rup')['pagu'] if not df1_2.empty and 'kd_rup' in df1_2.columns else {}
 
     def get_pagu_multi(kd_list, tipe='s1'):
         if not isinstance(kd_list, list): return None
-        total = sum(map_pagu_s1.get(k, 0) if tipe=='s1' else map_pagu_s1_2.get(k, 0) for k in kd_list)
+        # Tambahkan float() untuk memastikan nilai yang dijumlahkan murni angka tunggal
+        total = sum(float(map_pagu_s1.get(k, 0)) if tipe=='s1' else float(map_pagu_s1_2.get(k, 0)) for k in kd_list)
         return total if total != 0 else None
 
     if not df1.empty:
-        df1_clean = df1.dropna(subset=['kd_rup']).copy()
+        # Tambahkan drop_duplicates di sini untuk pengamanan master data
+        df1_clean = df1.dropna(subset=['kd_rup']).drop_duplicates(subset=['kd_rup']).copy()
         df1_clean['kd_rup'] = df1_clean['kd_rup'].apply(lambda x: int(float(str(x).strip())))
         df1_map = df1_clean.set_index('kd_rup')
     else:
