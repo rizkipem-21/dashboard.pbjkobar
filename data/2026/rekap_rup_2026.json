@@ -233,11 +233,11 @@
     "Satuan Kerja": "Dinas Perpustakaan dan Kearsipan",
     "Pagu Program": 729069603.0,
     "Pagu Pengadaan": 532966503.0,
-    "RUP Penyedia": 532966503.0,
+    "RUP Penyedia": 534030503.0,
     "RUP Swakelola": 0.0,
-    "Total RUP Terumumkan": 532966503.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 100.0
+    "Total RUP Terumumkan": 534030503.0,
+    "Selisih RUP Terumumkan": 1064000.0,
+    "Persentase": 100.19963731191564
   },
   {
     "Satuan Kerja": "Dinas Pertanian",
@@ -623,11 +623,11 @@
     "Satuan Kerja": "Puskesmas Madurejo",
     "Pagu Program": 3134258300.0,
     "Pagu Pengadaan": 373421530.0,
-    "RUP Penyedia": 373421530.0,
+    "RUP Penyedia": 377271530.0,
     "RUP Swakelola": 0.0,
-    "Total RUP Terumumkan": 373421530.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 100.0
+    "Total RUP Terumumkan": 377271530.0,
+    "Selisih RUP Terumumkan": 3850000.0,
+    "Persentase": 101.03100643393539
   },
   {
     "Satuan Kerja": "Puskesmas Mendawai",
