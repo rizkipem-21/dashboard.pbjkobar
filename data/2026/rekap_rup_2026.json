@@ -293,11 +293,11 @@
     "Satuan Kerja": "Instalasi Farmasi",
     "Pagu Program": 5257374241.0,
     "Pagu Pengadaan": 5257374241.0,
-    "RUP Penyedia": 5051110241.0,
+    "RUP Penyedia": 3206891316.0,
     "RUP Swakelola": 0.0,
-    "Total RUP Terumumkan": 5051110241.0,
-    "Selisih RUP Terumumkan": -206264000.0,
-    "Persentase": 96.07667267832227
+    "Total RUP Terumumkan": 3206891316.0,
+    "Selisih RUP Terumumkan": -2050482925.0,
+    "Persentase": 60.99796531490633
   },
   {
     "Satuan Kerja": "Kecamatan Arut Selatan",
@@ -602,12 +602,12 @@
   {
     "Satuan Kerja": "Puskesmas Kumai",
     "Pagu Program": 4403647000.0,
-    "Pagu Pengadaan": 1117262329.0,
+    "Pagu Pengadaan": 1117262389.0,
     "RUP Penyedia": 1116362329.0,
     "RUP Swakelola": 0.0,
     "Total RUP Terumumkan": 1116362329.0,
-    "Selisih RUP Terumumkan": -900000.0,
-    "Persentase": 99.91944595493473
+    "Selisih RUP Terumumkan": -900060.0,
+    "Persentase": 99.91944058899132
   },
   {
     "Satuan Kerja": "Puskesmas Kumpai Batu Atas",
