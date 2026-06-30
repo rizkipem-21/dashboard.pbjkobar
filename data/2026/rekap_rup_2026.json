@@ -143,11 +143,11 @@
     "Satuan Kerja": "Dinas Pekerjaan Umum dan Penataan Ruang",
     "Pagu Program": 105714344580.0,
     "Pagu Pengadaan": 105032048100.0,
-    "RUP Penyedia": 104997048100.0,
+    "RUP Penyedia": 104797048100.0,
     "RUP Swakelola": 35000000.0,
-    "Total RUP Terumumkan": 105032048100.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 100.0
+    "Total RUP Terumumkan": 104832048100.0,
+    "Selisih RUP Terumumkan": -200000000.0,
+    "Persentase": 99.80958192892746
   },
   {
     "Satuan Kerja": "Dinas Pemadam Kebakaran dan Penyelamatan",
