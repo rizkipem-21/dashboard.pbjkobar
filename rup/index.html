@@ -110,11 +110,13 @@
   }
 
   /* Warna Kartu mengikuti Strip Atas */
-  .stat-card:nth-child(1) { background: linear-gradient(135deg, #1a3a6b, #2563b0); }
-  .stat-card:nth-child(2) { background: linear-gradient(135deg, #c0392b, #e63329); }
-  .stat-card:nth-child(3) { background: linear-gradient(135deg, #d4a000, #f5c800); color: #1a1a1a; }
-  .stat-card:nth-child(4) { background: linear-gradient(135deg, #1e7e34, #2d9e47); }
-  .stat-card:nth-child(3) .stat-label { color: #1a1a1a; opacity: 0.7; }
+  .stat-card:nth-child(1) { background: linear-gradient(135deg, #1a3a6b, #2563b0); } /* Biru */
+  .stat-card:nth-child(2) { background: linear-gradient(135deg, #c0392b, #e63329); } /* Merah */
+  .stat-card:nth-child(3) { background: linear-gradient(135deg, #d35400, #e67e22); } /* Cyan Gelap (Penyedia) */
+  .stat-card:nth-child(4) { background: linear-gradient(135deg, #005f73, #0a9396); } /* Oranye (Swakelola) */
+  .stat-card:nth-child(5) { background: linear-gradient(135deg, #d4a000, #f5c800); color: #1a1a1a; } /* Kuning (Total) */
+  .stat-card:nth-child(6) { background: linear-gradient(135deg, #1e7e34, #2d9e47); } /* Hijau (Persen) */
+  .stat-card:nth-child(5) .stat-label { color: #1a1a1a; opacity: 0.7; }
 
   /* ===== FILTER CARD ===== */
   .filter-card {
@@ -219,7 +221,7 @@
   tbody tr:nth-child(even) { background: #f0f5fb; }
   tbody tr:hover { background: #dbeafe !important; }
   tbody td { padding: 9px 14px; border-bottom: 1px solid #e8edf5; border-right: 1px solid #e8edf5; color: #1e293b; }
-  .td-rupiah  { text-align: right; font-variant-numeric: tabular-nums; }
+  .td-rupiah  { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
   .td-center  { text-align: center; }
   .td-persen  { text-align: right; font-weight: 600; color: var(--lpse-biru); }
 
@@ -274,8 +276,19 @@
       <span class="stat-value" id="statPaguPengadaan">-</span>
     </div>
     <div class="stat-card">
+      <span class="stat-label">Total RUP Penyedia</span>
+      <span class="stat-value" id="statRupPenyedia">-</span>
+      <span id="statPktPenyedia" style="font-size: 0.85rem; font-weight: 700; opacity: 0.85; margin-top: -3px;">- Paket</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Total RUP Swakelola</span>
+      <span class="stat-value" id="statRupSwakelola">-</span>
+      <span id="statPktSwakelola" style="font-size: 0.85rem; font-weight: 700; opacity: 0.85; margin-top: -3px;">- Paket</span>
+    </div>
+    <div class="stat-card">
       <span class="stat-label">Total RUP Terumumkan</span>
       <span class="stat-value" id="statRup">-</span>
+      <span id="statTotalPkt" style="font-size: 0.85rem; font-weight: 700; opacity: 0.85; margin-top: -3px;">- Paket</span>
     </div>
     <div class="stat-card">
       <span class="stat-label">Persentase Total</span>
@@ -323,19 +336,22 @@
     <span id="totalInfo" style="font-size:0.78rem; color:#94a3b8;"></span>
   </div>
 
-  <div id="stickyHeader">
+<div id="stickyHeader">
     <table>
       <thead>
         <tr>
-          <th style="width:50px; text-align:center;">No</th>
-          <th>Satuan Kerja</th>
-          <th style="text-align:right;">Pagu Program</th>
-          <th style="text-align:right;">Pagu Pengadaan</th>
-          <th style="text-align:right;">RUP Penyedia</th>
-          <th style="text-align:right;">RUP Swakelola</th>
-          <th style="text-align:right;">Total RUP Terumumkan</th>
-          <th style="text-align:right;">Selisih</th>
-          <th style="text-align:right;">Persentase</th>
+          <th style="width:40px; min-width:40px; text-align:center;">No</th>
+          <th style="width:280px; min-width:280px; text-align:center;">Satuan Kerja</th>
+          <th style="width:140px; min-width:140px; text-align:center;">Pagu Program</th>
+          <th style="width:140px; min-width:140px; text-align:center;">Pagu Pengadaan</th>
+          <th style="width:50px; min-width:50px; text-align:center;">Pkt</th>
+          <th style="width:140px; min-width:140px; text-align:center;">RUP Penyedia</th>
+          <th style="width:50px; min-width:50px; text-align:center;">Pkt</th>
+          <th style="width:140px; min-width:140px; text-align:center;">RUP Swakelola</th>
+          <th style="width:60px; min-width:60px; text-align:center;">Total<br>Pkt</th>
+          <th style="width:150px; min-width:150px; text-align:center;">Total RUP<br>Terumumkan</th>
+          <th style="width:130px; min-width:130px; text-align:center;">Selisih</th>
+          <th style="width:100px; min-width:100px; text-align:center;">Persentase</th>
         </tr>
       </thead>
     </table>
@@ -345,21 +361,23 @@
     <table id="mainTable">
       <thead id="mainThead">
         <tr>
-          <th style="width:50px; text-align:center;">No</th>
-          <th>Satuan Kerja</th>
-          <th style="text-align:right;">Pagu Program</th>
-          <th style="text-align:right;">Pagu Pengadaan</th>
-          <th style="text-align:right;">RUP Penyedia</th>
-          <th style="text-align:right;">RUP Swakelola</th>
-          <th style="text-align:right;">Total RUP Terumumkan</th>
-          <th style="text-align:right;">Selisih</th>
-          <th style="text-align:right;">Persentase</th>
+          <th style="width:40px; min-width:40px; text-align:center;">No</th>
+          <th style="width:280px; min-width:280px; text-align:center;">Satuan Kerja</th>
+          <th style="width:140px; min-width:140px; text-align:center;">Pagu Program</th>
+          <th style="width:140px; min-width:140px; text-align:center;">Pagu Pengadaan</th>
+          <th style="width:50px; min-width:50px; text-align:center;">Pkt</th>
+          <th style="width:140px; min-width:140px; text-align:center;">RUP Penyedia</th>
+          <th style="width:50px; min-width:50px; text-align:center;">Pkt</th>
+          <th style="width:140px; min-width:140px; text-align:center;">RUP Swakelola</th>
+          <th style="width:60px; min-width:60px; text-align:center;">Total<br>Pkt</th>
+          <th style="width:150px; min-width:150px; text-align:center;">Total RUP<br>Terumumkan</th>
+          <th style="width:130px; min-width:130px; text-align:center;">Selisih</th>
+          <th style="width:100px; min-width:100px; text-align:center;">Persentase</th>
         </tr>
       </thead>
       <tbody id="body"></tbody>
     </table>
   </div>
-</div>
 
 <script>
 let rawData = [];
@@ -437,8 +455,11 @@ function renderTable() {
 
   filteredData.forEach((row, index) => {
     const paguPengadaan = Number(row["Pagu Pengadaan"] || 0);
+    const pktPenyedia = Number(row["Paket Penyedia"] || 0);
     const rupPenyedia = Number(row["RUP Penyedia"] || 0);
+    const pktSwakelola = Number(row["Paket Swakelola"] || 0);
     const rupSwakelola = Number(row["RUP Swakelola"] || 0);
+    const pktTotal = Number(row["Total Paket Terumumkan"] || 0);
     const rupTerumumkan = Number(row["Total RUP Terumumkan"] || 0);
     const selisih = rupTerumumkan - paguPengadaan;
     const persen = Number(row["Persentase"] || 0).toFixed(2) + "%";
@@ -449,9 +470,12 @@ function renderTable() {
       <td style="font-weight:500;">${row["Satuan Kerja"] ?? ""}</td>
       <td class="td-rupiah">${rupiah(row["Pagu Program"])}</td>
       <td class="td-rupiah">${rupiah(paguPengadaan)}</td>
+      <td class="td-center" style="font-weight:600; color:#1e4d8c;">${pktPenyedia}</td>
       <td class="td-rupiah">${rupiah(rupPenyedia)}</td>
+      <td class="td-center" style="font-weight:600; color:#1e4d8c;">${pktSwakelola}</td>
       <td class="td-rupiah">${rupiah(rupSwakelola)}</td>
-      <td class="td-rupiah">${rupiah(rupTerumumkan)}</td>
+      <td class="td-center" style="font-weight:600;">${pktTotal}</td>
+      <td class="td-rupiah" style="font-weight:600;">${rupiah(rupTerumumkan)}</td>
       <td class="td-rupiah" style="color: ${selisih < 0 ? '#e63329' : '#1e293b'}">${rupiah(selisih)}</td>
       <td class="td-persen">${persen}</td>
     `;
@@ -461,16 +485,29 @@ function renderTable() {
 }
 
 function renderSummary() {
-  let tProgram = 0, tPengadaan = 0, tRup = 0;
+  let tProgram = 0, tPengadaan = 0, tRup = 0, tPkt = 0;
+  let tPenyedia = 0, tPktPenyedia = 0, tSwakelola = 0, tPktSwakelola = 0;
   rawData.forEach(d => {
     tProgram += Number(d["Pagu Program"] || 0);
     tPengadaan += Number(d["Pagu Pengadaan"] || 0);
     tRup += Number(d["Total RUP Terumumkan"] || 0);
+    tPkt += Number(d["Total Paket Terumumkan"] || 0);
+        tPenyedia += Number(d["RUP Penyedia"] || 0);
+    tPktPenyedia += Number(d["Paket Penyedia"] || 0);
+        tSwakelola += Number(d["RUP Swakelola"] || 0);
+    tPktSwakelola += Number(d["Paket Swakelola"] || 0);
   });
+  
   const persenTotal = tPengadaan === 0 ? 0 : (tRup / tPengadaan) * 100;
+  
   document.getElementById("statPaguProgram").innerText = rupiah(tProgram);
   document.getElementById("statPaguPengadaan").innerText = rupiah(tPengadaan);
+  document.getElementById("statRupPenyedia").innerText = rupiah(tPenyedia);
+  document.getElementById("statPktPenyedia").innerText = tPktPenyedia.toLocaleString("id-ID") + " Paket";
+  document.getElementById("statRupSwakelola").innerText = rupiah(tSwakelola);
+  document.getElementById("statPktSwakelola").innerText = tPktSwakelola.toLocaleString("id-ID") + " Paket";
   document.getElementById("statRup").innerText = rupiah(tRup);
+  document.getElementById("statTotalPkt").innerText = tPkt.toLocaleString("id-ID") + " Paket";
   document.getElementById("statPersen").innerText = persenTotal.toFixed(2) + "%";
 }
 
@@ -481,20 +518,21 @@ async function downloadExcelFormatted() {
   const workbook = new ExcelJS.Workbook();
   const worksheet = workbook.addWorksheet('Rekap RUP');
 
-  // Definisi Kolom
   worksheet.columns = [
     { header: 'No', key: 'no', width: 6 },
     { header: 'Satuan Kerja', key: 'satker', width: 45 },
     { header: 'Pagu Program', key: 'program', width: 22 },
     { header: 'Pagu Pengadaan', key: 'pengadaan', width: 22 },
-    { header: 'RUP Penyedia', key: 'penyedia', width: 22 },
-    { header: 'RUP Swakelola', key: 'swakelola', width: 22 },
-    { header: 'Total RUP Terumumkan', key: 'rup', width: 25 },
+    { header: 'Paket Penyedia', key: 'pkt_penyedia', width: 16 },
+    { header: 'RUP Penyedia', key: 'rup_penyedia', width: 22 },
+    { header: 'Paket Swakelola', key: 'pkt_swakelola', width: 16 },
+    { header: 'RUP Swakelola', key: 'rup_swakelola', width: 22 },
+    { header: 'Total Paket', key: 'pkt_total', width: 16 },
+    { header: 'Total RUP Terumumkan', key: 'rup_total', width: 25 },
     { header: 'Selisih', key: 'selisih', width: 22 },
     { header: 'Persentase', key: 'persen', width: 15 }
   ];
 
-  // Styling Header
   const headerRow = worksheet.getRow(1);
   headerRow.height = 25;
   headerRow.eachCell((cell) => {
@@ -504,52 +542,42 @@ async function downloadExcelFormatted() {
     cell.border = { top: {style:'thin'}, left: {style:'thin'}, bottom: {style:'thin'}, right: {style:'thin'} };
   });
 
-  // Memasukkan Data
   filteredData.forEach((row, index) => {
-    const program = Number(row["Pagu Program"] || 0);
     const pengadaan = Number(row["Pagu Pengadaan"] || 0);
-    const penyedia = Number(row["RUP Penyedia"] || 0);
-    const swakelola = Number(row["RUP Swakelola"] || 0);
-    const rup = Number(row["Total RUP Terumumkan"] || 0);
-    const selisih = rup - pengadaan;
-    const persen = Number(row["Persentase"] || 0) / 100;
+    const rupTot = Number(row["Total RUP Terumumkan"] || 0);
+    const selisih = rupTot - pengadaan;
 
     const dataRow = worksheet.addRow({
       no: index + 1,
       satker: row["Satuan Kerja"],
-      program: program,
+      program: Number(row["Pagu Program"] || 0),
       pengadaan: pengadaan,
-      penyedia: penyedia,
-      swakelola: swakelola,
-      rup: rup,
+      pkt_penyedia: Number(row["Paket Penyedia"] || 0),
+      rup_penyedia: Number(row["RUP Penyedia"] || 0),
+      pkt_swakelola: Number(row["Paket Swakelola"] || 0),
+      rup_swakelola: Number(row["RUP Swakelola"] || 0),
+      pkt_total: Number(row["Total Paket Terumumkan"] || 0),
+      rup_total: rupTot,
       selisih: selisih,
-      persen: persen
+      persen: Number(row["Persentase"] || 0) / 100
     });
 
     dataRow.eachCell((cell, colNum) => {
-      cell.border = {
-        top: {style:'thin', color: {argb: 'FFE8EDF5'}},
-        left: {style:'thin', color: {argb: 'FFE8EDF5'}},
-        bottom: {style:'thin', color: {argb: 'FFE8EDF5'}},
-        right: {style:'thin', color: {argb: 'FFE8EDF5'}}
-      };
-      if ((index + 1) % 2 === 0) {
-        cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFF0F5FB' } };
-      }
+      cell.border = { top: {style:'thin', color: {argb: 'FFE8EDF5'}}, left: {style:'thin', color: {argb: 'FFE8EDF5'}}, bottom: {style:'thin', color: {argb: 'FFE8EDF5'}}, right: {style:'thin', color: {argb: 'FFE8EDF5'}} };
+      if ((index + 1) % 2 === 0) cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFF0F5FB' } };
       
-      // Format Rupiah untuk kolom uang (Kolom 3 s/d 8)
-      if ([3, 4, 5, 6, 7, 8].includes(colNum)) {
+      // Rupiah: Kolom C(3), D(4), F(6), H(8), J(10), K(11)
+      if ([3, 4, 6, 8, 10, 11].includes(colNum)) {
         cell.numFmt = '"Rp" #,##0';
         cell.alignment = { horizontal: 'right', vertical: 'middle' };
       }
-      
-      // Warna Merah untuk Selisih Minus (Kolom 8)
-      if (colNum === 8 && selisih < 0) {
-        cell.font = { color: { argb: 'FFE63329' } };
+      // Angka Paket: Kolom E(5), G(7), I(9)
+      if ([5, 7, 9].includes(colNum)) {
+        cell.numFmt = '#,##0';
+        cell.alignment = { horizontal: 'center', vertical: 'middle' };
       }
-
-      // Format Persen (Kolom 9)
-      if (colNum === 9) {
+      if (colNum === 11 && selisih < 0) cell.font = { color: { argb: 'FFE63329' } };
+      if (colNum === 12) {
         cell.numFmt = '0.00%';
         cell.font = { bold: true, color: { argb: 'FF1A3A6B' } };
         cell.alignment = { horizontal: 'right', vertical: 'middle' };
@@ -557,38 +585,26 @@ async function downloadExcelFormatted() {
     });
   });
 
-  // === TAMBAHKAN BARIS TOTAL ===
   const lastDataRow = filteredData.length + 1;
-  const totalRowIndex = lastDataRow + 1;
+  const tRowIdx = lastDataRow + 1;
   const totalRow = worksheet.addRow([]);
   
   totalRow.getCell(2).value = 'TOTAL';
-  // Rumus SUM
-  totalRow.getCell(3).value = { formula: `SUM(C2:C${lastDataRow})` };
-  totalRow.getCell(4).value = { formula: `SUM(D2:D${lastDataRow})` };
-  totalRow.getCell(5).value = { formula: `SUM(E2:E${lastDataRow})` };
-  totalRow.getCell(6).value = { formula: `SUM(F2:F${lastDataRow})` };
-  totalRow.getCell(7).value = { formula: `SUM(G2:G${lastDataRow})` };
-  // Rumus Selisih Total (Total RUP - Total Pagu)
-  totalRow.getCell(8).value = { formula: `G${totalRowIndex}-D${totalRowIndex}` };
-  // Rumus Persentase Total (Total RUP / Total Pagu)
-  totalRow.getCell(9).value = { formula: `IF(D${totalRowIndex}=0, 0, G${totalRowIndex}/D${totalRowIndex})` };
+  ['C','D','E','F','G','H','I','J'].forEach((col, idx) => {
+    totalRow.getCell(idx + 3).value = { formula: `SUM(${col}2:${col}${lastDataRow})` };
+  });
+  totalRow.getCell(11).value = { formula: `J${tRowIdx}-D${tRowIdx}` };
+  totalRow.getCell(12).value = { formula: `IF(D${tRowIdx}=0, 0, J${tRowIdx}/D${tRowIdx})` };
 
-  // Styling Baris Total
   totalRow.height = 22;
   totalRow.eachCell((cell, colNum) => {
     cell.font = { bold: true, color: { argb: 'FF1A3A6B' } };
-    cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFF5C800' } }; // Kuning LPSE
+    cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFF5C800' } };
     cell.border = { top: {style:'thin'}, left: {style:'thin'}, bottom: {style:'thin'}, right: {style:'thin'} };
     
-    if ([3, 4, 5, 6, 7, 8].includes(colNum)) {
-      cell.numFmt = '"Rp" #,##0';
-      cell.alignment = { horizontal: 'right', vertical: 'middle' };
-    }
-    if (colNum === 9) {
-      cell.numFmt = '0.00%';
-      cell.alignment = { horizontal: 'right', vertical: 'middle' };
-    }
+    if ([3, 4, 6, 8, 10, 11].includes(colNum)) { cell.numFmt = '"Rp" #,##0'; cell.alignment = { horizontal: 'right', vertical: 'middle' }; }
+    if ([5, 7, 9].includes(colNum)) { cell.numFmt = '#,##0'; cell.alignment = { horizontal: 'center', vertical: 'middle' }; }
+    if (colNum === 12) { cell.numFmt = '0.00%'; cell.alignment = { horizontal: 'right', vertical: 'middle' }; }
   });
 
   const buffer = await workbook.xlsx.writeBuffer();
