@@ -14,8 +14,3 @@ env/
 __pycache__/
 *.pyc
 
-# Mengabaikan script & tools
-scripts/
-tools/
-*.bat
-*.py
