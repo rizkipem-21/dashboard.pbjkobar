@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kategori KBLI Inaproc</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --lpse-biru  : #1a3a6b;
+    --lpse-biru2 : #1e4d8c;
+    --lpse-merah : #e63329;
+    --lpse-kuning: #f5c800;
+    --lpse-hijau : #2d9e47;
+  }
+
+  body {
+    background: #f0f4f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ===== HEADER ===== */
+  .page-header {
+    background: linear-gradient(135deg, var(--lpse-biru) 0%, var(--lpse-biru2) 100%);
+    border-bottom: 4px solid var(--lpse-kuning);
+    padding: 20px 28px 16px;
+    margin-bottom: 24px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 16px rgba(26,58,107,0.18);
+  }
+  .page-header h1 {
+    color: #fff; font-size: 1.5rem; font-weight: 700;
+    letter-spacing: 0.3px; margin: 0 0 4px 0;
+  }
+  .page-header .subtitle {
+    color: rgba(255,255,255,0.85); font-size: 0.85rem;
+  }
+
+  /* ===== COLOR STRIP ===== */
+  .color-strip {
+    display: flex; height: 8px; border-radius: 4px;
+    overflow: hidden; margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  }
+  .color-strip span { flex: 1; }
+
+  /* ===== FILTER CARD ===== */
+  .filter-card {
+    background: #fff; border-radius: 10px; box-shadow: 0 2px 10px rgba(26,58,107,0.09);
+    padding: 18px 20px; margin-bottom: 16px; border-top: 3px solid var(--lpse-biru);
+  }
+  .filter-card label {
+    font-size: 0.75rem; font-weight: 600; color: #64748b;
+    text-transform: uppercase; margin-bottom: 6px; display: block;
+  }
+  .filter-card input {
+    border: 1.5px solid #dde3ed; border-radius: 7px; padding: 8px 12px;
+    font-size: 0.9rem; background: #f8fafc; outline: none; width: 100%;
+    transition: border-color 0.2s;
+  }
+  .filter-card input:focus { border-color: var(--lpse-biru); }
+  .filter-card select {
+    border: 1.5px solid #dde3ed; border-radius: 7px; padding: 8px 12px;
+    font-size: 0.9rem; background: #f8fafc; outline: none; width: 100%; cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .filter-card select:focus { border-color: var(--lpse-biru); }
+  .filter-card select:disabled {
+    background-color: #e2e8f0; color: #94a3b8;
+    cursor: not-allowed; border-color: #cbd5e1;
+  }
+  .filter-grid { 
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+    gap: 12px; margin-bottom: 15px; 
+  }
+
+  /* ===== BUTTONS ===== */
+  .btn-search {
+    background: var(--lpse-biru); color: #fff; border: none;
+    border-radius: 7px; padding: 8.5px 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+    box-shadow: 0 2px 6px rgba(26,58,107,0.25); transition: background 0.2s;
+  }
+  .btn-search:hover { background: var(--lpse-biru2); }
+  
+  .btn-reset {
+    background: #f1f5f9; color: #475569; border: 1.5px solid #cbd5e1;
+    border-radius: 7px; padding: 7.5px 16px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-reset:hover { background: #e2e8f0; }
+
+  /* ===== PAGINATION BUTTONS ===== */
+  .btn-page {
+    background: #fff; border: 1.5px solid #dde3ed; border-radius: 6px;
+    padding: 6px 14px; font-size: 0.8rem; font-weight: 600; color: #475569;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .btn-page:hover:not(:disabled) { border-color: var(--lpse-biru); color: var(--lpse-biru); }
+  .btn-page:disabled { background: #f8fafc; color: #cbd5e1; cursor: not-allowed; border-color: #e2e8f0; }
+
+  /* ===== TABEL ===== */
+  .table-wrap {
+    background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(26,58,107,0.09);
+    margin-bottom: 24px; overflow-x: auto;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  thead tr { background: var(--lpse-biru); color: #fff; }
+  thead th {
+    padding: 12px 14px; text-align: left; font-weight: 600; font-size: 0.8rem;
+    border-right: 1px solid rgba(255,255,255,0.12);
+  }
+  tbody tr:nth-child(even) { background: #f0f5fb; }
+  tbody tr:hover { background: #dbeafe !important; }
+  tbody td { padding: 10px 14px; border-bottom: 1px solid #e8edf5; border-right: 1px solid #e8edf5; color: #1e293b; vertical-align: top; }
+  .td-center { text-align: center; }
+
+  /* Loading Overlay */
+  #loadingOverlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.85); display: flex; flex-direction: column;
+    align-items: center; justify-content: center; z-index: 10000; display: none;
+  }
+  .loader {
+    border: 4px solid #f3f3f3; border-top: 4px solid var(--lpse-biru);
+    border-radius: 50%; width: 35px; height: 35px; animation: spin 1s linear infinite;
+  }
+  @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<div id="loadingOverlay"><div class="loader"></div><p class="mt-2 text-sm font-semibold text-blue-900">Memproses Data...</p></div>
+
+<div class="page-header">
+  <h1>📖 Kategori & KBLI Inaproc</h1>
+  <p class="subtitle">Database panduan referensi Kategori Produk dan Izin Bidang Usaha (KBLI 2020 & 2025)</p>
+</div>
+
+<div style="padding: 0 20px;">
+  <div class="color-strip">
+    <span style="background:var(--lpse-biru)"></span>
+    <span style="background:var(--lpse-merah)"></span>
+    <span style="background:var(--lpse-kuning)"></span>
+    <span style="background:var(--lpse-hijau)"></span>
+  </div>
+
+  <div class="filter-card">
+    <div class="filter-grid">
+      <div style="display:flex; flex-direction:column; gap:4px;">
+        <label>Tingkat I</label>
+        <select id="selTingkat1"><option value="">-- Semua --</option></select>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:4px;">
+        <label>Tingkat II</label>
+        <select id="selTingkat2" disabled><option value="">-- Pilih Tingkat I --</option></select>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:4px;">
+        <label>Tingkat III</label>
+        <select id="selTingkat3" disabled><option value="">-- Pilih Tingkat II --</option></select>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:4px;">
+        <label>Cari Nama Kategori</label>
+        <input id="inputCariKategori" type="text" placeholder="Cari di Tk I, II, III..." />
+      </div>
+      <div style="display:flex; flex-direction:column; gap:4px;">
+        <label>Cari KBLI</label>
+        <input id="inputCariKbli" type="text" placeholder="Kode / Deskripsi..." />
+      </div>
+    </div>
+    <div style="display:flex; gap:12px; justify-content:flex-end;">
+      <button id="btnSearch" class="btn-search">🔍 Terapkan Filter</button>
+      <button id="btnReset" class="btn-reset">✕ Reset</button>
+    </div>
+  </div>
+
+  <div style="margin-bottom:12px; display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 10px;">
+    <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:#64748b; font-weight:600;">
+      <span>Tampilkan</span>
+      <select id="selJumlahData" style="padding:4px 8px; border:1.5px solid #dde3ed; border-radius:6px; background:#fff; color:#1e293b; outline:none; cursor:pointer;">
+        <option value="10" selected>10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="semua">Semua</option>
+      </select>
+      <span>data</span>
+      <span id="totalInfo" style="margin-left: 10px; font-size:0.8rem; color:#64748b; font-weight: 600;"></span>
+    </div>
+    
+    <div style="display:flex; align-items:center; gap:12px;">
+      <span id="pageInfoTop" style="font-size:0.8rem; color:#64748b; font-weight: 600;"></span>
+      <div style="display:flex; gap:6px;">
+        <button id="btnPrevTop" class="btn-page" onclick="changePage(-1)">&#8592; Sebelumnya</button>
+        <button id="btnNextTop" class="btn-page" onclick="changePage(1)">Selanjutnya &#8594;</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 15%;">Kategori Tingkat I</th>
+          <th style="width: 15%;">Kategori Tingkat II</th>
+          <th style="width: 15%;">Kategori Tingkat III</th>
+          <th style="width: 10%;">Kode KBLI 2020</th>
+          <th style="width: 17%;">Deskripsi KBLI 2020</th>
+          <th style="width: 10%;">Kode KBLI 2025</th>
+          <th style="width: 18%;">Deskripsi KBLI 2025</th>
+        </tr>
+      </thead>
+      <tbody id="bodyTable">
+        <tr>
+          <td colspan="7" class="td-center" style="padding: 30px; color: #64748b;">Memuat data...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="margin-bottom:24px; display:flex; justify-content:flex-end; align-items:center;">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <span id="pageInfoBottom" style="font-size:0.8rem; color:#64748b; font-weight: 600;"></span>
+      <div style="display:flex; gap:6px;">
+        <button id="btnPrevBottom" class="btn-page" onclick="changePage(-1)">&#8592; Sebelumnya</button>
+        <button id="btnNextBottom" class="btn-page" onclick="changePage(1)">Selanjutnya &#8594;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let rawData = [];
+let filteredData = [];
+let currentPage = 1;
+
+// Variabel untuk menyimpan ingatan teks pencarian terakhir
+let lastCariKategori = "";
+let lastCariKbli = "";
+
+async function loadDataMaster() {
+  document.getElementById("loadingOverlay").style.display = "flex";
+  try {
+    const response = await fetch('/data_master/data_kategori_inaproc.json?v=' + new Date().getTime());
+    if (!response.ok) throw new Error("Gagal memuat file JSON");
+    
+    rawData = await response.json();
+    eksekusiPencarian(true); // Proses pencarian awal
+  } catch (error) {
+    console.error("Error Fetch:", error);
+    document.getElementById("bodyTable").innerHTML = `
+      <tr>
+        <td colspan="7" class="td-center" style="padding:30px; color:var(--lpse-merah); font-weight:bold;">
+          ⚠️ Gagal memuat database.<br>
+          <span style="font-size:0.8rem; font-weight:normal; color:#64748b;">Pastikan file <b>data_kategori_inaproc.json</b> sudah ter-upload di folder <b>data_master</b>.</span>
+        </td>
+      </tr>`;
+    document.getElementById("loadingOverlay").style.display = "none";
+  }
+}
+
+// Fungsi Khusus Membangun Dropdown Berdasarkan Data Teks yang Tersaring
+function updateDropdowns(baseData) {
+  const elT1 = document.getElementById("selTingkat1");
+  const elT2 = document.getElementById("selTingkat2");
+  const elT3 = document.getElementById("selTingkat3");
+
+  let valT1 = elT1.value;
+  let valT2 = elT2.value;
+  let valT3 = elT3.value;
+
+  const t1List = [...new Set(baseData.map(item => item.Kategori_Tingkat_I).filter(Boolean))].sort();
+  if (!t1List.includes(valT1)) valT1 = "";
+
+  const dataForT2 = valT1 ? baseData.filter(item => item.Kategori_Tingkat_I === valT1) : baseData;
+  const t2List = [...new Set(dataForT2.map(item => item.Kategori_Tingkat_II).filter(Boolean))].sort();
+  if (!t2List.includes(valT2)) valT2 = "";
+
+  const dataForT3 = valT2 ? dataForT2.filter(item => item.Kategori_Tingkat_II === valT2) : dataForT2;
+  const t3List = [...new Set(dataForT3.map(item => item.Kategori_Tingkat_III).filter(Boolean))].sort();
+  if (!t3List.includes(valT3)) valT3 = "";
+
+  elT1.innerHTML = '<option value="">-- Semua --</option>' + t1List.map(v => `<option value="${v}">${v}</option>`).join('');
+  elT1.value = valT1;
+
+  elT2.innerHTML = '<option value="">-- Pilih Tingkat I --</option>';
+  if (valT1) {
+    elT2.innerHTML = '<option value="">-- Semua --</option>' + t2List.map(v => `<option value="${v}">${v}</option>`).join('');
+    elT2.disabled = false;
+    elT2.value = valT2;
+  } else {
+    elT2.disabled = true;
+  }
+
+  elT3.innerHTML = '<option value="">-- Pilih Tingkat II --</option>';
+  if (valT1 && valT2) {
+    elT3.innerHTML = '<option value="">-- Semua --</option>' + t3List.map(v => `<option value="${v}">${v}</option>`).join('');
+    elT3.disabled = false;
+    elT3.value = valT3;
+  } else {
+    elT3.disabled = true;
+  }
+}
+
+function eksekusiPencarian(isInitialLoad = false) {
+  if (!isInitialLoad) document.getElementById("loadingOverlay").style.display = "flex";
+  
+  setTimeout(() => {
+    // 1. Ambil nilai input teks KBLI dan Kategori
+    const cariKategori = document.getElementById("inputCariKategori").value.toLowerCase().trim();
+    const cariKbli = document.getElementById("inputCariKbli").value.toLowerCase().trim();
+    
+    // === BLOK BARU: RESET DROPDOWN JIKA TEKS BERUBAH ===
+    if (!isInitialLoad && (cariKategori !== lastCariKategori || cariKbli !== lastCariKbli)) {
+      document.getElementById("selTingkat1").value = "";
+      document.getElementById("selTingkat2").value = "";
+      document.getElementById("selTingkat3").value = "";
+      
+      // Perbarui ingatan sistem dengan teks yang baru
+      lastCariKategori = cariKategori;
+      lastCariKbli = cariKbli;
+    }
+    
+    // 2. Saring data RAW menggunakan Teks Saja
+    let textFilteredData = rawData.filter(item => {
+      const t1 = (item.Kategori_Tingkat_I || "").toLowerCase();
+      const t2 = (item.Kategori_Tingkat_II || "").toLowerCase();
+      const t3 = (item.Kategori_Tingkat_III || "").toLowerCase();
+      const kbli20 = (String(item.KBLI_2020_Kode || "") + " " + String(item.KBLI_2020_Deskripsi || "")).toLowerCase();
+      const kbli25 = (String(item.KBLI_2025_Kode || "") + " " + String(item.KBLI_2025_Deskripsi || "")).toLowerCase();
+
+      if (cariKategori && !t3.includes(cariKategori) && !t2.includes(cariKategori) && !t1.includes(cariKategori)) return false;
+      if (cariKbli && !kbli20.includes(cariKbli) && !kbli25.includes(cariKbli)) return false;
+      
+      return true;
+    });
+
+    // 3. Perbarui Opsi Dropdown HANYA dari data yang lolos saringan teks
+    updateDropdowns(textFilteredData);
+
+    // 4. Ambil Pilihan Dropdown Terkini
+    const valT1 = document.getElementById("selTingkat1").value;
+    const valT2 = document.getElementById("selTingkat2").value;
+    const valT3 = document.getElementById("selTingkat3").value;
+
+    // 5. Saring lagi menggunakan Dropdown
+    filteredData = textFilteredData.filter(item => {
+      if (valT1 && item.Kategori_Tingkat_I !== valT1) return false;
+      if (valT2 && item.Kategori_Tingkat_II !== valT2) return false;
+      if (valT3 && item.Kategori_Tingkat_III !== valT3) return false;
+      return true;
+    });
+    
+    // 6. Reset Halaman dan Cetak
+    currentPage = 1;
+    renderTable();
+    
+    document.getElementById("loadingOverlay").style.display = "none";
+  }, 80);
+}
+
+function changePage(direction) {
+  currentPage += direction;
+  renderTable();
+}
+
+function renderTable() {
+  const body = document.getElementById("bodyTable");
+  body.innerHTML = "";
+  
+  const infoTotalData = filteredData.length;
+
+  // Jika Data Kosong
+  if (infoTotalData === 0) {
+    body.innerHTML = `<tr><td colspan="7" class="td-center" style="padding:30px; color:#94a3b8; font-weight:600;">Pencarian tidak menemukan hasil.</td></tr>`;
+    document.getElementById("totalInfo").innerText = "Menampilkan 0 Data";
+    updatePaginationUI(0, 0);
+    return;
+  }
+
+  // Logika Matematika Paginasi
+  const limitOpsi = document.getElementById("selJumlahData").value;
+  let dataYangDicetak = [];
+  let totalPages = 1;
+
+  if (limitOpsi === "semua") {
+    dataYangDicetak = [...filteredData];
+    currentPage = 1;
+  } else {
+    const limitNum = parseInt(limitOpsi);
+    totalPages = Math.ceil(infoTotalData / limitNum);
+    
+    // Pastikan halaman tidak meleset
+    if (currentPage > totalPages) currentPage = totalPages;
+    if (currentPage < 1) currentPage = 1;
+    
+    const startIndex = (currentPage - 1) * limitNum;
+    const endIndex = startIndex + limitNum;
+    dataYangDicetak = filteredData.slice(startIndex, endIndex);
+  }
+
+  // Cetak Baris HTML
+  let barisHTML = "";
+  dataYangDicetak.forEach((row) => {
+    barisHTML += `
+      <tr>
+        <td style="font-weight:600; color:var(--lpse-biru);">${row["Kategori_Tingkat_I"] || '-'}</td>
+        <td>${row["Kategori_Tingkat_II"] || '-'}</td>
+        <td>${row["Kategori_Tingkat_III"] || '-'}</td>
+        <td class="td-center" style="font-weight:bold; color:#1e293b;">${row["KBLI_2020_Kode"] || '-'}</td>
+        <td>${row["KBLI_2020_Deskripsi"] || '-'}</td>
+        <td class="td-center" style="font-weight:bold; color:var(--lpse-hijau);">${row["KBLI_2025_Kode"] || '-'}</td>
+        <td>${row["KBLI_2025_Deskripsi"] || '-'}</td>
+      </tr>
+    `;
+  });
+  
+  body.innerHTML = barisHTML;
+  document.getElementById("totalInfo").innerText = `(Total basis data: ${rawData.length.toLocaleString("id-ID")})`;
+  updatePaginationUI(totalPages, infoTotalData);
+}
+
+function updatePaginationUI(totalPages, totalItems) {
+  const isSemua = document.getElementById("selJumlahData").value === "semua";
+  const limit = isSemua ? totalItems : parseInt(document.getElementById("selJumlahData").value);
+  
+  const startItem = totalItems === 0 ? 0 : ((currentPage - 1) * limit) + 1;
+  const endItem = isSemua ? totalItems : Math.min(currentPage * limit, totalItems);
+  
+  const textInfo = totalItems === 0 ? "" : `Menampilkan ${startItem}-${endItem} dari ${totalItems.toLocaleString("id-ID")}`;
+  
+  // Update Teks Halaman
+  document.getElementById("pageInfoTop").innerText = textInfo;
+  document.getElementById("pageInfoBottom").innerText = textInfo;
+
+  // Update Status Tombol Disable/Enable
+  const btnPrevT = document.getElementById("btnPrevTop");
+  const btnNextT = document.getElementById("btnNextTop");
+  const btnPrevB = document.getElementById("btnPrevBottom");
+  const btnNextB = document.getElementById("btnNextBottom");
+
+  if (isSemua || totalPages <= 1) {
+    btnPrevT.disabled = true; btnNextT.disabled = true;
+    btnPrevB.disabled = true; btnNextB.disabled = true;
+  } else {
+    btnPrevT.disabled = (currentPage === 1);
+    btnNextT.disabled = (currentPage === totalPages);
+    btnPrevB.disabled = (currentPage === 1);
+    btnNextB.disabled = (currentPage === totalPages);
+  }
+}
+
+// Event Listeners Utama
+document.getElementById("btnSearch").addEventListener("click", () => eksekusiPencarian(false));
+
+document.getElementById("selJumlahData").addEventListener("change", () => {
+  currentPage = 1;
+  renderTable();
+});
+
+// Otomatis Panggil Filter Saat Dropdown Berubah
+document.getElementById("selTingkat1").addEventListener("change", () => eksekusiPencarian(false));
+document.getElementById("selTingkat2").addEventListener("change", () => eksekusiPencarian(false));
+document.getElementById("selTingkat3").addEventListener("change", () => eksekusiPencarian(false));
+
+// Enter di Input Text
+document.querySelectorAll(".filter-card input").forEach(input => {
+  input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      eksekusiPencarian(false);
+    }
+  });
+});
+
+// Tombol Reset
+document.getElementById("btnReset").addEventListener("click", () => {
+  document.getElementById("selTingkat1").value = "";
+  document.getElementById("selTingkat2").value = "";
+  document.getElementById("selTingkat3").value = "";
+  document.getElementById("inputCariKategori").value = "";
+  document.getElementById("inputCariKbli").value = "";
+  document.getElementById("selJumlahData").value = "10"; 
+  eksekusiPencarian(false);
+});
+
+window.onload = loadDataMaster;
+</script>
+</body>
+</html>
