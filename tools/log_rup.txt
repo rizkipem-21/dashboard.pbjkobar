@@ -11512,3 +11512,42 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
+
+[main cbea0bf] Auto update RUP 2026-07-18 10:26:32
+ 4 files changed, 425 insertions(+), 1 deletion(-)
+
+
+To https://github.com/rizkipem-21/dashboard.pbjkobar.git
+   a1828d7..cbea0bf  main -> main
+
+PUSH STATUS: 0  
+SELESAI 18/07/2026 10:26:40  
+PUSH GITHUB SUKSES!
+
+==================================================
+PROSES SELESAI SELURUHNYA PADA 18 Juli 2026 | 10.26 WIB
+==================================================
+
+==================================================
+START DOWNLOAD RUP 18 Juli 2026 | 12.00 WIB
+==================================================
+
+--- MENGUNDUH DATA TAHUN 2026 ---
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+SUKSES
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+  GAGAL TOTAL pada request ini. Berhenti ditarik.
+  -> [Aman] Proses terputus, mempertahankan file v1_rup_paket-penyedia-terumumkan_2026.json lama yang utuh.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
