@@ -11212,7 +11212,7 @@ SUKSES
 PROSES DOWNLOAD SELESAI PADA 17 Juli 2026 | 10.16 WIB
 
 ==================================================
-START DOWNLOAD RUP 17 Juli 2026 | 14.51 WIB
+START DOWNLOAD RUP 17 Juli 2026 | 14.52 WIB
 ==================================================
 
 --- MENGUNDUH DATA TAHUN 2026 ---
@@ -11224,6 +11224,257 @@ SUKSES
 SUKSES
 SUKSES
   -> Disimpan ke v1_rup_paket-penyedia-terumumkan_2026.json (Total: 4848 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+SUKSES
+  -> Disimpan ke v1_rup_paket-swakelola-terumumkan_2026.json (Total: 57 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/master-satker?kode_klpd=D228&tahun=2026&limit=1000
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+SUKSES
+  -> Disimpan ke v1_rup_master-satker_2026.json (Total: 121 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/program-master?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_program-master_2026.json (Total: 253 baris)
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2026
+SUKSES
+
+[SKIP] Tahun 2025 sudah ada (final).
+
+[SKIP] Tahun 2024 sudah ada (final).
+
+PROSES DOWNLOAD SELESAI PADA 17 Juli 2026 | 15.00 WIB
+
+==================================================
+START GENERATE RUP 17 Juli 2026 | 15.00 WIB
+==================================================
+
+--- MEMPROSES DATA TAHUN 2026 ---
+DONE -> JSON: rekap_rup_2026.json
+DONE -> EXCEL: D:\dashboard.pbjkobar-testing\output\rup\2026\Rekap RUP Tahun 2026 (2026-07-17).xlsx
+
+[SKIP] Tahun 2025 sudah ada (final).
+
+[SKIP] Tahun 2024 sudah ada (final).
+
+==================================================
+MENGIRIM DATA RUP KE GITHUB DARI PYTHON...
+==================================================
+
+==================================================
+ PROSES SELESAI SELURUHNYA!
+==================================================
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   data/2026/rekap_rup_2026.json
+	modified:   data/last-update-rup.txt
+	modified:   output/rup/2026/daftar_arsip.json
+	deleted:    scripts/rup/error_api_rup.json
+	modified:   tools/log_rup.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output/rup/2026/Rekap RUP Tahun 2026 (2026-07-17).xlsx
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+[main 616f1d3] Auto update RUP 2026-07-17 15:00:36
+ 6 files changed, 95 insertions(+), 15 deletions(-)
+ create mode 100644 output/rup/2026/Rekap RUP Tahun 2026 (2026-07-17).xlsx
+ delete mode 100644 scripts/rup/error_api_rup.json
+
+
+To https://github.com/rizkipem-21/dashboard.pbjkobar-testing.git
+   594ea64..616f1d3  main -> main
+
+PUSH STATUS: 0  
+SELESAI 17/07/2026 15:00:42  
+PUSH GITHUB SUKSES!
+
+==================================================
+PROSES SELESAI SELURUHNYA PADA 17 Juli 2026 | 15.00 WIB
+==================================================
+
+==================================================
+START GENERATE RUP 20 Juli 2026 | 13.00 WIB
+==================================================
+
+--- MEMPROSES DATA TAHUN 2026 ---
+DONE -> JSON: rekap_rup_2026.json
+DONE -> EXCEL: D:\dashboard.pbjkobar-testing\output\rup\2026\Rekap RUP Tahun 2026 (2026-07-20).xlsx
+
+[SKIP] Tahun 2025 sudah ada (final).
+
+[SKIP] Tahun 2024 sudah ada (final).
+
+==================================================
+MENGIRIM DATA RUP KE GITHUB DARI PYTHON...
+==================================================
+
+==================================================
+ PROSES SELESAI SELURUHNYA!
+==================================================
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   data/last-update-rup.txt
+	deleted:    output/rup/2026/Rekap RUP Tahun 2026 (2026-07-03).xlsx
+	deleted:    output/rup/2026/Rekap RUP Tahun 2026 (2026-07-06).xlsx
+	deleted:    output/rup/2026/Rekap RUP Tahun 2026 (2026-07-07).xlsx
+	deleted:    output/rup/2026/Rekap RUP Tahun 2026 (2026-07-08).xlsx
+	deleted:    output/rup/2026/Rekap RUP Tahun 2026 (2026-07-15).xlsx
+	deleted:    output/rup/2026/Rekap RUP Tahun 2026 (2026-07-16).xlsx
+	deleted:    output/rup/2026/Rekap RUP Tahun 2026 (2026-07-17).xlsx
+	modified:   output/rup/2026/daftar_arsip.json
+	modified:   scripts/rup/generate_rup.py
+	modified:   tools/log_rup.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output/rup/2026/Rekap RUP Tahun 2026 (2026-07-20).xlsx
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+[main 91558c9] Auto update RUP 2026-07-20 13:00:07
+ 12 files changed, 87 insertions(+), 19 deletions(-)
+ delete mode 100644 output/rup/2026/Rekap RUP Tahun 2026 (2026-07-03).xlsx
+ delete mode 100644 output/rup/2026/Rekap RUP Tahun 2026 (2026-07-06).xlsx
+ delete mode 100644 output/rup/2026/Rekap RUP Tahun 2026 (2026-07-07).xlsx
+ delete mode 100644 output/rup/2026/Rekap RUP Tahun 2026 (2026-07-08).xlsx
+ delete mode 100644 output/rup/2026/Rekap RUP Tahun 2026 (2026-07-15).xlsx
+ delete mode 100644 output/rup/2026/Rekap RUP Tahun 2026 (2026-07-16).xlsx
+ delete mode 100644 output/rup/2026/Rekap RUP Tahun 2026 (2026-07-17).xlsx
+ create mode 100644 output/rup/2026/Rekap RUP Tahun 2026 (2026-07-20).xlsx
+
+
+To https://github.com/rizkipem-21/dashboard.pbjkobar-testing.git
+   64cdf62..91558c9  main -> main
+
+PUSH STATUS: 0  
+SELESAI 20/07/2026 13:00:11  
+PUSH GITHUB SUKSES!
+
+==================================================
+PROSES SELESAI SELURUHNYA PADA 20 Juli 2026 | 13.00 WIB
+==================================================
+
+==================================================
+START GENERATE RUP 20 Juli 2026 | 13.18 WIB
+==================================================
+
+--- MEMPROSES DATA TAHUN 2026 ---
+DONE -> JSON: rekap_rup_2026.json
+DONE -> EXCEL: D:\dashboard.pbjkobar-testing\output\rup\2026\Rekap RUP Tahun 2026 (2026-07-20).xlsx
+
+--- MEMPROSES DATA TAHUN 2025 ---
+DONE -> JSON: rekap_rup_2025.json
+DONE -> EXCEL: D:\dashboard.pbjkobar-testing\output\rup\2025\Rekap RUP Tahun 2025 (2026-07-20).xlsx
+
+--- MEMPROSES DATA TAHUN 2024 ---
+DONE -> JSON: rekap_rup_2024.json
+DONE -> EXCEL: D:\dashboard.pbjkobar-testing\output\rup\2024\Rekap RUP Tahun 2024 (2026-07-20).xlsx
+
+==================================================
+MENGIRIM DATA RUP KE GITHUB DARI PYTHON...
+==================================================
+
+==================================================
+ PROSES SELESAI SELURUHNYA!
+==================================================
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    data/2024/master_pengadaan_2024.xlsx
+	deleted:    data/2024/rekap_pengadaan_2024.json
+	modified:   data/2024/rekap_rup_2024.json
+	deleted:    data/2025/master_pengadaan_2025.xlsx
+	deleted:    data/2025/rekap_pengadaan_2025.json
+	modified:   data/2025/rekap_rup_2025.json
+	deleted:    data/2026/master_pengadaan_2026.xlsx
+	deleted:    data/2026/rekap_pengadaan_2026.json
+	modified:   data/last-update-rup.txt
+	deleted:    output/rup/2024/Rekap RUP Tahun 2024 (2026-06-10) Legacy.xlsx
+	deleted:    output/rup/2024/Rekap RUP Tahun 2024 (2026-06-18) Legacy.xlsx
+	deleted:    output/rup/2024/Rekap RUP Tahun 2024 (2026-06-23) Legacy.xlsx
+	modified:   output/rup/2024/daftar_arsip.json
+	deleted:    output/rup/2025/Rekap RUP Tahun 2025 (2026-06-10) Legacy.xlsx
+	deleted:    output/rup/2025/Rekap RUP Tahun 2025 (2026-06-18) Legacy.xlsx
+	deleted:    output/rup/2025/Rekap RUP Tahun 2025 (2026-06-23) Legacy.xlsx
+	modified:   output/rup/2025/daftar_arsip.json
+	modified:   output/rup/2026/Rekap RUP Tahun 2026 (2026-07-20).xlsx
+	modified:   tools/log_rup.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output/rup/2024/Rekap RUP Tahun 2024 (2026-07-20).xlsx
+	output/rup/2025/Rekap RUP Tahun 2025 (2026-07-20).xlsx
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+[main d6f876a] Auto update RUP 2026-07-20 13:18:29
+ 21 files changed, 564 insertions(+), 631567 deletions(-)
+ delete mode 100644 data/2024/master_pengadaan_2024.xlsx
+ delete mode 100644 data/2024/rekap_pengadaan_2024.json
+ delete mode 100644 data/2025/master_pengadaan_2025.xlsx
+ delete mode 100644 data/2025/rekap_pengadaan_2025.json
+ delete mode 100644 data/2026/master_pengadaan_2026.xlsx
+ delete mode 100644 data/2026/rekap_pengadaan_2026.json
+ delete mode 100644 output/rup/2024/Rekap RUP Tahun 2024 (2026-06-10) Legacy.xlsx
+ delete mode 100644 output/rup/2024/Rekap RUP Tahun 2024 (2026-06-18) Legacy.xlsx
+ delete mode 100644 output/rup/2024/Rekap RUP Tahun 2024 (2026-06-23) Legacy.xlsx
+ create mode 100644 output/rup/2024/Rekap RUP Tahun 2024 (2026-07-20).xlsx
+ delete mode 100644 output/rup/2025/Rekap RUP Tahun 2025 (2026-06-10) Legacy.xlsx
+ delete mode 100644 output/rup/2025/Rekap RUP Tahun 2025 (2026-06-18) Legacy.xlsx
+ delete mode 100644 output/rup/2025/Rekap RUP Tahun 2025 (2026-06-23) Legacy.xlsx
+ create mode 100644 output/rup/2025/Rekap RUP Tahun 2025 (2026-07-20).xlsx
+
+
+To https://github.com/rizkipem-21/dashboard.pbjkobar-testing.git
+   f75c3bc..d6f876a  main -> main
+
+PUSH STATUS: 0  
+SELESAI 20/07/2026 13:18:34  
+PUSH GITHUB SUKSES!
+
+==================================================
+PROSES SELESAI SELURUHNYA PADA 20 Juli 2026 | 13.18 WIB
+==================================================
+
+==================================================
+START DOWNLOAD RUP 21 Juli 2026 | 05.06 WIB
+==================================================
+
+--- MENGUNDUH DATA TAHUN 2026 ---
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_rup_paket-penyedia-terumumkan_2026.json (Total: 4849 baris)
 
 DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
 SUKSES
@@ -11244,15 +11495,15 @@ SUKSES
 
 [SKIP] Tahun 2024 sudah ada (final).
 
-PROSES DOWNLOAD SELESAI PADA 17 Juli 2026 | 14.54 WIB
+PROSES DOWNLOAD SELESAI PADA 21 Juli 2026 | 05.06 WIB
 
 ==================================================
-START GENERATE RUP 17 Juli 2026 | 14.54 WIB
+START GENERATE RUP 21 Juli 2026 | 05.06 WIB
 ==================================================
 
 --- MEMPROSES DATA TAHUN 2026 ---
 DONE -> JSON: rekap_rup_2026.json
-DONE -> EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Rekap RUP Tahun 2026 (2026-07-17).xlsx
+DONE -> EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Rekap RUP Tahun 2026 (2026-07-21).xlsx
 
 [SKIP] Tahun 2025 sudah ada (final).
 
@@ -11272,986 +11523,55 @@ Changes not staged for commit:
   (use "git add/rm <file>..." to update what will be committed)
   (use "git restore <file>..." to discard changes in working directory)
 	modified:   .gitignore
+	modified:   data/2024/master_pengadaan_2024.xlsx
+	modified:   data/2024/rekap_pengadaan_2024.json
+	modified:   data/2024/rekap_rup_2024.json
+	modified:   data/2025/master_pengadaan_2025.xlsx
+	modified:   data/2025/rekap_pengadaan_2025.json
+	modified:   data/2025/rekap_rup_2025.json
+	modified:   data/2026/master_pengadaan_2026.xlsx
+	modified:   data/2026/rekap_pengadaan_2026.json
 	modified:   data/2026/rekap_rup_2026.json
+	modified:   data/last-update-pengadaan.txt
 	modified:   data/last-update-rup.txt
 	modified:   index.html
-	deleted:    output/pengadaan/2025/Paket Pengadaan Tahun 2025 (2026-07-16).xlsx
-	modified:   output/pengadaan/2025/daftar_arsip.json
-	deleted:    output/pengadaan/2026/Paket Pengadaan Tahun 2026 (2026-07-16).xlsx
-	modified:   output/pengadaan/2026/daftar_arsip.json
+	deleted:    output/pengadaan/2024/Paket Pengadaan Tahun 2024 (2026-06-10) (Api Gateway Legacy).xlsx
+	deleted:    output/pengadaan/2024/Paket Pengadaan Tahun 2024 (2026-06-17) (Api Gateway Legacy).xlsx
+	deleted:    output/pengadaan/2024/Paket Pengadaan Tahun 2024 (2026-06-18) (Api Gateway Legacy).xlsx
+	modified:   output/pengadaan/2024/daftar_arsip.json
+	modified:   output/pengadaan/2025/Paket Pengadaan Tahun 2025 (2026-07-20).xlsx
+	modified:   output/pengadaan/2026/Paket Pengadaan Tahun 2026 (2026-07-20).xlsx
+	deleted:    output/rup/2024/Rekap RUP Tahun 2024 (2026-06-10) Legacy.xlsx
+	deleted:    output/rup/2024/Rekap RUP Tahun 2024 (2026-06-18) Legacy.xlsx
+	deleted:    output/rup/2024/Rekap RUP Tahun 2024 (2026-06-23) Legacy.xlsx
+	modified:   output/rup/2024/daftar_arsip.json
+	deleted:    output/rup/2025/Rekap RUP Tahun 2025 (2026-06-10) Legacy.xlsx
+	deleted:    output/rup/2025/Rekap RUP Tahun 2025 (2026-06-18) Legacy.xlsx
+	deleted:    output/rup/2025/Rekap RUP Tahun 2025 (2026-06-23) Legacy.xlsx
+	modified:   output/rup/2025/daftar_arsip.json
+	deleted:    output/rup/2026/Rekap RUP Tahun 2026 (2026-07-03).xlsx
+	deleted:    output/rup/2026/Rekap RUP Tahun 2026 (2026-07-06).xlsx
+	deleted:    output/rup/2026/Rekap RUP Tahun 2026 (2026-07-07).xlsx
+	deleted:    output/rup/2026/Rekap RUP Tahun 2026 (2026-07-08).xlsx
+	deleted:    output/rup/2026/Rekap RUP Tahun 2026 (2026-07-15).xlsx
+	deleted:    output/rup/2026/Rekap RUP Tahun 2026 (2026-07-16).xlsx
+	deleted:    output/rup/2026/Rekap RUP Tahun 2026 (2026-07-17).xlsx
+	deleted:    output/rup/2026/Rekap RUP Tahun 2026 (2026-07-18).xlsx
+	deleted:    output/rup/2026/Rekap RUP Tahun 2026 (2026-07-19).xlsx
+	deleted:    output/rup/2026/Rekap RUP Tahun 2026 (2026-07-20).xlsx
 	modified:   output/rup/2026/daftar_arsip.json
-	modified:   scripts/pengadaan/generate_pengadaan.py
-	deleted:    scripts/rup/error_api_rup.json
+	modified:   pengadaan/data_pengadaan.html
+	modified:   scripts/rup/generate_rup.py
 	modified:   tools/log_pengadaan.txt
 	modified:   tools/log_rup.txt
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-	output/pengadaan/2025/Paket Pengadaan Tahun 2025 (2026-07-17).xlsx
-	output/pengadaan/2026/Paket Pengadaan Tahun 2026 (2026-07-17).xlsx
-	output/rup/2026/Rekap RUP Tahun 2026 (2026-07-17).xlsx
-	tools/update_kbli.bat
+	arsip/
+	output/pengadaan/2024/Paket Pengadaan Tahun 2024 (2026-07-20).xlsx
+	output/rup/2024/Rekap RUP Tahun 2024 (2026-07-20).xlsx
+	output/rup/2025/Rekap RUP Tahun 2025 (2026-07-20).xlsx
+	output/rup/2026/Rekap RUP Tahun 2026 (2026-07-21).xlsx
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
-
-[main 07218ce] Auto update RUP 2026-07-17 14:54:14
- 17 files changed, 414 insertions(+), 19 deletions(-)
- delete mode 100644 output/pengadaan/2025/Paket Pengadaan Tahun 2025 (2026-07-16).xlsx
- create mode 100644 output/pengadaan/2025/Paket Pengadaan Tahun 2025 (2026-07-17).xlsx
- delete mode 100644 output/pengadaan/2026/Paket Pengadaan Tahun 2026 (2026-07-16).xlsx
- create mode 100644 output/pengadaan/2026/Paket Pengadaan Tahun 2026 (2026-07-17).xlsx
- create mode 100644 output/rup/2026/Rekap RUP Tahun 2026 (2026-07-17).xlsx
- delete mode 100644 scripts/rup/error_api_rup.json
- create mode 100644 tools/update_kbli.bat
-
-
-To https://github.com/rizkipem-21/dashboard.pbjkobar.git
-   df4d961..07218ce  main -> main
-
-PUSH STATUS: 0  
-SELESAI 17/07/2026 14:54:30  
-PUSH GITHUB SUKSES!
-
-==================================================
-PROSES SELESAI SELURUHNYA PADA 17 Juli 2026 | 14.54 WIB
-==================================================
-
-==================================================
-START DOWNLOAD RUP 18 Juli 2026 | 08.00 WIB
-==================================================
-
---- MENGUNDUH DATA TAHUN 2026 ---
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-GAGAL (Status 504)
-    -> [!] Menunggu 5 detik agar server Inaproc stabil...
-SUKSES
-SUKSES
-SUKSES
-SUKSES
-SUKSES
-  -> Disimpan ke v1_rup_paket-penyedia-terumumkan_2026.json (Total: 4851 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_paket-swakelola-terumumkan_2026.json (Total: 57 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/master-satker?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_master-satker_2026.json (Total: 121 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/program-master?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_program-master_2026.json (Total: 253 baris)
-
-DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2026
-SUKSES
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-PROSES DOWNLOAD SELESAI PADA 18 Juli 2026 | 08.03 WIB
-
-==================================================
-START GENERATE RUP 18 Juli 2026 | 08.03 WIB
-==================================================
-
---- MEMPROSES DATA TAHUN 2026 ---
-DONE -> JSON: rekap_rup_2026.json
-DONE -> EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Rekap RUP Tahun 2026 (2026-07-18).xlsx
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-==================================================
-MENGIRIM DATA RUP KE GITHUB DARI PYTHON...
-==================================================
-
-==================================================
- PROSES SELESAI SELURUHNYA!
-==================================================
-On branch main
-Your branch is up to date with 'origin/main'.
-
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-	modified:   data/2026/rekap_rup_2026.json
-	modified:   data/last-update-rup.txt
-	modified:   output/rup/2026/daftar_arsip.json
-	modified:   tools/log_pengadaan.txt
-	modified:   tools/log_rup.txt
-
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-	output/rup/2026/Rekap RUP Tahun 2026 (2026-07-18).xlsx
-
-no changes added to commit (use "git add" and/or "git commit -a")
-
-
-[main a1828d7] Auto update RUP 2026-07-18 08:03:25
- 6 files changed, 116 insertions(+), 8 deletions(-)
- create mode 100644 output/rup/2026/Rekap RUP Tahun 2026 (2026-07-18).xlsx
-
-
-To https://github.com/rizkipem-21/dashboard.pbjkobar.git
-   4855e20..a1828d7  main -> main
-
-PUSH STATUS: 0  
-SELESAI 18/07/2026 08:03:35  
-PUSH GITHUB SUKSES!
-
-==================================================
-PROSES SELESAI SELURUHNYA PADA 18 Juli 2026 | 08.03 WIB
-==================================================
-
-==================================================
-START DOWNLOAD RUP 18 Juli 2026 | 10.00 WIB
-==================================================
-
---- MENGUNDUH DATA TAHUN 2026 ---
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-GAGAL (Status 504)
-    -> [!] Menunggu 5 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 10 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 15 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 20 detik agar server Inaproc stabil...
-SUKSES
-GAGAL (Status 504)
-    -> [!] Menunggu 5 detik agar server Inaproc stabil...
-SUKSES
-GAGAL (Status 504)
-    -> [!] Menunggu 5 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 10 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 15 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 20 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-  GAGAL TOTAL pada request ini. Berhenti ditarik.
-  -> [Aman] Proses terputus, mempertahankan file v1_rup_paket-penyedia-terumumkan_2026.json lama yang utuh.
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-GAGAL (Status 504)
-    -> [!] Menunggu 5 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 10 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 15 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 20 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-  GAGAL TOTAL pada request ini. Berhenti ditarik.
-  -> [Aman] Proses terputus, mempertahankan file v1_rup_paket-swakelola-terumumkan_2026.json lama yang utuh.
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/master-satker?kode_klpd=D228&tahun=2026&limit=1000
-GAGAL (Status 504)
-    -> [!] Menunggu 5 detik agar server Inaproc stabil...
-SUKSES
-  -> Disimpan ke v1_rup_master-satker_2026.json (Total: 121 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/program-master?kode_klpd=D228&tahun=2026&limit=1000
-GAGAL (Status 504)
-    -> [!] Menunggu 5 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 10 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 15 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 20 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-  GAGAL TOTAL pada request ini. Berhenti ditarik.
-  -> [Aman] Proses terputus, mempertahankan file v1_rup_program-master_2026.json lama yang utuh.
-
-DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2026
-SUKSES
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-PROSES DOWNLOAD SELESAI PADA 18 Juli 2026 | 10.26 WIB
-
-==================================================
-START GENERATE RUP 18 Juli 2026 | 10.26 WIB
-==================================================
-
---- MEMPROSES DATA TAHUN 2026 ---
-DONE -> JSON: rekap_rup_2026.json
-DONE -> EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Rekap RUP Tahun 2026 (2026-07-18).xlsx
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-==================================================
-MENGIRIM DATA RUP KE GITHUB DARI PYTHON...
-==================================================
-
-==================================================
- PROSES SELESAI SELURUHNYA!
-==================================================
-On branch main
-Your branch is up to date with 'origin/main'.
-
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-	modified:   data/last-update-rup.txt
-	modified:   output/rup/2026/Rekap RUP Tahun 2026 (2026-07-18).xlsx
-	modified:   tools/log_pengadaan.txt
-	modified:   tools/log_rup.txt
-
-no changes added to commit (use "git add" and/or "git commit -a")
-
-
-[main cbea0bf] Auto update RUP 2026-07-18 10:26:32
- 4 files changed, 425 insertions(+), 1 deletion(-)
-
-
-To https://github.com/rizkipem-21/dashboard.pbjkobar.git
-   a1828d7..cbea0bf  main -> main
-
-PUSH STATUS: 0  
-SELESAI 18/07/2026 10:26:40  
-PUSH GITHUB SUKSES!
-
-==================================================
-PROSES SELESAI SELURUHNYA PADA 18 Juli 2026 | 10.26 WIB
-==================================================
-
-==================================================
-START DOWNLOAD RUP 18 Juli 2026 | 12.00 WIB
-==================================================
-
---- MENGUNDUH DATA TAHUN 2026 ---
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-GAGAL (Status 504)
-    -> [!] Menunggu 5 detik agar server Inaproc stabil...
-SUKSES
-GAGAL (Status 504)
-    -> [!] Menunggu 5 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 10 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 15 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 20 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-  GAGAL TOTAL pada request ini. Berhenti ditarik.
-  -> [Aman] Proses terputus, mempertahankan file v1_rup_paket-penyedia-terumumkan_2026.json lama yang utuh.
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-GAGAL (Status 504)
-    -> [!] Menunggu 5 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 10 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 15 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 20 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-  GAGAL TOTAL pada request ini. Berhenti ditarik.
-  -> [Aman] Proses terputus, mempertahankan file v1_rup_paket-swakelola-terumumkan_2026.json lama yang utuh.
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/master-satker?kode_klpd=D228&tahun=2026&limit=1000
-GAGAL (Status 504)
-    -> [!] Menunggu 5 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 10 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 15 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 20 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-  GAGAL TOTAL pada request ini. Berhenti ditarik.
-  -> [Aman] Proses terputus, mempertahankan file v1_rup_master-satker_2026.json lama yang utuh.
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/program-master?kode_klpd=D228&tahun=2026&limit=1000
-GAGAL (Status 504)
-    -> [!] Menunggu 5 detik agar server Inaproc stabil...
-SUKSES
-  -> Disimpan ke v1_rup_program-master_2026.json (Total: 253 baris)
-
-DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2026
-GAGAL (Status 504)
-    -> [!] Menunggu 5 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 10 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 15 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-    -> [!] Menunggu 20 detik agar server Inaproc stabil...
-GAGAL (Status 504)
-  -> [Aman] Server gagal diakses, mempertahankan file Legacy_rup_struktur-anggaran-pd_2026.json yang sudah ada.
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-PROSES DOWNLOAD SELESAI PADA 18 Juli 2026 | 12.26 WIB
-
-==================================================
-START GENERATE RUP 18 Juli 2026 | 12.26 WIB
-==================================================
-
---- MEMPROSES DATA TAHUN 2026 ---
-DONE -> JSON: rekap_rup_2026.json
-DONE -> EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Rekap RUP Tahun 2026 (2026-07-18).xlsx
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-==================================================
-MENGIRIM DATA RUP KE GITHUB DARI PYTHON...
-==================================================
-
-==================================================
- PROSES SELESAI SELURUHNYA!
-==================================================
-On branch main
-Your branch is up to date with 'origin/main'.
-
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-	modified:   data/last-update-rup.txt
-	modified:   output/rup/2026/Rekap RUP Tahun 2026 (2026-07-18).xlsx
-	modified:   tools/log_pengadaan.txt
-	modified:   tools/log_rup.txt
-
-no changes added to commit (use "git add" and/or "git commit -a")
-
-
-[main 1cc6adc] Auto update RUP 2026-07-18 12:26:50
- 4 files changed, 85 insertions(+), 1 deletion(-)
-
-
-To https://github.com/rizkipem-21/dashboard.pbjkobar.git
-   99f2efd..1cc6adc  main -> main
-
-PUSH STATUS: 0  
-SELESAI 18/07/2026 12:26:54  
-PUSH GITHUB SUKSES!
-
-==================================================
-PROSES SELESAI SELURUHNYA PADA 18 Juli 2026 | 12.26 WIB
-==================================================
-
-==================================================
-START DOWNLOAD RUP 19 Juli 2026 | 08.00 WIB
-==================================================
-
---- MENGUNDUH DATA TAHUN 2026 ---
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-SUKSES
-SUKSES
-SUKSES
-SUKSES
-  -> Disimpan ke v1_rup_paket-penyedia-terumumkan_2026.json (Total: 4849 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_paket-swakelola-terumumkan_2026.json (Total: 57 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/master-satker?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_master-satker_2026.json (Total: 121 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/program-master?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_program-master_2026.json (Total: 253 baris)
-
-DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2026
-SUKSES
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-PROSES DOWNLOAD SELESAI PADA 19 Juli 2026 | 08.00 WIB
-
-==================================================
-START GENERATE RUP 19 Juli 2026 | 08.00 WIB
-==================================================
-
---- MEMPROSES DATA TAHUN 2026 ---
-DONE -> JSON: rekap_rup_2026.json
-DONE -> EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Rekap RUP Tahun 2026 (2026-07-19).xlsx
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-==================================================
-MENGIRIM DATA RUP KE GITHUB DARI PYTHON...
-==================================================
-
-==================================================
- PROSES SELESAI SELURUHNYA!
-==================================================
-On branch main
-Your branch is up to date with 'origin/main'.
-
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-	modified:   data/2026/rekap_rup_2026.json
-	modified:   data/last-update-rup.txt
-	modified:   output/rup/2026/daftar_arsip.json
-	modified:   tools/log_pengadaan.txt
-	modified:   tools/log_rup.txt
-
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-	output/rup/2026/Rekap RUP Tahun 2026 (2026-07-19).xlsx
-
-no changes added to commit (use "git add" and/or "git commit -a")
-
-
-[main 75a40cb] Auto update RUP 2026-07-19 08:00:45
- 6 files changed, 121 insertions(+), 4 deletions(-)
- create mode 100644 output/rup/2026/Rekap RUP Tahun 2026 (2026-07-19).xlsx
-
-
-To https://github.com/rizkipem-21/dashboard.pbjkobar.git
-   1cc6adc..75a40cb  main -> main
-
-PUSH STATUS: 0  
-SELESAI 19/07/2026 08:00:55  
-PUSH GITHUB SUKSES!
-
-==================================================
-PROSES SELESAI SELURUHNYA PADA 19 Juli 2026 | 08.00 WIB
-==================================================
-
-==================================================
-START DOWNLOAD RUP 19 Juli 2026 | 10.00 WIB
-==================================================
-
---- MENGUNDUH DATA TAHUN 2026 ---
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-SUKSES
-SUKSES
-SUKSES
-SUKSES
-  -> Disimpan ke v1_rup_paket-penyedia-terumumkan_2026.json (Total: 4849 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_paket-swakelola-terumumkan_2026.json (Total: 57 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/master-satker?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_master-satker_2026.json (Total: 121 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/program-master?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_program-master_2026.json (Total: 253 baris)
-
-DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2026
-SUKSES
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-PROSES DOWNLOAD SELESAI PADA 19 Juli 2026 | 10.00 WIB
-
-==================================================
-START GENERATE RUP 19 Juli 2026 | 10.00 WIB
-==================================================
-
---- MEMPROSES DATA TAHUN 2026 ---
-DONE -> JSON: rekap_rup_2026.json
-DONE -> EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Rekap RUP Tahun 2026 (2026-07-19).xlsx
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-==================================================
-MENGIRIM DATA RUP KE GITHUB DARI PYTHON...
-==================================================
-
-==================================================
- PROSES SELESAI SELURUHNYA!
-==================================================
-On branch main
-Your branch is up to date with 'origin/main'.
-
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-	modified:   data/last-update-rup.txt
-	modified:   output/rup/2026/Rekap RUP Tahun 2026 (2026-07-19).xlsx
-	modified:   tools/log_pengadaan.txt
-	modified:   tools/log_rup.txt
-
-no changes added to commit (use "git add" and/or "git commit -a")
-
-
-[main 5b6d974] Auto update RUP 2026-07-19 10:00:33
- 4 files changed, 101 insertions(+), 1 deletion(-)
-
-
-To https://github.com/rizkipem-21/dashboard.pbjkobar.git
-   40ed930..5b6d974  main -> main
-
-PUSH STATUS: 0  
-SELESAI 19/07/2026 10:00:41  
-PUSH GITHUB SUKSES!
-
-==================================================
-PROSES SELESAI SELURUHNYA PADA 19 Juli 2026 | 10.00 WIB
-==================================================
-
-==================================================
-START DOWNLOAD RUP 19 Juli 2026 | 12.00 WIB
-==================================================
-
---- MENGUNDUH DATA TAHUN 2026 ---
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-SUKSES
-SUKSES
-SUKSES
-SUKSES
-  -> Disimpan ke v1_rup_paket-penyedia-terumumkan_2026.json (Total: 4849 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_paket-swakelola-terumumkan_2026.json (Total: 57 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/master-satker?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_master-satker_2026.json (Total: 121 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/program-master?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_program-master_2026.json (Total: 253 baris)
-
-DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2026
-SUKSES
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-PROSES DOWNLOAD SELESAI PADA 19 Juli 2026 | 12.00 WIB
-
-==================================================
-START GENERATE RUP 19 Juli 2026 | 12.00 WIB
-==================================================
-
---- MEMPROSES DATA TAHUN 2026 ---
-DONE -> JSON: rekap_rup_2026.json
-DONE -> EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Rekap RUP Tahun 2026 (2026-07-19).xlsx
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-==================================================
-MENGIRIM DATA RUP KE GITHUB DARI PYTHON...
-==================================================
-
-==================================================
- PROSES SELESAI SELURUHNYA!
-==================================================
-On branch main
-Your branch is up to date with 'origin/main'.
-
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-	modified:   data/last-update-rup.txt
-	modified:   output/rup/2026/Rekap RUP Tahun 2026 (2026-07-19).xlsx
-	modified:   tools/log_pengadaan.txt
-	modified:   tools/log_rup.txt
-
-no changes added to commit (use "git add" and/or "git commit -a")
-
-
-[main 50f549d] Auto update RUP 2026-07-19 12:00:35
- 4 files changed, 101 insertions(+), 1 deletion(-)
-
-
-To https://github.com/rizkipem-21/dashboard.pbjkobar.git
-   fbd4b39..50f549d  main -> main
-
-PUSH STATUS: 0  
-SELESAI 19/07/2026 12:00:44  
-PUSH GITHUB SUKSES!
-
-==================================================
-PROSES SELESAI SELURUHNYA PADA 19 Juli 2026 | 12.00 WIB
-==================================================
-
-==================================================
-START DOWNLOAD RUP 20 Juli 2026 | 05.06 WIB
-==================================================
-
---- MENGUNDUH DATA TAHUN 2026 ---
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-SUKSES
-SUKSES
-SUKSES
-SUKSES
-  -> Disimpan ke v1_rup_paket-penyedia-terumumkan_2026.json (Total: 4849 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_paket-swakelola-terumumkan_2026.json (Total: 57 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/master-satker?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_master-satker_2026.json (Total: 121 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/program-master?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_program-master_2026.json (Total: 253 baris)
-
-DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2026
-SUKSES
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-PROSES DOWNLOAD SELESAI PADA 20 Juli 2026 | 05.06 WIB
-
-==================================================
-START GENERATE RUP 20 Juli 2026 | 05.06 WIB
-==================================================
-
---- MEMPROSES DATA TAHUN 2026 ---
-DONE -> JSON: rekap_rup_2026.json
-DONE -> EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Rekap RUP Tahun 2026 (2026-07-20).xlsx
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-==================================================
-MENGIRIM DATA RUP KE GITHUB DARI PYTHON...
-==================================================
-
-==================================================
- PROSES SELESAI SELURUHNYA!
-==================================================
-On branch main
-Your branch is up to date with 'origin/main'.
-
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-	modified:   data/last-update-rup.txt
-	modified:   output/rup/2026/daftar_arsip.json
-	modified:   tools/log_pengadaan.txt
-	modified:   tools/log_rup.txt
-
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-	output/rup/2026/Rekap RUP Tahun 2026 (2026-07-20).xlsx
-
-no changes added to commit (use "git add" and/or "git commit -a")
-
-
-[main 5221347] Auto update RUP 2026-07-20 05:06:44
- 5 files changed, 106 insertions(+), 2 deletions(-)
- create mode 100644 output/rup/2026/Rekap RUP Tahun 2026 (2026-07-20).xlsx
-
-
-fatal: Unable to persist credentials with the 'wincredman' credential store.
-See https://aka.ms/gcm/credstores for more information.
-fatal: Unable to persist credentials with the 'wincredman' credential store.
-See https://aka.ms/gcm/credstores for more information.
-To https://github.com/rizkipem-21/dashboard.pbjkobar.git
-   b91f089..5221347  main -> main
-
-PUSH STATUS: 0  
-SELESAI 20/07/2026 05:06:50  
-PUSH GITHUB SUKSES!
-
-==================================================
-PROSES SELESAI SELURUHNYA PADA 20 Juli 2026 | 05.06 WIB
-==================================================
-
-==================================================
-START DOWNLOAD RUP 20 Juli 2026 | 08.00 WIB
-==================================================
-
---- MENGUNDUH DATA TAHUN 2026 ---
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-SUKSES
-SUKSES
-SUKSES
-SUKSES
-  -> Disimpan ke v1_rup_paket-penyedia-terumumkan_2026.json (Total: 4849 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_paket-swakelola-terumumkan_2026.json (Total: 57 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/master-satker?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_master-satker_2026.json (Total: 121 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/program-master?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_program-master_2026.json (Total: 253 baris)
-
-DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2026
-SUKSES
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-PROSES DOWNLOAD SELESAI PADA 20 Juli 2026 | 08.00 WIB
-
-==================================================
-START GENERATE RUP 20 Juli 2026 | 08.00 WIB
-==================================================
-
---- MEMPROSES DATA TAHUN 2026 ---
-DONE -> JSON: rekap_rup_2026.json
-DONE -> EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Rekap RUP Tahun 2026 (2026-07-20).xlsx
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-==================================================
-MENGIRIM DATA RUP KE GITHUB DARI PYTHON...
-==================================================
-
-==================================================
- PROSES SELESAI SELURUHNYA!
-==================================================
-On branch main
-Your branch is up to date with 'origin/main'.
-
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-	modified:   data/last-update-rup.txt
-	modified:   output/rup/2026/Rekap RUP Tahun 2026 (2026-07-20).xlsx
-	modified:   tools/log_pengadaan.txt
-	modified:   tools/log_rup.txt
-
-no changes added to commit (use "git add" and/or "git commit -a")
-
-
-[main abd2a61] Auto update RUP 2026-07-20 08:00:38
- 4 files changed, 101 insertions(+), 1 deletion(-)
-
-
-fatal: Unable to persist credentials with the 'wincredman' credential store.
-See https://aka.ms/gcm/credstores for more information.
-fatal: Unable to persist credentials with the 'wincredman' credential store.
-See https://aka.ms/gcm/credstores for more information.
-To https://github.com/rizkipem-21/dashboard.pbjkobar.git
-   25b68cc..abd2a61  main -> main
-
-PUSH STATUS: 0  
-SELESAI 20/07/2026 08:00:45  
-PUSH GITHUB SUKSES!
-
-==================================================
-PROSES SELESAI SELURUHNYA PADA 20 Juli 2026 | 08.00 WIB
-==================================================
-
-==================================================
-START DOWNLOAD RUP 20 Juli 2026 | 10.00 WIB
-==================================================
-
---- MENGUNDUH DATA TAHUN 2026 ---
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-SUKSES
-SUKSES
-SUKSES
-SUKSES
-  -> Disimpan ke v1_rup_paket-penyedia-terumumkan_2026.json (Total: 4849 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_paket-swakelola-terumumkan_2026.json (Total: 57 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/master-satker?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_master-satker_2026.json (Total: 121 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/program-master?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_program-master_2026.json (Total: 253 baris)
-
-DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2026
-SUKSES
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-PROSES DOWNLOAD SELESAI PADA 20 Juli 2026 | 10.00 WIB
-
-==================================================
-START GENERATE RUP 20 Juli 2026 | 10.00 WIB
-==================================================
-
---- MEMPROSES DATA TAHUN 2026 ---
-DONE -> JSON: rekap_rup_2026.json
-DONE -> EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Rekap RUP Tahun 2026 (2026-07-20).xlsx
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-==================================================
-MENGIRIM DATA RUP KE GITHUB DARI PYTHON...
-==================================================
-
-==================================================
- PROSES SELESAI SELURUHNYA!
-==================================================
-On branch main
-Your branch is up to date with 'origin/main'.
-
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-	modified:   data/last-update-rup.txt
-	modified:   output/rup/2026/Rekap RUP Tahun 2026 (2026-07-20).xlsx
-	modified:   tools/log_pengadaan.txt
-	modified:   tools/log_rup.txt
-
-no changes added to commit (use "git add" and/or "git commit -a")
-
-
-[main 12a6f18] Auto update RUP 2026-07-20 10:00:23
- 4 files changed, 101 insertions(+), 1 deletion(-)
-
-
-fatal: Unable to persist credentials with the 'wincredman' credential store.
-See https://aka.ms/gcm/credstores for more information.
-fatal: Unable to persist credentials with the 'wincredman' credential store.
-See https://aka.ms/gcm/credstores for more information.
-To https://github.com/rizkipem-21/dashboard.pbjkobar.git
-   888c879..12a6f18  main -> main
-
-PUSH STATUS: 0  
-SELESAI 20/07/2026 10:00:28  
-PUSH GITHUB SUKSES!
-
-==================================================
-PROSES SELESAI SELURUHNYA PADA 20 Juli 2026 | 10.00 WIB
-==================================================
-
-==================================================
-START DOWNLOAD RUP 20 Juli 2026 | 12.00 WIB
-==================================================
-
---- MENGUNDUH DATA TAHUN 2026 ---
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-SUKSES
-SUKSES
-SUKSES
-SUKSES
-  -> Disimpan ke v1_rup_paket-penyedia-terumumkan_2026.json (Total: 4849 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_paket-swakelola-terumumkan_2026.json (Total: 57 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/master-satker?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_master-satker_2026.json (Total: 121 baris)
-
-DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/program-master?kode_klpd=D228&tahun=2026&limit=1000
-SUKSES
-  -> Disimpan ke v1_rup_program-master_2026.json (Total: 253 baris)
-
-DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2026
-SUKSES
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-PROSES DOWNLOAD SELESAI PADA 20 Juli 2026 | 12.00 WIB
-
-==================================================
-START GENERATE RUP 20 Juli 2026 | 12.00 WIB
-==================================================
-
---- MEMPROSES DATA TAHUN 2026 ---
-DONE -> JSON: rekap_rup_2026.json
-DONE -> EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Rekap RUP Tahun 2026 (2026-07-20).xlsx
-
-[SKIP] Tahun 2025 sudah ada (final).
-
-[SKIP] Tahun 2024 sudah ada (final).
-
-==================================================
-MENGIRIM DATA RUP KE GITHUB DARI PYTHON...
-==================================================
-
-==================================================
- PROSES SELESAI SELURUHNYA!
-==================================================
-On branch main
-Your branch is up to date with 'origin/main'.
-
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-	modified:   data/last-update-rup.txt
-	modified:   output/rup/2026/Rekap RUP Tahun 2026 (2026-07-20).xlsx
-	modified:   tools/log_pengadaan.txt
-	modified:   tools/log_rup.txt
-
-no changes added to commit (use "git add" and/or "git commit -a")
-
-
-[main ad9ec51] Auto update RUP 2026-07-20 12:00:28
- 4 files changed, 101 insertions(+), 1 deletion(-)
-
-
-fatal: Unable to persist credentials with the 'wincredman' credential store.
-See https://aka.ms/gcm/credstores for more information.
-fatal: Unable to persist credentials with the 'wincredman' credential store.
-See https://aka.ms/gcm/credstores for more information.
-To https://github.com/rizkipem-21/dashboard.pbjkobar.git
-   e00300f..ad9ec51  main -> main
-
-PUSH STATUS: 0  
-SELESAI 20/07/2026 12:00:34  
-PUSH GITHUB SUKSES!
-
-==================================================
-PROSES SELESAI SELURUHNYA PADA 20 Juli 2026 | 12.00 WIB
-==================================================
