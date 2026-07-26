@@ -12939,3 +12939,84 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
+
+[main 8bdf9ba] Auto update RUP 2026-07-26 19:04:35
+ 5 files changed, 505 insertions(+), 393 deletions(-)
+
+
+fatal: Unable to persist credentials with the 'wincredman' credential store.
+See https://aka.ms/gcm/credstores for more information.
+fatal: Unable to persist credentials with the 'wincredman' credential store.
+See https://aka.ms/gcm/credstores for more information.
+To https://github.com/rizkipem-21/dashboard.pbjkobar.git
+   4c9d6a3..8bdf9ba  main -> main
+
+PUSH STATUS: 0  
+SELESAI 26/07/2026 19:04:43  
+PUSH GITHUB SUKSES!
+
+==================================================
+PROSES SELESAI SELURUHNYA PADA 26 Juli 2026 | 19.04 WIB
+==================================================
+
+==================================================
+START DOWNLOAD RUP 27 Juli 2026 | 05.06 WIB
+==================================================
+
+==================================================
+--- MENGUNDUH DATA TAHUN 2026 ---
+==================================================
+
+[Backup] v1_rup_paket-penyedia-terumumkan_2026.json di-copy ke arsip 2026-07-26
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_rup_paket-penyedia-terumumkan_2026.json (Total: 4849 baris)
+
+
+==================================================
+START GENERATE RUP 27 Juli 2026 | 05.06 WIB
+==================================================
+
+--- MEMPROSES DATA TAHUN 2026 ---
+DONE -> JSON: rekap_rup_2026.json
+DONE -> EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Rekap RUP Tahun 2026 (2026-07-27).xlsx
+
+[SKIP] Tahun 2025 sudah ada (final).
+
+[SKIP] Tahun 2024 sudah ada (final).
+
+==================================================
+MENGIRIM DATA RUP KE GITHUB DARI PYTHON...
+==================================================
+
+==================================================
+ PROSES SELESAI SELURUHNYA!
+==================================================
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   data/2025/rekap_pengadaan_2025.json
+	modified:   data/2026/master_pengadaan_2026.xlsx
+	modified:   data/2026/rekap_pengadaan_2026.json
+	modified:   data/last-update-rup.txt
+	modified:   output/pengadaan/2025/Paket Pengadaan Tahun 2025 (2026-07-26).xlsx
+	modified:   output/pengadaan/2026/Paket Pengadaan Tahun 2026 (2026-07-26).xlsx
+	deleted:    output/rup/2026/Rekap RUP Tahun 2026 (2026-07-26).xlsx
+	modified:   output/rup/2026/daftar_arsip.json
+	modified:   tools/log_pengadaan.txt
+	modified:   tools/log_rup.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output/rup/2026/Rekap RUP Tahun 2026 (2026-07-27).xlsx
+	scripts/pengadaan/error_api_pengadaan.json
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
