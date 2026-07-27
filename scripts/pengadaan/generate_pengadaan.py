@@ -987,24 +987,46 @@ if __name__ == '__main__':
     log_print(f"START GENERATE PENGADAAN {get_waktu_indonesia()}")
     log_print("="*55)
 
-    for t in daftar_tahun: process_tahun(t)
-
-    with open(os.path.join(BASE_DIR, "data", "last-update-pengadaan.txt"), "w", encoding='utf-8') as f:
-        f.write(get_waktu_indonesia())
-
-    # 1. BACA ERROR DARI FILE DOWNLOAD
+    # 1. BACA ERROR DI AWAL
     daftar_error_api = []
     path_error = os.path.join(BASE_DIR, 'scripts', 'pengadaan', 'error_api_pengadaan.json')
     if os.path.exists(path_error):
         try:
             with open(path_error, 'r', encoding='utf-8') as f: daftar_error_api = json.load(f)
-            os.remove(path_error) # Hapus file sementara setelah berhasil dibaca
-        except Exception as e: log_print(f"Gagal membaca file error: {e}")
+            os.remove(path_error)
+        except: pass
 
-    # 2. PUSH KE GITHUB
+    # 2. CEK TOTAL URL (Disesuaikan dengan tahun yang tidak di-skip)
+    total_target = 0
+    path_url = os.path.join(BASE_DIR, 'scripts', 'pengadaan', 'url_pengadaan.txt')
+    if os.path.exists(path_url):
+        with open(path_url, 'r', encoding='utf-8') as f:
+            jumlah_url = len([line for line in f if line.strip()])
+            
+        tahun_diproses = 0
+        for t in daftar_tahun:
+            if t == tahun_n2 and os.path.exists(os.path.join(BASE_DIR, 'data', str(t), f'rekap_pengadaan_{t}.json')):
+                continue
+            tahun_diproses += 1
+            
+        total_target = jumlah_url * tahun_diproses
+
+    # 3. LOGIKA BERHENTI JIKA GAGAL TOTAL
+    if total_target > 0 and len(daftar_error_api) >= total_target:
+        pesan_gagal = f"🚨 LAPORAN UPDATE (PENGADAAN) 🚨\n\n⚠️ GAGAL TOTAL DOWNLOAD API!\nTidak ada data baru. Skrip Generate dihentikan.\n\nWaktu: {get_waktu_indonesia()}"
+        kirim_telegram_aman(pesan_gagal)
+        log_print("GAGAL TOTAL. Skrip berhenti.")
+        sys.exit(0)
+
+    for t in daftar_tahun: process_tahun(t)
+
+    with open(os.path.join(BASE_DIR, "data", "last-update-pengadaan.txt"), "w", encoding='utf-8') as f:
+        f.write(get_waktu_indonesia())
+
+    # 1. PUSH KE GITHUB
     git_sukses, pesan_git = sync_to_github()
 
-    # 3. KIRIM TELEGRAM
+    # 2. KIRIM TELEGRAM
     if len(daftar_error_api) > 0 or not git_sukses:
         pesan_ringkasan = "🚨 LAPORAN UPDATE SISTEM (PENGADAAN) 🚨\n\n"
         if len(daftar_error_api) > 0:
