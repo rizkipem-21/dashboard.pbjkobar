@@ -129,8 +129,8 @@
     "Hasil_Pagu": 116218702.0,
     "Kontrak_Paket": 13,
     "Kontrak_Pagu": 116218702.0,
-    "SerahTerima_Paket": 1,
-    "SerahTerima_Pagu": 22654978.0,
+    "SerahTerima_Paket": 2,
+    "SerahTerima_Pagu": 23387578.0,
     "Belum_Paket": 90,
     "Belum_Pagu": 539706393.0
   },
@@ -273,16 +273,16 @@
     "Satuan Kerja": "Dinas Perhubungan",
     "Data Laporan_Paket": 61,
     "Data Laporan_Pagu": 418455903.0,
-    "Pemilihan_Paket": 5,
-    "Pemilihan_Pagu": 49004718.0,
-    "Hasil_Paket": 5,
-    "Hasil_Pagu": 48623430.0,
+    "Pemilihan_Paket": 6,
+    "Pemilihan_Pagu": 93366423.0,
+    "Hasil_Paket": 6,
+    "Hasil_Pagu": 92923430.0,
     "Kontrak_Paket": 3,
     "Kontrak_Pagu": 40571490.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 56,
-    "Belum_Pagu": 369451185.0
+    "Belum_Paket": 55,
+    "Belum_Pagu": 325089480.0
   },
   {
     "Satuan Kerja": "Dinas Perikanan dan Ketahanan Pangan",
@@ -406,8 +406,8 @@
   },
   {
     "Satuan Kerja": "Instalasi Farmasi",
-    "Data Laporan_Paket": 18,
-    "Data Laporan_Pagu": 216696298.0,
+    "Data Laporan_Paket": 19,
+    "Data Laporan_Pagu": 251691298.0,
     "Pemilihan_Paket": 2,
     "Pemilihan_Pagu": 60000000.0,
     "Hasil_Paket": 2,
@@ -416,8 +416,8 @@
     "Kontrak_Pagu": 21674415.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 16,
-    "Belum_Pagu": 156696298.0
+    "Belum_Paket": 17,
+    "Belum_Pagu": 191691298.0
   },
   {
     "Satuan Kerja": "Kecamatan Arut Selatan",
@@ -871,17 +871,17 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 3878,
-    "Data Laporan_Pagu": 32241583679.0,
-    "Pemilihan_Paket": 347,
-    "Pemilihan_Pagu": 5618756003.0,
-    "Hasil_Paket": 347,
-    "Hasil_Pagu": 5251633789.6,
+    "Data Laporan_Paket": 3879,
+    "Data Laporan_Pagu": 32276578679.0,
+    "Pemilihan_Paket": 348,
+    "Pemilihan_Pagu": 5663117708.0,
+    "Hasil_Paket": 348,
+    "Hasil_Pagu": 5295933789.6,
     "Kontrak_Paket": 263,
     "Kontrak_Pagu": 4025162577.0,
-    "SerahTerima_Paket": 79,
-    "SerahTerima_Pagu": 553391195.0,
+    "SerahTerima_Paket": 80,
+    "SerahTerima_Pagu": 554123795.0,
     "Belum_Paket": 3531,
-    "Belum_Pagu": 26622827676.0
+    "Belum_Pagu": 26613460971.0
   }
 ]

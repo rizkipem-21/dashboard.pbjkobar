@@ -288,16 +288,16 @@
     "Satuan Kerja": "Dinas Perikanan dan Ketahanan Pangan",
     "Data Laporan_Paket": 9,
     "Data Laporan_Pagu": 2208956507.0,
-    "Pemilihan_Paket": 3,
-    "Pemilihan_Pagu": 832417530.0,
-    "Hasil_Paket": 3,
-    "Hasil_Pagu": 824833550.0,
-    "Kontrak_Paket": 2,
-    "Kontrak_Pagu": 481833550.0,
+    "Pemilihan_Paket": 4,
+    "Pemilihan_Pagu": 1062414494.0,
+    "Hasil_Paket": 4,
+    "Hasil_Pagu": 1054476790.0,
+    "Kontrak_Paket": 3,
+    "Kontrak_Pagu": 711476790.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 6,
-    "Belum_Pagu": 1376538977.0
+    "Belum_Paket": 5,
+    "Belum_Pagu": 1146542013.0
   },
   {
     "Satuan Kerja": "Dinas Perindustrian, Perdagangan, Koperasi, Usaha Kecil dan Menengah",
@@ -406,8 +406,8 @@
   },
   {
     "Satuan Kerja": "Instalasi Farmasi",
-    "Data Laporan_Paket": 1,
-    "Data Laporan_Pagu": 1844218925.0,
+    "Data Laporan_Paket": 2,
+    "Data Laporan_Pagu": 3522447850.0,
     "Pemilihan_Paket": 1,
     "Pemilihan_Pagu": 1844218925.0,
     "Hasil_Paket": 1,
@@ -416,8 +416,8 @@
     "Kontrak_Pagu": 162624990.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 0,
-    "Belum_Pagu": 0.0
+    "Belum_Paket": 1,
+    "Belum_Pagu": 1678228925.0
   },
   {
     "Satuan Kerja": "Kecamatan Arut Selatan",
@@ -871,17 +871,17 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 212,
-    "Data Laporan_Pagu": 156348435253.0,
-    "Pemilihan_Paket": 121,
-    "Pemilihan_Pagu": 112850154586.0,
-    "Hasil_Paket": 121,
-    "Hasil_Pagu": 55094743286.0,
-    "Kontrak_Paket": 109,
-    "Kontrak_Pagu": 53004449286.0,
+    "Data Laporan_Paket": 213,
+    "Data Laporan_Pagu": 158026664178.0,
+    "Pemilihan_Paket": 122,
+    "Pemilihan_Pagu": 113080151550.0,
+    "Hasil_Paket": 122,
+    "Hasil_Pagu": 55324386526.0,
+    "Kontrak_Paket": 110,
+    "Kontrak_Pagu": 53234092526.0,
     "SerahTerima_Paket": 22,
     "SerahTerima_Pagu": 2094471498.0,
     "Belum_Paket": 91,
-    "Belum_Pagu": 43498280667.0
+    "Belum_Pagu": 44946512628.0
   }
 ]
