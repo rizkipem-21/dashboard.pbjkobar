@@ -38847,3 +38847,83 @@ GAGAL (Status 504)
     -> [!] Menunggu 10 detik agar server Inaproc stabil...
 GAGAL (Status 504)
     -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+  -> [Aman] Server gagal diakses, mempertahankan file Legacy_tender_tender-selesai_2025.json.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/tender-selesai-nilai?kode_klpd=D228&tahun=2025&limit=1000
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+  -> [Aman] Proses terputus, mempertahankan file v1_tender_tender-selesai-nilai_2025.json lama.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia?kode_klpd=D228&tahun=2025&limit=1000
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+  -> [Aman] Proses terputus, mempertahankan file v1_rup_paket-penyedia_2025.json lama.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/history-kaji-ulang?kode_klpd=D228&tahun=2025&limit=1000
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+  -> [Aman] Proses terputus, mempertahankan file v1_rup_history-kaji-ulang_2025.json lama.
+
+=======================================================
+   DOWNLOAD DATA TAHUN 2024
+=======================================================
+
+[SKIP] Tahun 2024 sudah final -> Lewati download
+
+PROSES DOWNLOAD SELESAI!
+
+=======================================================
+START GENERATE PENGADAAN 30 Juli 2026 | 10.42 WIB
+=======================================================
+
+=======================================================
+   GENERATE DATA TAHUN 2026
+=======================================================
+JSON Rekap sukses dibuat: D:\dashboard.pbjkobar\data\2026\rekap_pengadaan_2026.json
+📝 Daftar arsip JSON diperbarui: D:\dashboard.pbjkobar\output\pengadaan\2026\daftar_arsip.json
+SELESAI GENERATE TAHUN 2026 | Total data: 4936
+
+=======================================================
+   GENERATE DATA TAHUN 2025
+=======================================================
+JSON Rekap sukses dibuat: D:\dashboard.pbjkobar\data\2025\rekap_pengadaan_2025.json
+📝 Daftar arsip JSON diperbarui: D:\dashboard.pbjkobar\output\pengadaan\2025\daftar_arsip.json
+SELESAI GENERATE TAHUN 2025 | Total data: 10256
+
+[SKIP] Tahun 2024 sudah final -> Lewati generate
+
+==================================================
+START GENERATE TEPRA
+PROSES TEPRA SUKSES
+TEPRA 2026 Sukses (4 Sheet Lengkap) -> D:\dashboard.pbjkobar\output\tepra\2026\Tepra Kobar_Progres PBJ tahun 2026 (2026-07-30).xlsx
+
+==================================================
+MENGIRIM DATA PENGADAAN KE GITHUB DARI PYTHON...
+==================================================
