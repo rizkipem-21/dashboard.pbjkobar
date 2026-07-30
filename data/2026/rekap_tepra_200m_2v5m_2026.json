@@ -186,9 +186,9 @@
     "Pemilihan_Paket": 42,
     "Pemilihan_Pagu": 33346991733.0,
     "Hasil_Paket": 42,
-    "Hasil_Pagu": 30023864970.0,
-    "Kontrak_Paket": 36,
-    "Kontrak_Pagu": 29016820970.0,
+    "Hasil_Pagu": 31855864970.0,
+    "Kontrak_Paket": 37,
+    "Kontrak_Pagu": 30848820970.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
     "Belum_Paket": 7,
@@ -227,7 +227,7 @@
   {
     "Satuan Kerja": "Dinas Pemberdayaan Perempuan dan Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana",
     "Data Laporan_Paket": 2,
-    "Data Laporan_Pagu": 777000000.0,
+    "Data Laporan_Pagu": 795600000.0,
     "Pemilihan_Paket": 0,
     "Pemilihan_Pagu": 0.0,
     "Hasil_Paket": 0,
@@ -237,7 +237,7 @@
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
     "Belum_Paket": 2,
-    "Belum_Pagu": 777000000.0
+    "Belum_Pagu": 795600000.0
   },
   {
     "Satuan Kerja": "Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu",
@@ -406,18 +406,18 @@
   },
   {
     "Satuan Kerja": "Instalasi Farmasi",
-    "Data Laporan_Paket": 2,
-    "Data Laporan_Pagu": 3522447850.0,
-    "Pemilihan_Paket": 1,
-    "Pemilihan_Pagu": 1844218925.0,
-    "Hasil_Paket": 1,
-    "Hasil_Pagu": 162624990.0,
-    "Kontrak_Paket": 1,
-    "Kontrak_Pagu": 162624990.0,
+    "Data Laporan_Paket": 4,
+    "Data Laporan_Pagu": 6878905700.0,
+    "Pemilihan_Paket": 2,
+    "Pemilihan_Pagu": 3522447850.0,
+    "Hasil_Paket": 2,
+    "Hasil_Pagu": 173537400.0,
+    "Kontrak_Paket": 2,
+    "Kontrak_Pagu": 173537400.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 1,
-    "Belum_Pagu": 1678228925.0
+    "Belum_Paket": 2,
+    "Belum_Pagu": 3356457850.0
   },
   {
     "Satuan Kerja": "Kecamatan Arut Selatan",
@@ -871,17 +871,17 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 213,
-    "Data Laporan_Pagu": 158026664178.0,
-    "Pemilihan_Paket": 122,
-    "Pemilihan_Pagu": 113080151550.0,
-    "Hasil_Paket": 122,
-    "Hasil_Pagu": 55324386526.0,
-    "Kontrak_Paket": 110,
-    "Kontrak_Pagu": 53234092526.0,
+    "Data Laporan_Paket": 215,
+    "Data Laporan_Pagu": 161401722028.0,
+    "Pemilihan_Paket": 123,
+    "Pemilihan_Pagu": 114758380475.0,
+    "Hasil_Paket": 123,
+    "Hasil_Pagu": 57167298936.0,
+    "Kontrak_Paket": 112,
+    "Kontrak_Pagu": 55077004936.0,
     "SerahTerima_Paket": 22,
     "SerahTerima_Pagu": 2094471498.0,
-    "Belum_Paket": 91,
-    "Belum_Pagu": 44946512628.0
+    "Belum_Paket": 92,
+    "Belum_Pagu": 46643341553.0
   }
 ]
