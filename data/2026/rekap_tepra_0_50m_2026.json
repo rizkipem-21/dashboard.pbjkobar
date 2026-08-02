@@ -378,16 +378,16 @@
     "Satuan Kerja": "Dinas Tenaga Kerja dan Transmigrasi",
     "Data Laporan_Paket": 87,
     "Data Laporan_Pagu": 550936395.0,
-    "Pemilihan_Paket": 4,
-    "Pemilihan_Pagu": 20208300.0,
-    "Hasil_Paket": 4,
-    "Hasil_Pagu": 20013167.0,
-    "Kontrak_Paket": 4,
-    "Kontrak_Pagu": 20013167.0,
+    "Pemilihan_Paket": 6,
+    "Pemilihan_Pagu": 73983300.0,
+    "Hasil_Paket": 6,
+    "Hasil_Pagu": 73788167.0,
+    "Kontrak_Paket": 6,
+    "Kontrak_Pagu": 73788167.0,
     "SerahTerima_Paket": 2,
     "SerahTerima_Pagu": 9085661.0,
-    "Belum_Paket": 83,
-    "Belum_Pagu": 530728095.0
+    "Belum_Paket": 81,
+    "Belum_Pagu": 476953095.0
   },
   {
     "Satuan Kerja": "Inspektorat Daerah",
@@ -873,15 +873,15 @@
     "Satuan Kerja": "TOTAL KESELURUHAN",
     "Data Laporan_Paket": 3880,
     "Data Laporan_Pagu": 32287083212.0,
-    "Pemilihan_Paket": 351,
-    "Pemilihan_Pagu": 5741404706.0,
-    "Hasil_Paket": 351,
-    "Hasil_Pagu": 5325394588.6,
-    "Kontrak_Paket": 267,
-    "Kontrak_Pagu": 4064523376.0,
+    "Pemilihan_Paket": 353,
+    "Pemilihan_Pagu": 5795179706.0,
+    "Hasil_Paket": 353,
+    "Hasil_Pagu": 5379169588.6,
+    "Kontrak_Paket": 269,
+    "Kontrak_Pagu": 4118298376.0,
     "SerahTerima_Paket": 83,
     "SerahTerima_Pagu": 596776010.0,
-    "Belum_Paket": 3529,
-    "Belum_Pagu": 26545678506.0
+    "Belum_Paket": 3527,
+    "Belum_Pagu": 26491903506.0
   }
 ]
