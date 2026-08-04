@@ -15781,3 +15781,128 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
+
+[main 29841cc] Auto update RUP 2026-08-04 10:33:36
+ 4 files changed, 209 insertions(+), 1 deletion(-)
+
+
+To https://github.com/rizkipem-21/dashboard.pbjkobar.git
+   36a4d85..29841cc  main -> main
+
+PUSH STATUS: 0  
+SELESAI 04/08/2026 10:33:45  
+PUSH GITHUB SUKSES!
+
+==================================================
+PROSES SELESAI SELURUHNYA PADA 4 Agustus 2026 | 10.33 WIB
+==================================================
+
+==================================================
+START DOWNLOAD RUP 4 Agustus 2026 | 12.00 WIB
+==================================================
+
+==================================================
+--- MENGUNDUH DATA TAHUN 2026 ---
+==================================================
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+  GAGAL TOTAL pada request ini. Berhenti ditarik.
+  -> [Aman] Proses terputus, mempertahankan file v1_rup_paket-penyedia-terumumkan_2026.json lama yang utuh.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+  GAGAL TOTAL pada request ini. Berhenti ditarik.
+  -> [Aman] Proses terputus, mempertahankan file v1_rup_paket-swakelola-terumumkan_2026.json lama yang utuh.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/master-satker?kode_klpd=D228&tahun=2026&limit=1000
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+  GAGAL TOTAL pada request ini. Berhenti ditarik.
+  -> [Aman] Proses terputus, mempertahankan file v1_rup_master-satker_2026.json lama yang utuh.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/program-master?kode_klpd=D228&tahun=2026&limit=1000
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+  GAGAL TOTAL pada request ini. Berhenti ditarik.
+  -> [Aman] Proses terputus, mempertahankan file v1_rup_program-master_2026.json lama yang utuh.
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2026
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+SUKSES
+
+[SKIP] Tahun 2025 sudah ada (final).
+
+[SKIP] Tahun 2024 sudah ada (final).
+
+PROSES DOWNLOAD SELESAI PADA 4 Agustus 2026 | 12.28 WIB
+
+==================================================
+START GENERATE RUP 4 Agustus 2026 | 12.28 WIB
+==================================================
+
+--- MEMPROSES DATA TAHUN 2026 ---
+DONE -> JSON: rekap_rup_2026.json
+DONE -> EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Rekap RUP Tahun 2026 (2026-08-04).xlsx
+
+[SKIP] Tahun 2025 sudah ada (final).
+
+[SKIP] Tahun 2024 sudah ada (final).
+
+==================================================
+MENGIRIM DATA RUP KE GITHUB DARI PYTHON...
+==================================================
+
+==================================================
+ PROSES SELESAI SELURUHNYA!
+==================================================
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   data/last-update-rup.txt
+	modified:   output/rup/2026/Rekap RUP Tahun 2026 (2026-08-04).xlsx
+	modified:   tools/log_pengadaan.txt
+	modified:   tools/log_rup.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
