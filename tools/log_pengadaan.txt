@@ -42983,3 +42983,92 @@ TEPRA 2026 Sukses (4 Sheet Lengkap) -> D:\dashboard.pbjkobar\output\tepra\2026\T
 ==================================================
 MENGIRIM DATA PENGADAAN KE GITHUB DARI PYTHON...
 ==================================================
+✅ Push ke GitHub BERHASIL
+
+PROSES SELESAI SELURUHNYA PADA 4 Agustus 2026 | 08.07 WIB
+
+=======================================================
+START DOWNLOAD PENGADAAN 4 Agustus 2026 | 10.00 WIB
+=======================================================
+
+=======================================================
+   DOWNLOAD DATA TAHUN 2026
+=======================================================
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/ekatalog/paket-e-purchasing?kode_klpd=D228&tahun=2026&limit=1000
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+SUKSES
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/ekatalog-archive/instansi-satker?kode_klpd=D228&limit=1000
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+SUKSES
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/ekatalog-archive/paket-e-purchasing?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+  -> [Aman] Proses terputus, mempertahankan file v1_rup_paket-penyedia-terumumkan_2026.json lama.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+SUKSES
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-bapbast?kode_klpd=D228&tahun=2026
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+  -> [Aman] Server gagal diakses, mempertahankan file Legacy_tender_non-tender-ekontrak-bapbast_2026.json.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/non-tender-ekontrak-kontrak?kode_klpd=D228&tahun=2026&limit=1000
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+  -> [Aman] Proses terputus, mempertahankan file v1_tender_non-tender-ekontrak-kontrak_2026.json lama.
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-spmkspp?kode_klpd=D228&tahun=2026
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
