@@ -16,8 +16,8 @@
   },
   {
     "Satuan Kerja": "Badan Kesatuan Bangsa dan Politik",
-    "Data Laporan_Paket": 72,
-    "Data Laporan_Pagu": 317493140.0,
+    "Data Laporan_Paket": 74,
+    "Data Laporan_Pagu": 381815300.0,
     "Pemilihan_Paket": 1,
     "Pemilihan_Pagu": 19500000.0,
     "Hasil_Paket": 1,
@@ -26,8 +26,8 @@
     "Kontrak_Pagu": 19500000.0,
     "SerahTerima_Paket": 1,
     "SerahTerima_Pagu": 19500000.0,
-    "Belum_Paket": 71,
-    "Belum_Pagu": 297993140.0
+    "Belum_Paket": 73,
+    "Belum_Pagu": 362315300.0
   },
   {
     "Satuan Kerja": "Badan Keuangan dan Aset Daerah",
@@ -871,8 +871,8 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 3879,
-    "Data Laporan_Pagu": 32248969538.0,
+    "Data Laporan_Paket": 3881,
+    "Data Laporan_Pagu": 32313291698.0,
     "Pemilihan_Paket": 359,
     "Pemilihan_Pagu": 5854958003.0,
     "Hasil_Paket": 359,
@@ -881,7 +881,7 @@
     "Kontrak_Pagu": 4127716676.0,
     "SerahTerima_Paket": 83,
     "SerahTerima_Pagu": 596776010.0,
-    "Belum_Paket": 3520,
-    "Belum_Pagu": 26394011535.0
+    "Belum_Paket": 3522,
+    "Belum_Pagu": 26458333695.0
   }
 ]
