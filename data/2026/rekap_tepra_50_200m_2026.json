@@ -123,16 +123,16 @@
     "Satuan Kerja": "Dinas Kesehatan",
     "Data Laporan_Paket": 16,
     "Data Laporan_Pagu": 1566751699.0,
-    "Pemilihan_Paket": 11,
-    "Pemilihan_Pagu": 1170042538.0,
-    "Hasil_Paket": 11,
-    "Hasil_Pagu": 841317562.0,
-    "Kontrak_Paket": 10,
-    "Kontrak_Pagu": 767102962.0,
+    "Pemilihan_Paket": 12,
+    "Pemilihan_Pagu": 1225542538.0,
+    "Hasil_Paket": 12,
+    "Hasil_Pagu": 896262562.0,
+    "Kontrak_Paket": 11,
+    "Kontrak_Pagu": 822047962.0,
     "SerahTerima_Paket": 3,
     "SerahTerima_Pagu": 237557765.0,
-    "Belum_Paket": 5,
-    "Belum_Pagu": 396709161.0
+    "Belum_Paket": 4,
+    "Belum_Pagu": 341209161.0
   },
   {
     "Satuan Kerja": "Dinas Komunikasi, Informatika, Statistik dan Persandian",
@@ -406,8 +406,8 @@
   },
   {
     "Satuan Kerja": "Instalasi Farmasi",
-    "Data Laporan_Paket": 7,
-    "Data Laporan_Pagu": 523391100.0,
+    "Data Laporan_Paket": 6,
+    "Data Laporan_Pagu": 451408750.0,
     "Pemilihan_Paket": 2,
     "Pemilihan_Pagu": 221982350.0,
     "Hasil_Paket": 2,
@@ -416,8 +416,8 @@
     "Kontrak_Pagu": 150899438.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 5,
-    "Belum_Pagu": 301408750.0
+    "Belum_Paket": 4,
+    "Belum_Pagu": 229426400.0
   },
   {
     "Satuan Kerja": "Kecamatan Arut Selatan",
@@ -871,17 +871,17 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 800,
-    "Data Laporan_Pagu": 94867959132.0,
-    "Pemilihan_Paket": 459,
-    "Pemilihan_Pagu": 59307861865.0,
-    "Hasil_Paket": 459,
-    "Hasil_Pagu": 57448310325.41,
-    "Kontrak_Paket": 223,
-    "Kontrak_Pagu": 27115956482.0,
+    "Data Laporan_Paket": 799,
+    "Data Laporan_Pagu": 94795976782.0,
+    "Pemilihan_Paket": 460,
+    "Pemilihan_Pagu": 59363361865.0,
+    "Hasil_Paket": 460,
+    "Hasil_Pagu": 57503255325.41,
+    "Kontrak_Paket": 224,
+    "Kontrak_Pagu": 27170901482.0,
     "SerahTerima_Paket": 9,
     "SerahTerima_Pagu": 764123653.0,
-    "Belum_Paket": 341,
-    "Belum_Pagu": 35560097267.0
+    "Belum_Paket": 339,
+    "Belum_Pagu": 35432614917.0
   }
 ]
