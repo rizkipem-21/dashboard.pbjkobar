@@ -1,0 +1,45 @@
+==================================================
+MEMULAI PROSES EKSTRAKSI DATA KBLI INAPROC
+Waktu Mulai: Rabu, 12 Agustus 2026 | 05:04:49 WIB
+==================================================
+
+⏳ [1/59] Memproses Alat Kesehatan dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/14042833394575
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/14042833394575 (+1261 baris)
+
+⏳ [2/59] Memproses Alat Laboratorium dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16182237247375
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16182237247375 (+140 baris)
+
+⏳ [3/59] Memproses Alat Penunjang Pelayanan Kesehatan dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/14188368513295
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/14188368513295 (+141 baris)
+
+⏳ [4/59] Memproses Alat Transportasi BKKBN dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/14521926812175
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/14521926812175 (+3 baris)
+
+⏳ [5/59] Memproses Alat Transportasi Kementrian Perhubungan dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/14442615078927
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/14442615078927 (+158 baris)
+
+⏳ [6/59] Memproses Alat Transportasi Nasional dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/13147064431119
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/13147064431119 (+291 baris)
+
+⏳ [7/59] Memproses Bidang Bina Marga dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/13711408611983
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/13711408611983 (+169 baris)
+
+⏳ [8/59] Memproses Bidang Bina Marga 2025 dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16831475818639
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16831475818639 (+139 baris)
+
+⏳ [9/59] Memproses Bidang Cipta Karya dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15958225755151
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15958225755151 (+698 baris)
+
+⏳ [10/59] Memproses Bidang Perumahan dan Kawasan Permukiman dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16179472334607
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16179472334607 (+32 baris)
+
+⏳ [11/59] Memproses Bidang Sumber Daya Air dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15961418951567
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15961418951567 (+1958 baris)
+
+⏳ [12/59] Memproses Bidang Umum dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15961442452111
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15961442452111 (+837 baris)
+
+⏳ [13/59] Memproses Hadiah Souvenir dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16182255377423
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16182255377423 (+42 baris)
+
+⏳ [14/59] Memproses Hewan dan Ternak dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16904747268239
