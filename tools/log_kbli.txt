@@ -214,3 +214,57 @@ Waktu Mulai: Rabu, 12 Agustus 2026 | 08:00:56 WIB
 ✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/14442615078927 (+158 baris)
 
 ⏳ [6/59] Memproses Alat Transportasi Nasional dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/13147064431119
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/13147064431119 (+291 baris)
+
+⏳ [7/59] Memproses Bidang Bina Marga dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/13711408611983
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/13711408611983 (+169 baris)
+
+⏳ [8/59] Memproses Bidang Bina Marga 2025 dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16831475818639
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16831475818639 (+139 baris)
+
+⏳ [9/59] Memproses Bidang Cipta Karya dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15958225755151
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15958225755151 (+698 baris)
+
+⏳ [10/59] Memproses Bidang Perumahan dan Kawasan Permukiman dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16179472334607
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16179472334607 (+32 baris)
+
+⏳ [11/59] Memproses Bidang Sumber Daya Air dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15961418951567
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15961418951567 (+1958 baris)
+
+⏳ [12/59] Memproses Bidang Umum dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15961442452111
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15961442452111 (+837 baris)
+
+⏳ [13/59] Memproses Hadiah Souvenir dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16182255377423
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16182255377423 (+42 baris)
+
+⏳ [14/59] Memproses Hewan dan Ternak dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16904747268239
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16904747268239 (+146 baris)
+
+⏳ [15/59] Memproses Jasa Akomodasi dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16730767920783
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16730767920783 (+63 baris)
+
+⏳ [16/59] Memproses Jasa Bidang Geofisika dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15375391186703
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15375391186703 (+8 baris)
+
+⏳ [17/59] Memproses Jasa Bidang Infrastruktur MKG dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16730806736783
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16730806736783 (+6 baris)
+
+⏳ [18/59] Memproses Jasa Bidang Klimatologi dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16730796957199
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16730796957199 (+2 baris)
+
+⏳ [19/59] Memproses Jasa Bidang Meteorologi dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16730816366991
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16730816366991 (+51 baris)
+
+⏳ [20/59] Memproses Jasa Bidang Modifikasi Cuaca dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16730894311695
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16730894311695 (+8 baris)
+
+⏳ [21/59] Memproses Jasa Layanan dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15958246578447
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15958246578447 (+288 baris)
+
+⏳ [22/59] Memproses Jasa Penyelenggaraan Kegiatan dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15936372293263
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15936372293263 (+1 baris)
+
+⏳ [23/59] Memproses Jasa Sewa Alat Transportasi dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/11979782185103
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/11979782185103 (+152 baris)
+
+⏳ [24/59] Memproses Jasa Sewa Peralatan Elektronik dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16430361447183
