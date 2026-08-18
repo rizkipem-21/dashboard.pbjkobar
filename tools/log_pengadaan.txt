@@ -54511,3 +54511,23 @@ START GENERATE PENGADAAN 18 Agustus 2026 | 08.04 WIB
    GENERATE DATA TAHUN 2026
 =======================================================
 JSON Rekap sukses dibuat: D:\dashboard.pbjkobar\data\2026\rekap_pengadaan_2026.json
+📝 Daftar arsip JSON diperbarui: D:\dashboard.pbjkobar\output\pengadaan\2026\daftar_arsip.json
+SELESAI GENERATE TAHUN 2026 | Total data: 4946
+
+=======================================================
+   GENERATE DATA TAHUN 2025
+=======================================================
+JSON Rekap sukses dibuat: D:\dashboard.pbjkobar\data\2025\rekap_pengadaan_2025.json
+📝 Daftar arsip JSON diperbarui: D:\dashboard.pbjkobar\output\pengadaan\2025\daftar_arsip.json
+SELESAI GENERATE TAHUN 2025 | Total data: 10256
+
+[SKIP] Excel Tahun 2024 sudah final -> Lewati generate
+
+==================================================
+START GENERATE TEPRA
+PROSES TEPRA SUKSES
+TEPRA 2026 Sukses (4 Sheet Lengkap) -> D:\dashboard.pbjkobar\output\tepra\2026\Tepra Kobar_Progres PBJ tahun 2026 (2026-08-18).xlsx
+
+==================================================
+MENGIRIM DATA PENGADAAN KE GITHUB DARI PYTHON...
+==================================================
