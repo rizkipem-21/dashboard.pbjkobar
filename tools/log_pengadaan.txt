@@ -56187,3 +56187,12 @@ SUKSES
 
 [BACKUP] Legacy_tender_tender-selesai_2025.json di-copy ke arsip 2026-08-18/2025
 DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/tender-selesai?kode_klpd=D228&tahun=2025
+SUKSES
+
+[BACKUP] v1_tender_pengumuman_2025.json di-copy ke arsip 2026-08-18/2025
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/pengumuman?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_pengumuman_2025.json (Total: 182 baris)
+
+[BACKUP] v1_tender_tender-ekontrak-kontrak_2025.json di-copy ke arsip 2026-08-18/2025
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/tender-ekontrak-kontrak?kode_klpd=D228&tahun=2025&limit=1000
