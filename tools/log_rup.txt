@@ -21860,3 +21860,21 @@ Untracked files:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
+
+[main c0d0630] Auto update RUP 2026-08-20 10:07:58
+ 10 files changed, 1099 insertions(+), 5 deletions(-)
+ create mode 100644 data/2024/rekap_rup_2024.json
+ rename output/rup/2024/{Rekap RUP Tahun 2024 (2026-08-15).xlsx => Rekap RUP Tahun 2024 (2026-08-20).xlsx} (88%)
+ delete mode 100644 scripts/rup/error_api_rup.json
+
+
+To https://github.com/rizkipem-21/dashboard.pbjkobar.git
+   4bc3e26..c0d0630  main -> main
+
+PUSH STATUS: 0  
+SELESAI 20/08/2026 10:08:08  
+PUSH GITHUB SUKSES!
+
+==================================================
+PROSES SELESAI SELURUHNYA PADA 20 Agustus 2026 | 10.08 WIB
+==================================================
