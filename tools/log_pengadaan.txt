@@ -59522,3 +59522,11 @@ START GENERATE PENGADAAN 20 Agustus 2026 | 10.04 WIB
 =======================================================
    GENERATE DATA TAHUN 2026
 =======================================================
+JSON Rekap sukses dibuat: D:\dashboard.pbjkobar\data\2026\rekap_pengadaan_2026.json
+📝 Daftar arsip JSON diperbarui: D:\dashboard.pbjkobar\output\pengadaan\2026\daftar_arsip.json
+SELESAI GENERATE TAHUN 2026 | Total data: 4957
+
+=======================================================
+   GENERATE DATA TAHUN 2025
+=======================================================
+JSON Rekap sukses dibuat: D:\dashboard.pbjkobar\data\2025\rekap_pengadaan_2025.json
