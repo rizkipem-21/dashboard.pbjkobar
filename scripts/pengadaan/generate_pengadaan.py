@@ -226,6 +226,7 @@ def process_tahun(tahun):
     df3     = load_json(p('tender_pencatatan-non-tender'))
     df3_1   = load_json(p('tender_pencatatan-non-tender-realisasi'))
     df4     = load_json(p('tender_pencatatan-swakelola'))
+    df4_1   = load_json(p('tender_pencatatan-swakelola-realisasi'))
     df5     = load_json(p('tender_pengumuman'))
     df5_1   = load_json(p('tender_tender-selesai'))
     df5_1_1 = load_json(p('tender_tender-selesai-nilai'))
@@ -745,6 +746,24 @@ def process_tahun(tahun):
         })
     df_s3 = pd.DataFrame(data_s3)
 
+    map_s4_pelaksana, map_s4_npwp = {}, {}
+    if not df4_1.empty and 'nama_pelaksana' in df4_1.columns:
+        kd_kolom_4_1 = next((c for c in df4_1.columns if c.lower().strip() in ['kd_swakelola_pct', 'kd_swakelola', 'kode_paket']), None)
+        if kd_kolom_4_1:
+            for pkt_id, group in df4_1.groupby(kd_kolom_4_1):
+                pelaksana_set = set()
+                for _, row in group.iterrows():
+                    nama = str(row.get('nama_pelaksana', '')).strip()
+                    npwp = str(row.get('npwp_pelaksana', row.get('npwp', ''))).strip()
+                    if nama and nama.lower() not in ['', 'nan', 'none', '-']:
+                        pelaksana_set.add((nama, npwp))
+                
+                daftar_nama = [item[0] for item in pelaksana_set if item[0]]
+                daftar_npwp = [item[1] for item in pelaksana_set if item[1]]
+                
+                if daftar_nama: map_s4_pelaksana[str(pkt_id).strip()] = "; ".join(daftar_nama)
+                if daftar_npwp: map_s4_npwp[str(pkt_id).strip()] = "; ".join(daftar_npwp)
+
     data_s4=[]
     swakelola_map = df1_2.set_index('kd_rup')['tipe_swakelola'] if not df1_2.empty else {}
     swakelola_map_fallback = df1_4.set_index('kd_rup')['tipe_swakelola'] if not df1_4.empty else {}
@@ -773,7 +792,8 @@ def process_tahun(tahun):
             'Sumber Dana': r.get('sumber_dana'), 'MAK': get_anggaran_multi(cleaned_list, map_ang_s, 'mak'), 'PDN': "PDN" if r.get('nilai_pdn_pct', 0)!=0 else "Tidak", 'UKM': "UKM" if r.get('nilai_umk_pct', 0)!=0 else "Tidak",
             'Nilai Pagu RUP': get_pagu_multi(cleaned_list, 's1_2'), 'Nilai Hasil Pemilihan': "" if pd.isna(r.get('total_realisasi')) else r.get('total_realisasi'),
             'Tanggal Kontrak': format_tgl(r.get('tgl_selesai_paket', '')), 
-            'Nama Penyedia': "", 'NPWP 15': "", 'NPWP 16': "", 'Alamat': "",
+            'Nama Penyedia': map_s4_pelaksana.get(str(r.get('kd_swakelola_pct')).strip(), ""), 
+            'NPWP 15': map_s4_npwp.get(str(r.get('kd_swakelola_pct')).strip(), ""), 'NPWP 16': "", 'Alamat': "",
             'Status': r.get('status_swakelola_pct_ket'), 'Nilai HPS': pd.NA, 'Nilai PDN': r.get('nilai_pdn_pct'), 'Nilai UMK': r.get('nilai_umk_pct'),
             'Cara Pengadaan': 'Pencatatan Swakelola', 'Sumber': 'Sumber 4'
         })
