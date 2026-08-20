@@ -61625,3 +61625,10 @@ START GENERATE PENGADAAN 21 Agustus 2026 | 05.10 WIB
    GENERATE DATA TAHUN 2026
 =======================================================
 JSON Rekap sukses dibuat: D:\dashboard.pbjkobar\data\2026\rekap_pengadaan_2026.json
+📦 Arsip harian diamankan ke lokal: Paket Pengadaan Tahun 2026 (2026-08-20).xlsx
+📝 Daftar arsip JSON diperbarui: D:\dashboard.pbjkobar\output\pengadaan\2026\daftar_arsip.json
+SELESAI GENERATE TAHUN 2026 | Total data: 4958
+
+=======================================================
+   GENERATE DATA TAHUN 2025
+=======================================================
