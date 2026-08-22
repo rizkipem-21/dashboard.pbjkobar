@@ -63034,3 +63034,7 @@ SUKSES
 
 [BACKUP] Legacy_tender_non-tender-ekontrak-bapbast_2025.json di-copy ke arsip 2026-08-21/2025
 DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-bapbast?kode_klpd=D228&tahun=2025
+SUKSES
+
+[BACKUP] Legacy_tender_non-tender-ekontrak-spmkspp_2025.json di-copy ke arsip 2026-08-21/2025
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-spmkspp?kode_klpd=D228&tahun=2025
