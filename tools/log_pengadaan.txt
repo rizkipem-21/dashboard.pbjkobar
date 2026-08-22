@@ -63416,3 +63416,6 @@ SUKSES
   -> Disimpan ke v1_rup_paket-swakelola_2025.json (Total: 184 baris)
 
 DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-bapbast?kode_klpd=D228&tahun=2025
+SUKSES
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-spmkspp?kode_klpd=D228&tahun=2025
