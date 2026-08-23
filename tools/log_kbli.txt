@@ -2125,3 +2125,21 @@ Waktu Mulai: Minggu, 23 Agustus 2026 | 19:42:45 WIB
 ✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297581032079 (+256 baris)
 
 ⏳ [58/59] Memproses Sistem Manajemen Keselamatan Konstruksi dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15958208413199
+⚠️ PDF terbaca, namun tidak ada format tabel KBLI yang valid: https://bantuan.inaproc.id/hc/id-id/article_attachments/15958208413199
+
+⏳ [59/59] Memproses Tanaman dan Sarana Pendukung dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/12264744216719
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/12264744216719 (+336 baris)
+🧹 Membersihkan data sel yang digabung (Forward Fill & Explode)...
+
+[INFO] Sedang mencari kamus di: data_master\kamus_pembersihan.csv
+[INFO] Kamus ditemukan! Memproses 2 kata perbaikan...
+[INFO] Pembersihan teks berhasil diterapkan ke semua kolom.
+
+🗑️ Berhasil membuang 196 baris data duplikat (Tabel berulang).
+💾 Menyimpan ke format JSON...
+✅ Selesai! 12615 baris data berhasil disimpan ke:
+📂 D:\dashboard.pbjkobar\data_master\data_kategori_inaproc.json
+==================================================
+PROSES SELESAI PADA: Minggu, 23 Agustus 2026 | 19:52:27 WIB
+⏳ TOTAL DURASI PROSES: 0:09:42
+==================================================
