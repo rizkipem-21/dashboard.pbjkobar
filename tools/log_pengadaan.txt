@@ -64559,3 +64559,14 @@ SUKSES
 [BACKUP] v1_tender_non-tender-ekontrak-kontrak_2025.json di-copy ke arsip 2026-08-22/2025
 DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/non-tender-ekontrak-kontrak?kode_klpd=D228&tahun=2025&limit=1000
 SUKSES
+SUKSES
+  -> Disimpan ke v1_tender_non-tender-ekontrak-kontrak_2025.json (Total: 1102 baris)
+
+[BACKUP] v1_tender_non-tender-pengumuman_2025.json di-copy ke arsip 2026-08-22/2025
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/non-tender-pengumuman?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+SUKSES
+  -> Disimpan ke v1_tender_non-tender-pengumuman_2025.json (Total: 1802 baris)
+
+[BACKUP] v1_tender_non-tender-selesai_2025.json di-copy ke arsip 2026-08-22/2025
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/non-tender-selesai?kode_klpd=D228&tahun=2025&limit=1000
