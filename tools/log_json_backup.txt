@@ -5147,3 +5147,81 @@ SUKSES
 SUKSES
 SUKSES
 SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_tender_jadwal-tahapan-non-tender_2025.json (Total: 9029 baris)
+
+[SKIP] v1_tender_non-tender-ekontrak-kontrak_2025.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+[SKIP] v1_tender_non-tender-pengumuman_2025.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+[SKIP] v1_tender_non-tender-selesai_2025.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/non-tender-ekontrak?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+SUKSES
+  -> Disimpan ke v1_tender_non-tender-ekontrak_2025.json (Total: 1102 baris)
+
+[SKIP] v1_tender_pencatatan-non-tender_2025.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/pencatatan-non-tender-realisasi?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_tender_pencatatan-non-tender-realisasi_2025.json (Total: 7105 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/pencatatan-swakelola?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_pencatatan-swakelola_2025.json (Total: 62 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/pencatatan-swakelola-realisasi?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_pencatatan-swakelola-realisasi_2025.json (Total: 65 baris)
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-bapbast?kode_klpd=D228&tahun=2025
+SUKSES
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-spmkspp?kode_klpd=D228&tahun=2025
+SUKSES
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-sppbj?kode_klpd=D228&tahun=2025
+SUKSES
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/tender-selesai?kode_klpd=D228&tahun=2025
+SUKSES
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/pengumuman?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_pengumuman_2025.json (Total: 182 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/peserta-tender?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+SUKSES
+  -> Disimpan ke v1_tender_peserta-tender_2025.json (Total: 1698 baris)
+
+[SKIP] v1_tender_tender-ekontrak-kontrak_2025.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+[SKIP] v1_tender_tender-selesai-nilai_2025.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/jadwal-tahapan-tender?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_tender_jadwal-tahapan-tender_2025.json (Total: 2614 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/tender-ekontrak?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_tender-ekontrak_2025.json (Total: 183 baris)
+
+==================================================
+PROSES BACKUP JSON SELESAI | Durasi: 0:05:27
+==================================================
