@@ -1,5 +1,5 @@
 # ======================================================
-# ini file generate_pengadaan.py
+# generate_pengadaan.py
 # ======================================================
 
 import os
@@ -25,8 +25,45 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 tahun_n      = datetime.now().year       
 tahun_n1     = tahun_n - 1               
-tahun_n2     = tahun_n - 2               
-daftar_tahun = [tahun_n, tahun_n1, tahun_n2] 
+tahun_n2     = 0 # Dinonaktifkan agar mode manual tidak otomatis men-skip tahun manapun
+
+# ======================================================
+# KONTROL MODE ARSIP & PILIHAN TAHUN MANUAL
+# ======================================================
+LOAD_DARI_ARSIP = True
+
+print("\n" + "="*55)
+print(" 📂 MODE LOAD DATA DARI ARSIP & MANUAL GENERATE")
+print("="*55)
+
+# 1. Pilih Folder Arsip
+print("--- 1. PENGATURAN FOLDER ARSIP ---")
+PILIH_TAHUN = input("Masukkan TAHUN Arsip (contoh: 2026) : ").strip()
+PILIH_BULAN = input("Masukkan BULAN Arsip (contoh: 07)   : ").strip()
+PILIH_TANGGAL = input("Masukkan TANGGAL Arsip (contoh: 31): ").strip()
+
+path_cek_arsip = os.path.join(BASE_DIR, 'arsip_json', PILIH_TAHUN, PILIH_BULAN, PILIH_TANGGAL)
+if not os.path.exists(path_cek_arsip):
+    print(f"\n❌ ERROR: Folder arsip tidak ditemukan!\nJalur: {path_cek_arsip}\n")
+    sys.exit(1)
+print(f"✅ Folder arsip ditemukan!\n")
+
+# 2. Pilih Tahun yang ingin di-generate
+print("--- 2. PENGATURAN TAHUN DATA ---")
+print("Bisa lebih dari 1 tahun, pisahkan dengan koma (contoh: 2024, 2025)")
+input_tahun = input("Masukkan Tahun Data: ").strip()
+
+daftar_tahun = []
+for t in input_tahun.split(','):
+    if t.strip().isdigit():
+        daftar_tahun.append(int(t.strip()))
+
+if not daftar_tahun:
+    print("\n❌ ERROR: Format tahun tidak valid. Skrip dihentikan.")
+    sys.exit(1)
+
+print(f"\n🚀 Memulai proses generate tahun {daftar_tahun} dari arsip {PILIH_TANGGAL}-{PILIH_BULAN}-{PILIH_TAHUN}...\n")
+# ======================================================
 
 # MENGGUNAKAN LOG TUNGGAL (Sama dengan script download)
 LOG_FILE = os.path.join(BASE_DIR, 'tools', 'log_pengadaan.txt')
@@ -44,31 +81,7 @@ def get_waktu_indonesia():
     bulan_indo = {1: 'Januari', 2: 'Februari', 3: 'Maret', 4: 'April', 5: 'Mei', 6: 'Juni', 7: 'Juli', 8: 'Agustus', 9: 'September', 10: 'Oktober', 11: 'November', 12: 'Desember'}
     return f"{sekarang.day} {bulan_indo[sekarang.month]} {sekarang.year} | {sekarang.strftime('%H.%M')} WIB"
 
-def sync_to_github():
-    log_print("\n==================================================")
-    log_print("MENGIRIM DATA PENGADAAN KE GITHUB DARI PYTHON...")
-    log_print("==================================================")
-
-    waktu_sekarang = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    try:
-        subprocess.run(["git", "config", "user.name", "rizkipem-21"], cwd=BASE_DIR)
-        subprocess.run(["git", "config", "user.email", "rizki.pem@gmail.com"], cwd=BASE_DIR)
-        subprocess.run(["git", "add", "."], capture_output=True, text=True, cwd=BASE_DIR)
-        
-        commit_msg = f"Auto update Pengadaan {waktu_sekarang}"
-        subprocess.run(["git", "commit", "-m", commit_msg], capture_output=True, text=True, cwd=BASE_DIR)
-        
-        res_push = subprocess.run(["git", "push"], capture_output=True, text=True, cwd=BASE_DIR)
-        if res_push.returncode == 0:
-            log_print("✅ Push ke GitHub BERHASIL")
-            return True, "✅ Push ke GitHub BERHASIL"
-        else:
-            error_git = res_push.stderr.strip()
-            log_print(f"❌ Push ke GitHub GAGAL: {error_git}")
-            return False, f"❌ Push ke GitHub GAGAL:\n`{error_git}`"
-    except Exception as e:
-        log_print(f"❌ Terjadi kesalahan pada eksekusi Git: {str(e)}")
-        return False, f"❌ Terjadi kesalahan pada eksekusi Git:\n`{str(e)}`"
+# Fungsi Git Push dinonaktifkan untuk mode manual
 
 def format_tgl(val):
     if not val or (not isinstance(val, str) and pd.isna(val)): return ""
@@ -189,14 +202,22 @@ def get_kategori_status(sumber, s):
 
 def process_tahun(tahun):
     # Deklarasikan semua path di awal agar dikenali oleh seluruh fungsi
-    data_dir = os.path.join(BASE_DIR, 'data', str(tahun))
+    if LOAD_DARI_ARSIP:
+        data_dir = os.path.join(BASE_DIR, 'arsip_json', PILIH_TAHUN, PILIH_BULAN, PILIH_TANGGAL, str(tahun))
+        folder_utama = os.path.join(BASE_DIR, 'data', str(tahun))
+        os.makedirs(folder_utama, exist_ok=True)
+        output_json = os.path.join(folder_utama, f'rekap_pengadaan_{tahun}.json')
+    else:
+        data_dir = os.path.join(BASE_DIR, 'data', str(tahun))
+        output_json = os.path.join(data_dir, f'rekap_pengadaan_{tahun}.json')
+        folder_utama = data_dir
+        
     output_dir_excel = os.path.join(BASE_DIR, 'output', 'pengadaan', str(tahun))
-    output_json = os.path.join(data_dir, f'rekap_pengadaan_{tahun}.json')
         
     # ---------------------------------------------------------
     # LOGIKA SKIP: HANYA melewati tahun n-2 (sudah final)
     # ---------------------------------------------------------
-    if tahun == tahun_n2 and os.path.exists(output_dir_excel) and os.path.exists(output_json):
+    if not LOAD_DARI_ARSIP and tahun == tahun_n2 and os.path.exists(output_dir_excel) and os.path.exists(output_json):
         file_sudah_ada = any(f.startswith('Paket Pengadaan Tahun') and f.endswith('.xlsx') for f in os.listdir(output_dir_excel))
         if file_sudah_ada:
             log_print(f"\n[SKIP] Data Tahun {tahun} sudah lengkap & final -> Lewati generate")
@@ -648,14 +669,6 @@ def process_tahun(tahun):
                             curr = kaji_ulang_dict[curr]
                             executed_rups.add(curr)
 
-    def format_satker(nama, kd):
-        n = str(nama).strip() if pd.notna(nama) and str(nama).lower() not in ['nan', 'none', ''] else ""
-        k = str(kd).strip() if pd.notna(kd) and str(kd).lower() not in ['nan', 'none', ''] else ""
-        try: k = str(int(float(k)))
-        except: pass
-        if n and k: return f"{n} - {k}"
-        return n if n else ""
-
     data_s2=[]
     for _, r in df2.iterrows():
         raw_rup = r.get('kd_rup_raw')
@@ -688,7 +701,7 @@ def process_tahun(tahun):
 
         data_s2.append({
             'Kode Paket': r.get('kd_nontender'), 'Kode RUP': kode_rup_asli, 'Kode RUP Baru': kode_rup_baru, 
-            'Nama Instansi': 'KAB. KOTAWARINGIN BARAT', 'Satuan Kerja': format_satker(r.get('nama_satker'), r.get('kd_satker_str')), 'Nama Paket': r.get('nama_paket'),
+            'Nama Instansi': 'KAB. KOTAWARINGIN BARAT', 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'),
             'Metode Pemilihan': r.get('mtd_pemilihan'), 'Jenis Pengadaan': r.get('jenis_pengadaan'), 'Tahun Anggaran': r.get('tahun_anggaran'),
             'Sumber Dana': r.get('sumber_dana'), 'MAK': r.get('mak'), 'PDN': get_s1(kd_lookup, 'status_pdn', 's1'), 'UKM': get_s1(kd_lookup, 'status_ukm', 's1'), 
             'Nilai Pagu RUP': get_pagu_multi(cleaned_list, 's1'), 'Nilai Hasil Pemilihan': next((map_nt_kontrak[k] for k in kd_nt_list if k in map_nt_kontrak), "N/A"), 
@@ -741,7 +754,7 @@ def process_tahun(tahun):
         
         data_s3.append({
             'Kode Paket': r.get('kd_nontender_pct'), 'Kode RUP': kode_rup_asli, 'Kode RUP Baru': kode_rup_baru, 
-            'Nama Instansi': 'KAB. KOTAWARINGIN BARAT', 'Satuan Kerja': format_satker(r.get('nama_satker'), r.get('kd_satker_str')), 'Nama Paket': r.get('nama_paket'),
+            'Nama Instansi': 'KAB. KOTAWARINGIN BARAT', 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'),
             'Metode Pemilihan': r.get('mtd_pemilihan'), 'Jenis Pengadaan': r.get('kategori_pengadaan'), 'Tahun Anggaran': r.get('tahun_anggaran'),
             'Sumber Dana': r.get('sumber_dana'), 'MAK': get_anggaran_multi(cleaned_list, map_ang_p, 'mak'), 'PDN': get_s1(kd_lookup, 'status_pdn', 's1'), 'UKM': get_s1(kd_lookup, 'status_ukm', 's1'), 
             'Nilai Pagu RUP': get_pagu_multi(cleaned_list, 's1'), 'Nilai Hasil Pemilihan': "" if pd.isna(r.get('total_realisasi')) else r.get('total_realisasi'), 
@@ -795,7 +808,7 @@ def process_tahun(tahun):
         
         data_s4.append({
             'Kode Paket': r.get('kd_swakelola_pct'), 'Kode RUP': kode_rup_asli, 'Kode RUP Baru': kode_rup_baru, 
-            'Nama Instansi': 'KAB. KOTAWARINGIN BARAT', 'Satuan Kerja': format_satker(r.get('nama_satker'), r.get('kd_satker_str')), 'Nama Paket': r.get('nama_paket'),
+            'Nama Instansi': 'KAB. KOTAWARINGIN BARAT', 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'),
             'Metode Pemilihan': 'Swakelola', 'Jenis Pengadaan': jenis, 'Tahun Anggaran': r.get('tahun_anggaran'),
             'Sumber Dana': r.get('sumber_dana'), 'MAK': get_anggaran_multi(cleaned_list, map_ang_s, 'mak'), 'PDN': "PDN" if r.get('nilai_pdn_pct', 0)!=0 else "Tidak", 'UKM': "UKM" if r.get('nilai_umk_pct', 0)!=0 else "Tidak",
             'Nilai Pagu RUP': get_pagu_multi(cleaned_list, 's1_2'), 'Nilai Hasil Pemilihan': "" if pd.isna(r.get('total_realisasi')) else r.get('total_realisasi'),
@@ -842,7 +855,7 @@ def process_tahun(tahun):
 
         data_s5.append({
             'Kode Paket': r.get('kd_tender'), 'Kode RUP': kode_rup_asli, 'Kode RUP Baru': kode_rup_baru, 
-            'Nama Instansi': 'KAB. KOTAWARINGIN BARAT', 'Satuan Kerja': format_satker(r.get('nama_satker'), r.get('kd_satker_str')), 'Nama Paket': r.get('nama_paket'),
+            'Nama Instansi': 'KAB. KOTAWARINGIN BARAT', 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'),
             'Metode Pemilihan': r.get('mtd_pemilihan'), 'Jenis Pengadaan': r.get('jenis_pengadaan'), 'Tahun Anggaran': r.get('tahun_anggaran'),
             'Sumber Dana': r.get('sumber_dana'), 'MAK': next((map_t_mak[k] for k in kd_t_list if k in map_t_mak), ""), 'PDN': get_s1(kd_lookup, 'status_pdn', 's1'), 'UKM': get_s1(kd_lookup, 'status_ukm', 's1'), 
             'Nilai Pagu RUP': get_pagu_multi(cleaned_list, 's1'), 'Nilai Hasil Pemilihan': next((map_t_kontrak[k] for k in kd_t_list if k in map_t_kontrak), "N/A"), 
@@ -886,7 +899,7 @@ def process_tahun(tahun):
 
         data_s6.append({
             'Kode Paket': r.get('order_id'), 'Kode RUP': kode_rup_asli, 'Kode RUP Baru': kode_rup_baru, 
-            'Nama Instansi': 'KAB. KOTAWARINGIN BARAT', 'Satuan Kerja': format_satker(r.get('nama_satker'), r.get('kode_satker')), 'Nama Paket': r.get('rup_name'),
+            'Nama Instansi': 'KAB. KOTAWARINGIN BARAT', 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('rup_name'),
             'Metode Pemilihan': 'E-Purchasing', 'Jenis Pengadaan': get_s1(kd_lookup, 'jenis_pengadaan', 's1'), 'Tahun Anggaran': r.get('fiscal_year'),
             'Sumber Dana': r.get('funding_source'), 'MAK': r.get('mak'), 'PDN': status_pdn_katalog, 'UKM': status_ukm_katalog, 'Nilai Pagu RUP': get_pagu_multi(cleaned_list, 's1'),
             'Nilai Hasil Pemilihan': nilai_hasil, 'Tanggal Kontrak': "", 
@@ -901,11 +914,9 @@ def process_tahun(tahun):
     if not df7_1.empty:
         for _, row_s in df7_1.iterrows():
             kd_s = row_s.get('kd_satker')
-            kd_str = row_s.get('kd_satker_str', kd_s)
-            gabung = format_satker(row_s.get('nama_satker'), kd_str)
             if pd.notna(kd_s):
-                try: map_satker_v5[str(int(float(kd_s)))] = gabung
-                except: map_satker_v5[str(kd_s).strip()] = gabung
+                try: map_satker_v5[str(int(float(kd_s)))] = row_s.get('nama_satker', '')
+                except: map_satker_v5[str(kd_s).strip()] = row_s.get('nama_satker', '')
 
     for _, r in df7.iterrows():
         raw_rup = r.get('kd_rup_raw')
@@ -965,7 +976,7 @@ def process_tahun(tahun):
             kode_rup_baru_s1 = cari_rup_baru(str(kd)) if pd.notna(kd) else ""
             data_s1_2.append({
                 'Kode Paket': pd.NA, 'Kode RUP': kd, 'Kode RUP Baru': kode_rup_baru_s1, 
-                'Nama Instansi': 'KAB. KOTAWARINGIN BARAT', 'Satuan Kerja': format_satker(r.get('nama_satker'), r.get('kd_satker_str')), 'Nama Paket': r.get('nama_paket'), 'Metode Pemilihan': 'Swakelola',
+                'Nama Instansi': 'KAB. KOTAWARINGIN BARAT', 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'), 'Metode Pemilihan': 'Swakelola',
                 'Jenis Pengadaan': jenis, 'Tahun Anggaran': r.get('tahun_anggaran'), 'Sumber Dana': map_ang_s.get(kd_int, {}).get('sd', ''), 'MAK': map_ang_s.get(kd_int, {}).get('mak', ''), 'PDN': None, 'UKM': None, 'Nilai Pagu RUP': r.get('pagu'), 'Nilai Hasil Pemilihan': "",
                 'Tanggal Kontrak': "", 'Nama Penyedia': "", 'NPWP 15': "", 'NPWP 16': "", 'Alamat': "", 'Status': 'Pengumuman RUP', 'Nilai HPS': pd.NA, 'Nilai PDN': pd.NA, 'Nilai UMK': pd.NA,
                 'Cara Pengadaan': 'Swakelola', 'Sumber': 'Sumber 1_2'
@@ -984,7 +995,7 @@ def process_tahun(tahun):
             kode_rup_baru_s1 = cari_rup_baru(str(kd)) if pd.notna(kd) else ""
             data_s1.append({
                 'Kode Paket': pd.NA, 'Kode RUP': kd, 'Kode RUP Baru': kode_rup_baru_s1, 
-                'Nama Instansi': 'KAB. KOTAWARINGIN BARAT', 'Satuan Kerja': format_satker(r.get('nama_satker'), r.get('kd_satker_str')), 'Nama Paket': r.get('nama_paket'), 'Metode Pemilihan': r.get('metode_pengadaan'),
+                'Nama Instansi': 'KAB. KOTAWARINGIN BARAT', 'Satuan Kerja': r.get('nama_satker'), 'Nama Paket': r.get('nama_paket'), 'Metode Pemilihan': r.get('metode_pengadaan'),
                 'Jenis Pengadaan': r.get('jenis_pengadaan'), 'Tahun Anggaran': r.get('tahun_anggaran'), 'Sumber Dana': map_ang_p.get(kd_int, {}).get('sd', ''), 'MAK': map_ang_p.get(kd_int, {}).get('mak', ''), 'PDN': 'PDN' if r.get('status_pdn')=='PDN' else 'Non-PDN',
                 'UKM': 'UKM' if r.get('status_ukm')=='UKM' else 'Non-UKM', 'Nilai Pagu RUP': r.get('pagu'), 'Nilai Hasil Pemilihan': "",
                 'Tanggal Kontrak': "", 'Nama Penyedia': "", 'NPWP 15': "", 'NPWP 16': "", 'Alamat': "", 'Status': 'Pengumuman RUP', 'Nilai HPS': pd.NA, 'Nilai PDN': pd.NA, 'Nilai UMK': pd.NA,
@@ -1125,10 +1136,6 @@ def process_tahun(tahun):
         })
     df_rekap = pd.DataFrame(rekap_data)
 
-    with open(output_json, "w", encoding="utf-8") as f:
-        json.dump(final_df.to_dict(orient='records'), f, ensure_ascii=False, indent=2)
-    log_print(f"JSON Rekap sukses dibuat: {output_json}")
-
     kolom_angka_baku = ['Nilai Pagu RUP', 'Nilai Hasil Pemilihan', 'Nilai HPS', 'Nilai PDN', 'Nilai UMK']
     excel_df_detail = final_df.copy()
     for col in kolom_angka_baku:
@@ -1136,10 +1143,12 @@ def process_tahun(tahun):
             excel_df_detail[col] = excel_df_detail[col].apply(lambda x: safe_numeric(x) if safe_numeric(x) != 0 else "")
 
     tahun_label = str(df1['tahun_anggaran'].iloc[0]) if not df1.empty and 'tahun_anggaran' in df1.columns else str(tahun)
-    nama_file_excel = f'Paket Pengadaan Tahun {tahun_label} ({datetime.now().strftime("%Y-%m-%d")}).xlsx'
-    output_dir_excel = os.path.join(BASE_DIR, 'output', 'pengadaan', str(tahun))
-    os.makedirs(output_dir_excel, exist_ok=True)
-    output_excel_path = os.path.join(output_dir_excel, nama_file_excel)
+    
+    # Tambahkan kata "Manual" dan info tanggal arsip pada nama file
+    nama_file_excel = f'Paket Pengadaan Tahun {tahun_label} Manual Arsip {PILIH_TAHUN}-{PILIH_BULAN}-{PILIH_TANGGAL} ({datetime.now().strftime("%H%M%S")}).xlsx'
+    
+    # Arahkan penyimpanan langsung ke folder "data" (folder_utama)
+    output_excel_path = os.path.join(folder_utama, nama_file_excel)
 
     # === SIMPAN & STYLING EXCEL DENGAN PENGAMAN AUTO-CLOSE ===
     berhasil_simpan = False
@@ -1202,33 +1211,19 @@ def process_tahun(tahun):
             time.sleep(3)
     # ========================================================
     
-    try: shutil.copy2(output_excel_path, os.path.join(data_dir, f'master_pengadaan_{tahun}.xlsx'))
-    except: pass
-    kelola_arsip_bulanan(output_dir_excel, tahun)
-    update_daftar_arsip_json(output_dir_excel)
+    # Master copy & update daftar arsip JSON DIMATIKAN untuk mode manual
     
-    log_print(f'SELESAI GENERATE TAHUN {tahun} | Total data: {len(final_df)}')
+    log_print(f'SELESAI GENERATE MANUAL TAHUN {tahun} | Total data: {len(final_df)}')
     return len(final_df)
 
 
 def kirim_telegram_aman(pesan):
     if len(pesan) > 4000: pesan = pesan[:4000] + "\n...[TERPOTONG]"
-    import requests
-    import time
-    url = f"https://api.telegram.org/bot{config_rahasia.BOT_TOKEN}/sendMessage"
-    
-    for percobaan in range(1, 4):
-        try:
-            res = requests.post(url, data={"chat_id": config_rahasia.CHAT_ID, "text": pesan}, timeout=30)
-            if res.status_code != 200: 
-                log_print(f"🚨 GAGAL KIRIM TELEGRAM (STATUS {res.status_code}): {res.text}")
-            break
-        except Exception as e:
-            if percobaan < 3:
-                log_print(f"⚠️ Koneksi Telegram lambat. Mencoba ulang ({percobaan}/3)...")
-                time.sleep(5)
-            else:
-                log_print(f"🚨 GAGAL KONEKSI KE TELEGRAM (JARINGAN PUTUS): {str(e)}")
+    try:
+        import requests
+        res = requests.post(f"https://api.telegram.org/bot{config_rahasia.BOT_TOKEN}/sendMessage", data={"chat_id": config_rahasia.CHAT_ID, "text": pesan}, timeout=10)
+        if res.status_code != 200: log_print(f"🚨 GAGAL KIRIM TELEGRAM (STATUS {res.status_code}): {res.text}")
+    except Exception as e: log_print(f"🚨 GAGAL KONEKSI KE TELEGRAM: {str(e)}")
 
 
 if __name__ == '__main__':
@@ -1254,7 +1249,7 @@ if __name__ == '__main__':
             
         tahun_diproses = 0
         for t in daftar_tahun:
-            if t == tahun_n2 and os.path.exists(os.path.join(BASE_DIR, 'data', str(t), f'rekap_pengadaan_{t}.json')):
+            if not LOAD_DARI_ARSIP and t == tahun_n2 and os.path.exists(os.path.join(BASE_DIR, 'data', str(t), f'rekap_pengadaan_{t}.json')):
                 continue
             tahun_diproses += 1
             
@@ -1269,53 +1264,7 @@ if __name__ == '__main__':
 
     for t in daftar_tahun: process_tahun(t)
 
-    with open(os.path.join(BASE_DIR, "data", "last-update-pengadaan.txt"), "w", encoding='utf-8') as f:
-        f.write(get_waktu_indonesia())
-
-    # --- EKSEKUSI TEPRA ---
-    log_print("\n" + "="*50)
-    log_print("START GENERATE TEPRA")
-    status_tepra = "✅ Data TEPRA berhasil dibuat."
-    try:
-        path_tepra = os.path.join(BASE_DIR, 'scripts', 'pengadaan', 'generate_tepra.py')
-        res_tepra = subprocess.run([sys.executable, path_tepra], capture_output=True, text=True)
-        if res_tepra.returncode == 0:
-            log_print("PROSES TEPRA SUKSES\n" + res_tepra.stdout.strip())
-        else:
-            log_print(f"GAGAL PROSES TEPRA:\n{res_tepra.stderr}")
-            status_tepra = "⚠️ Gagal membuat data TEPRA (Cek Log)."
-    except Exception as e:
-        log_print(f"ERROR TEPRA: {str(e)}")
-        status_tepra = "⚠️ Error sistem saat eksekusi TEPRA."
-    # ----------------------
-
-    # 1. PUSH KE GITHUB
-    git_sukses, pesan_git = sync_to_github()
-
-    # --- MENGHITUNG DURASI TOTAL & AUTO DELETE ---
-    durasi_str = "Tidak diketahui"
-    file_start = os.path.join(BASE_DIR, 'tools', 'start_time_pengadaan.txt')
-    if os.path.exists(file_start):
-        try:
-            with open(file_start, 'r') as f:
-                waktu_mulai = float(f.read().strip())
-            durasi_detik = int(time.time() - waktu_mulai)
-            durasi_str = str(timedelta(seconds=durasi_detik))
-            os.remove(file_start) # Auto-delete file sementara
-        except: pass
-    # ---------------------------------------------
-
-    # 2. KIRIM TELEGRAM
-    if len(daftar_error_api) > 0 or not git_sukses:
-        pesan_ringkasan = "🚨 LAPORAN UPDATE SISTEM (PENGADAAN) 🚨\n\n"
-        if len(daftar_error_api) > 0:
-            teks_error = "⚠️ GAGAL DOWNLOAD API:\n" + "".join([f"{err.replace('_', ' ')}\n" for err in daftar_error_api])
-            if len(teks_error) > 3500: teks_error = teks_error[:3500] + "\n... [DAFTAR ERROR DIPOTONG] ...\n"
-            pesan_ringkasan += teks_error + "\n"
-        pesan_ringkasan += f"📊 STATUS TEPRA: {status_tepra}\n\n🌐 STATUS GITHUB:\n{pesan_git}\n\n⏱ Durasi Total: {durasi_str}\n📅 Waktu: {get_waktu_indonesia()}"
-        kirim_telegram_aman(pesan_ringkasan)
-    else:
-        pesan_sukses = f"✅ UPDATE PENGADAAN BERHASIL ✅\n\nSeluruh data berhasil diolah.\n📊 STATUS TEPRA: {status_tepra}\n\n🌐 STATUS GITHUB:\n{pesan_git}\n\n⏱ Durasi Total: {durasi_str}\n📅 Waktu: {get_waktu_indonesia()}"
-        kirim_telegram_aman(pesan_sukses)
-        
-    log_print(f"\nPROSES SELESAI SELURUHNYA PADA {get_waktu_indonesia()}")
+    log_print("\n" + "="*55)
+    log_print(f"✅ PROSES GENERATE MANUAL SELESAI PADA {get_waktu_indonesia()}")
+    log_print("Silakan cek file Excel Anda di dalam folder data.")
+    log_print("="*55)

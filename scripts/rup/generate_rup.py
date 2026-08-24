@@ -1,5 +1,7 @@
+### ini file generate_rup.py ###
+
 # ======================================================
-# 2. GENERATE RUP MULTI TAHUN (JSON + EXCEL + GIT + TELEGRAM)
+# GENERATE RUP MULTI TAHUN (JSON + EXCEL + GIT + TELEGRAM)
 # ======================================================
 import pandas as pd
 import json
@@ -98,16 +100,23 @@ def sync_to_github():
         return False, f"❌ Terjadi kesalahan pada eksekusi Git:\n`{str(e)}`"
 
 def kirim_telegram_aman(pesan):
-    if len(pesan) > 4000:
-        pesan = pesan[:4000] + "\n...[TERPOTONG]"
+    if len(pesan) > 4000: pesan = pesan[:4000] + "\n...[TERPOTONG]"
+    import requests
+    import time
     url = f"https://api.telegram.org/bot{config_rahasia.BOT_TOKEN}/sendMessage"
-    try:
-        import requests
-        res = requests.post(url, data={"chat_id": config_rahasia.CHAT_ID, "text": pesan}, timeout=10)
-        if res.status_code != 200:
-            log_print(f"🚨 GAGAL KIRIM TELEGRAM (STATUS {res.status_code}): {res.text}")
-    except Exception as e:
-        log_print(f"🚨 GAGAL KONEKSI KE TELEGRAM (JARINGAN PUTUS): {str(e)}")
+    
+    for percobaan in range(1, 4):
+        try:
+            res = requests.post(url, data={"chat_id": config_rahasia.CHAT_ID, "text": pesan}, timeout=30)
+            if res.status_code != 200:
+                log_print(f"🚨 GAGAL KIRIM TELEGRAM (STATUS {res.status_code}): {res.text}")
+            break
+        except Exception as e:
+            if percobaan < 3:
+                log_print(f"⚠️ Koneksi Telegram lambat. Mencoba ulang ({percobaan}/3)...")
+                time.sleep(5)
+            else:
+                log_print(f"🚨 GAGAL KONEKSI KE TELEGRAM (JARINGAN PUTUS): {str(e)}")
 
 def load_json_local(path):
     try:
@@ -208,7 +217,17 @@ def process_tahun(tahun):
     df_master = df_master[df_master['tahun_aktif'].astype(str).str.contains(str(tahun), na=False)]
     master_satker = df_master[['kd_satker', 'nama_satker']].drop_duplicates().dropna(subset=['kd_satker'])
     master_satker['kd_satker'] = master_satker['kd_satker'].astype(int)
-    master_satker.rename(columns={'nama_satker': 'Satuan Kerja'}, inplace=True)
+    
+    # Format Satuan Kerja menjadi "Nama Satker - Kode Satker"
+    def format_satker_master(row):
+        nama = str(row['nama_satker']).strip()
+        kd = str(row['kd_satker']).strip()
+        if pd.notna(row['nama_satker']) and nama.lower() not in ['nan', 'none', '']:
+            return f"{nama} - {kd}"
+        return kd
+
+    master_satker['Satuan Kerja'] = master_satker.apply(format_satker_master, axis=1)
+    master_satker.drop(columns=['nama_satker'], inplace=True)
 
     for d in [df_penyedia, df_swakelola, df_program, df_struktur]:
         if not d.empty and 'kd_satker' in d.columns:

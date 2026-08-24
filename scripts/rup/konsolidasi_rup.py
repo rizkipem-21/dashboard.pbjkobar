@@ -1,3 +1,5 @@
+### ini file konsolidasi_rup.py ###
+
 # ======================================================
 # GENERATE KONSOLIDASI RUP (SCRAPING DATA ANAK)
 # ======================================================
@@ -87,10 +89,22 @@ def sync_to_github():
 
 def kirim_telegram_aman(pesan):
     if len(pesan) > 4000: pesan = pesan[:4000] + "\n...[TERPOTONG]"
+    import requests
+    import time
     url = f"https://api.telegram.org/bot{config_rahasia.BOT_TOKEN}/sendMessage"
-    try:
-        requests.post(url, data={"chat_id": config_rahasia.CHAT_ID, "text": pesan}, timeout=10)
-    except: pass
+    
+    for percobaan in range(1, 4):
+        try:
+            res = requests.post(url, data={"chat_id": config_rahasia.CHAT_ID, "text": pesan}, timeout=30)
+            if res.status_code != 200:
+                log_print(f"🚨 GAGAL KIRIM TELEGRAM (STATUS {res.status_code}): {res.text}")
+            break
+        except Exception as e:
+            if percobaan < 3:
+                log_print(f"⚠️ Koneksi Telegram lambat. Mencoba ulang ({percobaan}/3)...")
+                time.sleep(5)
+            else:
+                log_print(f"🚨 GAGAL KONEKSI KE TELEGRAM (JARINGAN PUTUS): {str(e)}")
 
 def load_json_local(path):
     if not os.path.exists(path): return []
@@ -162,9 +176,23 @@ def get_dict_anggaran(filepath):
     for item in data:
         kd = item.get('kd_rup')
         if not kd: continue
-        if kd not in dict_anggaran: dict_anggaran[kd] = {'sd': [], 'mak': []}
+        if kd not in dict_anggaran: dict_anggaran[kd] = {'sd': [], 'mak': [], 'kd_keg': [], 'kd_sub': []}
+        
         if item.get('sumber_dana'): dict_anggaran[kd]['sd'].append(str(item.get('sumber_dana')))
         if item.get('mak'): dict_anggaran[kd]['mak'].append(str(item.get('mak')))
+        
+        keg = item.get('kd_kegiatan')
+        if pd.notna(keg) and str(keg).strip() not in ["", "nan", "None"]:
+            try: kd_keg_cln = str(int(float(keg)))
+            except: kd_keg_cln = str(keg).strip()
+            dict_anggaran[kd]['kd_keg'].append(kd_keg_cln)
+            
+        sub = item.get('kd_subkegiatan')
+        if pd.notna(sub) and str(sub).strip() not in ["", "nan", "None"]:
+            try: kd_sub_cln = str(int(float(sub)))
+            except: kd_sub_cln = str(sub).strip()
+            dict_anggaran[kd]['kd_sub'].append(kd_sub_cln)
+            
     return dict_anggaran
 
 def get_dict_lokasi(filepath):
@@ -174,9 +202,18 @@ def get_dict_lokasi(filepath):
     for item in data:
         kd = item.get('kd_rup')
         if not kd: continue
-        d_lok = item.get('detail_lokasi', [])
-        teks = [str(l.get('detil_lokasi')) for l in d_lok if isinstance(l, dict) and l.get('detil_lokasi')]
-        if teks: dict_lok[kd] = "; ".join(teks)
+        
+        d_lok = item.get('detail_lokasi')
+        
+        if isinstance(d_lok, list):
+            # Jika data berbentuk list
+            teks = [str(l.get('detil_lokasi', l.get('detail_lokasi', ''))) for l in d_lok if isinstance(l, dict)]
+            teks = [t for t in teks if t]
+            if teks: dict_lok[kd] = "; ".join(teks)
+        elif pd.notna(d_lok) and str(d_lok).strip():
+            # Jika data langsung berupa teks
+            dict_lok[kd] = str(d_lok).strip()
+            
     return dict_lok
 
 # ==============================================================
@@ -257,14 +294,68 @@ def process_tahun(tahun):
     p_terum = get_file_path(data_dir, "rup_paket-penyedia-terumumkan", tahun)
     p_ang   = get_file_path(data_dir, "rup_paket-anggaran-penyedia", tahun)
     p_det   = get_file_path(data_dir, "rup_paket-penyedia", tahun)
+    p_lok   = get_file_path(data_dir, "rup_paket-penyedia-lokasi", tahun)
+    
     s_terum = get_file_path(data_dir, "rup_paket-swakelola-terumumkan", tahun)
     s_ang   = get_file_path(data_dir, "rup_paket-anggaran-swakelola", tahun)
     s_det   = get_file_path(data_dir, "rup_paket-swakelola", tahun)
+    s_lok   = get_file_path(data_dir, "rup_paket-swakelola-lokasi", tahun)
+    
+    p_prog  = get_file_path(data_dir, "rup_program-master", tahun)
+    p_keg   = get_file_path(data_dir, "rup_kegiatan-master", tahun)
+    p_sub   = get_file_path(data_dir, "rup_sub-kegiatan-master", tahun)
 
-    dict_p_lok = get_dict_lokasi(p_det)
-    dict_s_lok = get_dict_lokasi(s_det)
+    # Panggil lokasi dari file lokasi khusus
+    dict_p_lok = get_dict_lokasi(p_lok)
+    dict_s_lok = get_dict_lokasi(s_lok)
     dict_p_ang = get_dict_anggaran(p_ang)
     dict_s_ang = get_dict_anggaran(s_ang)
+
+    df_prog = pd.DataFrame(load_json_local(p_prog))
+    df_keg = pd.DataFrame(load_json_local(p_keg))
+    df_sub = pd.DataFrame(load_json_local(p_sub))
+
+    def clean_kd(val):
+        if pd.isna(val) or str(val).strip() in ["", "nan", "None"]: return ""
+        try: return str(int(float(val)))
+        except: return str(val).strip()
+
+    map_prog = dict(zip(df_prog['kd_program_str'].astype(str).str.strip(), df_prog['nama_program'])) if not df_prog.empty and 'kd_program_str' in df_prog.columns else {}
+    
+    map_keg = {}
+    if not df_keg.empty and 'kd_kegiatan' in df_keg.columns:
+        for k, v in zip(df_keg['kd_kegiatan'], df_keg['nama_kegiatan']):
+            k_cln = clean_kd(k)
+            if k_cln: map_keg[k_cln] = str(v).strip()
+            
+    map_sub = {}
+    if not df_sub.empty and 'kd_subkegiatan' in df_sub.columns:
+        for k, v in zip(df_sub['kd_subkegiatan'], df_sub['nama_subkegiatan']):
+            k_cln = clean_kd(k)
+            if k_cln: map_sub[k_cln] = str(v).strip()
+
+    def get_nama_program(mak_list):
+        if not mak_list: return "-"
+        progs = []
+        for m in mak_list:
+            parts = str(m).strip().split('.')
+            if len(parts) >= 3:
+                kd_prog = f"{parts[0]}.{parts[1]}.{parts[2]}"
+                if kd_prog in map_prog: progs.append(map_prog[kd_prog])
+        return ", ".join(list(dict.fromkeys(progs))) if progs else "-"
+
+    def get_kegiatan_sub(kd_list, map_master):
+        if not kd_list: return "-"
+        hasil = [map_master[str(kd)] for kd in kd_list if str(kd) in map_master]
+        return ", ".join(list(dict.fromkeys(hasil))) if hasil else "-"
+
+    def format_satker(nama, kd):
+        n = str(nama).strip() if pd.notna(nama) and str(nama).lower() not in ['nan', 'none', ''] else ""
+        k = str(kd).strip() if pd.notna(kd) and str(kd).lower() not in ['nan', 'none', ''] else ""
+        try: k = str(int(float(k)))
+        except: pass
+        if n and k: return f"{n} - {k}"
+        return n if n else "-"
 
     list_final = []
     
@@ -287,7 +378,7 @@ def process_tahun(tahun):
             'Kode RUP': kd_induk,
             'Nama Paket': item.get('nama_paket', '-'),
             'Nama KLPD': item.get('nama_klpd', '-'),
-            'Satuan Kerja': item.get('nama_satker', '-'),
+            'Satuan Kerja': format_satker(item.get('nama_satker'), item.get('kd_satker_str')),
             'Tahun Anggaran': item.get('tahun_anggaran', '-'),
             'Lokasi Pekerjaan': dict_p_lok.get(kd_induk, '-'),
             'Volume Pekerjaan': item.get('volume_pekerjaan', '-'),
@@ -301,6 +392,9 @@ def process_tahun(tahun):
             'Pra DIPA / DPA': item.get('status_pradipa', '-'),
             'Sumber Dana': ", ".join(dict_p_ang.get(kd_induk, {}).get('sd', ['-'])) if kd_induk in dict_p_ang else '-',
             'MAK': ", ".join(dict_p_ang.get(kd_induk, {}).get('mak', ['-'])) if kd_induk in dict_p_ang else '-',
+            'Nama Program': get_nama_program(dict_p_ang.get(kd_induk, {}).get('mak', [])) if kd_induk in dict_p_ang else '-',
+            'Nama Kegiatan': get_kegiatan_sub(dict_p_ang.get(kd_induk, {}).get('kd_keg', []), map_keg) if kd_induk in dict_p_ang else '-',
+            'Nama Sub Kegiatan': get_kegiatan_sub(dict_p_ang.get(kd_induk, {}).get('kd_sub', []), map_sub) if kd_induk in dict_p_ang else '-',
             'Pagu': item.get('pagu', 0),
             'Jenis Pengadaan': item.get('jenis_pengadaan', '-'),
             'Metode Pemilihan': item.get('metode_pengadaan', '-'),
@@ -321,8 +415,19 @@ def process_tahun(tahun):
         # Gandakan baris sebanyak jumlah anak
         for anak in anak_konsolidasi:
             row_lengkap = base_induk.copy()
-            row_lengkap['Kode RUP Paket Terkonsolidasi'] = anak['Kode RUP Paket Terkonsolidasi']
+            kd_anak = anak['Kode RUP Paket Terkonsolidasi']
+            row_lengkap['Kode RUP Paket Terkonsolidasi'] = kd_anak
             row_lengkap['Nama Paket Terkonsolidasi'] = anak['Nama Paket Terkonsolidasi']
+            
+            # --- CEK LOKASI PEKERJAAN BERDASARKAN RUP ANAK (PENYEDIA) ---
+            lokasi_anak = "-"
+            if kd_anak and str(kd_anak).strip().isdigit():
+                kd_anak_int = int(str(kd_anak).strip())
+                lokasi_anak = dict_p_lok.get(kd_anak_int, dict_p_lok.get(str(kd_anak).strip(), "-"))
+            
+            row_lengkap['Lokasi Pekerjaan'] = lokasi_anak
+            # -----------------------------------------------------------
+            
             list_final.append(row_lengkap)
 
     # 4. Proses List SWAKELOLA (Sangat jarang ada Konsolidasi, tapi sebagai pengaman tetap disaring)
@@ -342,7 +447,7 @@ def process_tahun(tahun):
             'Kode RUP': kd_induk,
             'Nama Paket': item.get('nama_paket', '-'),
             'Nama KLPD': item.get('nama_klpd', '-'),
-            'Satuan Kerja': item.get('nama_satker', '-'),
+            'Satuan Kerja': format_satker(item.get('nama_satker'), item.get('kd_satker_str')),
             'Tahun Anggaran': item.get('tahun_anggaran', '-'),
             'Lokasi Pekerjaan': dict_s_lok.get(kd_induk, '-'),
             'Volume Pekerjaan': item.get('volume_pekerjaan', '-'),
@@ -356,6 +461,9 @@ def process_tahun(tahun):
             'Pra DIPA / DPA': '-',
             'Sumber Dana': ", ".join(dict_s_ang.get(kd_induk, {}).get('sd', ['-'])) if kd_induk in dict_s_ang else '-',
             'MAK': ", ".join(dict_s_ang.get(kd_induk, {}).get('mak', ['-'])) if kd_induk in dict_s_ang else '-',
+            'Nama Program': get_nama_program(dict_s_ang.get(kd_induk, {}).get('mak', [])) if kd_induk in dict_s_ang else '-',
+            'Nama Kegiatan': get_kegiatan_sub(dict_s_ang.get(kd_induk, {}).get('kd_keg', []), map_keg) if kd_induk in dict_s_ang else '-',
+            'Nama Sub Kegiatan': get_kegiatan_sub(dict_s_ang.get(kd_induk, {}).get('kd_sub', []), map_sub) if kd_induk in dict_s_ang else '-',
             'Pagu': item.get('pagu', 0),
             'Jenis Pengadaan': 'Swakelola',
             'Metode Pemilihan': f"Tipe {tipe}" if tipe.isdigit() else tipe,
@@ -375,8 +483,19 @@ def process_tahun(tahun):
         
         for anak in anak_konsolidasi:
             row_lengkap = base_induk.copy()
-            row_lengkap['Kode RUP Paket Terkonsolidasi'] = anak['Kode RUP Paket Terkonsolidasi']
+            kd_anak = anak['Kode RUP Paket Terkonsolidasi']
+            row_lengkap['Kode RUP Paket Terkonsolidasi'] = kd_anak
             row_lengkap['Nama Paket Terkonsolidasi'] = anak['Nama Paket Terkonsolidasi']
+            
+            # --- CEK LOKASI PEKERJAAN BERDASARKAN RUP ANAK (SWAKELOLA) ---
+            lokasi_anak = "-"
+            if kd_anak and str(kd_anak).strip().isdigit():
+                kd_anak_int = int(str(kd_anak).strip())
+                lokasi_anak = dict_s_lok.get(kd_anak_int, dict_s_lok.get(str(kd_anak).strip(), "-"))
+            
+            row_lengkap['Lokasi Pekerjaan'] = lokasi_anak
+            # -------------------------------------------------------------
+            
             list_final.append(row_lengkap)
 
     # 5. Gabungkan dan Export Excel
@@ -391,7 +510,8 @@ def process_tahun(tahun):
         'Kode RUP Paket Terkonsolidasi', 'Nama Paket Terkonsolidasi', 
         'Lokasi Pekerjaan', 'Volume Pekerjaan', 'Uraian Pekerjaan', 'Spesifikasi Pekerjaan', 
         'Produk Dalam Negeri', 'Usaha Kecil/Koperasi', 'Aspek Ekonomi', 'Aspek Sosial', 'Aspek Lingkungan', 
-        'Pra DIPA / DPA', 'Sumber Dana', 'MAK', 'Pagu', 'Jenis Pengadaan', 'Metode Pemilihan', 
+        'Pra DIPA / DPA', 'Sumber Dana', 'MAK', 'Nama Program', 'Nama Kegiatan', 'Nama Sub Kegiatan', 'Pagu', 
+        'Jenis Pengadaan', 'Metode Pemilihan', 
         'status konsolidasi', 'Tgl Awal Pemilihan', 'Tgl Akhir Pemilihan', 'Tgl Awal Kontrak', 'Tgl Akhir Kontrak', 
         'Tgl Awal Pemanfaatan', 'Tgl Akhir Pemanfaatan', 'Tgl Buat Paket', 'Tgl Pengumuman Paket', 
         'jenis paket', 'tanggal buat', 'tanggal pengumuman'
@@ -428,7 +548,7 @@ def process_tahun(tahun):
                 kolom_huruf = col[0].column_letter
                 
                 # Styling Lebar Dinamis
-                if kolom_nama in ['Nama Paket', 'Satuan Kerja', 'Nama Paket Terkonsolidasi', 'Lokasi Pekerjaan', 'Uraian Pekerjaan', 'Spesifikasi Pekerjaan']:
+                if kolom_nama in ['Nama Paket', 'Satuan Kerja', 'Nama Paket Terkonsolidasi', 'Lokasi Pekerjaan', 'Uraian Pekerjaan', 'Spesifikasi Pekerjaan', 'MAK', 'Nama Program', 'Nama Kegiatan', 'Nama Sub Kegiatan']:
                     ws.column_dimensions[kolom_huruf].width = 40
                 elif kolom_nama in ['Kode RUP', 'Kode RUP Paket Terkonsolidasi']:
                     ws.column_dimensions[kolom_huruf].width = 22
