@@ -67364,3 +67364,6 @@ GAGAL (Status 504)
 GAGAL (Status 504)
     -> [!] Menunggu 10 detik agar server Inaproc stabil...
 SUKSES
+SUKSES
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
