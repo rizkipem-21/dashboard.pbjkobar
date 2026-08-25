@@ -380,14 +380,14 @@
     "Satuan Kerja": "Instalasi Farmasi - 318436",
     "Pagu Program": 5257374241.0,
     "Pagu Pengadaan": 5082238023.0,
-    "Paket Penyedia": 39.0,
-    "RUP Penyedia": 5169025413.0,
+    "Paket Penyedia": 36.0,
+    "RUP Penyedia": 5082238023.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 39.0,
-    "Total RUP Terumumkan": 5169025413.0,
-    "Selisih RUP Terumumkan": 86787390.0,
-    "Persentase": 101.70766086923197
+    "Total Paket Terumumkan": 36.0,
+    "Total RUP Terumumkan": 5082238023.0,
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Kecamatan Arut Selatan - 104549",
@@ -939,14 +939,14 @@
     "Satuan Kerja": "Puskesmas Teluk Bogam - 318425",
     "Pagu Program": 1291889268.0,
     "Pagu Pengadaan": 1367194468.0,
-    "Paket Penyedia": 47.0,
-    "RUP Penyedia": 546608944.0,
+    "Paket Penyedia": 41.0,
+    "RUP Penyedia": 394353644.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 47.0,
-    "Total RUP Terumumkan": 546608944.0,
-    "Selisih RUP Terumumkan": -820585524.0,
-    "Persentase": 39.980336140447285
+    "Total Paket Terumumkan": 41.0,
+    "Total RUP Terumumkan": 394353644.0,
+    "Selisih RUP Terumumkan": -972840824.0,
+    "Persentase": 28.844005240664856
   },
   {
     "Satuan Kerja": "Rumah Potong Hewan Ruminansia - 318444",
