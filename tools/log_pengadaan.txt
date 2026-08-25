@@ -68754,3 +68754,9 @@ GAGAL (Status 504)
     -> [!] Menunggu 15 detik agar server Inaproc stabil...
 GAGAL (Status 504)
     -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+  -> [Aman] Proses terputus, mempertahankan file v1_rup_paket-penyedia_2026.json lama yang utuh.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
