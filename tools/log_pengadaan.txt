@@ -68760,3 +68760,149 @@ GAGAL (Status 504)
 DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
 GAGAL (Status 504)
     -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+  -> [Aman] Proses terputus, mempertahankan file v1_rup_paket-swakelola-terumumkan_2026.json lama yang utuh.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-anggaran-swakelola?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_paket-anggaran-swakelola_2026.json (Total: 754 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola?kode_klpd=D228&tahun=2026&limit=1000
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+SUKSES
+  -> Disimpan ke v1_rup_paket-swakelola_2026.json (Total: 57 baris)
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-bapbast?kode_klpd=D228&tahun=2026
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+  -> [Aman] Server gagal diakses, mempertahankan file Legacy_tender_non-tender-ekontrak-bapbast_2026.json.
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-spmkspp?kode_klpd=D228&tahun=2026
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+  -> [Aman] Server gagal diakses, mempertahankan file Legacy_tender_non-tender-ekontrak-spmkspp_2026.json.
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-sppbj?kode_klpd=D228&tahun=2026
+
+=======================================================
+START DOWNLOAD PENGADAAN 26 Agustus 2026 | 05.06 WIB
+=======================================================
+
+=======================================================
+   DOWNLOAD DATA TAHUN 2026
+=======================================================
+
+[BACKUP] v1_ekatalog_paket-e-purchasing_2026.json di-copy ke arsip 2026-08-25/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/ekatalog/paket-e-purchasing?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_ekatalog_paket-e-purchasing_2026.json (Total: 500 baris)
+
+[BACKUP] v1_ekatalog-archive_instansi-satker_2026.json di-copy ke arsip 2026-08-25/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/ekatalog-archive/instansi-satker?kode_klpd=D228&limit=1000
+SUKSES
+  -> Disimpan ke v1_ekatalog-archive_instansi-satker_2026.json (Total: 122 baris)
+
+[BACKUP] v1_ekatalog-archive_paket-e-purchasing_2026.json di-copy ke arsip 2026-08-10/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/ekatalog-archive/paket-e-purchasing?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> [Aman] Data API kosong (null), mempertahankan file v1_ekatalog-archive_paket-e-purchasing_2026.json lama yang utuh.
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/kegiatan-master?kode_klpd=D228&tahun=2026
+SUKSES
+
+[BACKUP] Legacy_rup_sub-kegiatan-master_2026.json di-copy ke arsip 2026-08-25/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/sub-kegiatan-master?kode_klpd=D228&tahun=2026
+SUKSES
+
+[BACKUP] v1_rup_history-kaji-ulang_2026.json di-copy ke arsip 2026-08-25/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/history-kaji-ulang?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_rup_history-kaji-ulang_2026.json (Total: 3854 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/program-master?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_program-master_2026.json (Total: 253 baris)
+
+[BACKUP] v1_rup_paket-penyedia-terumumkan_2026.json di-copy ke arsip 2026-08-25/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_rup_paket-penyedia-terumumkan_2026.json (Total: 4884 baris)
+
+[BACKUP] v1_rup_paket-anggaran-penyedia_2026.json di-copy ke arsip 2026-08-25/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-anggaran-penyedia?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_rup_paket-anggaran-penyedia_2026.json (Total: 10699 baris)
+
+[BACKUP] v1_rup_paket-penyedia_2026.json di-copy ke arsip 2026-08-25/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_rup_paket-penyedia_2026.json (Total: 11795 baris)
+
+[BACKUP] v1_rup_paket-swakelola-terumumkan_2026.json di-copy ke arsip 2026-08-25/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_paket-swakelola-terumumkan_2026.json (Total: 57 baris)
+
+[BACKUP] v1_rup_paket-anggaran-swakelola_2026.json di-copy ke arsip 2026-08-25/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-anggaran-swakelola?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_paket-anggaran-swakelola_2026.json (Total: 754 baris)
+
+[BACKUP] v1_rup_paket-swakelola_2026.json di-copy ke arsip 2026-08-25/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_paket-swakelola_2026.json (Total: 57 baris)
+
+[BACKUP] Legacy_tender_non-tender-ekontrak-bapbast_2026.json di-copy ke arsip 2026-08-25/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-bapbast?kode_klpd=D228&tahun=2026
