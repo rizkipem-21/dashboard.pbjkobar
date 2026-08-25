@@ -380,14 +380,14 @@
     "Satuan Kerja": "Instalasi Farmasi - 318436",
     "Pagu Program": 5257374241.0,
     "Pagu Pengadaan": 5082238023.0,
-    "Paket Penyedia": 34.0,
-    "RUP Penyedia": 5051110023.0,
+    "Paket Penyedia": 39.0,
+    "RUP Penyedia": 5169025413.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 34.0,
-    "Total RUP Terumumkan": 5051110023.0,
-    "Selisih RUP Terumumkan": -31128000.0,
-    "Persentase": 99.38751392872337
+    "Total Paket Terumumkan": 39.0,
+    "Total RUP Terumumkan": 5169025413.0,
+    "Selisih RUP Terumumkan": 86787390.0,
+    "Persentase": 101.70766086923197
   },
   {
     "Satuan Kerja": "Kecamatan Arut Selatan - 104549",
@@ -939,14 +939,14 @@
     "Satuan Kerja": "Puskesmas Teluk Bogam - 318425",
     "Pagu Program": 1291889268.0,
     "Pagu Pengadaan": 1367194468.0,
-    "Paket Penyedia": 19.0,
-    "RUP Penyedia": 320865383.0,
+    "Paket Penyedia": 47.0,
+    "RUP Penyedia": 546608944.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 19.0,
-    "Total RUP Terumumkan": 320865383.0,
-    "Selisih RUP Terumumkan": -1046329085.0,
-    "Persentase": 23.46889125944006
+    "Total Paket Terumumkan": 47.0,
+    "Total RUP Terumumkan": 546608944.0,
+    "Selisih RUP Terumumkan": -820585524.0,
+    "Persentase": 39.980336140447285
   },
   {
     "Satuan Kerja": "Rumah Potong Hewan Ruminansia - 318444",
@@ -1004,14 +1004,14 @@
     "Satuan Kerja": "Sekretariat DPRD - 101281",
     "Pagu Program": 16485728018.0,
     "Pagu Pengadaan": 8905641688.0,
-    "Paket Penyedia": 132.0,
-    "RUP Penyedia": 7895641688.0,
+    "Paket Penyedia": 133.0,
+    "RUP Penyedia": 8755641688.0,
     "Paket Swakelola": 1.0,
     "RUP Swakelola": 150000000.0,
-    "Total Paket Terumumkan": 133.0,
-    "Total RUP Terumumkan": 8045641688.0,
-    "Selisih RUP Terumumkan": -860000000.0,
-    "Persentase": 90.3432000732882
+    "Total Paket Terumumkan": 134.0,
+    "Total RUP Terumumkan": 8905641688.0,
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Sekretariat Daerah - 98763",
