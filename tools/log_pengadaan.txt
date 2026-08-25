@@ -68906,3 +68906,11 @@ SUKSES
 
 [BACKUP] Legacy_tender_non-tender-ekontrak-bapbast_2026.json di-copy ke arsip 2026-08-25/2026
 DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-bapbast?kode_klpd=D228&tahun=2026
+GAGAL (Status 504)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 504)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+SUKSES
+
+[BACKUP] Legacy_tender_non-tender-ekontrak-spmkspp_2026.json di-copy ke arsip 2026-08-25/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-spmkspp?kode_klpd=D228&tahun=2026
