@@ -69431,3 +69431,28 @@ SUKSES
   -> Disimpan ke v1_tender_non-tender-pengumuman_2026.json (Total: 566 baris)
 
 DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/non-tender-selesai?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_non-tender-selesai_2026.json (Total: 515 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/pencatatan-non-tender?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_pencatatan-non-tender_2026.json (Total: 81 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/pencatatan-non-tender-realisasi?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_pencatatan-non-tender-realisasi_2026.json (Total: 112 baris)
+
+[BACKUP] v1_tender_pencatatan-swakelola_2026.json di-copy ke arsip 2026-08-10/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/pencatatan-swakelola?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> [Aman] Data API kosong (null), mempertahankan file v1_tender_pencatatan-swakelola_2026.json lama yang utuh.
+
+[BACKUP] v1_tender_pencatatan-swakelola-realisasi_2026.json di-copy ke arsip 2026-08-20/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/pencatatan-swakelola-realisasi?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> [Aman] Data API kosong (null), mempertahankan file v1_tender_pencatatan-swakelola-realisasi_2026.json lama yang utuh.
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-bapbast?kode_klpd=D228&tahun=2026
+SUKSES
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-spmkspp?kode_klpd=D228&tahun=2026
