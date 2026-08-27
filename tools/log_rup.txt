@@ -27248,3 +27248,24 @@ Untracked files:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
+
+[main 42d3e59] Auto update RUP 2026-08-28 05:11:24
+ 9 files changed, 74 insertions(+), 10 deletions(-)
+ delete mode 100644 output/rup/2026/Rekap RUP Tahun 2026 (2026-08-27).xlsx
+ create mode 100644 output/rup/2026/Rekap RUP Tahun 2026 (2026-08-28).xlsx
+
+
+fatal: Unable to persist credentials with the 'wincredman' credential store.
+See https://aka.ms/gcm/credstores for more information.
+fatal: Unable to persist credentials with the 'wincredman' credential store.
+See https://aka.ms/gcm/credstores for more information.
+To https://github.com/rizkipem-21/dashboard.pbjkobar.git
+   ef3a362..42d3e59  main -> main
+
+PUSH STATUS: 0  
+SELESAI 28/08/2026 05:11:28  
+PUSH GITHUB SUKSES!
+
+==================================================
+PROSES SELESAI SELURUHNYA PADA 28 Agustus 2026 | 05.11 WIB
+==================================================

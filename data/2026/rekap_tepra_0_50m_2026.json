@@ -468,16 +468,16 @@
     "Satuan Kerja": "Kecamatan Kumai - 7.01.0.00.0.00.01.0000",
     "Data Laporan_Paket": 109,
     "Data Laporan_Pagu": 622521476.0,
-    "Pemilihan_Paket": 11,
-    "Pemilihan_Pagu": 152171825.0,
-    "Hasil_Paket": 11,
-    "Hasil_Pagu": 145682100.0,
-    "Kontrak_Paket": 11,
-    "Kontrak_Pagu": 145682100.0,
+    "Pemilihan_Paket": 12,
+    "Pemilihan_Pagu": 193055123.0,
+    "Hasil_Paket": 12,
+    "Hasil_Pagu": 171411900.0,
+    "Kontrak_Paket": 12,
+    "Kontrak_Pagu": 171411900.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 98,
-    "Belum_Pagu": 470349651.0
+    "Belum_Paket": 97,
+    "Belum_Pagu": 429466353.0
   },
   {
     "Satuan Kerja": "Kecamatan Pangkalan Banteng - 7.01.0.00.0.00.06.0000",
@@ -586,8 +586,8 @@
   },
   {
     "Satuan Kerja": "Puskesmas Kotawaringin Lama - 1.02.0.00.0.00.01.0019",
-    "Data Laporan_Paket": 32,
-    "Data Laporan_Pagu": 196619887.0,
+    "Data Laporan_Paket": 33,
+    "Data Laporan_Pagu": 196969887.0,
     "Pemilihan_Paket": 0,
     "Pemilihan_Pagu": 0.0,
     "Hasil_Paket": 0,
@@ -596,8 +596,8 @@
     "Kontrak_Pagu": 0.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 32,
-    "Belum_Pagu": 196619887.0
+    "Belum_Paket": 33,
+    "Belum_Pagu": 196969887.0
   },
   {
     "Satuan Kerja": "Puskesmas Kumai - 1.02.0.00.0.00.01.0010",
@@ -871,17 +871,17 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 3914,
-    "Data Laporan_Pagu": 32416942683.0,
-    "Pemilihan_Paket": 375,
-    "Pemilihan_Pagu": 6130492940.0,
-    "Hasil_Paket": 375,
-    "Hasil_Pagu": 5685657858.6,
-    "Kontrak_Paket": 278,
-    "Kontrak_Pagu": 4255288646.0,
+    "Data Laporan_Paket": 3915,
+    "Data Laporan_Pagu": 32417292683.0,
+    "Pemilihan_Paket": 376,
+    "Pemilihan_Pagu": 6171376238.0,
+    "Hasil_Paket": 376,
+    "Hasil_Pagu": 5711387658.6,
+    "Kontrak_Paket": 279,
+    "Kontrak_Pagu": 4281018446.0,
     "SerahTerima_Paket": 88,
     "SerahTerima_Pagu": 619426796.0,
     "Belum_Paket": 3539,
-    "Belum_Pagu": 26286449743.0
+    "Belum_Pagu": 26245916445.0
   }
 ]
