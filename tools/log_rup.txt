@@ -26635,3 +26635,23 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
+
+[main ecef9fe] Auto update RUP 2026-08-27 10:04:00
+ 8 files changed, 127 insertions(+), 82 deletions(-)
+ delete mode 100644 scripts/rup/error_api_rup.json
+
+
+fatal: Unable to persist credentials with the 'wincredman' credential store.
+See https://aka.ms/gcm/credstores for more information.
+fatal: Unable to persist credentials with the 'wincredman' credential store.
+See https://aka.ms/gcm/credstores for more information.
+To https://github.com/rizkipem-21/dashboard.pbjkobar.git
+   12a9ee3..ecef9fe  main -> main
+
+PUSH STATUS: 0  
+SELESAI 27/08/2026 10:04:04  
+PUSH GITHUB SUKSES!
+
+==================================================
+PROSES SELESAI SELURUHNYA PADA 27 Agustus 2026 | 10.04 WIB
+==================================================
