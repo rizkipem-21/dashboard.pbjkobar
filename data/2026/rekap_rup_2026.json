@@ -183,7 +183,7 @@
   },
   {
     "Satuan Kerja": "Dinas Pekerjaan Umum dan Penataan Ruang - 1.03.0.00.0.00.01.0000",
-    "Pagu Program": 105714344580.0,
+    "Pagu Program": 109190451250.0,
     "Pagu Pengadaan": 105032048100.0,
     "Paket Penyedia": 385.0,
     "RUP Penyedia": 104997048100.0,
@@ -769,15 +769,15 @@
   {
     "Satuan Kerja": "Puskesmas Kotawaringin Lama - 1.02.0.00.0.00.01.0019",
     "Pagu Program": 1424797850.0,
-    "Pagu Pengadaan": 327199887.0,
-    "Paket Penyedia": 34.0,
-    "RUP Penyedia": 342569887.0,
+    "Pagu Pengadaan": 342919887.0,
+    "Paket Penyedia": 35.0,
+    "RUP Penyedia": 342919887.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 34.0,
-    "Total RUP Terumumkan": 342569887.0,
-    "Selisih RUP Terumumkan": 15370000.0,
-    "Persentase": 104.69743438511641
+    "Total Paket Terumumkan": 35.0,
+    "Total RUP Terumumkan": 342919887.0,
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Puskesmas Kumai - 1.02.0.00.0.00.01.0010",
