@@ -181,8 +181,8 @@
   },
   {
     "Satuan Kerja": "Dinas Pekerjaan Umum dan Penataan Ruang - 1.03.0.00.0.00.01.0000",
-    "Data Laporan_Paket": 142,
-    "Data Laporan_Pagu": 19564340479.0,
+    "Data Laporan_Paket": 145,
+    "Data Laporan_Pagu": 19884340479.0,
     "Pemilihan_Paket": 122,
     "Pemilihan_Pagu": 17216344778.0,
     "Hasil_Paket": 122,
@@ -191,8 +191,8 @@
     "Kontrak_Pagu": 12101060134.0,
     "SerahTerima_Paket": 1,
     "SerahTerima_Pagu": 72965295.0,
-    "Belum_Paket": 20,
-    "Belum_Pagu": 2347995701.0
+    "Belum_Paket": 23,
+    "Belum_Pagu": 2667995701.0
   },
   {
     "Satuan Kerja": "Dinas Pemadam Kebakaran dan Penyelamatan - 1.05.0.00.0.00.03.0000",
@@ -363,16 +363,16 @@
     "Satuan Kerja": "Dinas Sosial - 1.06.0.00.0.00.01.0000",
     "Data Laporan_Paket": 13,
     "Data Laporan_Pagu": 1113387305.0,
-    "Pemilihan_Paket": 0,
-    "Pemilihan_Pagu": 0.0,
-    "Hasil_Paket": 0,
-    "Hasil_Pagu": 0.0,
+    "Pemilihan_Paket": 1,
+    "Pemilihan_Pagu": 69750000.0,
+    "Hasil_Paket": 1,
+    "Hasil_Pagu": 69100000.0,
     "Kontrak_Paket": 0,
     "Kontrak_Pagu": 0.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 13,
-    "Belum_Pagu": 1113387305.0
+    "Belum_Paket": 12,
+    "Belum_Pagu": 1043637305.0
   },
   {
     "Satuan Kerja": "Dinas Tenaga Kerja dan Transmigrasi - 2.07.3.32.0.00.01.0000",
@@ -408,16 +408,16 @@
     "Satuan Kerja": "Instalasi Farmasi - 1.02.0.00.0.00.01.0022",
     "Data Laporan_Paket": 8,
     "Data Laporan_Pagu": 595373450.0,
-    "Pemilihan_Paket": 3,
-    "Pemilihan_Pagu": 273952950.0,
-    "Hasil_Paket": 3,
-    "Hasil_Pagu": 153319438.0,
-    "Kontrak_Paket": 3,
-    "Kontrak_Pagu": 153319438.0,
+    "Pemilihan_Paket": 4,
+    "Pemilihan_Pagu": 345935300.0,
+    "Hasil_Paket": 4,
+    "Hasil_Pagu": 154581508.0,
+    "Kontrak_Paket": 4,
+    "Kontrak_Pagu": 154581508.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 5,
-    "Belum_Pagu": 321420500.0
+    "Belum_Paket": 4,
+    "Belum_Pagu": 249438150.0
   },
   {
     "Satuan Kerja": "Kecamatan Arut Selatan - 7.01.0.00.0.00.02.0000",
@@ -871,17 +871,17 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 802,
-    "Data Laporan_Pagu": 94934096182.0,
-    "Pemilihan_Paket": 490,
-    "Pemilihan_Pagu": 62534243313.0,
-    "Hasil_Paket": 490,
-    "Hasil_Pagu": 60603596360.41,
-    "Kontrak_Paket": 239,
-    "Kontrak_Pagu": 28304577567.0,
+    "Data Laporan_Paket": 805,
+    "Data Laporan_Pagu": 95254096182.0,
+    "Pemilihan_Paket": 492,
+    "Pemilihan_Pagu": 62675975663.0,
+    "Hasil_Paket": 492,
+    "Hasil_Pagu": 60673958430.41,
+    "Kontrak_Paket": 240,
+    "Kontrak_Pagu": 28305839637.0,
     "SerahTerima_Paket": 7,
     "SerahTerima_Pagu": 513626623.0,
-    "Belum_Paket": 312,
-    "Belum_Pagu": 32399852869.0
+    "Belum_Paket": 313,
+    "Belum_Pagu": 32578120519.0
   }
 ]
