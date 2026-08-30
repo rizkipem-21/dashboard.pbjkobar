@@ -75626,3 +75626,6 @@ SUKSES
 [BACKUP] v1_rup_paket-penyedia-terumumkan_2025.json di-copy ke arsip 2026-08-29/2025
 DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2025&limit=1000
 SUKSES
+SUKSES
+SUKSES
+SUKSES
