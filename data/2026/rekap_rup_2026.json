@@ -185,14 +185,14 @@
     "Satuan Kerja": "Dinas Pekerjaan Umum dan Penataan Ruang - 1.03.0.00.0.00.01.0000",
     "Pagu Program": 109190451250.0,
     "Pagu Pengadaan": 105032048100.0,
-    "Paket Penyedia": 389.0,
-    "RUP Penyedia": 105682355300.0,
+    "Paket Penyedia": 420.0,
+    "RUP Penyedia": 108473154766.0,
     "Paket Swakelola": 1.0,
     "RUP Swakelola": 35000000.0,
-    "Total Paket Terumumkan": 390.0,
-    "Total RUP Terumumkan": 105717355300.0,
-    "Selisih RUP Terumumkan": 685307200.0,
-    "Persentase": 100.6524743755806
+    "Total Paket Terumumkan": 421.0,
+    "Total RUP Terumumkan": 108508154766.0,
+    "Selisih RUP Terumumkan": 3476106666.0,
+    "Persentase": 103.30956763091055
   },
   {
     "Satuan Kerja": "Dinas Pemadam Kebakaran dan Penyelamatan - 1.05.0.00.0.00.03.0000",
@@ -939,14 +939,14 @@
     "Satuan Kerja": "Puskesmas Teluk Bogam - 1.02.0.00.0.00.01.0011",
     "Pagu Program": 1291889268.0,
     "Pagu Pengadaan": 394353644.0,
-    "Paket Penyedia": 41.0,
-    "RUP Penyedia": 394353644.0,
+    "Paket Penyedia": 37.0,
+    "RUP Penyedia": 355094901.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 41.0,
-    "Total RUP Terumumkan": 394353644.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 100.0
+    "Total Paket Terumumkan": 37.0,
+    "Total RUP Terumumkan": 355094901.0,
+    "Selisih RUP Terumumkan": -39258743.0,
+    "Persentase": 90.04478756636011
   },
   {
     "Satuan Kerja": "Rumah Potong Hewan Ruminansia - 3.27.0.00.0.00.01.0001",

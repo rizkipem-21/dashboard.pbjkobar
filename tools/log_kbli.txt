@@ -3877,3 +3877,9 @@ Waktu Mulai: Selasa, 1 September 2026 | 05:01:05 WIB
 ✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297082309135 (+6 baris)
 
 ⏳ [57/59] Memproses Pesawat/Peralatan Konstruksi Lainnya dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297581032079
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297581032079 (+256 baris)
+
+⏳ [58/59] Memproses Sistem Manajemen Keselamatan Konstruksi dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15958208413199
+⚠️ PDF terbaca, namun tidak ada format tabel KBLI yang valid: https://bantuan.inaproc.id/hc/id-id/article_attachments/15958208413199
+
+⏳ [59/59] Memproses Tanaman dan Sarana Pendukung dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/12264744216719
