@@ -79035,3 +79035,13 @@ START GENERATE PENGADAAN 2 September 2026 | 05.06 WIB
    GENERATE DATA TAHUN 2026
 =======================================================
 JSON Rekap sukses dibuat: D:\dashboard.pbjkobar\data\2026\rekap_pengadaan_2026.json
+✅ EXCEL Pengadaan sukses dibuat: D:\dashboard.pbjkobar\output\pengadaan\2026\Paket Pengadaan Tahun 2026 (2026-09-02).xlsx
+✅ EXCEL Master sukses disalin: D:\dashboard.pbjkobar\data\2026\master_pengadaan_2026.xlsx
+📦 Arsip harian diamankan ke lokal: Paket Pengadaan Tahun 2026 (2026-09-01).xlsx
+📝 Daftar arsip JSON diperbarui: D:\dashboard.pbjkobar\output\pengadaan\2026\daftar_arsip.json
+SELESAI GENERATE TAHUN 2026 | Total data: 5024
+
+=======================================================
+   GENERATE DATA TAHUN 2025
+=======================================================
+JSON Rekap sukses dibuat: D:\dashboard.pbjkobar\data\2025\rekap_pengadaan_2025.json
