@@ -184,15 +184,15 @@
   {
     "Satuan Kerja": "Dinas Pekerjaan Umum dan Penataan Ruang - 1.03.0.00.0.00.01.0000",
     "Pagu Program": 109190451250.0,
-    "Pagu Pengadaan": 105032048100.0,
+    "Pagu Pengadaan": 108508154770.0,
     "Paket Penyedia": 420.0,
     "RUP Penyedia": 108473154766.0,
     "Paket Swakelola": 1.0,
     "RUP Swakelola": 35000000.0,
     "Total Paket Terumumkan": 421.0,
     "Total RUP Terumumkan": 108508154766.0,
-    "Selisih RUP Terumumkan": 3476106666.0,
-    "Persentase": 103.30956763091055
+    "Selisih RUP Terumumkan": -4.0,
+    "Persentase": 99.99999999631363
   },
   {
     "Satuan Kerja": "Dinas Pemadam Kebakaran dan Penyelamatan - 1.05.0.00.0.00.03.0000",
@@ -938,15 +938,15 @@
   {
     "Satuan Kerja": "Puskesmas Teluk Bogam - 1.02.0.00.0.00.01.0011",
     "Pagu Program": 1291889268.0,
-    "Pagu Pengadaan": 394353644.0,
+    "Pagu Pengadaan": 355094901.0,
     "Paket Penyedia": 37.0,
     "RUP Penyedia": 355094901.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
     "Total Paket Terumumkan": 37.0,
     "Total RUP Terumumkan": 355094901.0,
-    "Selisih RUP Terumumkan": -39258743.0,
-    "Persentase": 90.04478756636011
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Rumah Potong Hewan Ruminansia - 3.27.0.00.0.00.01.0001",
@@ -978,14 +978,14 @@
     "Satuan Kerja": "Rumah Sakit Umum Daerah Sultan Imanuddin - 1.02.0.00.0.00.01.0001",
     "Pagu Program": 136086000000.0,
     "Pagu Pengadaan": 85061928740.0,
-    "Paket Penyedia": 85.0,
-    "RUP Penyedia": 85061928740.0,
+    "Paket Penyedia": 87.0,
+    "RUP Penyedia": 85683636832.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 85.0,
-    "Total RUP Terumumkan": 85061928740.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 100.0
+    "Total Paket Terumumkan": 87.0,
+    "Total RUP Terumumkan": 85683636832.0,
+    "Selisih RUP Terumumkan": 621708092.0,
+    "Persentase": 100.73088877857485
   },
   {
     "Satuan Kerja": "Satuan Polisi Pamong Praja - 1.05.0.00.0.00.01.0000",
