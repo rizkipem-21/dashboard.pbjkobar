@@ -812,7 +812,7 @@
   {
     "Satuan Kerja": "Rumah Sakit Umum Daerah Sultan Imanuddin - 1.02.0.00.0.00.01.0001",
     "Data Laporan_Paket": 31,
-    "Data Laporan_Pagu": 3441387498.0,
+    "Data Laporan_Pagu": 3441387490.0,
     "Pemilihan_Paket": 1,
     "Pemilihan_Pagu": 50400000.0,
     "Hasil_Paket": 1,
@@ -822,7 +822,7 @@
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
     "Belum_Paket": 30,
-    "Belum_Pagu": 3390987498.0
+    "Belum_Pagu": 3390987490.0
   },
   {
     "Satuan Kerja": "Satuan Polisi Pamong Praja - 1.05.0.00.0.00.01.0000",
@@ -872,7 +872,7 @@
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
     "Data Laporan_Paket": 812,
-    "Data Laporan_Pagu": 96196052172.0,
+    "Data Laporan_Pagu": 96196052164.0,
     "Pemilihan_Paket": 492,
     "Pemilihan_Pagu": 62675975663.0,
     "Hasil_Paket": 492,
@@ -882,6 +882,6 @@
     "SerahTerima_Paket": 7,
     "SerahTerima_Pagu": 513626623.0,
     "Belum_Paket": 320,
-    "Belum_Pagu": 33520076509.0
+    "Belum_Pagu": 33520076501.0
   }
 ]
