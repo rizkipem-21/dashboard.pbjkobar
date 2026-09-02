@@ -91,8 +91,8 @@
   },
   {
     "Satuan Kerja": "Dinas Kepemudaan dan Olahraga - 2.19.0.00.0.00.01.0000",
-    "Data Laporan_Paket": 82,
-    "Data Laporan_Pagu": 837899282.0,
+    "Data Laporan_Paket": 81,
+    "Data Laporan_Pagu": 831899282.0,
     "Pemilihan_Paket": 4,
     "Pemilihan_Pagu": 53461794.0,
     "Hasil_Paket": 4,
@@ -101,8 +101,8 @@
     "Kontrak_Pagu": 53392478.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 78,
-    "Belum_Pagu": 784437488.0
+    "Belum_Paket": 77,
+    "Belum_Pagu": 778437488.0
   },
   {
     "Satuan Kerja": "Dinas Kependudukan dan Pencatatan Sipil - 2.12.0.00.0.00.01.0000",
@@ -871,8 +871,8 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 3933,
-    "Data Laporan_Pagu": 32558221446.0,
+    "Data Laporan_Paket": 3932,
+    "Data Laporan_Pagu": 32552221446.0,
     "Pemilihan_Paket": 379,
     "Pemilihan_Pagu": 6186288817.0,
     "Hasil_Paket": 379,
@@ -881,7 +881,7 @@
     "Kontrak_Pagu": 4289220946.0,
     "SerahTerima_Paket": 89,
     "SerahTerima_Pagu": 623034296.0,
-    "Belum_Paket": 3554,
-    "Belum_Pagu": 26371932629.0
+    "Belum_Paket": 3553,
+    "Belum_Pagu": 26365932629.0
   }
 ]
