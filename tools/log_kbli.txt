@@ -4423,3 +4423,63 @@ Waktu Mulai: Jumat, 4 September 2026 | 05:01:14 WIB
 ✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/10926652259087 (+193 baris)
 
 ⏳ [44/59] Memproses Peralatan Elektronik dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16430360268431
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16430360268431 (+305 baris)
+
+⏳ [45/59] Memproses Peralatan Kantor dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16430349909135
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16430349909135 (+269 baris)
+
+⏳ [46/59] Memproses Peralatan Olahraga dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16454944911119
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16454944911119 (+478 baris)
+
+⏳ [47/59] Memproses Peralatan Pendidikan dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/10926674517391
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/10926674517391 (+101 baris)
+
+⏳ [48/59] Memproses Perangkat Lunak/Software dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16730570119055
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16730570119055 (+36 baris)
+
+⏳ [49/59] Memproses Perawatan Tubuh dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16334278793871
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16334278793871 (+116 baris)
+
+⏳ [50/59] Memproses Perikanan dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16705466931471
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16705466931471 (+280 baris)
+
+⏳ [51/59] Memproses Perkakas dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16334299009167
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16334299009167 (+430 baris)
+
+⏳ [52/59] Memproses Perlengkapan Alat Tulis dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16730645513231
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16730645513231 (+243 baris)
+
+⏳ [53/59] Memproses Perlengkapan Spiritual Adat dan Keagamaan dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16334251126927
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16334251126927 (+22 baris)
+
+⏳ [54/59] Memproses Pesawat Angkat dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297058346127
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297058346127 (+134 baris)
+
+⏳ [55/59] Memproses Pesawat Angkut dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297080737423
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297080737423 (+79 baris)
+
+⏳ [56/59] Memproses Pesawat Tenaga dan Produksi dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297082309135
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297082309135 (+6 baris)
+
+⏳ [57/59] Memproses Pesawat/Peralatan Konstruksi Lainnya dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297581032079
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297581032079 (+256 baris)
+
+⏳ [58/59] Memproses Sistem Manajemen Keselamatan Konstruksi dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15958208413199
+⚠️ PDF terbaca, namun tidak ada format tabel KBLI yang valid: https://bantuan.inaproc.id/hc/id-id/article_attachments/15958208413199
+
+⏳ [59/59] Memproses Tanaman dan Sarana Pendukung dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/12264744216719
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/12264744216719 (+336 baris)
+🧹 Membersihkan data sel yang digabung (Forward Fill & Explode)...
+
+[INFO] Sedang mencari kamus di: data_master\kamus_pembersihan.csv
+[INFO] Kamus ditemukan! Memproses 2 kata perbaikan...
+[INFO] Pembersihan teks berhasil diterapkan ke semua kolom.
+
+🗑️ Berhasil membuang 196 baris data duplikat (Tabel berulang).
+💾 Menyimpan ke format JSON...
+✅ Selesai! 12615 baris data berhasil disimpan ke:
+📂 D:\dashboard.pbjkobar\data_master\data_kategori_inaproc.json
+==================================================
+PROSES SELESAI PADA: Jumat, 4 September 2026 | 05:10:05 WIB
+⏳ TOTAL DURASI PROSES: 0:08:50
+==================================================
