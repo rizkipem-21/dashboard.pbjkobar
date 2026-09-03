@@ -107,14 +107,14 @@
     "Satuan Kerja": "Dinas Kepemudaan dan Olahraga - 2.19.0.00.0.00.01.0000",
     "Pagu Program": 18225624424.0,
     "Pagu Pengadaan": 2454000424.0,
-    "Paket Penyedia": 87.0,
-    "RUP Penyedia": 2134664554.0,
+    "Paket Penyedia": 90.0,
+    "RUP Penyedia": 2379000424.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 87.0,
-    "Total RUP Terumumkan": 2134664554.0,
-    "Selisih RUP Terumumkan": -319335870.0,
-    "Persentase": 86.98713061021051
+    "Total Paket Terumumkan": 90.0,
+    "Total RUP Terumumkan": 2379000424.0,
+    "Selisih RUP Terumumkan": -75000000.0,
+    "Persentase": 96.9437658092271
   },
   {
     "Satuan Kerja": "Dinas Kependudukan dan Pencatatan Sipil - 2.12.0.00.0.00.01.0000",
@@ -184,15 +184,15 @@
   {
     "Satuan Kerja": "Dinas Pekerjaan Umum dan Penataan Ruang - 1.03.0.00.0.00.01.0000",
     "Pagu Program": 109190451250.0,
-    "Pagu Pengadaan": 108508154770.0,
+    "Pagu Pengadaan": 108508154766.0,
     "Paket Penyedia": 420.0,
     "RUP Penyedia": 108473154766.0,
     "Paket Swakelola": 1.0,
     "RUP Swakelola": 35000000.0,
     "Total Paket Terumumkan": 421.0,
     "Total RUP Terumumkan": 108508154766.0,
-    "Selisih RUP Terumumkan": -4.0,
-    "Persentase": 99.99999999631363
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Dinas Pemadam Kebakaran dan Penyelamatan - 1.05.0.00.0.00.03.0000",

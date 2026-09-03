@@ -81876,3 +81876,12 @@ SUKSES
 DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/pencatatan-non-tender?kode_klpd=D228&tahun=2025&limit=1000
 SUKSES
 SUKSES
+SUKSES
+  -> Disimpan ke v1_tender_pencatatan-non-tender_2025.json (Total: 2576 baris)
+
+[BACKUP] v1_tender_pencatatan-non-tender-realisasi_2025.json di-copy ke arsip 2026-09-03/2025
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/pencatatan-non-tender-realisasi?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
