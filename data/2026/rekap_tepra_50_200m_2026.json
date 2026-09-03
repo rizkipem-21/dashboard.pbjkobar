@@ -406,18 +406,18 @@
   },
   {
     "Satuan Kerja": "Instalasi Farmasi - 1.02.0.00.0.00.01.0022",
-    "Data Laporan_Paket": 8,
-    "Data Laporan_Pagu": 595373450.0,
-    "Pemilihan_Paket": 4,
-    "Pemilihan_Pagu": 345935300.0,
-    "Hasil_Paket": 4,
-    "Hasil_Pagu": 154581508.0,
-    "Kontrak_Paket": 4,
-    "Kontrak_Pagu": 154581508.0,
+    "Data Laporan_Paket": 5,
+    "Data Laporan_Pagu": 379426400.0,
+    "Pemilihan_Paket": 2,
+    "Pemilihan_Pagu": 201970600.0,
+    "Hasil_Paket": 2,
+    "Hasil_Pagu": 142419460.0,
+    "Kontrak_Paket": 2,
+    "Kontrak_Pagu": 142419460.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 4,
-    "Belum_Pagu": 249438150.0
+    "Belum_Paket": 3,
+    "Belum_Pagu": 177455800.0
   },
   {
     "Satuan Kerja": "Kecamatan Arut Selatan - 7.01.0.00.0.00.02.0000",
@@ -871,17 +871,17 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 809,
-    "Data Laporan_Pagu": 95882716294.0,
-    "Pemilihan_Paket": 492,
-    "Pemilihan_Pagu": 62675975663.0,
-    "Hasil_Paket": 492,
-    "Hasil_Pagu": 60673958430.41,
-    "Kontrak_Paket": 242,
-    "Kontrak_Pagu": 28562577087.0,
+    "Data Laporan_Paket": 806,
+    "Data Laporan_Pagu": 95666769244.0,
+    "Pemilihan_Paket": 490,
+    "Pemilihan_Pagu": 62532010963.0,
+    "Hasil_Paket": 490,
+    "Hasil_Pagu": 60661796382.41,
+    "Kontrak_Paket": 240,
+    "Kontrak_Pagu": 28550415039.0,
     "SerahTerima_Paket": 7,
     "SerahTerima_Pagu": 513626623.0,
-    "Belum_Paket": 317,
-    "Belum_Pagu": 33206740631.0
+    "Belum_Paket": 316,
+    "Belum_Pagu": 33134758281.0
   }
 ]
