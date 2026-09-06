@@ -1726,3 +1726,20 @@ MENGIRIM EXCEL DETAIL RUP KE GITHUB...
 ==================================================
 PROSES SELESAI | Durasi: 0:00:38
 ==================================================
+
+==================================================
+START GENERATE DETAIL RUP 7 September 2026 | 05.00 WIB
+==================================================
+
+--- MEMPROSES DETAIL TAHUN 2026 ---
+✅ EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Detail_RUP Tahun 2026 (2026-09-07).xlsx (4980 baris)
+
+--- MEMPROSES DETAIL TAHUN 2025 ---
+  -> [SKIP] Excel Tahun 2025 sudah ada (Final).
+
+--- MEMPROSES DETAIL TAHUN 2024 ---
+  -> [SKIP] Excel Tahun 2024 sudah ada (Final).
+
+==================================================
+MENGIRIM EXCEL DETAIL RUP KE GITHUB...
+==================================================

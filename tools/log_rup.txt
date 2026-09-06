@@ -31484,3 +31484,101 @@ PUSH GITHUB SUKSES!
 ==================================================
 PROSES SELESAI SELURUHNYA PADA 4 September 2026 | 12.03 WIB
 ==================================================
+
+==================================================
+START DOWNLOAD RUP 7 September 2026 | 04.58 WIB
+==================================================
+
+==================================================
+--- MENGUNDUH DATA TAHUN 2026 ---
+==================================================
+
+[Backup] Legacy_rup_kegiatan-master_2026.json di-copy ke arsip 2026-09-04/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/kegiatan-master?kode_klpd=D228&tahun=2026
+SUKSES
+
+[Backup] Legacy_rup_paket-penyedia-lokasi_2026.json di-copy ke arsip 2026-09-04/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/paket-penyedia-lokasi?kode_klpd=D228&tahun=2026
+SUKSES
+
+[Backup] Legacy_rup_paket-swakelola-lokasi_2026.json di-copy ke arsip 2026-09-04/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/paket-swakelola-lokasi?kode_klpd=D228&tahun=2026
+SUKSES
+
+[Backup] Legacy_rup_struktur-anggaran-pd_2026.json di-copy ke arsip 2026-09-04/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2026
+SUKSES
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/sub-kegiatan-master?kode_klpd=D228&tahun=2026
+SUKSES
+
+[Backup] v1_rup_master-satker_2026.json di-copy ke arsip 2026-09-04/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/master-satker?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_master-satker_2026.json (Total: 124 baris)
+
+[Backup] v1_rup_program-master_2026.json di-copy ke arsip 2026-09-04/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/program-master?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_program-master_2026.json (Total: 257 baris)
+
+[Backup] v1_rup_paket-penyedia-terumumkan_2026.json di-copy ke arsip 2026-09-04/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_rup_paket-penyedia-terumumkan_2026.json (Total: 4923 baris)
+
+[Backup] v1_rup_paket-anggaran-penyedia_2026.json di-copy ke arsip 2026-09-04/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-anggaran-penyedia?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_rup_paket-anggaran-penyedia_2026.json (Total: 10758 baris)
+
+[Backup] v1_rup_paket-penyedia_2026.json di-copy ke arsip 2026-09-04/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_rup_paket-penyedia_2026.json (Total: 11925 baris)
+
+[Backup] v1_rup_paket-swakelola-terumumkan_2026.json di-copy ke arsip 2026-09-04/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_paket-swakelola-terumumkan_2026.json (Total: 57 baris)
+
+[Backup] v1_rup_paket-anggaran-swakelola_2026.json di-copy ke arsip 2026-09-04/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-anggaran-swakelola?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_paket-anggaran-swakelola_2026.json (Total: 754 baris)
+
+[Backup] v1_rup_paket-swakelola_2026.json di-copy ke arsip 2026-09-04/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_paket-swakelola_2026.json (Total: 57 baris)
+
+[SKIP] Tahun 2025 sudah ada (final).
+
+[SKIP] Tahun 2024 sudah ada (final).
+
+PROSES DOWNLOAD SELESAI PADA 7 September 2026 | 04.59 WIB
