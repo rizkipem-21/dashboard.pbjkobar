@@ -348,16 +348,16 @@
     "Satuan Kerja": "Dinas Pemberdayaan Perempuan dan Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana - 2.08.2.14.0.00.01.0000",
     "Data Laporan_Paket": 6,
     "Data Laporan_Pagu": 610038436.0,
-    "Pemilihan_Paket": 2,
-    "Pemilihan_Pagu": 146351500.0,
-    "Hasil_Paket": 2,
-    "Hasil_Pagu": 137351371.0,
+    "Pemilihan_Paket": 3,
+    "Pemilihan_Pagu": 333375600.0,
+    "Hasil_Paket": 3,
+    "Hasil_Pagu": 321351371.0,
     "Kontrak_Paket": 2,
     "Kontrak_Pagu": 137351371.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 4,
-    "Belum_Pagu": 463686936.0
+    "Belum_Paket": 3,
+    "Belum_Pagu": 276662836.0
   },
   {
     "Satuan Kerja": "Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu - 2.18.0.00.0.00.01.0000",
@@ -947,7 +947,7 @@
   {
     "Satuan Kerja": "Rumah Sakit Umum Daerah Sultan Imanuddin - 1.02.0.00.0.00.01.0001",
     "Data Laporan_Paket": 31,
-    "Data Laporan_Pagu": 3426387490.0,
+    "Data Laporan_Pagu": 3366887490.0,
     "Pemilihan_Paket": 1,
     "Pemilihan_Pagu": 50400000.0,
     "Hasil_Paket": 1,
@@ -957,7 +957,7 @@
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
     "Belum_Paket": 30,
-    "Belum_Pagu": 3375987490.0
+    "Belum_Pagu": 3316487490.0
   },
   {
     "Satuan Kerja": "SEKRETARIAT DPRD - 4.02.0.00.0.00.01.0000",
@@ -1022,16 +1022,16 @@
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
     "Data Laporan_Paket": 812,
-    "Data Laporan_Pagu": 96181052164.0,
-    "Pemilihan_Paket": 497,
-    "Pemilihan_Pagu": 63037623042.0,
-    "Hasil_Paket": 497,
-    "Hasil_Pagu": 61034481738.41,
+    "Data Laporan_Pagu": 96121552164.0,
+    "Pemilihan_Paket": 498,
+    "Pemilihan_Pagu": 63224647142.0,
+    "Hasil_Paket": 498,
+    "Hasil_Pagu": 61218481738.41,
     "Kontrak_Paket": 245,
     "Kontrak_Pagu": 28763798745.0,
     "SerahTerima_Paket": 9,
     "SerahTerima_Pagu": 639056623.0,
-    "Belum_Paket": 315,
-    "Belum_Pagu": 33143429122.0
+    "Belum_Paket": 314,
+    "Belum_Pagu": 32896905022.0
   }
 ]
