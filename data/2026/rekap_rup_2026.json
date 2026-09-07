@@ -977,15 +977,15 @@
   {
     "Satuan Kerja": "Rumah Sakit Umum Daerah Sultan Imanuddin - 1.02.0.00.0.00.01.0001",
     "Pagu Program": 136086000000.0,
-    "Pagu Pengadaan": 85061928740.0,
-    "Paket Penyedia": 92.0,
-    "RUP Penyedia": 86416589628.0,
+    "Pagu Pengadaan": 86299630628.0,
+    "Paket Penyedia": 90.0,
+    "RUP Penyedia": 86299630628.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 92.0,
-    "Total RUP Terumumkan": 86416589628.0,
-    "Selisih RUP Terumumkan": 1354660888.0,
-    "Persentase": 101.59255839606065
+    "Total Paket Terumumkan": 90.0,
+    "Total RUP Terumumkan": 86299630628.0,
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Satuan Polisi Pamong Praja - 1.05.0.00.0.00.01.0000",
