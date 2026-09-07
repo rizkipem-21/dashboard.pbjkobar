@@ -80262,6 +80262,1356 @@
         "KBLI_2025_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian"
     },
     {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Perempuan",
+        "Kategori_Tingkat_III": "T-Shirt Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Perempuan",
+        "Kategori_Tingkat_III": "T-Shirt Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Perempuan",
+        "Kategori_Tingkat_III": "T-Shirt Berkerah Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Perempuan",
+        "Kategori_Tingkat_III": "T-Shirt Berkerah Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Perempuan",
+        "Kategori_Tingkat_III": "Dress Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Perempuan",
+        "Kategori_Tingkat_III": "Dress Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Perempuan",
+        "Kategori_Tingkat_III": "Blouse Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Perempuan",
+        "Kategori_Tingkat_III": "Blouse Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Perempuan",
+        "Kategori_Tingkat_III": "Luaran Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Perempuan",
+        "Kategori_Tingkat_III": "Luaran Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Perempuan",
+        "Kategori_Tingkat_III": "Pakaian Set Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Perempuan",
+        "Kategori_Tingkat_III": "Pakaian Set Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Perempuan",
+        "Kategori_Tingkat_III": "Pakaian Perempuan Lainnya",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Perempuan",
+        "Kategori_Tingkat_III": "Pakaian Perempuan Lainnya",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Batik dan Etnik Perempuan",
+        "Kategori_Tingkat_III": "Atasan Batik Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Batik dan Etnik Perempuan",
+        "Kategori_Tingkat_III": "Atasan Batik Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Batik dan Etnik Perempuan",
+        "Kategori_Tingkat_III": "Bawahan Batik Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Batik dan Etnik Perempuan",
+        "Kategori_Tingkat_III": "Bawahan Batik Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Batik dan Etnik Perempuan",
+        "Kategori_Tingkat_III": "Atasan Etnik Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Batik dan Etnik Perempuan",
+        "Kategori_Tingkat_III": "Atasan Etnik Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Batik dan Etnik Perempuan",
+        "Kategori_Tingkat_III": "Bawahan Etnik Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Batik dan Etnik Perempuan",
+        "Kategori_Tingkat_III": "Bawahan Etnik Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Batik dan Etnik Perempuan",
+        "Kategori_Tingkat_III": "Kain Batik dan Etnik Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Batik dan Etnik Perempuan",
+        "Kategori_Tingkat_III": "Kain Batik dan Etnik Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Muslim Perempuan",
+        "Kategori_Tingkat_III": "Atasan Muslim Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Muslim Perempuan",
+        "Kategori_Tingkat_III": "Atasan Muslim Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Muslim Perempuan",
+        "Kategori_Tingkat_III": "Bawahan Muslim Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Muslim Perempuan",
+        "Kategori_Tingkat_III": "Bawahan Muslim Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Muslim Perempuan",
+        "Kategori_Tingkat_III": "Dress Muslim Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Muslim Perempuan",
+        "Kategori_Tingkat_III": "Dress Muslim Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47713",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Muslim Perempuan",
+        "Kategori_Tingkat_III": "Luaran Muslim Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Muslim Perempuan",
+        "Kategori_Tingkat_III": "Luaran Muslim Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47713",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Muslim Perempuan",
+        "Kategori_Tingkat_III": "Hijab dan Jilbab",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Muslim Perempuan",
+        "Kategori_Tingkat_III": "Hijab dan Jilbab",
+        "KBLI_2020_Kode": "47713",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian",
+        "KBLI_2025_Kode": "47713",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Muslim Perempuan",
+        "Kategori_Tingkat_III": "Bawahan Muslim Perempuan",
+        "KBLI_2020_Kode": "47713",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian",
+        "KBLI_2025_Kode": "47713",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Muslim Perempuan",
+        "Kategori_Tingkat_III": "Perlengkapan Alat Sholat Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Muslim Perempuan",
+        "Kategori_Tingkat_III": "Perlengkapan Alat Sholat Perempuan",
+        "KBLI_2020_Kode": "47713",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian",
+        "KBLI_2025_Kode": "47713",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Muslim Perempuan",
+        "Kategori_Tingkat_III": "Aksesoris Muslim Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Muslim Perempuan",
+        "Kategori_Tingkat_III": "Aksesoris Muslim Perempuan",
+        "KBLI_2020_Kode": "47713",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian",
+        "KBLI_2025_Kode": "47713",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Dinas Perempuan",
+        "Kategori_Tingkat_III": "Seragam Dinas Harian Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Dinas Perempuan",
+        "Kategori_Tingkat_III": "Seragam Dinas Harian Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Dinas Perempuan",
+        "Kategori_Tingkat_III": "Seragam Dinas Lengkap Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Dinas Perempuan",
+        "Kategori_Tingkat_III": "Seragam Dinas Lengkap Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Dinas Perempuan",
+        "Kategori_Tingkat_III": "Seragam Dinas Upacara Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Dinas Perempuan",
+        "Kategori_Tingkat_III": "Seragam Dinas Upacara Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Dinas Perempuan",
+        "Kategori_Tingkat_III": "Seragam Sipil Lengkap Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Dinas Perempuan",
+        "Kategori_Tingkat_III": "Seragam Sipil Lengkap Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Dinas Perempuan",
+        "Kategori_Tingkat_III": "Seragam Dinas Olahraga Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Dinas Perempuan",
+        "Kategori_Tingkat_III": "Seragam Dinas Olahraga Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Dinas Perempuan",
+        "Kategori_Tingkat_III": "Atribut Seragam Dinas Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Dinas Perempuan",
+        "Kategori_Tingkat_III": "Atribut Seragam Dinas Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Dinas Perempuan",
+        "Kategori_Tingkat_III": "Atribut Seragam Dinas Perempuan",
+        "KBLI_2020_Kode": "47713",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian",
+        "KBLI_2025_Kode": "47713",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Seragam SD / Sederajat Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Seragam SD / Sederajat Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Seragam SMP / Sederajat Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Seragam SMP / Sederajat Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Seragam SMA / SMK / Sederajat Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Seragam SMA / SMK / Sederajat Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Seragam Pramuka Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Seragam Pramuka Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Seragam Sekolah Olahraga Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Seragam Sekolah Olahraga Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Seragam Sekolah Perempuan Lainnya",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Seragam Sekolah Perempuan Lainnya",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Sepatu dan Kaos Kaki Sekolah Perempuan",
+        "KBLI_2020_Kode": "46413",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Alas Kaki",
+        "KBLI_2025_Kode": "46413",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Alas Kaki"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Sepatu dan Kaos Kaki Sekolah Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Sepatu dan Kaos Kaki Sekolah Perempuan",
+        "KBLI_2020_Kode": "47712",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Sepatu, Sandal dan Alas Kaki Lainnya",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Sepatu dan Kaos Kaki Sekolah Perempuan",
+        "KBLI_2020_Kode": "47713",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian",
+        "KBLI_2025_Kode": "47713",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Atribut Seragam Sekolah Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Atribut Seragam Sekolah Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Sekolah Perempuan",
+        "Kategori_Tingkat_III": "Atribut Seragam Sekolah Perempuan",
+        "KBLI_2020_Kode": "47713",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian",
+        "KBLI_2025_Kode": "47713",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Narapidana Perempuan",
+        "Kategori_Tingkat_III": "Pakaian Seragam Harian Narapidana Anak Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Narapidana Perempuan",
+        "Kategori_Tingkat_III": "Pakaian Seragam Harian Narapidana Anak Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Narapidana Perempuan",
+        "Kategori_Tingkat_III": "Pakaian Seragam Harian Narapidana Perempuan Dewasa",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Seragam Narapidana Perempuan",
+        "Kategori_Tingkat_III": "Pakaian Seragam Harian Narapidana Perempuan Dewasa",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Dalam Perempuan",
+        "Kategori_Tingkat_III": "BH dan Kutang Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Dalam Perempuan",
+        "Kategori_Tingkat_III": "BH dan Kutang Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Dalam Perempuan",
+        "Kategori_Tingkat_III": "Celana Dalam Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Dalam Perempuan",
+        "Kategori_Tingkat_III": "Celana Dalam Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Dalam Perempuan",
+        "Kategori_Tingkat_III": "Pakaian Tidur dan Piyama Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Pakaian Dalam Perempuan",
+        "Kategori_Tingkat_III": "Pakaian Tidur dan Piyama Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Celana Perempuan",
+        "Kategori_Tingkat_III": "Celana Kulot Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Celana Perempuan",
+        "Kategori_Tingkat_III": "Celana Kulot Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Celana Perempuan",
+        "Kategori_Tingkat_III": "Celana Panjang Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Celana Perempuan",
+        "Kategori_Tingkat_III": "Celana Panjang Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Celana Perempuan",
+        "Kategori_Tingkat_III": "Celana Panjang Jeans Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Celana Perempuan",
+        "Kategori_Tingkat_III": "Celana Panjang Jeans Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Celana Perempuan",
+        "Kategori_Tingkat_III": "Celana Legging Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Celana Perempuan",
+        "Kategori_Tingkat_III": "Celana Legging Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Celana Perempuan",
+        "Kategori_Tingkat_III": "Celana Pendek Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Celana Perempuan",
+        "Kategori_Tingkat_III": "Celana Pendek Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Celana Perempuan",
+        "Kategori_Tingkat_III": "Celana Rok Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Celana Perempuan",
+        "Kategori_Tingkat_III": "Celana Rok Perempuan",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Celana Perempuan",
+        "Kategori_Tingkat_III": "Celana Perempuan Lainnya",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Celana Perempuan",
+        "Kategori_Tingkat_III": "Celana Perempuan Lainnya",
+        "KBLI_2020_Kode": "47711",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pakaian",
+        "KBLI_2025_Kode": "47711",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Tas Perempuan",
+        "Kategori_Tingkat_III": "Tas Clutch Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Tas Perempuan",
+        "Kategori_Tingkat_III": "Tas Clutch Perempuan",
+        "KBLI_2020_Kode": "47714",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel Dan Sejenisnya",
+        "KBLI_2025_Kode": "47714",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel, dan Sejenisnya"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Tas Perempuan",
+        "Kategori_Tingkat_III": "Tas Ransel Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Tas Perempuan",
+        "Kategori_Tingkat_III": "Tas Ransel Perempuan",
+        "KBLI_2020_Kode": "47714",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel Dan Sejenisnya",
+        "KBLI_2025_Kode": "47714",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel, dan Sejenisnya"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Tas Perempuan",
+        "Kategori_Tingkat_III": "Tas Tangan Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Tas Perempuan",
+        "Kategori_Tingkat_III": "Tas Tangan Perempuan",
+        "KBLI_2020_Kode": "47714",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel Dan Sejenisnya",
+        "KBLI_2025_Kode": "47714",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel, dan Sejenisnya"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Tas Perempuan",
+        "Kategori_Tingkat_III": "Tas Bahu Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Tas Perempuan",
+        "Kategori_Tingkat_III": "Tas Bahu Perempuan",
+        "KBLI_2020_Kode": "47714",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel Dan Sejenisnya",
+        "KBLI_2025_Kode": "47714",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel, dan Sejenisnya"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Tas Perempuan",
+        "Kategori_Tingkat_III": "Tas Tote Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Tas Perempuan",
+        "Kategori_Tingkat_III": "Tas Tote Perempuan",
+        "KBLI_2020_Kode": "47714",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel Dan Sejenisnya",
+        "KBLI_2025_Kode": "47714",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel, dan Sejenisnya"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Tas Perempuan",
+        "Kategori_Tingkat_III": "Tas Perempuan Lainnya",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Tas Perempuan",
+        "Kategori_Tingkat_III": "Tas Perempuan Lainnya",
+        "KBLI_2020_Kode": "46499",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Berbagai Barang dan Perlengkapan Rumah Tangga Lainnya YTDL",
+        "KBLI_2025_Kode": "46496",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Tas, Dompet, Koper, Ransel, Dan Sejenisnya"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Tas Perempuan",
+        "Kategori_Tingkat_III": "Tas Perempuan Lainnya",
+        "KBLI_2020_Kode": "47714",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel Dan Sejenisnya",
+        "KBLI_2025_Kode": "47714",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel, dan Sejenisnya"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Jam Tangan Analog Perempuan",
+        "KBLI_2020_Kode": "46494",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Perhiasan Dan Jam",
+        "KBLI_2025_Kode": "46494",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Perhiasan Dan Jam"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Jam Tangan Analog Perempuan",
+        "KBLI_2020_Kode": "47734",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Jam",
+        "KBLI_2025_Kode": "47734",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Jam"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Jam Tangan Digital Perempuan",
+        "KBLI_2020_Kode": "46494",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Perhiasan Dan Jam",
+        "KBLI_2025_Kode": "46494",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Perhiasan Dan Jam"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Jam Tangan Digital Perempuan",
+        "KBLI_2020_Kode": "47734",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Jam",
+        "KBLI_2025_Kode": "47734",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Jam"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Aksesoris Jam Tangan Perempuan",
+        "KBLI_2020_Kode": "46494",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Perhiasan Dan Jam",
+        "KBLI_2025_Kode": "46494",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Perhiasan Dan Jam"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Aksesoris Jam Tangan Perempuan",
+        "KBLI_2020_Kode": "47734",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Jam",
+        "KBLI_2025_Kode": "47734",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Jam"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Perhiasan Perempuan",
+        "KBLI_2020_Kode": "46494",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Perhiasan Dan Jam",
+        "KBLI_2025_Kode": "46494",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Perhiasan Dan Jam"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Perhiasan Perempuan",
+        "KBLI_2020_Kode": "47735",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Barang Perhiasan",
+        "KBLI_2025_Kode": "47735",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Barang Perhiasan"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Topi Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Topi Perempuan",
+        "KBLI_2020_Kode": "47713",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian",
+        "KBLI_2025_Kode": "47713",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Scarf Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Scarf Perempuan",
+        "KBLI_2020_Kode": "47713",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian",
+        "KBLI_2025_Kode": "47713",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Masker Non Medis Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Masker Non Medis Perempuan",
+        "KBLI_2020_Kode": "47713",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian",
+        "KBLI_2025_Kode": "47713",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Ikat Pinggang Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Ikat Pinggang Perempuan",
+        "KBLI_2020_Kode": "47713",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian",
+        "KBLI_2025_Kode": "47713",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Kacamata Perempuan",
+        "KBLI_2020_Kode": "46430",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Alat Fotografi dan Barang Optik",
+        "KBLI_2025_Kode": "46430",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Alat Fotografi dan Barang Optik"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Kacamata Perempuan",
+        "KBLI_2020_Kode": "47733",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Kaca Mata",
+        "KBLI_2025_Kode": "47733",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Kaca Mata"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Kacamata Perempuan",
+        "KBLI_2020_Kode": "47714",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel Dan Sejenisnya",
+        "KBLI_2025_Kode": "47714",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel Dan Sejenisnya"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Dompet Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Dompet Perempuan",
+        "KBLI_2020_Kode": "47714",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel Dan Sejenisnya",
+        "KBLI_2025_Kode": "47714",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel Dan Sejenisnya"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Aksesoris Perempuan Lainnya",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Aksesoris Perempuan Lainnya",
+        "KBLI_2020_Kode": "47713",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel Dan Sejenisnya",
+        "KBLI_2025_Kode": "47713",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Aksesoris Perempuan",
+        "Kategori_Tingkat_III": "Aksesoris Perempuan Lainnya",
+        "KBLI_2020_Kode": "47714",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel Dan Sejenisnya",
+        "KBLI_2025_Kode": "47714",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Tas, Dompet, Koper, Ransel Dan Sejenisnya"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Sepatu dan Sandal Perempuan",
+        "Kategori_Tingkat_III": "Sepatu Sneakers Perempuan",
+        "KBLI_2020_Kode": "46413",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Alas Kaki",
+        "KBLI_2025_Kode": "46413",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Alas Kaki"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Sepatu dan Sandal Perempuan",
+        "Kategori_Tingkat_III": "Sepatu Sneakers Perempuan",
+        "KBLI_2020_Kode": "47712",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Sepatu, Sandal Dan Alas Kaki Lainnya",
+        "KBLI_2025_Kode": "47712",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Sepatu, Sandal Dan Alas Kaki Lainnya"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Sepatu dan Sandal Perempuan",
+        "Kategori_Tingkat_III": "Sepatu Slip On dan Loafer Perempuan",
+        "KBLI_2020_Kode": "46413",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Alas Kaki",
+        "KBLI_2025_Kode": "46413",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Alas Kaki"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Sepatu dan Sandal Perempuan",
+        "Kategori_Tingkat_III": "Sepatu Slip On dan Loafer Perempuan",
+        "KBLI_2020_Kode": "47712",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Sepatu, Sandal Dan Alas Kaki Lainnya",
+        "KBLI_2025_Kode": "47712",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Sepatu, Sandal Dan Alas Kaki Lainnya"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Sepatu dan Sandal Perempuan",
+        "Kategori_Tingkat_III": "Sepatu Heels Perempuan",
+        "KBLI_2020_Kode": "46413",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Alas Kaki",
+        "KBLI_2025_Kode": "46413",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Alas Kaki"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Sepatu dan Sandal Perempuan",
+        "Kategori_Tingkat_III": "Sepatu Heels Perempuan",
+        "KBLI_2020_Kode": "47712",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Sepatu, Sandal Dan Alas Kaki Lainnya",
+        "KBLI_2025_Kode": "47712",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Sepatu, Sandal Dan Alas Kaki Lainnya"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Sepatu dan Sandal Perempuan",
+        "Kategori_Tingkat_III": "Sepatu Wedges Perempuan",
+        "KBLI_2020_Kode": "46413",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Alas Kaki",
+        "KBLI_2025_Kode": "46413",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Alas Kaki"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Sepatu dan Sandal Perempuan",
+        "Kategori_Tingkat_III": "Sepatu Wedges Perempuan",
+        "KBLI_2020_Kode": "47712",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Sepatu, Sandal Dan Alas Kaki Lainnya",
+        "KBLI_2025_Kode": "47712",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Sepatu, Sandal Dan Alas Kaki Lainnya"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Sepatu dan Sandal Perempuan",
+        "Kategori_Tingkat_III": "Sepatu Boots Perempuan",
+        "KBLI_2020_Kode": "46413",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Alas Kaki",
+        "KBLI_2025_Kode": "46413",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Alas Kaki"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Sepatu dan Sandal Perempuan",
+        "Kategori_Tingkat_III": "Sepatu Boots Perempuan",
+        "KBLI_2020_Kode": "47712",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Sepatu, Sandal Dan Alas Kaki Lainnya",
+        "KBLI_2025_Kode": "47712",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Sepatu, Sandal Dan Alas Kaki Lainnya"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Sepatu dan Sandal Perempuan",
+        "Kategori_Tingkat_III": "Sepatu Dinas Perempuan",
+        "KBLI_2020_Kode": "46413",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Alas Kaki",
+        "KBLI_2025_Kode": "46413",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Alas Kaki"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Sepatu dan Sandal Perempuan",
+        "Kategori_Tingkat_III": "Sepatu Dinas Perempuan",
+        "KBLI_2020_Kode": "47712",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Sepatu, Sandal Dan Alas Kaki Lainnya",
+        "KBLI_2025_Kode": "47712",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Sepatu, Sandal Dan Alas Kaki Lainnya"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Sepatu dan Sandal Perempuan",
+        "Kategori_Tingkat_III": "Sandal Perempuan",
+        "KBLI_2020_Kode": "46413",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Alas Kaki",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Sepatu dan Sandal Perempuan",
+        "Kategori_Tingkat_III": "Sandal Perempuan",
+        "KBLI_2020_Kode": "47712",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Sepatu, Sandal Dan Alas Kaki Lainnya",
+        "KBLI_2025_Kode": "47713",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Sepatu dan Sandal Perempuan",
+        "Kategori_Tingkat_III": "Kaos Kaki Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "46412",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Pakaian"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Sepatu dan Sandal Perempuan",
+        "Kategori_Tingkat_III": "Kaos Kaki Perempuan",
+        "KBLI_2020_Kode": "47713",
+        "KBLI_2020_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian",
+        "KBLI_2025_Kode": "46413",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Alas Kaki"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Sepatu dan Sandal Perempuan",
+        "Kategori_Tingkat_III": "Aksesoris Sepatu Perempuan",
+        "KBLI_2020_Kode": "46412",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Pakaian",
+        "KBLI_2025_Kode": "47712",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Sepatu, Sandal Dan Alas Kaki Lainnya"
+    },
+    {
+        "Kategori_Tingkat_I": "Pakaian dan Aksesoris Perempuan",
+        "Kategori_Tingkat_II": "Sepatu dan Sandal Perempuan",
+        "Kategori_Tingkat_III": "Aksesoris Sepatu Perempuan",
+        "KBLI_2020_Kode": "46413",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Alas Kaki",
+        "KBLI_2025_Kode": "47713",
+        "KBLI_2025_Deskripsi": "Perdagangan Eceran Pelengkap Pakaian"
+    },
+    {
         "Kategori_Tingkat_I": "Pekerjaan Cetak Sawah",
         "Kategori_Tingkat_II": "Pekerjaan Persiapan Lahan Pertanian",
         "Kategori_Tingkat_III": "Mobilisasi dan Demobilisasi",
