@@ -32274,3 +32274,19 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
+
+[main 9d3a739] Auto update RUP 2026-09-07 12:05:18
+ 7 files changed, 83 insertions(+), 2 deletions(-)
+ delete mode 100644 scripts/rup/error_api_rup.json
+
+
+fatal: unable to access 'https://github.com/rizkipem-21/dashboard.pbjkobar.git/': Failed to connect to github.com port 443 after 21109 ms: Could not connect to server
+
+PUSH STATUS: 128  
+SELESAI 07/09/2026 12:05:45  
+GAGAL PUSH GITHUB: fatal: unable to access 'https://github.com/rizkipem-21/dashboard.pbjkobar.git/': Failed to connect to github.com port 443 after 21109 ms: Could not connect to server
+
+
+==================================================
+PROSES SELESAI SELURUHNYA PADA 7 September 2026 | 12.05 WIB
+==================================================
