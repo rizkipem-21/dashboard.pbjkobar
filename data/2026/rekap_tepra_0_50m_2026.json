@@ -348,16 +348,16 @@
     "Satuan Kerja": "Dinas Pemberdayaan Perempuan dan Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana - 2.08.2.14.0.00.01.0000",
     "Data Laporan_Paket": 121,
     "Data Laporan_Pagu": 794109241.0,
-    "Pemilihan_Paket": 5,
-    "Pemilihan_Pagu": 99927566.0,
-    "Hasil_Paket": 5,
-    "Hasil_Pagu": 94276500.0,
+    "Pemilihan_Paket": 6,
+    "Pemilihan_Pagu": 107342366.0,
+    "Hasil_Paket": 6,
+    "Hasil_Pagu": 101626500.0,
     "Kontrak_Paket": 2,
     "Kontrak_Pagu": 54226500.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 116,
-    "Belum_Pagu": 694181675.0
+    "Belum_Paket": 115,
+    "Belum_Pagu": 686766875.0
   },
   {
     "Satuan Kerja": "Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu - 2.18.0.00.0.00.01.0000",
@@ -1023,15 +1023,15 @@
     "Satuan Kerja": "TOTAL KESELURUHAN",
     "Data Laporan_Paket": 3936,
     "Data Laporan_Pagu": 32605425242.0,
-    "Pemilihan_Paket": 384,
-    "Pemilihan_Pagu": 6220243617.0,
-    "Hasil_Paket": 384,
-    "Hasil_Pagu": 5739167118.6,
+    "Pemilihan_Paket": 385,
+    "Pemilihan_Pagu": 6227658417.0,
+    "Hasil_Paket": 385,
+    "Hasil_Pagu": 5746517118.6,
     "Kontrak_Paket": 287,
     "Kontrak_Pagu": 4312747906.0,
     "SerahTerima_Paket": 93,
     "SerahTerima_Pagu": 694677596.0,
-    "Belum_Paket": 3552,
-    "Belum_Pagu": 26385181625.0
+    "Belum_Paket": 3551,
+    "Belum_Pagu": 26377766825.0
   }
 ]
