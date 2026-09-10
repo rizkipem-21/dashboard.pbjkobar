@@ -429,8 +429,8 @@
     "Hasil_Pagu": 312310710.0,
     "Kontrak_Paket": 9,
     "Kontrak_Pagu": 216721950.0,
-    "SerahTerima_Paket": 5,
-    "SerahTerima_Pagu": 128427000.0,
+    "SerahTerima_Paket": 8,
+    "SerahTerima_Pagu": 186851850.0,
     "Belum_Paket": 82,
     "Belum_Pagu": 539889191.0
   },
@@ -601,8 +601,8 @@
   },
   {
     "Satuan Kerja": "Kecamatan Kumai - 7.01.0.00.0.00.01.0000",
-    "Data Laporan_Paket": 109,
-    "Data Laporan_Pagu": 622521476.0,
+    "Data Laporan_Paket": 108,
+    "Data Laporan_Pagu": 619121476.0,
     "Pemilihan_Paket": 13,
     "Pemilihan_Pagu": 194980123.0,
     "Hasil_Paket": 13,
@@ -611,8 +611,8 @@
     "Kontrak_Pagu": 173231900.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 96,
-    "Belum_Pagu": 427541353.0
+    "Belum_Paket": 95,
+    "Belum_Pagu": 424141353.0
   },
   {
     "Satuan Kerja": "Kecamatan Pangkalan Banteng - 7.01.0.00.0.00.06.0000",
@@ -1021,17 +1021,17 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 3934,
-    "Data Laporan_Pagu": 32605425242.0,
+    "Data Laporan_Paket": 3933,
+    "Data Laporan_Pagu": 32602025242.0,
     "Pemilihan_Paket": 385,
     "Pemilihan_Pagu": 6227658417.0,
     "Hasil_Paket": 385,
     "Hasil_Pagu": 5746517118.6,
     "Kontrak_Paket": 287,
     "Kontrak_Pagu": 4312747906.0,
-    "SerahTerima_Paket": 93,
-    "SerahTerima_Pagu": 694677596.0,
-    "Belum_Paket": 3549,
-    "Belum_Pagu": 26377766825.0
+    "SerahTerima_Paket": 96,
+    "SerahTerima_Pagu": 753102446.0,
+    "Belum_Paket": 3548,
+    "Belum_Pagu": 26374366825.0
   }
 ]
