@@ -83826,6 +83826,204 @@
         "KBLI_2025_Deskripsi": "Perdagangan Besar Mesin, Peralatan dan Perlengkapan Lainnya"
     },
     {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "AWOS",
+        "Kategori_Tingkat_III": "Sistem AWOS Kategori I",
+        "KBLI_2020_Kode": "26513",
+        "KBLI_2020_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik",
+        "KBLI_2025_Kode": "26513",
+        "KBLI_2025_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "AWOS",
+        "Kategori_Tingkat_III": "Sistem AWOS Kategori II",
+        "KBLI_2020_Kode": "26513",
+        "KBLI_2020_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik",
+        "KBLI_2025_Kode": "26513",
+        "KBLI_2025_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "AWOS",
+        "Kategori_Tingkat_III": "Sistem AWOS Kategori III",
+        "KBLI_2020_Kode": "26513",
+        "KBLI_2020_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik",
+        "KBLI_2025_Kode": "26513",
+        "KBLI_2025_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "AWOS",
+        "Kategori_Tingkat_III": "Sistem AWOS Portable",
+        "KBLI_2020_Kode": "26513",
+        "KBLI_2020_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik",
+        "KBLI_2025_Kode": "26513",
+        "KBLI_2025_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "Peralatan Operasional",
+        "Kategori_Tingkat_III": "Transmitter",
+        "KBLI_2020_Kode": "26513",
+        "KBLI_2020_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik",
+        "KBLI_2025_Kode": "26513",
+        "KBLI_2025_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "Pengamatan Udara Atas",
+        "Kategori_Tingkat_III": "Transmitter",
+        "KBLI_2020_Kode": "46521",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Suku Cadang Elektronik",
+        "KBLI_2025_Kode": "46521",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Suku Cadang Elektronik"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "Pengamatan Udara Atas",
+        "Kategori_Tingkat_III": "Transmitter",
+        "KBLI_2020_Kode": "46523",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Peralatan Telekomunikasi",
+        "KBLI_2025_Kode": "46523",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Peralatan Telekomunikasi"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "Pengamatan Udara Atas",
+        "Kategori_Tingkat_III": "Transmitter",
+        "KBLI_2020_Kode": "46599",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Mesin, Peralatan dan Perlengkapan Lainnya",
+        "KBLI_2025_Kode": "46599",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Mesin, Peralatan dan Perlengkapan Lainnya YTDL"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "Pengamatan Udara Atas",
+        "Kategori_Tingkat_III": "Balon Cuaca",
+        "KBLI_2020_Kode": "26513",
+        "KBLI_2020_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik",
+        "KBLI_2025_Kode": "26513",
+        "KBLI_2025_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "Pengamatan Udara Atas",
+        "Kategori_Tingkat_III": "Balon Cuaca",
+        "KBLI_2020_Kode": "46599",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Mesin, Peralatan dan Perlengkapan Lainnya",
+        "KBLI_2025_Kode": "46599",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Mesin, Peralatan dan Perlengkapan Lainnya YTDL"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "Pengamatan Udara Atas",
+        "Kategori_Tingkat_III": "Theodolite Pilot Balon",
+        "KBLI_2020_Kode": "26513",
+        "KBLI_2020_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik",
+        "KBLI_2025_Kode": "26513",
+        "KBLI_2025_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "Pengamatan Udara Atas",
+        "Kategori_Tingkat_III": "Theodolite Pilot Balon",
+        "KBLI_2020_Kode": "46599",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Mesin, Peralatan dan Perlengkapan Lainnya",
+        "KBLI_2025_Kode": "46599",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Mesin, Peralatan dan Perlengkapan Lainnya YTDL"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "Pengamatan Udara Atas",
+        "Kategori_Tingkat_III": "Tabung Gas Hidrogen Generator",
+        "KBLI_2020_Kode": "26513",
+        "KBLI_2020_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik",
+        "KBLI_2025_Kode": "26513",
+        "KBLI_2025_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "Pengamatan Udara Atas",
+        "Kategori_Tingkat_III": "Tabung Gas Hidrogen Generator",
+        "KBLI_2020_Kode": "46599",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Mesin, Peralatan dan Perlengkapan Lainnya",
+        "KBLI_2025_Kode": "46599",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Mesin, Peralatan dan Perlengkapan Lainnya YTDL"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "Pengamatan Udara Atas",
+        "Kategori_Tingkat_III": "Elektrolisa Hidrogen Generator",
+        "KBLI_2020_Kode": "26513",
+        "KBLI_2020_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik",
+        "KBLI_2025_Kode": "26513",
+        "KBLI_2025_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "Pengamatan Udara Atas",
+        "Kategori_Tingkat_III": "Elektrolisa Hidrogen Generator",
+        "KBLI_2020_Kode": "46599",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Mesin, Peralatan dan Perlengkapan Lainnya",
+        "KBLI_2025_Kode": "46599",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Mesin, Peralatan dan Perlengkapan Lainnya YTDL"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "Suku Cadang Bidang Meteorologi",
+        "Kategori_Tingkat_III": "Suku Cadang Bidang Meteorologi Publik",
+        "KBLI_2020_Kode": "46511",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Komputer dan Perlengkapan Komputer",
+        "KBLI_2025_Kode": "46511",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Komputer dan Perlengkapan Komputer"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "Suku Cadang Bidang Meteorologi",
+        "Kategori_Tingkat_III": "Suku Cadang Bidang Meteorologi Publik",
+        "KBLI_2020_Kode": "46591",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Mesin Kantor dan Industri Pengolahan, Suku Cadang dan Perlengkapannya",
+        "KBLI_2025_Kode": "46591",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Mesin Kantor dan Industri, Suku Cadang dan Perlengkapannya"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "Suku Cadang Bidang Meteorologi",
+        "Kategori_Tingkat_III": "Suku Cadang Bidang Meteorologi Maritim",
+        "KBLI_2020_Kode": "46511",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Komputer dan Perlengkapan Komputer",
+        "KBLI_2025_Kode": "46511",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Komputer dan Perlengkapan Komputer"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "Suku Cadang Bidang Meteorologi",
+        "Kategori_Tingkat_III": "Suku Cadang Bidang Meteorologi Maritim",
+        "KBLI_2020_Kode": "46591",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Mesin Kantor dan Industri Pengolahan, Suku Cadang dan Perlengkapannya",
+        "KBLI_2025_Kode": "46591",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Mesin Kantor dan Industri, Suku Cadang dan Perlengkapannya"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "Suku Cadang Bidang Meteorologi",
+        "Kategori_Tingkat_III": "Suku Cadang Bidang Meteorologi Penerbangan",
+        "KBLI_2020_Kode": "26513",
+        "KBLI_2020_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik",
+        "KBLI_2025_Kode": "26513",
+        "KBLI_2025_Deskripsi": "Industri Alat Ukur dan Alat Uji Elektronik"
+    },
+    {
+        "Kategori_Tingkat_I": "Peralatan Bidang Meteorologi",
+        "Kategori_Tingkat_II": "Suku Cadang Bidang Meteorologi",
+        "Kategori_Tingkat_III": "Suku Cadang Bidang Meteorologi Penerbangan",
+        "KBLI_2020_Kode": "46599",
+        "KBLI_2020_Deskripsi": "Perdagangan Besar Mesin, Peralatan dan Perlengkapan Lainnya",
+        "KBLI_2025_Kode": "46599",
+        "KBLI_2025_Deskripsi": "Perdagangan Besar Mesin, Peralatan dan Perlengkapan Lainnya YTDL"
+    },
+    {
         "Kategori_Tingkat_I": "Peralatan Bidang Modifikasi Cuaca",
         "Kategori_Tingkat_II": "Bahan Semai",
         "Kategori_Tingkat_III": "Bahan Semai Bubuk (Powder)",
