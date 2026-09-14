@@ -276,11 +276,11 @@
     "Satuan Kerja": "Dinas Perikanan dan Ketahanan Pangan - 2.09.3.25.0.00.01.0000",
     "Pagu Program": 8823032229.0,
     "Pagu Pengadaan": 8063419229.0,
-    "Paket Penyedia": 130.0,
+    "Paket Penyedia": 131.0,
     "RUP Penyedia": 8063419229.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 130.0,
+    "Total Paket Terumumkan": 131.0,
     "Total RUP Terumumkan": 8063419229.0,
     "Selisih RUP Terumumkan": 0.0,
     "Persentase": 100.0
@@ -431,15 +431,15 @@
   {
     "Satuan Kerja": "Kecamatan Kumai - 7.01.0.00.0.00.01.0000",
     "Pagu Program": 1656422000.0,
-    "Pagu Pengadaan": 943247000.0,
+    "Pagu Pengadaan": 939847000.0,
     "Paket Penyedia": 108.0,
     "RUP Penyedia": 771599698.0,
     "Paket Swakelola": 5.0,
     "RUP Swakelola": 168247302.0,
     "Total Paket Terumumkan": 113.0,
     "Total RUP Terumumkan": 939847000.0,
-    "Selisih RUP Terumumkan": -3400000.0,
-    "Persentase": 99.63954298290903
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Kecamatan Pangkalan Banteng - 7.01.0.00.0.00.06.0000",
