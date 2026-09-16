@@ -558,16 +558,16 @@
     "Satuan Kerja": "Kecamatan Arut Selatan - 7.01.0.00.0.00.02.0000",
     "Data Laporan_Paket": 173,
     "Data Laporan_Pagu": 1076116871.0,
-    "Pemilihan_Paket": 9,
-    "Pemilihan_Pagu": 114722901.0,
-    "Hasil_Paket": 9,
-    "Hasil_Pagu": 111937628.0,
-    "Kontrak_Paket": 7,
-    "Kontrak_Pagu": 43117628.0,
+    "Pemilihan_Paket": 10,
+    "Pemilihan_Pagu": 124972901.0,
+    "Hasil_Paket": 10,
+    "Hasil_Pagu": 121983128.0,
+    "Kontrak_Paket": 8,
+    "Kontrak_Pagu": 53163128.0,
     "SerahTerima_Paket": 7,
     "SerahTerima_Pagu": 43117628.0,
-    "Belum_Paket": 164,
-    "Belum_Pagu": 961393970.0
+    "Belum_Paket": 163,
+    "Belum_Pagu": 951143970.0
   },
   {
     "Satuan Kerja": "Kecamatan Arut Utara - 7.01.0.00.0.00.04.0000",
@@ -1023,15 +1023,15 @@
     "Satuan Kerja": "TOTAL KESELURUHAN",
     "Data Laporan_Paket": 3937,
     "Data Laporan_Pagu": 32604113094.0,
-    "Pemilihan_Paket": 396,
-    "Pemilihan_Pagu": 6432781858.0,
-    "Hasil_Paket": 396,
-    "Hasil_Pagu": 5940221188.6,
-    "Kontrak_Paket": 295,
-    "Kontrak_Pagu": 4459481882.0,
+    "Pemilihan_Paket": 397,
+    "Pemilihan_Pagu": 6443031858.0,
+    "Hasil_Paket": 397,
+    "Hasil_Pagu": 5950266688.6,
+    "Kontrak_Paket": 296,
+    "Kontrak_Pagu": 4469527382.0,
     "SerahTerima_Paket": 99,
     "SerahTerima_Pagu": 753858972.0,
-    "Belum_Paket": 3541,
-    "Belum_Pagu": 26171331236.0
+    "Belum_Paket": 3540,
+    "Belum_Pagu": 26161081236.0
   }
 ]
