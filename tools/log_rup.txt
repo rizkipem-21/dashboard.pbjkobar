@@ -38237,3 +38237,23 @@ SUKSES
 SUKSES
 SUKSES
 SUKSES
+SUKSES
+  -> Disimpan ke v1_rup_paket-penyedia_2026.json (Total: 11945 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_paket-swakelola-terumumkan_2026.json (Total: 57 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-anggaran-swakelola?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_paket-anggaran-swakelola_2026.json (Total: 754 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_paket-swakelola_2026.json (Total: 57 baris)
+
+[SKIP] Tahun 2025 sudah ada (final).
+
+[SKIP] Tahun 2024 sudah ada (final).
+
+PROSES DOWNLOAD SELESAI PADA 17 September 2026 | 14.23 WIB
