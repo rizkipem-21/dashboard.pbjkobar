@@ -7186,3 +7186,9 @@ Waktu Mulai: Jumat, 18 September 2026 | 05:01:45 WIB
 ✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297058346127 (+134 baris)
 
 ⏳ [55/59] Memproses Pesawat Angkut dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297080737423
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297080737423 (+79 baris)
+
+⏳ [56/59] Memproses Pesawat Tenaga dan Produksi dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297082309135
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297082309135 (+6 baris)
+
+⏳ [57/59] Memproses Pesawat/Peralatan Konstruksi Lainnya dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297581032079
