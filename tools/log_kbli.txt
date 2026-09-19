@@ -7756,3 +7756,9 @@ Waktu Mulai: Minggu, 20 September 2026 | 05:01:33 WIB
 ✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16334278793871 (+116 baris)
 
 ⏳ [50/59] Memproses Perikanan dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16705466931471
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16705466931471 (+280 baris)
+
+⏳ [51/59] Memproses Perkakas dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16334299009167
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16334299009167 (+430 baris)
+
+⏳ [52/59] Memproses Perlengkapan Alat Tulis dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16730645513231
