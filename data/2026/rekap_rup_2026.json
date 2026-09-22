@@ -171,28 +171,28 @@
   {
     "Satuan Kerja": "Dinas Pariwisata - 3.26.0.00.0.00.01.0000",
     "Pagu Program": 3252488000.0,
-    "Pagu Pengadaan": 2474291200.0,
-    "Paket Penyedia": 109.0,
-    "RUP Penyedia": 2474291200.0,
+    "Pagu Pengadaan": 3017618000.0,
+    "Paket Penyedia": 110.0,
+    "RUP Penyedia": 2549466978.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 109.0,
-    "Total RUP Terumumkan": 2474291200.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 100.0
+    "Total Paket Terumumkan": 110.0,
+    "Total RUP Terumumkan": 2549466978.0,
+    "Selisih RUP Terumumkan": -468151022.0,
+    "Persentase": 84.48607404913412
   },
   {
     "Satuan Kerja": "Dinas Pekerjaan Umum dan Penataan Ruang - 1.03.0.00.0.00.01.0000",
     "Pagu Program": 109868244223.0,
-    "Pagu Pengadaan": 109185947743.0,
-    "Paket Penyedia": 408.0,
-    "RUP Penyedia": 108861503596.0,
+    "Pagu Pengadaan": 109185947734.0,
+    "Paket Penyedia": 417.0,
+    "RUP Penyedia": 109150947734.0,
     "Paket Swakelola": 1.0,
     "RUP Swakelola": 35000000.0,
-    "Total Paket Terumumkan": 409.0,
-    "Total RUP Terumumkan": 108896503596.0,
-    "Selisih RUP Terumumkan": -289444147.0,
-    "Persentase": 99.73490714420386
+    "Total Paket Terumumkan": 418.0,
+    "Total RUP Terumumkan": 109185947734.0,
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Dinas Pemadam Kebakaran dan Penyelamatan - 1.05.0.00.0.00.03.0000",
