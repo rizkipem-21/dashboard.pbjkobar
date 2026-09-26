@@ -609,8 +609,8 @@
     "Hasil_Pagu": 179003900.0,
     "Kontrak_Paket": 14,
     "Kontrak_Pagu": 179003900.0,
-    "SerahTerima_Paket": 0,
-    "SerahTerima_Pagu": 0.0,
+    "SerahTerima_Paket": 1,
+    "SerahTerima_Pagu": 10323000.0,
     "Belum_Paket": 94,
     "Belum_Pagu": 417481353.0
   },
@@ -1029,8 +1029,8 @@
     "Hasil_Pagu": 9175751684.6,
     "Kontrak_Paket": 337,
     "Kontrak_Pagu": 7679012378.0,
-    "SerahTerima_Paket": 124,
-    "SerahTerima_Pagu": 1854419130.0,
+    "SerahTerima_Paket": 125,
+    "SerahTerima_Pagu": 1864742130.0,
     "Belum_Paket": 3514,
     "Belum_Pagu": 25924107259.0
   }

@@ -78,16 +78,16 @@
     "Satuan Kerja": "Badan Pendapatan Daerah - 5.02.0.00.0.00.02.0000",
     "Data Laporan_Paket": 13,
     "Data Laporan_Pagu": 1559854479.0,
-    "Pemilihan_Paket": 5,
-    "Pemilihan_Pagu": 510313203.0,
-    "Hasil_Paket": 5,
-    "Hasil_Pagu": 504244040.0,
-    "Kontrak_Paket": 5,
-    "Kontrak_Pagu": 504244040.0,
+    "Pemilihan_Paket": 7,
+    "Pemilihan_Pagu": 710313203.0,
+    "Hasil_Paket": 7,
+    "Hasil_Pagu": 704044040.0,
+    "Kontrak_Paket": 7,
+    "Kontrak_Pagu": 704044040.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 8,
-    "Belum_Pagu": 1049541276.0
+    "Belum_Paket": 6,
+    "Belum_Pagu": 849541276.0
   },
   {
     "Satuan Kerja": "Badan Perencanaan Pembangunan, Riset dan Inovasi Daerah - 5.01.5.05.0.00.01.0000",
@@ -1023,15 +1023,15 @@
     "Satuan Kerja": "TOTAL KESELURUHAN",
     "Data Laporan_Paket": 817,
     "Data Laporan_Pagu": 96676091889.0,
-    "Pemilihan_Paket": 508,
-    "Pemilihan_Pagu": 64455585643.0,
-    "Hasil_Paket": 508,
-    "Hasil_Pagu": 62897961429.41,
-    "Kontrak_Paket": 252,
-    "Kontrak_Pagu": 30107324385.0,
+    "Pemilihan_Paket": 510,
+    "Pemilihan_Pagu": 64655585643.0,
+    "Hasil_Paket": 510,
+    "Hasil_Pagu": 63097761429.41,
+    "Kontrak_Paket": 254,
+    "Kontrak_Pagu": 30307124385.0,
     "SerahTerima_Paket": 11,
     "SerahTerima_Pagu": 826108273.0,
-    "Belum_Paket": 309,
-    "Belum_Pagu": 32220506246.0
+    "Belum_Paket": 307,
+    "Belum_Pagu": 32020506246.0
   }
 ]
