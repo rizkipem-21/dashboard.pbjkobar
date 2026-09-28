@@ -33,16 +33,16 @@
     "Satuan Kerja": "Badan Kesatuan Bangsa dan Politik - 8.01.0.00.0.00.01.0000",
     "Data Laporan_Paket": 74,
     "Data Laporan_Pagu": 381815300.0,
-    "Pemilihan_Paket": 2,
-    "Pemilihan_Pagu": 51900000.0,
-    "Hasil_Paket": 2,
-    "Hasil_Pagu": 51900000.0,
-    "Kontrak_Paket": 2,
-    "Kontrak_Pagu": 51900000.0,
+    "Pemilihan_Paket": 3,
+    "Pemilihan_Pagu": 56143000.0,
+    "Hasil_Paket": 3,
+    "Hasil_Pagu": 56143000.0,
+    "Kontrak_Paket": 3,
+    "Kontrak_Pagu": 56143000.0,
     "SerahTerima_Paket": 1,
     "SerahTerima_Pagu": 19500000.0,
-    "Belum_Paket": 72,
-    "Belum_Pagu": 329915300.0
+    "Belum_Paket": 71,
+    "Belum_Pagu": 325672300.0
   },
   {
     "Satuan Kerja": "Badan Keuangan dan Aset Daerah - 5.02.0.00.0.00.01.0000",
@@ -307,8 +307,8 @@
     "Pemilihan_Pagu": 1126736515.0,
     "Hasil_Paket": 54,
     "Hasil_Pagu": 1115612710.6,
-    "Kontrak_Paket": 28,
-    "Kontrak_Pagu": 669105003.0,
+    "Kontrak_Paket": 29,
+    "Kontrak_Pagu": 678560003.0,
     "SerahTerima_Paket": 3,
     "SerahTerima_Pagu": 39616455.0,
     "Belum_Paket": 119,
@@ -376,8 +376,8 @@
   },
   {
     "Satuan Kerja": "Dinas Pendidikan dan Kebudayaan - 1.01.2.22.0.00.01.0000",
-    "Data Laporan_Paket": 232,
-    "Data Laporan_Pagu": 2181596820.0,
+    "Data Laporan_Paket": 229,
+    "Data Laporan_Pagu": 2134776820.0,
     "Pemilihan_Paket": 38,
     "Pemilihan_Pagu": 336375637.0,
     "Hasil_Paket": 38,
@@ -386,8 +386,8 @@
     "Kontrak_Pagu": 49666872.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 194,
-    "Belum_Pagu": 1845221183.0
+    "Belum_Paket": 191,
+    "Belum_Pagu": 1798401183.0
   },
   {
     "Satuan Kerja": "Dinas Perhubungan - 2.15.0.00.0.00.01.0000",
@@ -1021,17 +1021,17 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 3953,
-    "Data Laporan_Pagu": 32560640912.0,
-    "Pemilihan_Paket": 439,
-    "Pemilihan_Pagu": 6636533653.0,
-    "Hasil_Paket": 439,
-    "Hasil_Pagu": 9175751684.6,
-    "Kontrak_Paket": 337,
-    "Kontrak_Pagu": 7679012378.0,
+    "Data Laporan_Paket": 3950,
+    "Data Laporan_Pagu": 32513820912.0,
+    "Pemilihan_Paket": 440,
+    "Pemilihan_Pagu": 6640776653.0,
+    "Hasil_Paket": 440,
+    "Hasil_Pagu": 9179994684.6,
+    "Kontrak_Paket": 339,
+    "Kontrak_Pagu": 7692710378.0,
     "SerahTerima_Paket": 125,
     "SerahTerima_Pagu": 1864742130.0,
-    "Belum_Paket": 3514,
-    "Belum_Pagu": 25924107259.0
+    "Belum_Paket": 3510,
+    "Belum_Pagu": 25873044259.0
   }
 ]
