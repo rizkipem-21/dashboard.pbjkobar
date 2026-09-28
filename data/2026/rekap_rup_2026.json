@@ -171,15 +171,15 @@
   {
     "Satuan Kerja": "Dinas Pariwisata - 3.26.0.00.0.00.01.0000",
     "Pagu Program": 3327643778.0,
-    "Pagu Pengadaan": 3252488000.0,
+    "Pagu Pengadaan": 2549446978.0,
     "Paket Penyedia": 110.0,
     "RUP Penyedia": 2549446978.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
     "Total Paket Terumumkan": 110.0,
     "Total RUP Terumumkan": 2549446978.0,
-    "Selisih RUP Terumumkan": -703041022.0,
-    "Persentase": 78.38451603818369
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Dinas Pekerjaan Umum dan Penataan Ruang - 1.03.0.00.0.00.01.0000",
@@ -250,14 +250,14 @@
     "Satuan Kerja": "Dinas Pendidikan dan Kebudayaan - 1.01.2.22.0.00.01.0000",
     "Pagu Program": 63843390000.0,
     "Pagu Pengadaan": 61655471600.0,
-    "Paket Penyedia": 273.0,
-    "RUP Penyedia": 9467977800.0,
+    "Paket Penyedia": 269.0,
+    "RUP Penyedia": 9234257800.0,
     "Paket Swakelola": 30.0,
     "RUP Swakelola": 52187493800.0,
-    "Total Paket Terumumkan": 303.0,
-    "Total RUP Terumumkan": 61655471600.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 100.0
+    "Total Paket Terumumkan": 299.0,
+    "Total RUP Terumumkan": 61421751600.0,
+    "Selisih RUP Terumumkan": -233720000.0,
+    "Persentase": 99.62092577684541
   },
   {
     "Satuan Kerja": "Dinas Perhubungan - 2.15.0.00.0.00.01.0000",
@@ -1002,7 +1002,7 @@
   },
   {
     "Satuan Kerja": "Sekretariat DPRD - 4.02.0.00.0.00.01.0000",
-    "Pagu Program": 16485728018.0,
+    "Pagu Program": 16685728018.0,
     "Pagu Pengadaan": 8905641688.0,
     "Paket Penyedia": 133.0,
     "RUP Penyedia": 8755641688.0,
