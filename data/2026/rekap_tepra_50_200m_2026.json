@@ -301,8 +301,8 @@
   },
   {
     "Satuan Kerja": "Dinas Pekerjaan Umum dan Penataan Ruang - 1.03.0.00.0.00.01.0000",
-    "Data Laporan_Paket": 146,
-    "Data Laporan_Pagu": 19549769964.0,
+    "Data Laporan_Paket": 148,
+    "Data Laporan_Pagu": 19923469224.0,
     "Pemilihan_Paket": 112,
     "Pemilihan_Pagu": 15522703657.0,
     "Hasil_Paket": 112,
@@ -311,8 +311,8 @@
     "Kontrak_Pagu": 10437022087.0,
     "SerahTerima_Paket": 1,
     "SerahTerima_Pagu": 72965295.0,
-    "Belum_Paket": 34,
-    "Belum_Pagu": 4027066307.0
+    "Belum_Paket": 36,
+    "Belum_Pagu": 4400765567.0
   },
   {
     "Satuan Kerja": "Dinas Pemadam Kebakaran dan Penyelamatan - 1.05.0.00.0.00.03.0000",
@@ -526,14 +526,14 @@
   },
   {
     "Satuan Kerja": "Instalasi Farmasi - 1.02.0.00.0.00.01.0022",
-    "Data Laporan_Paket": 5,
-    "Data Laporan_Pagu": 379426400.0,
-    "Pemilihan_Paket": 2,
-    "Pemilihan_Pagu": 201970600.0,
-    "Hasil_Paket": 2,
-    "Hasil_Pagu": 142419460.0,
-    "Kontrak_Paket": 2,
-    "Kontrak_Pagu": 142419460.0,
+    "Data Laporan_Paket": 6,
+    "Data Laporan_Pagu": 451408750.0,
+    "Pemilihan_Paket": 3,
+    "Pemilihan_Pagu": 273952950.0,
+    "Hasil_Paket": 3,
+    "Hasil_Pagu": 186605952.0,
+    "Kontrak_Paket": 3,
+    "Kontrak_Pagu": 186605952.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
     "Belum_Paket": 3,
@@ -1021,17 +1021,17 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 821,
-    "Data Laporan_Pagu": 97271581448.0,
-    "Pemilihan_Paket": 510,
-    "Pemilihan_Pagu": 64655585643.0,
-    "Hasil_Paket": 510,
-    "Hasil_Pagu": 63097761429.41,
-    "Kontrak_Paket": 277,
-    "Kontrak_Pagu": 33498857385.0,
+    "Data Laporan_Paket": 824,
+    "Data Laporan_Pagu": 97717263058.0,
+    "Pemilihan_Paket": 511,
+    "Pemilihan_Pagu": 64727567993.0,
+    "Hasil_Paket": 511,
+    "Hasil_Pagu": 63141947921.41,
+    "Kontrak_Paket": 278,
+    "Kontrak_Pagu": 33543043877.0,
     "SerahTerima_Paket": 12,
     "SerahTerima_Pagu": 879343873.0,
-    "Belum_Paket": 311,
-    "Belum_Pagu": 32615995805.0
+    "Belum_Paket": 313,
+    "Belum_Pagu": 32989695065.0
   }
 ]
