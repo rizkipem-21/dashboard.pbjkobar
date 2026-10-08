@@ -211,8 +211,8 @@
   },
   {
     "Satuan Kerja": "Dinas Kepemudaan dan Olahraga - 2.19.0.00.0.00.01.0000",
-    "Data Laporan_Paket": 8,
-    "Data Laporan_Pagu": 957216782.0,
+    "Data Laporan_Paket": 6,
+    "Data Laporan_Pagu": 721208511.0,
     "Pemilihan_Paket": 1,
     "Pemilihan_Pagu": 138750000.0,
     "Hasil_Paket": 1,
@@ -221,8 +221,8 @@
     "Kontrak_Pagu": 138141840.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 7,
-    "Belum_Pagu": 818466782.0
+    "Belum_Paket": 5,
+    "Belum_Pagu": 582458511.0
   },
   {
     "Satuan Kerja": "Dinas Kependudukan dan Pencatatan Sipil - 2.12.0.00.0.00.01.0000",
@@ -316,8 +316,8 @@
   },
   {
     "Satuan Kerja": "Dinas Pemadam Kebakaran dan Penyelamatan - 1.05.0.00.0.00.03.0000",
-    "Data Laporan_Paket": 3,
-    "Data Laporan_Pagu": 376694000.0,
+    "Data Laporan_Paket": 4,
+    "Data Laporan_Pagu": 538286000.0,
     "Pemilihan_Paket": 2,
     "Pemilihan_Pagu": 288750000.0,
     "Hasil_Paket": 2,
@@ -326,8 +326,8 @@
     "Kontrak_Pagu": 288306000.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 1,
-    "Belum_Pagu": 87944000.0
+    "Belum_Paket": 2,
+    "Belum_Pagu": 249536000.0
   },
   {
     "Satuan Kerja": "Dinas Pemberdayaan Masyarakat dan Desa - 2.13.0.00.0.00.01.0000",
@@ -646,8 +646,8 @@
   },
   {
     "Satuan Kerja": "Laboratorium Kesehatan Daerah - 1.02.0.00.0.00.01.0003",
-    "Data Laporan_Paket": 4,
-    "Data Laporan_Pagu": 403460838.0,
+    "Data Laporan_Paket": 7,
+    "Data Laporan_Pagu": 660566066.0,
     "Pemilihan_Paket": 3,
     "Pemilihan_Pagu": 340582172.0,
     "Hasil_Paket": 3,
@@ -656,8 +656,8 @@
     "Kontrak_Pagu": 68020787.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 1,
-    "Belum_Pagu": 62878666.0
+    "Belum_Paket": 4,
+    "Belum_Pagu": 319983894.0
   },
   {
     "Satuan Kerja": "Puskesmas Arut Selatan - 1.02.0.00.0.00.01.0004",
@@ -1021,8 +1021,8 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 826,
-    "Data Laporan_Pagu": 97861227758.0,
+    "Data Laporan_Paket": 828,
+    "Data Laporan_Pagu": 98043916715.0,
     "Pemilihan_Paket": 513,
     "Pemilihan_Pagu": 64871532693.0,
     "Hasil_Paket": 513,
@@ -1031,7 +1031,7 @@
     "Kontrak_Pagu": 35685824125.020004,
     "SerahTerima_Paket": 12,
     "SerahTerima_Pagu": 879343873.0,
-    "Belum_Paket": 313,
-    "Belum_Pagu": 32989695065.0
+    "Belum_Paket": 315,
+    "Belum_Pagu": 33172384022.0
   }
 ]

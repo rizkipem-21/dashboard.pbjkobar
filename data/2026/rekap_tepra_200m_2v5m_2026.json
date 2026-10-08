@@ -647,7 +647,7 @@
   {
     "Satuan Kerja": "Laboratorium Kesehatan Daerah - 1.02.0.00.0.00.01.0003",
     "Data Laporan_Paket": 2,
-    "Data Laporan_Pagu": 1937370950.0,
+    "Data Laporan_Pagu": 2122245491.0,
     "Pemilihan_Paket": 0,
     "Pemilihan_Pagu": 0.0,
     "Hasil_Paket": 0,
@@ -657,7 +657,7 @@
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
     "Belum_Paket": 2,
-    "Belum_Pagu": 1937370950.0
+    "Belum_Pagu": 2122245491.0
   },
   {
     "Satuan Kerja": "Puskesmas Arut Selatan - 1.02.0.00.0.00.01.0004",
@@ -1022,7 +1022,7 @@
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
     "Data Laporan_Paket": 240,
-    "Data Laporan_Pagu": 180774160062.0,
+    "Data Laporan_Pagu": 180959034603.0,
     "Pemilihan_Paket": 158,
     "Pemilihan_Pagu": 143234386443.0,
     "Hasil_Paket": 158,
@@ -1032,6 +1032,6 @@
     "SerahTerima_Paket": 33,
     "SerahTerima_Pagu": 4005987066.0,
     "Belum_Paket": 82,
-    "Belum_Pagu": 37539773619.0
+    "Belum_Pagu": 37724648160.0
   }
 ]
