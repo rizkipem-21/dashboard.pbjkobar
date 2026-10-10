@@ -423,16 +423,16 @@
     "Satuan Kerja": "Dinas Perindustrian, Perdagangan, Koperasi, Usaha Kecil dan Menengah - 2.17.3.30.3.31.01.0000",
     "Data Laporan_Paket": 27,
     "Data Laporan_Pagu": 2672104510.0,
-    "Pemilihan_Paket": 17,
-    "Pemilihan_Pagu": 1745370451.0,
-    "Hasil_Paket": 17,
-    "Hasil_Pagu": 1705068323.0,
-    "Kontrak_Paket": 14,
-    "Kontrak_Pagu": 1310962373.0,
+    "Pemilihan_Paket": 19,
+    "Pemilihan_Pagu": 1936290451.0,
+    "Hasil_Paket": 19,
+    "Hasil_Pagu": 1890349523.0,
+    "Kontrak_Paket": 16,
+    "Kontrak_Pagu": 1496243573.0,
     "SerahTerima_Paket": 4,
     "SerahTerima_Pagu": 313637363.0,
-    "Belum_Paket": 10,
-    "Belum_Pagu": 926734059.0
+    "Belum_Paket": 8,
+    "Belum_Pagu": 735814059.0
   },
   {
     "Satuan Kerja": "Dinas Perpustakaan dan Kearsipan - 2.23.2.24.0.00.01.0000",
@@ -1023,15 +1023,15 @@
     "Satuan Kerja": "TOTAL KESELURUHAN",
     "Data Laporan_Paket": 820,
     "Data Laporan_Pagu": 97165936093.0,
-    "Pemilihan_Paket": 510,
-    "Pemilihan_Pagu": 64790878296.0,
-    "Hasil_Paket": 510,
-    "Hasil_Pagu": 63598614290.41,
-    "Kontrak_Paket": 299,
-    "Kontrak_Pagu": 37471589546.020004,
+    "Pemilihan_Paket": 512,
+    "Pemilihan_Pagu": 64981798296.0,
+    "Hasil_Paket": 512,
+    "Hasil_Pagu": 63783895490.41,
+    "Kontrak_Paket": 301,
+    "Kontrak_Pagu": 37656870746.020004,
     "SerahTerima_Paket": 12,
     "SerahTerima_Pagu": 879343873.0,
-    "Belum_Paket": 310,
-    "Belum_Pagu": 32375057797.0
+    "Belum_Paket": 308,
+    "Belum_Pagu": 32184137797.0
   }
 ]

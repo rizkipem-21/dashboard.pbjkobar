@@ -1006,8 +1006,8 @@
   },
   {
     "Satuan Kerja": "Sekretariat Daerah - 4.01.0.00.0.00.01.0000",
-    "Data Laporan_Paket": 156,
-    "Data Laporan_Pagu": 1475651170.0,
+    "Data Laporan_Paket": 157,
+    "Data Laporan_Pagu": 1479161170.0,
     "Pemilihan_Paket": 27,
     "Pemilihan_Pagu": 219640414.0,
     "Hasil_Paket": 27,
@@ -1016,13 +1016,13 @@
     "Kontrak_Pagu": 168152010.0,
     "SerahTerima_Paket": 2,
     "SerahTerima_Pagu": 2457500.0,
-    "Belum_Paket": 129,
-    "Belum_Pagu": 1256010756.0
+    "Belum_Paket": 130,
+    "Belum_Pagu": 1259520756.0
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 3943,
-    "Data Laporan_Pagu": 32468114795.0,
+    "Data Laporan_Paket": 3944,
+    "Data Laporan_Pagu": 32471624795.0,
     "Pemilihan_Paket": 461,
     "Pemilihan_Pagu": 6740127770.0,
     "Hasil_Paket": 461,
@@ -1031,7 +1031,7 @@
     "Kontrak_Pagu": 8102860415.0,
     "SerahTerima_Paket": 137,
     "SerahTerima_Pagu": 1977560023.0,
-    "Belum_Paket": 3482,
-    "Belum_Pagu": 25727987025.0
+    "Belum_Paket": 3483,
+    "Belum_Pagu": 25731497025.0
   }
 ]
