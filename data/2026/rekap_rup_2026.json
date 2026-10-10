@@ -781,16 +781,16 @@
   },
   {
     "Satuan Kerja": "Puskesmas Arut Utara - 1.02.0.00.0.00.01.0017",
-    "Pagu Program": 1398847285.0,
-    "Pagu Pengadaan": 721339185.0,
+    "Pagu Program": 1480466441.0,
+    "Pagu Pengadaan": 1438671621.0,
     "Paket Penyedia": 6.0,
     "RUP Penyedia": 721339185.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
     "Total Paket Terumumkan": 6.0,
     "Total RUP Terumumkan": 721339185.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 100.0
+    "Selisih RUP Terumumkan": -717332436.0,
+    "Persentase": 50.139251686817
   },
   {
     "Satuan Kerja": "Puskesmas Ipuh Bangun Jaya - 1.02.0.00.0.00.01.0021",
@@ -911,16 +911,16 @@
   },
   {
     "Satuan Kerja": "Puskesmas Pangkalan Lada - 1.02.0.00.0.00.01.0013",
-    "Pagu Program": 1706237178.0,
-    "Pagu Pengadaan": 429267455.0,
+    "Pagu Program": 1774670067.0,
+    "Pagu Pengadaan": 1708625473.0,
     "Paket Penyedia": 36.0,
     "RUP Penyedia": 429267455.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
     "Total Paket Terumumkan": 36.0,
     "Total RUP Terumumkan": 429267455.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 100.0
+    "Selisih RUP Terumumkan": -1279358018.0,
+    "Persentase": 25.12355468084491
   },
   {
     "Satuan Kerja": "Puskesmas Riam Durian - 1.02.0.00.0.00.01.0020",
