@@ -466,8 +466,8 @@
   },
   {
     "Satuan Kerja": "Dinas Perumahan Rakyat, Kawasan Pemukiman dan Pertanahan - 1.04.2.10.0.00.01.0000",
-    "Data Laporan_Paket": 10,
-    "Data Laporan_Pagu": 3004707600.0,
+    "Data Laporan_Paket": 9,
+    "Data Laporan_Pagu": 2516796000.0,
     "Pemilihan_Paket": 9,
     "Pemilihan_Pagu": 2516796000.0,
     "Hasil_Paket": 9,
@@ -476,8 +476,8 @@
     "Kontrak_Pagu": 304550064.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 1,
-    "Belum_Pagu": 487911600.0
+    "Belum_Paket": 0,
+    "Belum_Pagu": 0.0
   },
   {
     "Satuan Kerja": "Dinas Sosial - 1.06.0.00.0.00.01.0000",
@@ -706,8 +706,8 @@
   },
   {
     "Satuan Kerja": "Puskesmas Karang Mulya - 1.02.0.00.0.00.01.0016",
-    "Data Laporan_Paket": 0,
-    "Data Laporan_Pagu": 0.0,
+    "Data Laporan_Paket": 1,
+    "Data Laporan_Pagu": 217174472.0,
     "Pemilihan_Paket": 0,
     "Pemilihan_Pagu": 0.0,
     "Hasil_Paket": 0,
@@ -716,8 +716,8 @@
     "Kontrak_Pagu": 0.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 0,
-    "Belum_Pagu": 0.0
+    "Belum_Paket": 1,
+    "Belum_Pagu": 217174472.0
   },
   {
     "Satuan Kerja": "Puskesmas Kotawaringin Lama - 1.02.0.00.0.00.01.0019",
@@ -1022,7 +1022,7 @@
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
     "Data Laporan_Paket": 216,
-    "Data Laporan_Pagu": 136523671866.0,
+    "Data Laporan_Pagu": 136252934738.0,
     "Pemilihan_Paket": 136,
     "Pemilihan_Pagu": 100827252631.0,
     "Hasil_Paket": 136,
@@ -1032,6 +1032,6 @@
     "SerahTerima_Paket": 12,
     "SerahTerima_Pagu": 2915140258.0,
     "Belum_Paket": 80,
-    "Belum_Pagu": 35696419235.0
+    "Belum_Pagu": 35425682107.0
   }
 ]
