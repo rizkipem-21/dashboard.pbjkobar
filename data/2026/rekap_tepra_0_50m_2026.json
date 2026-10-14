@@ -273,16 +273,16 @@
     "Satuan Kerja": "Dinas Lingkungan Hidup - 2.11.3.28.0.00.01.0000",
     "Data Laporan_Paket": 132,
     "Data Laporan_Pagu": 1044316222.0,
-    "Pemilihan_Paket": 39,
-    "Pemilihan_Pagu": 350117338.0,
-    "Hasil_Paket": 39,
-    "Hasil_Pagu": 326386463.0,
-    "Kontrak_Paket": 39,
-    "Kontrak_Pagu": 326386463.0,
+    "Pemilihan_Paket": 41,
+    "Pemilihan_Pagu": 351115088.0,
+    "Hasil_Paket": 41,
+    "Hasil_Pagu": 327384213.0,
+    "Kontrak_Paket": 41,
+    "Kontrak_Pagu": 327384213.0,
     "SerahTerima_Paket": 25,
     "SerahTerima_Pagu": 193551683.0,
-    "Belum_Paket": 93,
-    "Belum_Pagu": 694198884.0
+    "Belum_Paket": 91,
+    "Belum_Pagu": 693201134.0
   },
   {
     "Satuan Kerja": "Dinas Pariwisata - 3.26.0.00.0.00.01.0000",
@@ -556,8 +556,8 @@
   },
   {
     "Satuan Kerja": "Kecamatan Arut Selatan - 7.01.0.00.0.00.02.0000",
-    "Data Laporan_Paket": 181,
-    "Data Laporan_Pagu": 1153380061.0,
+    "Data Laporan_Paket": 182,
+    "Data Laporan_Pagu": 1171480061.0,
     "Pemilihan_Paket": 10,
     "Pemilihan_Pagu": 124972901.0,
     "Hasil_Paket": 10,
@@ -566,8 +566,8 @@
     "Kontrak_Pagu": 53163128.0,
     "SerahTerima_Paket": 7,
     "SerahTerima_Pagu": 43117628.0,
-    "Belum_Paket": 171,
-    "Belum_Pagu": 1028407160.0
+    "Belum_Paket": 172,
+    "Belum_Pagu": 1046507160.0
   },
   {
     "Satuan Kerja": "Kecamatan Arut Utara - 7.01.0.00.0.00.04.0000",
@@ -1021,17 +1021,17 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 3909,
-    "Data Laporan_Pagu": 32965358267.0,
-    "Pemilihan_Paket": 430,
-    "Pemilihan_Pagu": 6817694352.0,
-    "Hasil_Paket": 430,
-    "Hasil_Pagu": 6376034170.6,
-    "Kontrak_Paket": 324,
-    "Kontrak_Pagu": 4848276267.0,
+    "Data Laporan_Paket": 3910,
+    "Data Laporan_Pagu": 32983458267.0,
+    "Pemilihan_Paket": 432,
+    "Pemilihan_Pagu": 6818692102.0,
+    "Hasil_Paket": 432,
+    "Hasil_Pagu": 6377031920.6,
+    "Kontrak_Paket": 326,
+    "Kontrak_Pagu": 4849274017.0,
     "SerahTerima_Paket": 116,
     "SerahTerima_Pagu": 886713215.0,
-    "Belum_Paket": 3479,
-    "Belum_Pagu": 26147663915.0
+    "Belum_Paket": 3478,
+    "Belum_Pagu": 26164766165.0
   }
 ]
