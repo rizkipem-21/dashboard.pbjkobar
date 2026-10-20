@@ -13408,3 +13408,9 @@ Waktu Mulai: Selasa, 20 Oktober 2026 | 08:47:13 WIB
 ✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15297652363151 (+336 baris)
 
 ⏳ [29/59] Memproses Jasa Tenaga Kerja dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/14395412891919
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/14395412891919 (+60 baris)
+
+⏳ [30/59] Memproses Komponen Struktur dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16579626395279
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16579626395279 (+39 baris)
+
+⏳ [31/59] Memproses Makanan dan Minuman dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/16454856564367
