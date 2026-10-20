@@ -241,8 +241,8 @@
   },
   {
     "Satuan Kerja": "Dinas Kesehatan - 1.02.0.00.0.00.01.0000",
-    "Data Laporan_Paket": 33,
-    "Data Laporan_Pagu": 47963801011.0,
+    "Data Laporan_Paket": 35,
+    "Data Laporan_Pagu": 48797792181.0,
     "Pemilihan_Paket": 32,
     "Pemilihan_Pagu": 47632716881.0,
     "Hasil_Paket": 32,
@@ -251,8 +251,8 @@
     "Kontrak_Pagu": 4157004750.0,
     "SerahTerima_Paket": 27,
     "SerahTerima_Pagu": 2945468782.0,
-    "Belum_Paket": 1,
-    "Belum_Pagu": 331084130.0
+    "Belum_Paket": 3,
+    "Belum_Pagu": 1165075300.0
   },
   {
     "Satuan Kerja": "Dinas Komunikasi, Informatika, Statistik dan Persandian - 2.16.2.20.2.21.01.0000",
@@ -301,8 +301,8 @@
   },
   {
     "Satuan Kerja": "Dinas Pekerjaan Umum dan Penataan Ruang - 1.03.0.00.0.00.01.0000",
-    "Data Laporan_Paket": 35,
-    "Data Laporan_Pagu": 12439208550.0,
+    "Data Laporan_Paket": 38,
+    "Data Laporan_Pagu": 13312906200.0,
     "Pemilihan_Paket": 23,
     "Pemilihan_Pagu": 8060691844.0,
     "Hasil_Paket": 23,
@@ -311,8 +311,8 @@
     "Kontrak_Pagu": 7014929229.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 12,
-    "Belum_Pagu": 4378516706.0
+    "Belum_Paket": 15,
+    "Belum_Pagu": 5252214356.0
   },
   {
     "Satuan Kerja": "Dinas Pemadam Kebakaran dan Penyelamatan - 1.05.0.00.0.00.03.0000",
@@ -526,8 +526,8 @@
   },
   {
     "Satuan Kerja": "Instalasi Farmasi - 1.02.0.00.0.00.01.0022",
-    "Data Laporan_Paket": 19,
-    "Data Laporan_Pagu": 27052635775.0,
+    "Data Laporan_Paket": 18,
+    "Data Laporan_Pagu": 26582835300.0,
     "Pemilihan_Paket": 16,
     "Pemilihan_Pagu": 23226377450.0,
     "Hasil_Paket": 16,
@@ -536,8 +536,8 @@
     "Kontrak_Pagu": 462287009.0,
     "SerahTerima_Paket": 1,
     "SerahTerima_Pagu": 10912410.0,
-    "Belum_Paket": 3,
-    "Belum_Pagu": 3826258325.0
+    "Belum_Paket": 2,
+    "Belum_Pagu": 3356457850.0
   },
   {
     "Satuan Kerja": "KECAMATAN ARUT SELATAN - 7.01.0.00.0.00.02.0000",
@@ -1021,8 +1021,8 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 239,
-    "Data Laporan_Pagu": 182633578715.0,
+    "Data Laporan_Paket": 243,
+    "Data Laporan_Pagu": 183871467060.0,
     "Pemilihan_Paket": 161,
     "Pemilihan_Pagu": 145779681118.0,
     "Hasil_Paket": 161,
@@ -1031,7 +1031,7 @@
     "Kontrak_Pagu": 66338247005.0,
     "SerahTerima_Paket": 33,
     "SerahTerima_Pagu": 4005987066.0,
-    "Belum_Paket": 78,
-    "Belum_Pagu": 36853897597.0
+    "Belum_Paket": 82,
+    "Belum_Pagu": 38091785942.0
   }
 ]
