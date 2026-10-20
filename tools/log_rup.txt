@@ -54723,3 +54723,68 @@ SUKSES
 SUKSES
   -> Disimpan ke v1_rup_paket-anggaran-penyedia_2026.json (Total: 10743 baris)
 
+
+==================================================
+START DOWNLOAD RUP 20 Oktober 2026 | 08.38 WIB
+==================================================
+
+==================================================
+--- MENGUNDUH DATA TAHUN 2026 ---
+==================================================
+
+[Backup] Legacy_rup_kegiatan-master_2026.json di-copy ke arsip 2026-10-19/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/kegiatan-master?kode_klpd=D228&tahun=2026
+ERROR: Koneksi Terputus / HTTPSConnectionPool(host='data.inaproc.id', port=443): Max retries exceeded with url: /api/legacy/rup/kegiatan-master?kode_klpd=D228&tahun=2026 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+SUKSES
+
+[Backup] Legacy_rup_paket-penyedia-lokasi_2026.json di-copy ke arsip 2026-10-19/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/paket-penyedia-lokasi?kode_klpd=D228&tahun=2026
+SUKSES
+
+[Backup] Legacy_rup_paket-swakelola-lokasi_2026.json di-copy ke arsip 2026-10-19/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/paket-swakelola-lokasi?kode_klpd=D228&tahun=2026
+SUKSES
+
+[Backup] Legacy_rup_struktur-anggaran-pd_2026.json di-copy ke arsip 2026-10-19/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2026
+SUKSES
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/sub-kegiatan-master?kode_klpd=D228&tahun=2026
+SUKSES
+
+[Backup] v1_rup_master-satker_2026.json di-copy ke arsip 2026-10-19/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/master-satker?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_master-satker_2026.json (Total: 126 baris)
+
+[Backup] v1_rup_program-master_2026.json di-copy ke arsip 2026-10-19/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/program-master?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_program-master_2026.json (Total: 268 baris)
+
+[Backup] v1_rup_paket-penyedia-terumumkan_2026.json di-copy ke arsip 2026-10-19/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_rup_paket-penyedia-terumumkan_2026.json (Total: 5016 baris)
+
+[Backup] v1_rup_paket-anggaran-penyedia_2026.json di-copy ke arsip 2026-10-19/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-anggaran-penyedia?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_rup_paket-anggaran-penyedia_2026.json (Total: 10788 baris)
+

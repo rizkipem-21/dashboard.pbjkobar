@@ -5073,3 +5073,24 @@ START GENERATE DETAIL RUP 19 Oktober 2026 | 06.00 WIB
 ==================================================
 MENGIRIM EXCEL DETAIL RUP KE GITHUB...
 ==================================================
+✅ PUSH GITHUB SUKSES!
+==================================================
+PROSES SELESAI | Durasi: 0:01:12
+==================================================
+
+==================================================
+START GENERATE DETAIL RUP 20 Oktober 2026 | 08.41 WIB
+==================================================
+
+--- MEMPROSES DETAIL TAHUN 2026 ---
+✅ EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Detail_RUP Tahun 2026 (2026-10-20).xlsx (5075 baris)
+
+--- MEMPROSES DETAIL TAHUN 2025 ---
+  -> [SKIP] Excel Tahun 2025 sudah ada (Final).
+
+--- MEMPROSES DETAIL TAHUN 2024 ---
+  -> [SKIP] Excel Tahun 2024 sudah ada (Final).
+
+==================================================
+MENGIRIM EXCEL DETAIL RUP KE GITHUB...
+==================================================
