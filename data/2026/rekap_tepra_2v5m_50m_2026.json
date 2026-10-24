@@ -376,8 +376,8 @@
   },
   {
     "Satuan Kerja": "Dinas Pendidikan dan Kebudayaan - 1.01.2.22.0.00.01.0000",
-    "Data Laporan_Paket": 7,
-    "Data Laporan_Pagu": 50042190000.0,
+    "Data Laporan_Paket": 3,
+    "Data Laporan_Pagu": 22393430000.0,
     "Pemilihan_Paket": 0,
     "Pemilihan_Pagu": 0.0,
     "Hasil_Paket": 0,
@@ -386,8 +386,8 @@
     "Kontrak_Pagu": 0.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 7,
-    "Belum_Pagu": 50042190000.0
+    "Belum_Paket": 3,
+    "Belum_Pagu": 22393430000.0
   },
   {
     "Satuan Kerja": "Dinas Perhubungan - 2.15.0.00.0.00.01.0000",
@@ -946,8 +946,8 @@
   },
   {
     "Satuan Kerja": "Rumah Sakit Umum Daerah Sultan Imanuddin - 1.02.0.00.0.00.01.0001",
-    "Data Laporan_Paket": 25,
-    "Data Laporan_Pagu": 153697180038.0,
+    "Data Laporan_Paket": 26,
+    "Data Laporan_Pagu": 158697180038.0,
     "Pemilihan_Paket": 17,
     "Pemilihan_Pagu": 83360000000.0,
     "Hasil_Paket": 17,
@@ -956,8 +956,8 @@
     "Kontrak_Pagu": 8336802274.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 8,
-    "Belum_Pagu": 70337180038.0
+    "Belum_Paket": 9,
+    "Belum_Pagu": 75337180038.0
   },
   {
     "Satuan Kerja": "SEKRETARIAT DPRD - 4.02.0.00.0.00.01.0000",
@@ -1021,8 +1021,8 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 49,
-    "Data Laporan_Pagu": 273281535553.0,
+    "Data Laporan_Paket": 46,
+    "Data Laporan_Pagu": 250632775553.0,
     "Pemilihan_Paket": 30,
     "Pemilihan_Pagu": 141675670800.0,
     "Hasil_Paket": 30,
@@ -1031,7 +1031,7 @@
     "Kontrak_Pagu": 65889582008.97,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 19,
-    "Belum_Pagu": 131605864753.0
+    "Belum_Paket": 16,
+    "Belum_Pagu": 108957104753.0
   }
 ]
