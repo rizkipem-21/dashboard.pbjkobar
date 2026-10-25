@@ -91,8 +91,8 @@
   },
   {
     "Satuan Kerja": "Badan Perencanaan Pembangunan, Riset dan Inovasi Daerah - 5.01.5.05.0.00.01.0000",
-    "Data Laporan_Paket": 1,
-    "Data Laporan_Pagu": 217952667.0,
+    "Data Laporan_Paket": 0,
+    "Data Laporan_Pagu": 0.0,
     "Pemilihan_Paket": 0,
     "Pemilihan_Pagu": 0.0,
     "Hasil_Paket": 0,
@@ -101,8 +101,8 @@
     "Kontrak_Pagu": 0.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 1,
-    "Belum_Pagu": 217952667.0
+    "Belum_Paket": 0,
+    "Belum_Pagu": 0.0
   },
   {
     "Satuan Kerja": "DINAS KESEHATAN - 1.02.0.00.0.00.01.0000",
@@ -459,8 +459,8 @@
     "Hasil_Pagu": 2481708818.0,
     "Kontrak_Paket": 10,
     "Kontrak_Pagu": 2481708818.0,
-    "SerahTerima_Paket": 0,
-    "SerahTerima_Pagu": 0.0,
+    "SerahTerima_Paket": 1,
+    "SerahTerima_Pagu": 302400000.0,
     "Belum_Paket": 2,
     "Belum_Pagu": 799760000.0
   },
@@ -534,8 +534,8 @@
     "Hasil_Pagu": 464784509.0,
     "Kontrak_Paket": 17,
     "Kontrak_Pagu": 464784509.0,
-    "SerahTerima_Paket": 2,
-    "SerahTerima_Pagu": 78644610.0,
+    "SerahTerima_Paket": 3,
+    "SerahTerima_Pagu": 80675605.0,
     "Belum_Paket": 1,
     "Belum_Pagu": 1678228925.0
   },
@@ -1021,17 +1021,17 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 214,
-    "Data Laporan_Pagu": 131603927847.0,
+    "Data Laporan_Paket": 213,
+    "Data Laporan_Pagu": 131385975180.0,
     "Pemilihan_Paket": 130,
     "Pemilihan_Pagu": 93666790632.0,
     "Hasil_Paket": 130,
     "Hasil_Pagu": 64029064462.01,
     "Kontrak_Paket": 117,
     "Kontrak_Pagu": 60640825362.0,
-    "SerahTerima_Paket": 10,
-    "SerahTerima_Pagu": 2403910891.0,
-    "Belum_Paket": 84,
-    "Belum_Pagu": 37937137215.0
+    "SerahTerima_Paket": 12,
+    "SerahTerima_Pagu": 2708341886.0,
+    "Belum_Paket": 83,
+    "Belum_Pagu": 37719184548.0
   }
 ]
