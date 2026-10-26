@@ -58544,3 +58544,19 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
+
+[main b2bbdd34] Auto update RUP 2026-10-26 10:05:34
+ 6 files changed, 41 insertions(+), 2 deletions(-)
+ delete mode 100644 scripts/rup/error_api_rup.json
+
+
+To https://github.com/rizkipem-21/dashboard.pbjkobar.git
+   2ab2b8dc..b2bbdd34  main -> main
+
+PUSH STATUS: 0  
+SELESAI 26/10/2026 10:05:38  
+PUSH GITHUB SUKSES!
+
+==================================================
+PROSES SELESAI SELURUHNYA PADA 26 Oktober 2026 | 10.05 WIB
+==================================================
