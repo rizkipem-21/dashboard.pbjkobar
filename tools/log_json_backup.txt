@@ -45831,3 +45831,121 @@ SUKSES
 DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/sikap/penilaian-kinerja-penyedia-non-tender?kode_klpd=D228&tahun=2026
 GAGAL (Status 403)
 GAGAL (Status 403)
+GAGAL (Status 403)
+GAGAL (Status 403)
+GAGAL (Status 403)
+  GAGAL TOTAL -> buat file kosong
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/sikap/penilaian-kinerja-penyedia-tender?kode_klpd=D228&tahun=2026
+GAGAL (Status 403)
+GAGAL (Status 403)
+GAGAL (Status 403)
+GAGAL (Status 403)
+GAGAL (Status 403)
+  GAGAL TOTAL -> buat file kosong
+
+[SKIP] Legacy_tender_non-tender-ekontrak-bapbast_2026.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+[SKIP] Legacy_tender_non-tender-ekontrak-spmkspp_2026.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+[SKIP] Legacy_tender_non-tender-ekontrak-sppbj_2026.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/jadwal-tahapan-non-tender?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_tender_jadwal-tahapan-non-tender_2026.json (Total: 3134 baris)
+
+[SKIP] v1_tender_non-tender-ekontrak-kontrak_2026.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+[SKIP] v1_tender_non-tender-pengumuman_2026.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+[SKIP] v1_tender_non-tender-selesai_2026.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/non-tender-ekontrak?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_non-tender-ekontrak_2026.json (Total: 359 baris)
+
+[SKIP] v1_tender_pencatatan-non-tender_2026.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+[SKIP] v1_tender_pencatatan-non-tender-realisasi_2026.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+[SKIP] v1_tender_pencatatan-swakelola_2026.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+[SKIP] v1_tender_pencatatan-swakelola-realisasi_2026.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+[SKIP] Legacy_tender_tender-ekontrak-bapbast_2026.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+[SKIP] Legacy_tender_tender-ekontrak-spmkspp_2026.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+[SKIP] Legacy_tender_tender-ekontrak-sppbj_2026.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+[SKIP] Legacy_tender_tender-selesai_2026.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+[SKIP] v1_tender_pengumuman_2026.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/peserta-tender?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_peserta-tender_2026.json (Total: 594 baris)
+
+[SKIP] v1_tender_tender-ekontrak-kontrak_2026.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+[SKIP] v1_tender_tender-selesai-nilai_2026.json sudah ditarik sistem utama hari ini. -> Di-copy ke arsip.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/jadwal-tahapan-tender?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+SUKSES
+  -> Disimpan ke v1_tender_jadwal-tahapan-tender_2026.json (Total: 1029 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/tender-ekontrak?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_tender-ekontrak_2026.json (Total: 68 baris)
+
+==================================================
+MEMPROSES TAHUN 2025
+==================================================
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/dashboard/realisasi/table?tahun=2025&instansi=D228&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_dashboard_realisasi_table_2025.json (Total: 5268 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/ekatalog-archive/instansi-satker?kode_klpd=D228&limit=1000
+SUKSES
+  -> Disimpan ke v1_ekatalog-archive_instansi-satker_2025.json (Total: 122 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/ekatalog-archive/paket-e-purchasing?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+  -> Disimpan ke v1_ekatalog-archive_paket-e-purchasing_2025.json (Total: 344 baris)
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/kegiatan-master?kode_klpd=D228&tahun=2025
+SUKSES
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/paket-penyedia-lokasi?kode_klpd=D228&tahun=2025
+SUKSES
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/paket-swakelola-lokasi?kode_klpd=D228&tahun=2025
+SUKSES
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2025
+SUKSES
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/sub-kegiatan-master?kode_klpd=D228&tahun=2025
+SUKSES
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/history-kaji-ulang?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
