@@ -738,16 +738,16 @@
     "Satuan Kerja": "Puskesmas Kumai - 1.02.0.00.0.00.01.0010",
     "Data Laporan_Paket": 5,
     "Data Laporan_Pagu": 469208640.0,
-    "Pemilihan_Paket": 0,
-    "Pemilihan_Pagu": 0.0,
-    "Hasil_Paket": 0,
-    "Hasil_Pagu": 0.0,
-    "Kontrak_Paket": 0,
-    "Kontrak_Pagu": 0.0,
+    "Pemilihan_Paket": 1,
+    "Pemilihan_Pagu": 106250000.0,
+    "Hasil_Paket": 1,
+    "Hasil_Pagu": 67945485.0,
+    "Kontrak_Paket": 1,
+    "Kontrak_Pagu": 67945485.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 5,
-    "Belum_Pagu": 469208640.0
+    "Belum_Paket": 4,
+    "Belum_Pagu": 362958640.0
   },
   {
     "Satuan Kerja": "Puskesmas Kumpai Batu Atas - 1.02.0.00.0.00.01.0008",
@@ -1023,15 +1023,15 @@
     "Satuan Kerja": "TOTAL KESELURUHAN",
     "Data Laporan_Paket": 887,
     "Data Laporan_Pagu": 105316459196.0,
-    "Pemilihan_Paket": 534,
-    "Pemilihan_Pagu": 67247478009.0,
-    "Hasil_Paket": 534,
-    "Hasil_Pagu": 65886932084.41,
-    "Kontrak_Paket": 430,
-    "Kontrak_Pagu": 54230449301.01,
+    "Pemilihan_Paket": 535,
+    "Pemilihan_Pagu": 67353728009.0,
+    "Hasil_Paket": 535,
+    "Hasil_Pagu": 65954877569.41,
+    "Kontrak_Paket": 431,
+    "Kontrak_Pagu": 54298394786.01,
     "SerahTerima_Paket": 40,
     "SerahTerima_Pagu": 3708806096.0,
-    "Belum_Paket": 353,
-    "Belum_Pagu": 38068981187.0
+    "Belum_Paket": 352,
+    "Belum_Pagu": 37962731187.0
   }
 ]
