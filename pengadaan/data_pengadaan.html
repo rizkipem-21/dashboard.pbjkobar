@@ -214,9 +214,23 @@
       </div>
     </div>
 
-    <button id="btnRealisasi" onclick="toggleRealisasi()" class="filter-more-btn" style="background:#fff; border-color:var(--lpse-hijau); color:var(--lpse-hijau); margin-left:0;">
-      🎯 Tampilkan Realisasi Saja
-    </button>
+    <div class="filter-group">
+      <label>Status Realisasi</label>
+      <div class="check-dropdown">
+        <button class="check-btn" id="btn_realisasi" onclick="toggleFilterPanel('realisasi',event)"><span id="label_realisasi">-- Semua --</span></button>
+        <div class="check-panel" id="panel_realisasi">
+          <div class="check-list-container">
+            <div class="check-item"><input type="checkbox" id="all_realisasi" checked onchange="toggleAllFilter('realisasi',this)"><label for="all_realisasi" style="font-weight:600; cursor:pointer;">Pilih Semua</label></div>
+            <div style="border-top:1px solid #eee; margin:4px 0;"></div>
+            <div id="list_realisasi"></div>
+          </div>
+          <div style="display:flex; gap:8px; padding:10px; background:#f8fafc; border-top:1px solid #eee;">
+            <button style="height:20px; font-size:9px;" class="w-full bg-blue-900 text-white rounded font-bold" onclick="applyFilterPanel('realisasi')">✓ OK</button>
+            <button style="height:20px; font-size:9px;" class="w-full border rounded font-bold" onclick="cancelFilterPanel('realisasi')">✕ Batal</button>
+          </div>
+        </div>
+      </div>
+    </div>
     
     <button id="resetFilter" class="btn-reset">✕ Reset Semua Filter</button>
 
@@ -395,7 +409,6 @@ let filtered    = [];
 let currentPage = 1;
 let perPage     = 10;
 let currentYear = "2026";
-let modeRealisasi = false;
 
 // === FUNGSI TOGGLE FILTER LANJUTAN ===
 function toggleAdvancedFilter(){
@@ -416,6 +429,7 @@ const filterConfigs = {
   "metode": { key: "Metode Pemilihan", isStatic:false },
   "cara":   { key: "Cara Pengadaan", isStatic:true, staticOptions: ["Tender","Non Tender","Pencatatan Non Tender","E-Purchasing V5","E-Purchasing V6","Swakelola"] },
   "status": { key: "Status", isStatic:true, staticOptions: ["Belum Proses","Sedang Berjalan","Sudah Selesai"] },
+  "realisasi": { key: "Status Realisasi", isStatic:true, staticOptions: ["Realisasi","Belum Realisasi"] },
   "status_rinci": { key: "Status", isStatic:false }
 };
 let filterSnapshots = {};
@@ -428,6 +442,13 @@ function rupiah(n){
 function isAngka(val){
   if (val === null || val === undefined || val === "" || val === " " || val === "N/A") return false;
   return !isNaN(Number(val));
+}
+
+function getStatusRealisasi(row){
+  const v = (row["Status Realisasi"] || "").trim();
+  if (v) return v;
+  // cadangan bila JSON lama belum punya kolom ini
+  return (row["Status"] || "").trim().toLowerCase() === "pengumuman rup" ? "Belum Realisasi" : "Realisasi";
 }
 
 function badgeStatus(row){
@@ -548,6 +569,7 @@ function updateFilterLabel(type){
   const lbl = document.getElementById(`label_${type}`);
   if (chk.length === 0) lbl.innerText = "Tidak ada";
   else if (chk.length === all.length) lbl.innerText = "-- Semua --";
+  else if (chk.length === 1) lbl.innerText = chk[0].value;
   else lbl.innerText = `${chk.length} dipilih`;
 }
 
@@ -573,30 +595,6 @@ function getCheckedValues(type){
 }
 
 // === LOGIKA FILTER & TABEL ===
-function toggleRealisasi() {
-  modeRealisasi = !modeRealisasi;
-  const btn = document.getElementById("btnRealisasi");
-  const statusBtn = document.getElementById("btn_status");
-  
-  if (modeRealisasi) {
-    btn.style.background = "var(--lpse-hijau)";
-    btn.style.color = "#fff";
-    btn.innerText = "✅ Mode Realisasi Aktif";
-    
-    statusBtn.style.opacity = "0.4";
-    statusBtn.style.pointerEvents = "none";
-  } else {
-    btn.style.background = "#fff";
-    btn.style.color = "var(--lpse-hijau)";
-    btn.innerText = "🎯 Tampilkan Realisasi Saja";
-    
-    statusBtn.style.opacity = "1";
-    statusBtn.style.pointerEvents = "auto";
-  }
-  
-  applyFilter();
-}
-
 function resetFilterInputs(){
   document.getElementById("filterKodePaket").value = "";
   document.getElementById("filterKodeRUP").value = "";
@@ -608,8 +606,6 @@ function resetFilterInputs(){
     if (allCb) allCb.checked = true;
     updateFilterLabel(f);
   }
-
-  if (modeRealisasi) toggleRealisasi();
 }
 
 function applyFilter() {
@@ -617,7 +613,7 @@ function applyFilter() {
   const kodeRUP   = document.getElementById("filterKodeRUP").value.trim().toLowerCase();
   const satker = document.getElementById("filterSatker").value.trim().toLowerCase();
   const paket  = document.getElementById("filterPaket").value.trim().toLowerCase();
-  
+  const checkedRealisasi = getCheckedValues("realisasi");
   const checkedJenis  = getCheckedValues("jenis");
   const checkedMetode = getCheckedValues("metode");
   const checkedCara   = getCheckedValues("cara");
@@ -649,37 +645,13 @@ function applyFilter() {
       if (!matchFound) return false;
     }
     
-    // 3. Logika Penentu: Cek Status
-    if (modeRealisasi) {
-      let rawStatus = (row["Status"] || "").trim().toUpperCase(); // Jadikan huruf besar agar cocok
-      let sumber = (row["Sumber"] || "").toLowerCase();
+        // 3. Filter Status Realisasi (dari kolom "Status Realisasi")
+    if (checkedRealisasi !== null && !checkedRealisasi.includes(getStatusRealisasi(row))) return false;
 
-      // ATURAN KHUSUS SUMBER 6 (E-Purchasing V6 Baru)
-      if (sumber.includes("sumber 6")) {
-        const statusValid = ["ON PROCESS", "PAYMENT OUTSIDE SYSTEM", "ON ADDENDUM", "COMPLETED"];
-        if (!statusValid.includes(rawStatus)) {
-          return false; // Jika status TIDAK ADA di daftar atas, sembunyikan baris ini!
-        }
-      } 
-      // ATURAN UNTUK SUMBER LAINNYA (1, 2, 3, 4, 5, 7)
-      else {
-        let sLow = rawStatus.toLowerCase();
-        
-        // KATA "berlangsung" DIHAPUS DARI SINI AGAR TETAP MUNCUL
-        // Hanya menyembunyikan "pemilihan penyedia", "pengumuman rup", dan yang kosong
-        if (sLow.includes("pemilihan penyedia") || 
-            sLow.includes("pengumuman rup") || 
-            sLow === "" || 
-            sLow === "-") {
-          return false;
-        }
-      }
-
-    } else {
-      if (checkedStatus !== null) {
-        let kat = getKategoriStatus(row);
-        if (!checkedStatus.includes(kat)) return false;
-      }
+    // 4. Filter Status (kategori), berlaku di semua mode
+    if (checkedStatus !== null) {
+      let kat = getKategoriStatus(row);
+      if (!checkedStatus.includes(kat)) return false;
     }
     
     return true;
