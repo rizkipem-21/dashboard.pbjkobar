@@ -162573,3 +162573,96 @@ GAGAL (Status 403 - Akses ditolak: token tidak punya izin ke endpoint ini | Pesa
     -> [!] Menunggu 15 detik agar server Inaproc stabil...
 GAGAL (Status 403 - Akses ditolak: token tidak punya izin ke endpoint ini | Pesan server: { "error": "Access to this API has been disallowed" })
     -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 403 - Akses ditolak: token tidak punya izin ke endpoint ini | Pesan server: { "error": "Access to this API has been disallowed" })
+  -> [Aman] Server gagal diakses, mempertahankan file Legacy_sikap_penilaian-kinerja-penyedia-non-tender_2026.json.
+
+[BACKUP] Legacy_sikap_penilaian-kinerja-penyedia-tender_2026.json di-copy ke arsip 2026-10-30/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/sikap/penilaian-kinerja-penyedia-tender?kode_klpd=D228&tahun=2026
+GAGAL (Status 403 - Akses ditolak: token tidak punya izin ke endpoint ini | Pesan server: { "error": "Access to this API has been disallowed" })
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 403 - Akses ditolak: token tidak punya izin ke endpoint ini | Pesan server: { "error": "Access to this API has been disallowed" })
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 403 - Akses ditolak: token tidak punya izin ke endpoint ini | Pesan server: { "error": "Access to this API has been disallowed" })
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 403 - Akses ditolak: token tidak punya izin ke endpoint ini | Pesan server: { "error": "Access to this API has been disallowed" })
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 403 - Akses ditolak: token tidak punya izin ke endpoint ini | Pesan server: { "error": "Access to this API has been disallowed" })
+  -> [Aman] Server gagal diakses, mempertahankan file Legacy_sikap_penilaian-kinerja-penyedia-tender_2026.json.
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-bapbast?kode_klpd=D228&tahun=2026
+SUKSES (Total: 2 baris)
+
+=======================================================
+   DOWNLOAD DATA TAHUN 2025
+=======================================================
+
+[BACKUP] v1_dashboard_realisasi_table_2025.json di-copy ke arsip 2026-11-03/2025
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/dashboard/realisasi/table?tahun=2025&jenis=4&instansi=D228&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_dashboard_realisasi_table_2025.json (Total: 5268 baris)
+
+[BACKUP] v1_ekatalog_paket-e-purchasing_2025.json di-copy ke arsip 2026-11-03/2025
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/ekatalog/paket-e-purchasing?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+  -> Disimpan ke v1_ekatalog_paket-e-purchasing_2025.json (Total: 724 baris)
+
+[BACKUP] v1_ekatalog-archive_instansi-satker_2025.json di-copy ke arsip 2026-11-03/2025
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/ekatalog-archive/instansi-satker?kode_klpd=D228&limit=1000
+SUKSES
+  -> Disimpan ke v1_ekatalog-archive_instansi-satker_2025.json (Total: 122 baris)
+
+[BACKUP] v1_ekatalog-archive_paket-e-purchasing_2025.json di-copy ke arsip 2026-11-03/2025
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/ekatalog-archive/paket-e-purchasing?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+  -> Disimpan ke v1_ekatalog-archive_paket-e-purchasing_2025.json (Total: 344 baris)
+
+[BACKUP] Legacy_rup_kegiatan-master_2025.json di-copy ke arsip 2026-11-03/2025
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/kegiatan-master?kode_klpd=D228&tahun=2025
+SUKSES (Total: 712 baris)
+
+[BACKUP] Legacy_rup_sub-kegiatan-master_2025.json di-copy ke arsip 2026-11-03/2025
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/sub-kegiatan-master?kode_klpd=D228&tahun=2025
+SUKSES (Total: 2455 baris)
+
+[BACKUP] v1_rup_history-kaji-ulang_2025.json di-copy ke arsip 2026-11-03/2025
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/history-kaji-ulang?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_rup_history-kaji-ulang_2025.json (Total: 18750 baris)
+
+[BACKUP] v1_rup_program-master_2025.json di-copy ke arsip 2026-11-03/2025
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/program-master?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_program-master_2025.json (Total: 280 baris)
+
+[BACKUP] v1_rup_paket-penyedia-terumumkan_2025.json di-copy ke arsip 2026-11-03/2025
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2025&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
