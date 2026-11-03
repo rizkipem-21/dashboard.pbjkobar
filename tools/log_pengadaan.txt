@@ -160589,3 +160589,100 @@ SUKSES
 
 [BACKUP] Legacy_tender_non-tender-ekontrak-bapbast_2026.json di-copy ke arsip 2026-11-02/2026
 DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-bapbast?kode_klpd=D228&tahun=2026
+SUKSES
+
+[BACKUP] Legacy_tender_non-tender-ekontrak-spmkspp_2026.json di-copy ke arsip 2026-11-02/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-spmkspp?kode_klpd=D228&tahun=2026
+SUKSES
+
+[BACKUP] Legacy_tender_non-tender-ekontrak-sppbj_2026.json di-copy ke arsip 2026-11-02/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/non-tender-ekontrak-sppbj?kode_klpd=D228&tahun=2026
+SUKSES
+
+[BACKUP] v1_tender_non-tender-ekontrak-kontrak_2026.json di-copy ke arsip 2026-11-02/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/non-tender-ekontrak-kontrak?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_non-tender-ekontrak-kontrak_2026.json (Total: 360 baris)
+
+[BACKUP] v1_tender_non-tender-pengumuman_2026.json di-copy ke arsip 2026-11-02/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/non-tender-pengumuman?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_non-tender-pengumuman_2026.json (Total: 628 baris)
+
+[BACKUP] v1_tender_non-tender-selesai_2026.json di-copy ke arsip 2026-11-02/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/non-tender-selesai?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_non-tender-selesai_2026.json (Total: 570 baris)
+
+[BACKUP] v1_tender_pencatatan-non-tender_2026.json di-copy ke arsip 2026-11-02/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/pencatatan-non-tender?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_pencatatan-non-tender_2026.json (Total: 436 baris)
+
+[BACKUP] v1_tender_pencatatan-non-tender-realisasi_2026.json di-copy ke arsip 2026-11-02/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/pencatatan-non-tender-realisasi?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_pencatatan-non-tender-realisasi_2026.json (Total: 617 baris)
+
+[BACKUP] v1_tender_pencatatan-swakelola_2026.json di-copy ke arsip 2026-11-02/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/pencatatan-swakelola?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_pencatatan-swakelola_2026.json (Total: 3 baris)
+
+[BACKUP] v1_tender_pencatatan-swakelola-realisasi_2026.json di-copy ke arsip 2026-11-02/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/pencatatan-swakelola-realisasi?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_pencatatan-swakelola-realisasi_2026.json (Total: 2 baris)
+
+[BACKUP] Legacy_tender_tender-ekontrak-bapbast_2026.json di-copy ke arsip 2026-11-02/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-bapbast?kode_klpd=D228&tahun=2026
+SUKSES
+
+[BACKUP] Legacy_tender_tender-ekontrak-spmkspp_2026.json di-copy ke arsip 2026-11-02/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-spmkspp?kode_klpd=D228&tahun=2026
+SUKSES
+
+[BACKUP] Legacy_tender_tender-ekontrak-sppbj_2026.json di-copy ke arsip 2026-11-02/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/tender-ekontrak-sppbj?kode_klpd=D228&tahun=2026
+SUKSES
+
+[BACKUP] Legacy_tender_tender-selesai_2026.json di-copy ke arsip 2026-11-02/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/tender/tender-selesai?kode_klpd=D228&tahun=2026
+SUKSES
+
+[BACKUP] v1_tender_pengumuman_2026.json di-copy ke arsip 2026-11-02/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/pengumuman?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_pengumuman_2026.json (Total: 67 baris)
+
+[BACKUP] v1_tender_tender-ekontrak-kontrak_2026.json di-copy ke arsip 2026-11-02/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/tender-ekontrak-kontrak?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_tender-ekontrak-kontrak_2026.json (Total: 68 baris)
+
+[BACKUP] v1_tender_tender-selesai-nilai_2026.json di-copy ke arsip 2026-11-02/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/tender/tender-selesai-nilai?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_tender_tender-selesai-nilai_2026.json (Total: 61 baris)
+
+[BACKUP] Legacy_sikap_penilaian-kinerja-penyedia-non-tender_2026.json di-copy ke arsip 2026-10-30/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/sikap/penilaian-kinerja-penyedia-non-tender?kode_klpd=D228&tahun=2026
+GAGAL (Status 403)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 403)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 403)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 403)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 403)
+  -> [Aman] Server gagal diakses, mempertahankan file Legacy_sikap_penilaian-kinerja-penyedia-non-tender_2026.json.
+
+[BACKUP] Legacy_sikap_penilaian-kinerja-penyedia-tender_2026.json di-copy ke arsip 2026-10-30/2026
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/sikap/penilaian-kinerja-penyedia-tender?kode_klpd=D228&tahun=2026
+GAGAL (Status 403)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 403)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 403)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
