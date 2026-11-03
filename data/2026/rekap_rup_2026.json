@@ -15,15 +15,15 @@
   {
     "Satuan Kerja": "Badan Kesatuan Bangsa dan Politik - 8.01.0.00.0.00.01.0000",
     "Pagu Program": 3707871786.0,
-    "Pagu Pengadaan": 1573461786.0,
+    "Pagu Pengadaan": 812087786.0,
     "Paket Penyedia": 78.0,
     "RUP Penyedia": 812087786.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
     "Total Paket Terumumkan": 78.0,
     "Total RUP Terumumkan": 812087786.0,
-    "Selisih RUP Terumumkan": -761374000.0,
-    "Persentase": 51.61153535634706
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Badan Keuangan dan Aset Daerah - 5.02.0.00.0.00.01.0000",
@@ -119,15 +119,15 @@
   {
     "Satuan Kerja": "Dinas Kepemudaan dan Olahraga - 2.19.0.00.0.00.01.0000",
     "Pagu Program": 18210622195.0,
-    "Pagu Pengadaan": 2659491776.0,
+    "Pagu Pengadaan": 2659491775.0,
     "Paket Penyedia": 108.0,
     "RUP Penyedia": 2659491775.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
     "Total Paket Terumumkan": 108.0,
     "Total RUP Terumumkan": 2659491775.0,
-    "Selisih RUP Terumumkan": -1.0,
-    "Persentase": 99.99999996239883
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Dinas Kependudukan dan Pencatatan Sipil - 2.12.0.00.0.00.01.0000",
@@ -224,14 +224,14 @@
     "Satuan Kerja": "Dinas Pekerjaan Umum dan Penataan Ruang - 1.03.0.00.0.00.01.0000",
     "Pagu Program": 116257761256.0,
     "Pagu Pengadaan": 26765831792.0,
-    "Paket Penyedia": 452.0,
-    "RUP Penyedia": 113762537792.0,
+    "Paket Penyedia": 454.0,
+    "RUP Penyedia": 113774312842.0,
     "Paket Swakelola": 1.0,
     "RUP Swakelola": 33500000.0,
-    "Total Paket Terumumkan": 453.0,
-    "Total RUP Terumumkan": 113796037792.0,
-    "Selisih RUP Terumumkan": 87030206000.0,
-    "Persentase": 425.15412439381885
+    "Total Paket Terumumkan": 455.0,
+    "Total RUP Terumumkan": 113807812842.0,
+    "Selisih RUP Terumumkan": 87041981050.0,
+    "Persentase": 425.19811723548173
   },
   {
     "Satuan Kerja": "Dinas Pemadam Kebakaran dan Penyelamatan - 1.05.0.00.0.00.03.0000",
@@ -304,12 +304,12 @@
     "Pagu Pengadaan": 30934229421.0,
     "Paket Penyedia": 292.0,
     "RUP Penyedia": 9727450502.0,
-    "Paket Swakelola": 22.0,
-    "RUP Swakelola": 23823866125.0,
-    "Total Paket Terumumkan": 314.0,
-    "Total RUP Terumumkan": 33551316627.0,
-    "Selisih RUP Terumumkan": 2617087206.0,
-    "Persentase": 108.46016614922809
+    "Paket Swakelola": 20.0,
+    "RUP Swakelola": 9197340195.0,
+    "Total Paket Terumumkan": 312.0,
+    "Total RUP Terumumkan": 18924790697.0,
+    "Selisih RUP Terumumkan": -12009438724.0,
+    "Persentase": 61.177508058929455
   },
   {
     "Satuan Kerja": "Dinas Perhubungan - 2.15.0.00.0.00.01.0000",
@@ -419,27 +419,27 @@
     "Satuan Kerja": "Dinas Tenaga Kerja dan Transmigrasi - 2.07.3.32.0.00.01.0000",
     "Pagu Program": 2330571134.0,
     "Pagu Pengadaan": 2150571134.0,
-    "Paket Penyedia": 83.0,
-    "RUP Penyedia": 1350355681.0,
+    "Paket Penyedia": 84.0,
+    "RUP Penyedia": 1353030681.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 83.0,
-    "Total RUP Terumumkan": 1350355681.0,
-    "Selisih RUP Terumumkan": -800215453.0,
-    "Persentase": 62.79056105846532
+    "Total Paket Terumumkan": 84.0,
+    "Total RUP Terumumkan": 1353030681.0,
+    "Selisih RUP Terumumkan": -797540453.0,
+    "Persentase": 62.91494662087286
   },
   {
     "Satuan Kerja": "Inspektorat Daerah - 6.01.0.00.0.00.01.0000",
     "Pagu Program": 8133008000.0,
-    "Pagu Pengadaan": 7783601090.0,
+    "Pagu Pengadaan": 8133008000.0,
     "Paket Penyedia": 57.0,
     "RUP Penyedia": 1564313084.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
     "Total Paket Terumumkan": 57.0,
     "Total RUP Terumumkan": 1564313084.0,
-    "Selisih RUP Terumumkan": -6219288006.0,
-    "Persentase": 20.09754952639794
+    "Selisih RUP Terumumkan": -6568694916.0,
+    "Persentase": 19.234126955242147
   },
   {
     "Satuan Kerja": "Instalasi Farmasi - 1.02.0.00.0.00.01.0022",
@@ -458,14 +458,14 @@
     "Satuan Kerja": "Kecamatan Arut Selatan - 7.01.0.00.0.00.02.0000",
     "Pagu Program": 6674652577.0,
     "Pagu Pengadaan": 3494926432.0,
-    "Paket Penyedia": 181.0,
-    "RUP Penyedia": 4525635577.0,
+    "Paket Penyedia": 178.0,
+    "RUP Penyedia": 4515790577.0,
     "Paket Swakelola": 4.0,
     "RUP Swakelola": 139860000.0,
-    "Total Paket Terumumkan": 185.0,
-    "Total RUP Terumumkan": 4665495577.0,
-    "Selisih RUP Terumumkan": 1170569145.0,
-    "Persentase": 133.49338441811298
+    "Total Paket Terumumkan": 182.0,
+    "Total RUP Terumumkan": 4655650577.0,
+    "Selisih RUP Terumumkan": 1160724145.0,
+    "Persentase": 133.2116903627
   },
   {
     "Satuan Kerja": "Kecamatan Arut Utara - 7.01.0.00.0.00.04.0000",
@@ -497,14 +497,14 @@
     "Satuan Kerja": "Kecamatan Kumai - 7.01.0.00.0.00.01.0000",
     "Pagu Program": 1716421914.0,
     "Pagu Pengadaan": 1439107189.0,
-    "Paket Penyedia": 98.0,
-    "RUP Penyedia": 824468098.0,
+    "Paket Penyedia": 100.0,
+    "RUP Penyedia": 843318098.0,
     "Paket Swakelola": 5.0,
     "RUP Swakelola": 168247302.0,
-    "Total Paket Terumumkan": 103.0,
-    "Total RUP Terumumkan": 992715400.0,
-    "Selisih RUP Terumumkan": -446391789.0,
-    "Persentase": 68.98133840119397
+    "Total Paket Terumumkan": 105.0,
+    "Total RUP Terumumkan": 1011565400.0,
+    "Selisih RUP Terumumkan": -427541789.0,
+    "Persentase": 70.29117828970834
   },
   {
     "Satuan Kerja": "Kecamatan Pangkalan Banteng - 7.01.0.00.0.00.06.0000",
@@ -820,16 +820,16 @@
   },
   {
     "Satuan Kerja": "Puskesmas Karang Mulya - 1.02.0.00.0.00.01.0016",
-    "Pagu Program": 2894826066.0,
-    "Pagu Pengadaan": 2698072116.0,
-    "Paket Penyedia": 24.0,
-    "RUP Penyedia": 1318431181.0,
+    "Pagu Program": 3011990502.0,
+    "Pagu Pengadaan": 289482606594.0,
+    "Paket Penyedia": 29.0,
+    "RUP Penyedia": 1435595617.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 24.0,
-    "Total RUP Terumumkan": 1318431181.0,
-    "Selisih RUP Terumumkan": -1379640935.0,
-    "Persentase": 48.86567609447842
+    "Total Paket Terumumkan": 29.0,
+    "Total RUP Terumumkan": 1435595617.0,
+    "Selisih RUP Terumumkan": -288047010977.0,
+    "Persentase": 0.4959177457640576
   },
   {
     "Satuan Kerja": "Puskesmas Kotawaringin Lama - 1.02.0.00.0.00.01.0019",
@@ -939,14 +939,14 @@
     "Satuan Kerja": "Puskesmas Riam Durian - 1.02.0.00.0.00.01.0020",
     "Pagu Program": 1272670331.0,
     "Pagu Pengadaan": 1244591706.0,
-    "Paket Penyedia": 31.0,
-    "RUP Penyedia": 197270937.0,
+    "Paket Penyedia": 30.0,
+    "RUP Penyedia": 192796962.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 31.0,
-    "Total RUP Terumumkan": 197270937.0,
-    "Selisih RUP Terumumkan": -1047320769.0,
-    "Persentase": 15.85025322352582
+    "Total Paket Terumumkan": 30.0,
+    "Total RUP Terumumkan": 192796962.0,
+    "Selisih RUP Terumumkan": -1051794744.0,
+    "Persentase": 15.490779913649849
   },
   {
     "Satuan Kerja": "Puskesmas Runtu - 1.02.0.00.0.00.01.0009",
@@ -976,16 +976,16 @@
   },
   {
     "Satuan Kerja": "Puskesmas Semanggang - 1.02.0.00.0.00.01.0015",
-    "Pagu Program": 2519809639.0,
-    "Pagu Pengadaan": 2453028813.0,
+    "Pagu Program": 2520255100.0,
+    "Pagu Pengadaan": 2519809639.0,
     "Paket Penyedia": 41.0,
-    "RUP Penyedia": 655083299.0,
+    "RUP Penyedia": 650599250.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
     "Total Paket Terumumkan": 41.0,
-    "Total RUP Terumumkan": 655083299.0,
-    "Selisih RUP Terumumkan": -1797945514.0,
-    "Persentase": 26.70507967653456
+    "Total RUP Terumumkan": 650599250.0,
+    "Selisih RUP Terumumkan": -1869210389.0,
+    "Persentase": 25.81938095364195
   },
   {
     "Satuan Kerja": "Puskesmas Sungai Rangit - 1.02.0.00.0.00.01.0012",
@@ -1044,13 +1044,13 @@
     "Pagu Program": 164555000000.0,
     "Pagu Pengadaan": 93454644628.0,
     "Paket Penyedia": 92.0,
-    "RUP Penyedia": 92156630628.0,
+    "RUP Penyedia": 93454644628.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
     "Total Paket Terumumkan": 92.0,
-    "Total RUP Terumumkan": 92156630628.0,
-    "Selisih RUP Terumumkan": -1298014000.0,
-    "Persentase": 98.61107598753728
+    "Total RUP Terumumkan": 93454644628.0,
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Satuan Polisi Pamong Praja - 1.05.0.00.0.00.01.0000",
@@ -1081,15 +1081,15 @@
   {
     "Satuan Kerja": "Sekretariat Daerah - 4.01.0.00.0.00.01.0000",
     "Pagu Program": 25765478624.0,
-    "Pagu Pengadaan": 17556669062.0,
+    "Pagu Pengadaan": 11868942023.0,
     "Paket Penyedia": 196.0,
     "RUP Penyedia": 11672050823.0,
     "Paket Swakelola": 3.0,
     "RUP Swakelola": 196891200.0,
     "Total Paket Terumumkan": 199.0,
     "Total RUP Terumumkan": 11868942023.0,
-    "Selisih RUP Terumumkan": -5687727039.0,
-    "Persentase": 67.60360966585269
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Workshop dan Peralatan Konstruksi - 1.03.0.00.0.00.01.0002",
