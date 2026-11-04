@@ -6237,3 +6237,20 @@ PROSES SELESAI | Durasi: 0:00:54
 START GENERATE DETAIL RUP 4 November 2026 | 12.11 WIB
 ==================================================
 GAGAL TOTAL DOWNLOAD API. Skrip Detail RUP otomatis dihentikan.
+
+==================================================
+START GENERATE DETAIL RUP 5 November 2026 | 05.12 WIB
+==================================================
+
+--- MEMPROSES DETAIL TAHUN 2026 ---
+✅ EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Detail_RUP Tahun 2026 (2026-11-05).xlsx (5113 baris)
+
+--- MEMPROSES DETAIL TAHUN 2025 ---
+  -> [SKIP] Excel Tahun 2025 sudah ada (Final).
+
+--- MEMPROSES DETAIL TAHUN 2024 ---
+  -> [SKIP] Excel Tahun 2024 sudah ada (Final).
+
+==================================================
+MENGIRIM EXCEL DETAIL RUP KE GITHUB...
+==================================================
