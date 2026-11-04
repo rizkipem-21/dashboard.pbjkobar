@@ -15580,3 +15580,12 @@ Waktu Mulai: Kamis, 5 November 2026 | 05:09:43 WIB
 ✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/16987559601679 (+100 baris)
 
 ⏳ [38/59] Memproses Peralatan Bidang Geofisika dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15364514708751
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15364514708751 (+117 baris)
+
+⏳ [39/59] Memproses Peralatan Bidang Infrastruktur MKG dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15364585378703
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15364585378703 (+9 baris)
+
+⏳ [40/59] Memproses Peralatan Bidang Klimatologi dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15364501555471
+✅ Selesai ekstrak: https://bantuan.inaproc.id/hc/id-id/article_attachments/15364501555471 (+20 baris)
+
+⏳ [41/59] Memproses Peralatan Bidang Meteorologi dari: https://bantuan.inaproc.id/hc/id-id/article_attachments/15364545716239
