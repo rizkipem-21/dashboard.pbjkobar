@@ -49,8 +49,8 @@
   },
   {
     "Satuan Kerja": "BADAN PENANGGULANGAN BENCANA DAERAH - 1.05.0.00.0.00.02.0000",
-    "Data Laporan_Paket": 0,
-    "Data Laporan_Pagu": 0.0,
+    "Data Laporan_Paket": 1,
+    "Data Laporan_Pagu": 510789222.0,
     "Pemilihan_Paket": 0,
     "Pemilihan_Pagu": 0.0,
     "Hasil_Paket": 0,
@@ -59,8 +59,8 @@
     "Kontrak_Pagu": 0.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 0,
-    "Belum_Pagu": 0.0,
+    "Belum_Paket": 1,
+    "Belum_Pagu": 510789222.0,
     "Progres_Persen": 0.0
   },
   {
@@ -193,19 +193,19 @@
   },
   {
     "Satuan Kerja": "DINAS PEKERJAAN UMUM DAN PENATAAN RUANG - 1.03.0.00.0.00.01.0000",
-    "Data Laporan_Paket": 50,
-    "Data Laporan_Pagu": 29380608916.0,
-    "Pemilihan_Paket": 38,
-    "Pemilihan_Pagu": 24262864804.0,
-    "Hasil_Paket": 38,
-    "Hasil_Pagu": 23998692341.0,
-    "Kontrak_Paket": 33,
-    "Kontrak_Pagu": 22665148341.0,
+    "Data Laporan_Paket": 35,
+    "Data Laporan_Pagu": 14096692576.0,
+    "Pemilihan_Paket": 28,
+    "Pemilihan_Pagu": 10726155364.0,
+    "Hasil_Paket": 28,
+    "Hasil_Pagu": 10697709541.0,
+    "Kontrak_Paket": 23,
+    "Kontrak_Pagu": 9364165541.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 12,
-    "Belum_Pagu": 5117744112.0,
-    "Progres_Persen": 76.0
+    "Belum_Paket": 7,
+    "Belum_Pagu": 3370537212.0,
+    "Progres_Persen": 80.0
   },
   {
     "Satuan Kerja": "DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN - 1.05.0.00.0.00.03.0000",
@@ -481,8 +481,8 @@
   },
   {
     "Satuan Kerja": "KECAMATAN KOTAWARINGIN LAMA - 7.01.0.00.0.00.03.0000",
-    "Data Laporan_Paket": 0,
-    "Data Laporan_Pagu": 0.0,
+    "Data Laporan_Paket": 1,
+    "Data Laporan_Pagu": 294557160.0,
     "Pemilihan_Paket": 0,
     "Pemilihan_Pagu": 0.0,
     "Hasil_Paket": 0,
@@ -491,8 +491,8 @@
     "Kontrak_Pagu": 0.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 0,
-    "Belum_Pagu": 0.0,
+    "Belum_Paket": 1,
+    "Belum_Pagu": 294557160.0,
     "Progres_Persen": 0.0
   },
   {
@@ -929,18 +929,18 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 201,
-    "Data Laporan_Pagu": 122815911046.0,
-    "Pemilihan_Paket": 124,
-    "Pemilihan_Pagu": 87292177306.0,
-    "Hasil_Paket": 124,
-    "Hasil_Pagu": 55092418749.0,
-    "Kontrak_Paket": 117,
-    "Kontrak_Pagu": 53026374749.0,
+    "Data Laporan_Paket": 188,
+    "Data Laporan_Pagu": 108337341088.0,
+    "Pemilihan_Paket": 114,
+    "Pemilihan_Pagu": 73755467866.0,
+    "Hasil_Paket": 114,
+    "Hasil_Pagu": 41791435949.0,
+    "Kontrak_Paket": 107,
+    "Kontrak_Pagu": 39725391949.0,
     "SerahTerima_Paket": 22,
     "SerahTerima_Pagu": 6405889772.0,
-    "Belum_Paket": 77,
-    "Belum_Pagu": 35523733740.0,
-    "Progres_Persen": 61.7
+    "Belum_Paket": 74,
+    "Belum_Pagu": 34581873222.0,
+    "Progres_Persen": 60.6
   }
 ]
