@@ -166081,3 +166081,41 @@ SUKSES
 
 [BACKUP] v1_sikap_penilaian-kinerja-penyedia-non-tender_2026.json di-copy ke arsip 2026-11-04/2026
 DOWNLOAD [V1]: https://data.inaproc.id/api/v1/sikap/penilaian-kinerja-penyedia-non-tender?kode_klpd=D228&tahun=2026&limit=1000
+GAGAL (Status 403 - Akses ditolak: token tidak punya izin ke endpoint ini | Pesan server: { "error": "Access to this API has been disallowed" })
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 403 - Akses ditolak: token tidak punya izin ke endpoint ini | Pesan server: { "error": "Access to this API has been disallowed" })
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 403 - Akses ditolak: token tidak punya izin ke endpoint ini | Pesan server: { "error": "Access to this API has been disallowed" })
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 403 - Akses ditolak: token tidak punya izin ke endpoint ini | Pesan server: { "error": "Access to this API has been disallowed" })
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 403 - Akses ditolak: token tidak punya izin ke endpoint ini | Pesan server: { "error": "Access to this API has been disallowed" })
+  -> [Aman] Proses terputus, mempertahankan file v1_sikap_penilaian-kinerja-penyedia-non-tender_2026.json lama yang utuh.
+
+[BACKUP] v1_sikap_penilaian-kinerja-penyedia-tender_2026.json di-copy ke arsip 2026-11-04/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/sikap/penilaian-kinerja-penyedia-tender?kode_klpd=D228&tahun=2026&limit=1000
+GAGAL (Status 403 - Akses ditolak: token tidak punya izin ke endpoint ini | Pesan server: { "error": "Access to this API has been disallowed" })
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 403 - Akses ditolak: token tidak punya izin ke endpoint ini | Pesan server: { "error": "Access to this API has been disallowed" })
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 403 - Akses ditolak: token tidak punya izin ke endpoint ini | Pesan server: { "error": "Access to this API has been disallowed" })
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 403 - Akses ditolak: token tidak punya izin ke endpoint ini | Pesan server: { "error": "Access to this API has been disallowed" })
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 403 - Akses ditolak: token tidak punya izin ke endpoint ini | Pesan server: { "error": "Access to this API has been disallowed" })
+  -> [Aman] Proses terputus, mempertahankan file v1_sikap_penilaian-kinerja-penyedia-tender_2026.json lama yang utuh.
+
+=======================================================
+   DOWNLOAD DATA TAHUN 2025
+=======================================================
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/dashboard/realisasi/table?tahun=2025&jenis=4&instansi=D228&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_dashboard_realisasi_table_2025.json (Total: 5268 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/ekatalog/paket-e-purchasing?kode_klpd=D228&tahun=2025&limit=1000
