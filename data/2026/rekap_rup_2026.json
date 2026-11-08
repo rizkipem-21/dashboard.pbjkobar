@@ -222,16 +222,16 @@
   },
   {
     "Satuan Kerja": "Dinas Pekerjaan Umum dan Penataan Ruang - 1.03.0.00.0.00.01.0000",
-    "Pagu Program": 116257761256.0,
-    "Pagu Pengadaan": 26765831792.0,
-    "Paket Penyedia": 410.0,
-    "RUP Penyedia": 108313762488.0,
+    "Pagu Program": 109450736457.0,
+    "Pagu Pengadaan": 108830596892.0,
+    "Paket Penyedia": 413.0,
+    "RUP Penyedia": 108797096892.0,
     "Paket Swakelola": 1.0,
     "RUP Swakelola": 33500000.0,
-    "Total Paket Terumumkan": 411.0,
-    "Total RUP Terumumkan": 108347262488.0,
-    "Selisih RUP Terumumkan": 81581430696.0,
-    "Persentase": 404.79691918404626
+    "Total Paket Terumumkan": 414.0,
+    "Total RUP Terumumkan": 108830596892.0,
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Dinas Pemadam Kebakaran dan Penyelamatan - 1.05.0.00.0.00.03.0000",
@@ -431,15 +431,15 @@
   {
     "Satuan Kerja": "Inspektorat Daerah - 6.01.0.00.0.00.01.0000",
     "Pagu Program": 8133008000.0,
-    "Pagu Pengadaan": 985000828140.0,
+    "Pagu Pengadaan": 1647720772.0,
     "Paket Penyedia": 59.0,
     "RUP Penyedia": 1647720772.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
     "Total Paket Terumumkan": 59.0,
     "Total RUP Terumumkan": 1647720772.0,
-    "Selisih RUP Terumumkan": -983353107368.0,
-    "Persentase": 0.167281156007902
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Instalasi Farmasi - 1.02.0.00.0.00.01.0022",
