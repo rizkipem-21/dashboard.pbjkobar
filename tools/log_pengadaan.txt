@@ -175822,3 +175822,4 @@ START GENERATE PENGADAAN 10 November 2026 | 07.13 WIB
 ℹ️ Tahun 2026: 1623 baris Inaproc dimuat dari v1_dashboard_realisasi_table_2026.json
 ℹ️ Tahun 2026: 4 baris Jenis Pengadaan diisi dari cadangan (Inaproc kosong)
 ℹ️ Tahun 2026: 33 baris Kode RUP-nya diisi dari cadangan: Realisasi (kd_rup_paket)
+JSON Rekap sukses dibuat: D:\dashboard.pbjkobar\data\2026\rekap_pengadaan_2026.json
