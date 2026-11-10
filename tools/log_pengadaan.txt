@@ -176058,3 +176058,6 @@ SELESAI GENERATE TAHUN 2026 | Total data: 5151
    GENERATE DATA TAHUN 2025
 =======================================================
 ℹ️ Tahun 2025: 5274 baris Inaproc dimuat dari v1_dashboard_realisasi_table_2025.json
+ℹ️ Tahun 2025: 58 baris Jenis Pengadaan diisi dari cadangan (Inaproc kosong)
+ℹ️ Tahun 2025: 73 baris Kode RUP-nya diisi dari cadangan: Realisasi (kd_rup_paket)
+JSON Rekap sukses dibuat: D:\dashboard.pbjkobar\data\2025\rekap_pengadaan_2025.json
