@@ -67867,3 +67867,65 @@ PUSH GITHUB SUKSES!
 ==================================================
 PROSES SELESAI SELURUHNYA PADA 11 November 2026 | 10.06 WIB
 ==================================================
+
+==================================================
+START GENERATE RUP 11 November 2026 | 13.21 WIB
+==================================================
+
+--- MEMPROSES DATA TAHUN 2026 ---
+DONE -> JSON: rekap_rup_2026.json
+DONE -> EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Rekap RUP Tahun 2026 (2026-11-11).xlsx
+
+[SKIP] Tahun 2025 sudah ada (final).
+
+--- MEMPROSES DATA TAHUN 2024 ---
+DONE -> JSON: rekap_rup_2024.json
+DONE -> EXCEL: D:\dashboard.pbjkobar\output\rup\2024\Rekap RUP Tahun 2024 (2026-11-11).xlsx
+
+==================================================
+MENGIRIM DATA RUP KE GITHUB DARI PYTHON...
+==================================================
+
+==================================================
+ PROSES SELESAI SELURUHNYA!
+==================================================
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    data/2024/master_pengadaan_2024.xlsx
+	deleted:    data/2024/rekap_pengadaan_2024.json
+	modified:   data/last-update-rup.txt
+	deleted:    output/rup/2024/Rekap RUP Tahun 2024 (2026-11-05).xlsx
+	modified:   output/rup/2024/daftar_arsip.json
+	modified:   output/rup/2026/Detail_RUP Tahun 2026 (2026-11-11).xlsx
+	modified:   output/rup/2026/Konsolidasi_RUP Tahun 2026 (2026-11-11).xlsx
+	modified:   output/rup/2026/Rekap RUP Tahun 2026 (2026-11-11).xlsx
+	modified:   scripts/pengadaan/generate_pengadaan.py
+	modified:   scripts/rup/detail_rup.py
+	modified:   scripts/rup/generate_rup.py
+	modified:   scripts/rup/konsolidasi_rup.py
+	modified:   scripts/rup/kosong_api_rup.json
+	modified:   tools/log_detail_rup.txt
+	modified:   tools/log_konsolidasi_rup.txt
+	modified:   tools/log_pengadaan.txt
+	modified:   tools/log_rup.txt
+	modified:   tools/run_pengadaan.bat
+	modified:   tools/run_rup.bat
+	deleted:    tools/start_time_pengadaan.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	output/rup/2024/Rekap RUP Tahun 2024 (2026-11-11).xlsx
+	running.lock
+	scripts/download_json/
+	tools/gagal_beruntun.json
+	tools/hasil_download.json
+	tools/log_download.txt
+	tools/run_semua.bat
+	tools/temp_tg_rup.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
