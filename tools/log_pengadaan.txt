@@ -177755,3 +177755,14 @@ SUKSES
 SUKSES
 SUKSES
 SUKSES
+SUKSES
+  -> Disimpan ke v1_rup_paket-anggaran-penyedia_2025.json (Total: 18594 baris)
+
+[BACKUP] v1_rup_paket-penyedia_2025.json di-copy ke arsip 2026-11-09/2025
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia?kode_klpd=D228&tahun=2025&limit=1000
+GAGAL (Status 500 - Error internal di server Inaproc | Pesan server: *, *::before, *::after { box-sizing: border-box; } * { margin: 0; } body { line-height: 1.5; -webkit-font-smoothing: ant)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 500 - Error internal di server Inaproc | Pesan server: *, *::before, *::after { box-sizing: border-box; } * { margin: 0; } body { line-height: 1.5; -webkit-font-smoothing: ant)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 500 - Error internal di server Inaproc | Pesan server: *, *::before, *::after { box-sizing: border-box; } * { margin: 0; } body { line-height: 1.5; -webkit-font-smoothing: ant)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
