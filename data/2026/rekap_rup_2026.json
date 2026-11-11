@@ -498,13 +498,13 @@
     "Pagu Program": 1716421914.0,
     "Pagu Pengadaan": 1439107189.0,
     "Paket Penyedia": 101.0,
-    "RUP Penyedia": 843280912.0,
+    "RUP Penyedia": 841570912.0,
     "Paket Swakelola": 6.0,
     "RUP Swakelola": 175518902.0,
     "Total Paket Terumumkan": 107.0,
-    "Total RUP Terumumkan": 1018799814.0,
-    "Selisih RUP Terumumkan": -420307375.0,
-    "Persentase": 70.79387982961428
+    "Total RUP Terumumkan": 1017089814.0,
+    "Selisih RUP Terumumkan": -422017375.0,
+    "Persentase": 70.67505615803022
   },
   {
     "Satuan Kerja": "Kecamatan Pangkalan Banteng - 7.01.0.00.0.00.06.0000",
@@ -821,15 +821,15 @@
   {
     "Satuan Kerja": "Puskesmas Karang Mulya - 1.02.0.00.0.00.01.0016",
     "Pagu Program": 3011990502.0,
-    "Pagu Pengadaan": 1435593568.0,
+    "Pagu Pengadaan": 1435595617.0,
     "Paket Penyedia": 29.0,
     "RUP Penyedia": 1435595617.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
     "Total Paket Terumumkan": 29.0,
     "Total RUP Terumumkan": 1435595617.0,
-    "Selisih RUP Terumumkan": 2049.0,
-    "Persentase": 100.0001427284188
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Puskesmas Kotawaringin Lama - 1.02.0.00.0.00.01.0019",
@@ -861,14 +861,14 @@
     "Satuan Kerja": "Puskesmas Kumpai Batu Atas - 1.02.0.00.0.00.01.0008",
     "Pagu Program": 1620760820.0,
     "Pagu Pengadaan": 509262312.0,
-    "Paket Penyedia": 43.0,
-    "RUP Penyedia": 500227311.0,
+    "Paket Penyedia": 31.0,
+    "RUP Penyedia": 433621094.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 43.0,
-    "Total RUP Terumumkan": 500227311.0,
-    "Selisih RUP Terumumkan": -9035001.0,
-    "Persentase": 98.22586498409488
+    "Total Paket Terumumkan": 31.0,
+    "Total RUP Terumumkan": 433621094.0,
+    "Selisih RUP Terumumkan": -75641218.0,
+    "Persentase": 85.14690441102188
   },
   {
     "Satuan Kerja": "Puskesmas Madurejo - 1.02.0.00.0.00.01.0005",
@@ -885,29 +885,29 @@
   },
   {
     "Satuan Kerja": "Puskesmas Mendawai - 1.02.0.00.0.00.01.0006",
-    "Pagu Program": 2228295104.0,
-    "Pagu Pengadaan": 552591787.0,
+    "Pagu Program": 2273064911.0,
+    "Pagu Pengadaan": 2155417785.0,
     "Paket Penyedia": 50.0,
     "RUP Penyedia": 552591787.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
     "Total Paket Terumumkan": 50.0,
     "Total RUP Terumumkan": 552591787.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 100.0
+    "Selisih RUP Terumumkan": -1602825998.0,
+    "Persentase": 25.637340048207868
   },
   {
     "Satuan Kerja": "Puskesmas Natai Pelingkau - 1.02.0.00.0.00.01.0007",
     "Pagu Program": 2596583301.0,
     "Pagu Pengadaan": 803395477.0,
-    "Paket Penyedia": 38.0,
-    "RUP Penyedia": 608795477.0,
+    "Paket Penyedia": 40.0,
+    "RUP Penyedia": 614570477.0,
     "Paket Swakelola": 1.0,
     "RUP Swakelola": 194600000.0,
-    "Total Paket Terumumkan": 39.0,
-    "Total RUP Terumumkan": 803395477.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 100.0
+    "Total Paket Terumumkan": 41.0,
+    "Total RUP Terumumkan": 809170477.0,
+    "Selisih RUP Terumumkan": 5775000.0,
+    "Persentase": 100.71882406178894
   },
   {
     "Satuan Kerja": "Puskesmas Pandu Sanjaya - 1.02.0.00.0.00.01.0014",
