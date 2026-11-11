@@ -67592,3 +67592,89 @@ PROSES SELESAI SELURUHNYA PADA 11 November 2026 | 06.06 WIB
 ==================================================
 ⚠️ Koneksi Telegram lambat. Mencoba ulang (1/3)...
 ⚠️ Koneksi Telegram lambat. Mencoba ulang (2/3)...
+
+==================================================
+START DOWNLOAD RUP 11 November 2026 | 08.00 WIB
+==================================================
+
+==================================================
+--- MENGUNDUH DATA TAHUN 2026 ---
+==================================================
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/kegiatan-master?kode_klpd=D228&tahun=2026
+SUKSES (Total: 663 baris)
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/paket-penyedia-lokasi?kode_klpd=D228&tahun=2026
+SUKSES (Total: 13590 baris)
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/paket-swakelola-lokasi?kode_klpd=D228&tahun=2026
+SUKSES (Total: 364 baris)
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/struktur-anggaran-pd?kode_klpd=D228&tahun=2026
+SUKSES (Total: 58 baris)
+
+DOWNLOAD [LEGACY]: https://data.inaproc.id/api/legacy/rup/sub-kegiatan-master?kode_klpd=D228&tahun=2026
+SUKSES (Total: 2232 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/master-satker?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_master-satker_2026.json (Total: 126 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/program-master?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_program-master_2026.json (Total: 277 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_rup_paket-penyedia-terumumkan_2026.json (Total: 5018 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-anggaran-penyedia?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+SUKSES
+  -> Disimpan ke v1_rup_paket-anggaran-penyedia_2026.json (Total: 10722 baris)
+
+[Backup] v1_rup_paket-penyedia_2026.json di-copy ke arsip 2026-11-09/2026
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-penyedia?kode_klpd=D228&tahun=2026&limit=1000
+GAGAL (Status 500 - Error internal di server Inaproc | Pesan server: *, *::before, *::after { box-sizing: border-box; } * { margin: 0; } body { line-height: 1.5; -webkit-font-smoothing: ant)
+    -> [!] Menunggu 5 detik agar server Inaproc stabil...
+GAGAL (Status 500 - Error internal di server Inaproc | Pesan server: *, *::before, *::after { box-sizing: border-box; } * { margin: 0; } body { line-height: 1.5; -webkit-font-smoothing: ant)
+    -> [!] Menunggu 10 detik agar server Inaproc stabil...
+GAGAL (Status 500 - Error internal di server Inaproc | Pesan server: *, *::before, *::after { box-sizing: border-box; } * { margin: 0; } body { line-height: 1.5; -webkit-font-smoothing: ant)
+    -> [!] Menunggu 15 detik agar server Inaproc stabil...
+GAGAL (Status 500 - Error internal di server Inaproc | Pesan server: *, *::before, *::after { box-sizing: border-box; } * { margin: 0; } body { line-height: 1.5; -webkit-font-smoothing: ant)
+    -> [!] Menunggu 20 detik agar server Inaproc stabil...
+GAGAL (Status 500 - Error internal di server Inaproc | Pesan server: *, *::before, *::after { box-sizing: border-box; } * { margin: 0; } body { line-height: 1.5; -webkit-font-smoothing: ant)
+  GAGAL TOTAL pada request ini. Berhenti ditarik.
+  -> [Aman] Proses terputus, mempertahankan file v1_rup_paket-penyedia_2026.json lama yang utuh.
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola-terumumkan?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_paket-swakelola-terumumkan_2026.json (Total: 54 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-anggaran-swakelola?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_paket-anggaran-swakelola_2026.json (Total: 755 baris)
+
+DOWNLOAD [V1]: https://data.inaproc.id/api/v1/rup/paket-swakelola?kode_klpd=D228&tahun=2026&limit=1000
+SUKSES
+  -> Disimpan ke v1_rup_paket-swakelola_2026.json (Total: 61 baris)
+
+[SKIP] Tahun 2025 sudah ada (final).
+
+[SKIP] Tahun 2024 sudah ada (final).
+
+PROSES DOWNLOAD SELESAI PADA 11 November 2026 | 08.01 WIB
