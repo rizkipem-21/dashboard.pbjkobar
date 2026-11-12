@@ -6926,3 +6926,19 @@ START GENERATE DETAIL RUP 12 November 2026 | 08.06 WIB
 ==================================================
 PROSES SELESAI | Durasi: 0:00:50
 ==================================================
+
+==================================================
+START GENERATE DETAIL RUP 12 November 2026 | 10.06 WIB
+==================================================
+
+--- MEMPROSES DETAIL TAHUN 2026 ---
+✅ EXCEL: D:\dashboard.pbjkobar\output\rup\2026\Detail_RUP Tahun 2026 (2026-11-12).xlsx (5062 baris)
+
+--- MEMPROSES DETAIL TAHUN 2025 ---
+  -> [SKIP] Excel Tahun 2025 sudah ada (Final).
+
+--- MEMPROSES DETAIL TAHUN 2024 ---
+  -> [SKIP] Excel Tahun 2024 sudah ada (Final).
+==================================================
+PROSES SELESAI | Durasi: 0:00:40
+==================================================
