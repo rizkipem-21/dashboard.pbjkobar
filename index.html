@@ -15,7 +15,7 @@
   </script>
   <script>
     // Mode tampilan: otomatis tampilan HP hanya di HP asli (layar sempit + layar sentuh).
-    // Di komputer, tampilan HP hanya aktif bila user menekan tombol "Tampilan HP".
+    // Di komputer, tampilan Mobile hanya aktif bila user menekan tombol "Mobile".
     (function () {
       try {
         var forced = localStorage.getItem("viewMode") === "phone";
@@ -208,7 +208,7 @@
     </div>
 
     <div class="py-2 px-3 border-t border-gray-100 bg-gray-50 text-center flex-shrink-0">
-      <button id="btnViewMode" onclick="toggleViewMode()" title="Pratinjau tampilan HP di komputer" class="w-full mb-2 px-2 py-1 rounded-md border border-gray-200 bg-white hover:bg-gray-100 text-[0.65rem] font-semibold text-lpse-biru transition-colors">📱 Tampilan HP</button>
+      <button id="btnViewMode" onclick="toggleViewMode()" title="Pratinjau tampilan Mobile di Desktop" class="w-full mb-2 px-2 py-1 rounded-md border border-gray-200 bg-white hover:bg-gray-100 text-[0.65rem] font-semibold text-lpse-biru transition-colors">📱 Mobile</button>
       <button id="btnTheme" onclick="toggleTheme()" title="Ganti mode terang/gelap" class="w-full mb-2 px-2 py-1 rounded-md border border-gray-200 bg-white hover:bg-gray-100 text-[0.65rem] font-semibold text-lpse-biru transition-colors">🌙 Mode Gelap</button>
       <p class="text-[0.6rem] font-medium text-gray-500">&copy; Tim LPSE Kab. Kobar 2025</p>
       <p id="teks-versi" class="text-[0.6rem] font-bold text-lpse-biru mt-1">dashboard.pbjkobar ...</p>
@@ -390,7 +390,7 @@
     function isForcedPhone() { try { return localStorage.getItem("viewMode") === "phone"; } catch (e) { return false; } }
 
     function updateViewModeButton() {
-      document.getElementById("btnViewMode").innerText = isForcedPhone() ? "🖥️ Tampilan Komputer" : "📱 Tampilan HP";
+      document.getElementById("btnViewMode").innerText = isForcedPhone() ? "🖥️ Desktop" : "📱 Mobile";
     }
 
     function applyViewMode() {
