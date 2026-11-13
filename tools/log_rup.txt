@@ -68737,3 +68737,30 @@ Untracked files:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
+
+[main d59bc32c] Auto update RUP 2026-11-13 14:16:24
+ 25 files changed, 1505 insertions(+), 31 deletions(-)
+ create mode 100644 dashboard.pbjkobar-testing/.assetsignore
+ create mode 100644 dashboard.pbjkobar-testing/.gitignore
+ create mode 100644 dashboard.pbjkobar-testing/Dockerfile
+ create mode 100644 dashboard.pbjkobar-testing/deploy_alert.sh
+ create mode 100644 dashboard.pbjkobar-testing/git
+ create mode 100644 dashboard.pbjkobar-testing/index.html
+ create mode 100644 dashboard.pbjkobar-testing/patch_total_baris_legacy.py
+ create mode 100644 dashboard.pbjkobar-testing/pindah_tahun.bat
+ create mode 100644 dashboard.pbjkobar-testing/requirements.txt
+ create mode 100644 dashboard.pbjkobar-testing/versi.txt
+ create mode 100644 dashboard.pbjkobar-testing/wrangler.toml
+ create mode 100644 tools/temp_tg_rup.txt
+
+
+To https://github.com/rizkipem-21/dashboard.pbjkobar.git
+   ae675a31..d59bc32c  main -> main
+
+PUSH STATUS: 0  
+SELESAI 13/11/2026 14:16:38  
+PUSH GITHUB SUKSES!
+
+==================================================
+PROSES SELESAI SELURUHNYA PADA 13 November 2026 | 14.16 WIB
+==================================================
