@@ -68810,3 +68810,24 @@ Untracked files:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
+
+[main 1521cefa] Auto update RUP 2026-11-13 15:11:48
+ 14 files changed, 896 insertions(+), 28 deletions(-)
+ create mode 100644 tools/temp_tg_rup.txt
+
+
+fatal: Unable to persist credentials with the 'wincredman' credential store.
+See https://aka.ms/gcm/credstores for more information.
+fatal: Unable to persist credentials with the 'wincredman' credential store.
+See https://aka.ms/gcm/credstores for more information.
+To https://github.com/rizkipem-21/dashboard.pbjkobar.git
+   36a4f022..1521cefa  main -> main
+
+PUSH STATUS: 0  
+SELESAI 13/11/2026 15:11:59  
+PUSH GITHUB SUKSES!
+
+==================================================
+PROSES SELESAI SELURUHNYA PADA 13 November 2026 | 15.11 WIB
+==================================================
+⚠️ Koneksi Telegram lambat. Mencoba ulang (1/3)...
