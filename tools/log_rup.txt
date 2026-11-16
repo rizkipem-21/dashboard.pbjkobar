@@ -69296,3 +69296,24 @@ Untracked files:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
+
+[main bc606ad2] Auto update RUP 2026-11-17 06:08:58
+ 19 files changed, 970 insertions(+), 42 deletions(-)
+ delete mode 100644 output/rup/2026/Detail_RUP Tahun 2026 (2026-11-16).xlsx
+ create mode 100644 output/rup/2026/Detail_RUP Tahun 2026 (2026-11-17).xlsx
+ rename output/rup/2026/{Konsolidasi_RUP Tahun 2026 (2026-11-16).xlsx => Konsolidasi_RUP Tahun 2026 (2026-11-17).xlsx} (99%)
+ delete mode 100644 output/rup/2026/Rekap RUP Tahun 2026 (2026-11-16).xlsx
+ create mode 100644 output/rup/2026/Rekap RUP Tahun 2026 (2026-11-17).xlsx
+ create mode 100644 tools/temp_tg_rup.txt
+
+
+To https://github.com/rizkipem-21/dashboard.pbjkobar.git
+   0ebbee7c..bc606ad2  main -> main
+
+PUSH STATUS: 0  
+SELESAI 17/11/2026 06:09:13  
+PUSH GITHUB SUKSES!
+
+==================================================
+PROSES SELESAI SELURUHNYA PADA 17 November 2026 | 06.09 WIB
+==================================================
