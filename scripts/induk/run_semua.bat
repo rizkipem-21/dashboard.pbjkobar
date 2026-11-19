@@ -1,9 +1,11 @@
 @echo off
-cd /d "%~dp0.."
+setlocal
+cd /d "%~dp0..\.."
 set LOCK=running.lock
-set DL=scripts\download_json\download_json.py
+set DL=scripts\induk\download_json.py
 
 set DARI_INDUK=1
+set ERR_GIT=0
 
 :: Kunci anti-ganda (dianggap basi setelah 2 jam)
 if exist "%LOCK%" (
@@ -36,24 +38,34 @@ if not "%ERR_DL%"=="0" (
 
 :: 2. Generate RUP lalu Pengadaan (berurutan)
 echo [%time%] TAHAP 2: RUP...
-call "%~dp0run_rup.bat" nodownload
+call "%~dp0..\rup\run_rup.bat" nodownload
 set ERR_RUP=%ERRORLEVEL%
 
 echo [%time%] TAHAP 3: Pengadaan...
-call "%~dp0run_pengadaan.bat" nodownload
+call "%~dp0..\pengadaan\run_pengadaan.bat" nodownload
 set ERR_PENG=%ERRORLEVEL%
+
+echo [%time%] TAHAP 4: Push GitHub...
+git config user.name "rizkipem-21"
+git config user.email "rizki.pem@gmail.com"
+git add .
+git commit -m "Auto update %date% %time%" >nul 2>&1
+if not exist "logs\induk" mkdir "logs\induk"
+git push > logs\induk\log_git.txt 2>&1
+set ERR_GIT=%ERRORLEVEL%
+if not "%ERR_GIT%"=="0" python -c "import config_rahasia as c,requests;e=open('logs/induk/log_git.txt',encoding='utf-8',errors='ignore').read()[-800:];requests.post('https://api.telegram.org/bot'+c.BOT_TOKEN+'/sendMessage',data={'chat_id':c.CHAT_ID,'text':'PUSH GITHUB GAGAL\n\n'+e},timeout=30)"
 
 :AKHIR
 del /f /q "%LOCK%" >nul 2>&1
 echo.
-echo SELESAI  download=%ERR_DL%  rup=%ERR_RUP%  pengadaan=%ERR_PENG%  [%date% %time%]
+echo SELESAI  download=%ERR_DL%  rup=%ERR_RUP%  pengadaan=%ERR_PENG%  git=%ERR_GIT%  [%date% %time%]
 
-if "%ERR_DL%"=="0" if "%ERR_RUP%"=="0" if "%ERR_PENG%"=="0" goto SUKSES
+if "%ERR_DL%"=="0" if "%ERR_RUP%"=="0" if "%ERR_PENG%"=="0" if "%ERR_GIT%"=="0" goto SUKSES
 
-mshta vbscript:Execute("CreateObject(""WScript.Shell"").Popup(""Update SELESAI DENGAN ERROR. Cek log di folder tools."", 120, ""Update Gagal"", 4112)(window.close)")
-exit 1
+mshta vbscript:Execute("CreateObject(""WScript.Shell"").Popup(""Update SELESAI DENGAN ERROR. Cek log di folder logs."", 120, ""Update Gagal"", 4112)(window.close)")
+exit /b 1
 
 :SUKSES
 mshta vbscript:Execute("CreateObject(""WScript.Shell"").Popup(""Update Selesai!"", 5, ""Update Selesai"", 4160)(window.close)")
 taskkill /f /im mshta.exe >nul 2>&1
-exit 0
+exit /b 0

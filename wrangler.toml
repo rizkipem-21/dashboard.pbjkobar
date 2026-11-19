@@ -1,5 +1,13 @@
-name = "dashboard"
+## ini file wrangler.toml ###
+name = "dashboard-testing"
+main = "worker.js"
 compatibility_date = "2026-07-08"
 
 [assets]
 directory = "."
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+[[kv_namespaces]]
+binding = "TUNNEL"
+id = "cbb6452a0b6b4599a475041d61aeb5aa"

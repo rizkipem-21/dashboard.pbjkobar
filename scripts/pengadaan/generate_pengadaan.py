@@ -7,11 +7,9 @@
 import os
 import json
 import re
-import shutil
 import warnings
 import pandas as pd
 import sys
-import subprocess
 import time
 from datetime import datetime, timedelta, timezone
 from openpyxl import load_workbook
@@ -31,7 +29,16 @@ tahun_n2     = tahun_n - 2
 daftar_tahun = [tahun_n, tahun_n1, tahun_n2]
 
 # MENGGUNAKAN LOG TUNGGAL (Sama dengan script download)
-LOG_FILE = os.path.join(BASE_DIR, 'tools', 'log_pengadaan.txt')
+LOG_DIR = os.path.join(BASE_DIR, 'logs', 'pengadaan')
+os.makedirs(LOG_DIR, exist_ok=True)
+LOG_FILE = os.path.join(LOG_DIR, f"log_pengadaan_{datetime.now().strftime('%Y-%m-%d')}.txt")
+# Simpan log 30 hari terakhir saja, yang lebih tua dihapus
+for _f in os.listdir(LOG_DIR):
+    if _f.startswith('log_pengadaan_') and _f.endswith('.txt'):
+        try:
+            if os.path.getmtime(os.path.join(LOG_DIR, _f)) < time.time() - 30 * 86400:
+                os.remove(os.path.join(LOG_DIR, _f))
+        except OSError: pass
 os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
 
 TEKS_TIDAK_COCOK = "Tidak Cocok"
@@ -49,32 +56,6 @@ def get_waktu_indonesia():
     sekarang = datetime.now(tz_wib)
     bulan_indo = {1: 'Januari', 2: 'Februari', 3: 'Maret', 4: 'April', 5: 'Mei', 6: 'Juni', 7: 'Juli', 8: 'Agustus', 9: 'September', 10: 'Oktober', 11: 'November', 12: 'Desember'}
     return f"{sekarang.day} {bulan_indo[sekarang.month]} {sekarang.year} | {sekarang.strftime('%H.%M')} WIB"
-
-def sync_to_github():
-    log_print("\n==================================================")
-    log_print("MENGIRIM DATA PENGADAAN KE GITHUB DARI PYTHON...")
-    log_print("==================================================")
-
-    waktu_sekarang = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    try:
-        subprocess.run(["git", "config", "user.name", "rizkipem-21"], cwd=BASE_DIR)
-        subprocess.run(["git", "config", "user.email", "rizki.pem@gmail.com"], cwd=BASE_DIR)
-        subprocess.run(["git", "add", "."], capture_output=True, text=True, cwd=BASE_DIR)
-
-        commit_msg = f"Auto update Pengadaan {waktu_sekarang}"
-        subprocess.run(["git", "commit", "-m", commit_msg], capture_output=True, text=True, cwd=BASE_DIR)
-
-        res_push = subprocess.run(["git", "push"], capture_output=True, text=True, cwd=BASE_DIR)
-        if res_push.returncode == 0:
-            log_print("✅ Push ke GitHub BERHASIL")
-            return True, "✅ Push ke GitHub BERHASIL"
-        else:
-            error_git = res_push.stderr.strip()
-            log_print(f"❌ Push ke GitHub GAGAL: {error_git}")
-            return False, f"❌ Push ke GitHub GAGAL:\n`{error_git}`"
-    except Exception as e:
-        log_print(f"❌ Terjadi kesalahan pada eksekusi Git: {str(e)}")
-        return False, f"❌ Terjadi kesalahan pada eksekusi Git:\n`{str(e)}`"
 
 def format_tgl(val):
     if not val or (not isinstance(val, str) and pd.isna(val)): return ""
@@ -171,90 +152,6 @@ def hitung_status(status_awal, kd_list, rantai):
             if k in s: return label
     return status_awal
 
-def kelola_arsip_bulanan(folder_path, tahun):
-    if not os.path.exists(folder_path): return
-
-    folder_arsip_lokal = os.path.join(BASE_DIR, 'arsip_lokal', 'pengadaan', str(tahun))
-    os.makedirs(folder_arsip_lokal, exist_ok=True)
-
-    # Abaikan file temporary Excel yang berawalan ~$
-    file_excel = [f for f in os.listdir(folder_path) if f.endswith('.xlsx') and not f.startswith('~$')]
-    arsip_bulanan = {}
-
-    for f in file_excel:
-        match = re.search(r"\((\d{4}-\d{2}-\d{2})\)", f)
-        if match:
-            bulan = match.group(1)[:7]
-            if bulan not in arsip_bulanan: arsip_bulanan[bulan] = []
-            arsip_bulanan[bulan].append((match.group(1), f))
-
-    for bulan, list_file in arsip_bulanan.items():
-        list_file.sort(key=lambda x: x[0])
-
-        for tgl, nama_file in list_file[:-1]:
-            path_sumber = os.path.join(folder_path, nama_file)
-            path_tujuan = os.path.join(folder_arsip_lokal, nama_file)
-
-            berhasil_pindah = False
-            while not berhasil_pindah:
-                try:
-                    shutil.move(path_sumber, path_tujuan)
-                    log_print(f"📦 Arsip harian diamankan ke lokal: {nama_file}")
-                    berhasil_pindah = True
-                except PermissionError:
-                    import time
-                    log_print(f"⚠️ Akses Ditolak: File lama {nama_file} sedang terbuka.")
-                    tutup_sukses = False
-                    try:
-                        import win32com.client
-                        excel_app = win32com.client.GetActiveObject("Excel.Application")
-                        for wb_app in excel_app.Workbooks:
-                            if wb_app.Name == nama_file:
-                                log_print(f"Menutup otomatis file: {nama_file}...")
-                                wb_app.Close(SaveChanges=False)
-                                tutup_sukses = True
-                                break
-                    except Exception: pass
-
-                    if not tutup_sukses:
-                        log_print("Memunculkan pop-up peringatan arsip...")
-                        os.system(f'mshta vbscript:Execute("CreateObject(""WScript.Shell"").Popup(""File lama {nama_file} sedang terbuka. Tutup file di Excel agar bisa diarsipkan!"", 5, ""Peringatan Excel"", 48)(window.close)")')
-                    time.sleep(3)
-                except Exception as e:
-                    log_print(f"⚠️ Gagal memindah arsip {nama_file}: {str(e)}")
-                    berhasil_pindah = True
-
-def update_daftar_arsip_json(folder_path):
-    """Membaca sisa file Excel di folder output dan memperbarui daftar_arsip.json"""
-    if not os.path.exists(folder_path): return
-
-    # Ambil semua file excel, urutkan dari yang terbaru (Z-A)
-    file_excel = [f for f in os.listdir(folder_path) if f.endswith('.xlsx')]
-    file_excel.sort(reverse=True)
-
-    # Buat format JSON (sesuaikan dengan format yang dibaca website Anda)
-    arsip_list = [{"nama_file": f} for f in file_excel]
-
-    # Simpan ke daftar_arsip.json
-    path_json = os.path.join(folder_path, 'daftar_arsip.json')
-    try:
-        with open(path_json, 'w', encoding='utf-8') as f:
-            json.dump(arsip_list, f, indent=4)
-        log_print(f"📝 Daftar arsip JSON diperbarui: {path_json}")
-    except Exception as e:
-        log_print(f"⚠️ Gagal memperbarui daftar_arsip.json: {str(e)}")
-
-def get_kategori_status(sumber, s):
-    sumber, s = str(sumber).lower(), str(s).lower()
-    if "sumber 1" in sumber: return "Belum Proses"
-    if "sumber 2" in sumber or "sumber 5" in sumber: return "Sudah Selesai" if "bapbast" in s else "Sedang Berjalan"
-    if "sumber 3" in sumber or "sumber 4" in sumber: return "Sudah Selesai" if "paket selesai" in s or "selesai" in s else "Sedang Berjalan"
-    if "sumber 6" in sumber: return "Sudah Selesai" if "payment_outside" in s or "completed" in s else "Sedang Berjalan"
-    if "sumber 7" in sumber: return "Sudah Selesai" if "paket selesai" in s or "selesai" in s else "Sedang Berjalan"
-    if "bapbast" in s or "payment" in s or "completed" in s: return "Sudah Selesai"
-    if "pengumuman rup" in s or s == "" or s == "-": return "Belum Proses"
-    return "Sedang Berjalan"
-
 def bersihkan_teks(x):
     """Ganti enter/tab dengan spasi (agar kata tidak menyatu & tinggi baris Excel normal), buang karakter kontrol lain"""
     if not isinstance(x, str): return x
@@ -279,8 +176,8 @@ def process_tahun(tahun):
     # ---------------------------------------------------------
     # LOGIKA SKIP: HANYA melewati tahun n-2 (sudah final)
     # ---------------------------------------------------------
-    if tahun == tahun_n2 and os.path.exists(output_dir_excel) and os.path.exists(output_json):
-        file_sudah_ada = any(f.startswith('Paket Pengadaan Tahun') and f.endswith('.xlsx') for f in os.listdir(output_dir_excel))
+    if tahun == tahun_n2 and os.path.exists(output_json):
+        file_sudah_ada = os.path.exists(os.path.join(data_dir, f'master_pengadaan_{tahun}.xlsx'))
         if file_sudah_ada:
             log_print(f"\n[SKIP] Data Tahun {tahun} sudah lengkap & final -> Lewati generate")
             return None
@@ -316,10 +213,42 @@ def process_tahun(tahun):
 
     df2     = load_json(p('tender_non-tender-pengumuman'))
     df2_1   = load_json(p('tender_non-tender-selesai'))
-    df2_2   = load_json(p('tender_non-tender-ekontrak-sppbj'))
-    df2_3   = load_json(p('tender_non-tender-ekontrak-kontrak'))
-    df2_4   = load_json(p('tender_non-tender-ekontrak-spmkspp'))
-    df2_5   = load_json(p('tender_non-tender-ekontrak-bapbast'))
+    def _tahap(df, kolom):
+        """Baris yang salah satu kolom tahapnya terisi (bukan null / '' / '-')"""
+        ada = [c for c in kolom if not df.empty and c in df.columns]
+        if not ada: return pd.DataFrame()
+        m = df[ada].apply(lambda s: s.map(lambda v: norm_kd(v) not in ('', '-'))).any(axis=1)
+        return df[m]
+
+    KOLOM_TAHAP = ['no_sppbj', 'tgl_sppbj', 'no_kontrak', 'tgl_kontrak', 'no_spmk_spp', 'tgl_spmk_spp',
+                   'no_bast', 'tgl_bast', 'no_bap', 'tgl_bap']
+
+    def _satu_baris(df, kolom_kode):
+        """Satu baris per kode paket. Versi addendum tertinggi menang; kalau versi sama, yang tahapnya
+        paling lengkap. tgl_sppbj diambil dari versi terendah (addendum menimpanya dengan cap waktu sistem)."""
+        if df.empty or kolom_kode not in df.columns: return df
+        d = df.copy()
+        d['_kode'] = d[kolom_kode].map(norm_kd)
+        if not d['_kode'].duplicated().any():
+            return d.drop(columns=['_kode'])
+        ada = [c for c in KOLOM_TAHAP if c in d.columns]
+        d['_ver'] = pd.to_numeric(d['versi_addendum'], errors='coerce').fillna(0) if 'versi_addendum' in d.columns else 0
+        d['_lengkap'] = d[ada].apply(lambda s: s.map(lambda v: norm_kd(v) not in ('', '-'))).sum(axis=1)
+        d['_urut'] = range(len(d))
+        d = d.sort_values(['_kode', '_ver', '_lengkap', '_urut'])
+        if 'tgl_sppbj' in d.columns:
+            isi = d[d['tgl_sppbj'].map(lambda v: norm_kd(v) not in ('', '-'))]
+            asli = isi.groupby('_kode')['tgl_sppbj'].first()
+        hasil = d.groupby('_kode', sort=False).tail(1).copy()
+        if 'tgl_sppbj' in d.columns:
+            hasil['tgl_sppbj'] = hasil['_kode'].map(asli).fillna(hasil['tgl_sppbj'])
+        return hasil.drop(columns=['_kode', '_ver', '_lengkap', '_urut']).reset_index(drop=True)
+
+    df2_x   = _satu_baris(load_json(p('tender_non-tender-ekontrak')), 'kd_nontender')
+    df2_2   = _tahap(df2_x, ['no_sppbj', 'tgl_sppbj'])
+    df2_3   = _tahap(df2_x, ['no_kontrak', 'tgl_kontrak'])
+    df2_4   = _tahap(df2_x, ['no_spmk_spp', 'tgl_spmk_spp'])
+    df2_5   = _tahap(df2_x, ['no_bast', 'tgl_bast', 'no_bap', 'tgl_bap'])
     df3     = load_json(p('tender_pencatatan-non-tender'))
     df3_1   = load_json(p('tender_pencatatan-non-tender-realisasi'))
     df4     = load_json(p('tender_pencatatan-swakelola'))
@@ -327,10 +256,11 @@ def process_tahun(tahun):
     df5     = load_json(p('tender_pengumuman'))
     df5_1   = load_json(p('tender_tender-selesai'))
     df5_1_1 = load_json(p('tender_tender-selesai-nilai'))
-    df5_2   = load_json(p('tender_tender-ekontrak-sppbj'))
-    df5_3   = load_json(p('tender_tender-ekontrak-kontrak'))
-    df5_4   = load_json(p('tender_tender-ekontrak-spmkspp'))
-    df5_5   = load_json(p('tender_tender-ekontrak-bapbast'))
+    df5_x   = _satu_baris(load_json(p('tender_tender-ekontrak')), 'kd_tender')
+    df5_2   = _tahap(df5_x, ['no_sppbj', 'tgl_sppbj'])
+    df5_3   = _tahap(df5_x, ['no_kontrak', 'tgl_kontrak'])
+    df5_4   = _tahap(df5_x, ['no_spmk_spp', 'tgl_spmk_spp'])
+    df5_5   = _tahap(df5_x, ['no_bast', 'tgl_bast', 'no_bap', 'tgl_bap'])
     df_sikap_nt = load_json(p('sikap_penilaian-kinerja-penyedia-non-tender'))
     df_sikap_t  = load_json(p('sikap_penilaian-kinerja-penyedia-tender'))
     df6     = load_json(p('ekatalog_paket-e-purchasing'))
@@ -1441,9 +1371,8 @@ def process_tahun(tahun):
 
     tahun_label = str(df1['tahun_anggaran'].iloc[0]) if not df1.empty and 'tahun_anggaran' in df1.columns else str(tahun)
     nama_file_excel = f'Paket Pengadaan Tahun {tahun_label} ({datetime.now().strftime("%Y-%m-%d")}).xlsx'
-    output_dir_excel = os.path.join(BASE_DIR, 'output', 'pengadaan', str(tahun))
-    os.makedirs(output_dir_excel, exist_ok=True)
-    output_excel_path = os.path.join(output_dir_excel, nama_file_excel)
+    nama_file_excel = f'master_pengadaan_{tahun}.xlsx'
+    output_excel_path = os.path.join(data_dir, nama_file_excel)
 
     # === SIMPAN & STYLING EXCEL DENGAN PENGAMAN AUTO-CLOSE ===
     berhasil_simpan = False
@@ -1517,7 +1446,7 @@ def process_tahun(tahun):
 
     while not berhasil_salin:
         try:
-            shutil.copy2(output_excel_path, master_path)
+            pass  # master sudah ditulis langsung
             log_print(f"✅ EXCEL Master sukses disalin: {master_path}")
             berhasil_salin = True
         except PermissionError:
@@ -1543,9 +1472,6 @@ def process_tahun(tahun):
         except Exception as e:
             log_print(f"⚠️ Gagal menyalin EXCEL Master (Error Lain): {str(e)}")
             break # Keluar dari loop jika errornya bukan karena file terbuka
-
-    kelola_arsip_bulanan(output_dir_excel, tahun)
-    update_daftar_arsip_json(output_dir_excel)
 
     log_print(f'SELESAI GENERATE TAHUN {tahun} | Total data: {len(final_df)}')
     return len(final_df)
@@ -1593,45 +1519,26 @@ if __name__ == '__main__':
     teks_status = "Seluruh data berhasil diolah."
     if tahun_dilewati:
         baris = "".join([f"• Tahun {t}: {alasan}\n" for t, alasan in tahun_dilewati])
-        blok_peringatan = f"⚠️ PERINGATAN - TAHUN DILEWATI:\n{baris}Hasil lama dipertahankan. Cek log_download.txt & log_pengadaan.txt.\n\n"
+        blok_peringatan = f"⚠️ PERINGATAN - TAHUN DILEWATI:\n{baris}Hasil lama dipertahankan. Cek folder logs.\n\n"
         teks_status = "Sebagian data diolah (ada tahun yang dilewati)."
 
     with open(os.path.join(BASE_DIR, "data", "last-update-pengadaan.txt"), "w", encoding='utf-8') as f:
         f.write(get_waktu_indonesia())
 
-    # --- EKSEKUSI TEPRA ---
-    log_print("\n" + "="*50)
-    log_print("START GENERATE TEPRA")
-    status_tepra = "✅ Data TEPRA berhasil dibuat."
-    tepra_gagal = False
-    try:
-        path_tepra = os.path.join(BASE_DIR, 'scripts', 'pengadaan', 'generate_tepra.py')
-        res_tepra = subprocess.run([sys.executable, path_tepra], capture_output=True, text=True)
-        if res_tepra.returncode == 0:
-            log_print("PROSES TEPRA SUKSES\n" + res_tepra.stdout.strip())
-        else:
-            log_print(f"GAGAL PROSES TEPRA:\n{res_tepra.stderr}")
-            status_tepra = "⚠️ Gagal membuat data TEPRA (Cek Log)."
-            tepra_gagal = True
-    except Exception as e:
-        log_print(f"ERROR TEPRA: {str(e)}")
-        status_tepra = "⚠️ Error sistem saat eksekusi TEPRA."
-        tepra_gagal = True
-    # ----------------------
-
-    # PUSH KE GITHUB
-    git_sukses, pesan_git = sync_to_github()
-
     # DURASI TOTAL
     durasi_str = str(timedelta(seconds=int(time.time() - waktu_mulai)))
 
     # KIRIM TELEGRAM (laporan error API ada di laporan download_json.py, bukan di sini)
-    if tahun_dilewati or tepra_gagal or not git_sukses:
+    if tahun_dilewati:
         pesan = "🚨 LAPORAN UPDATE SISTEM (PENGADAAN) 🚨\n\n"
         pesan += blok_peringatan + blok_ringkasan
-        pesan += f"📊 STATUS TEPRA: {status_tepra}\n\n🌐 STATUS GITHUB:\n{pesan_git}\n\n⏱ Durasi Total: {durasi_str}\n📅 Waktu: {get_waktu_indonesia()}"
+        pesan += f"⏱ Durasi Total: {durasi_str}\n📅 Waktu: {get_waktu_indonesia()}"
     else:
-        pesan = f"✅ UPDATE PENGADAAN BERHASIL ✅\n\n{teks_status}\n{blok_ringkasan}📊 STATUS TEPRA: {status_tepra}\n\n🌐 STATUS GITHUB:\n{pesan_git}\n\n⏱ Durasi Total: {durasi_str}\n📅 Waktu: {get_waktu_indonesia()}"
+        pesan = f"✅ UPDATE PENGADAAN BERHASIL ✅\n\n{teks_status}\n{blok_ringkasan}\n⏱ Durasi Total: {durasi_str}\n📅 Waktu: {get_waktu_indonesia()}"
     kirim_telegram_aman(pesan)
 
     log_print(f"\nPROSES SELESAI SELURUHNYA PADA {get_waktu_indonesia()}")
+
+    # Kode keluar 1 bila tahun berjalan tidak berhasil digenerate, supaya Tepra dan arsip dilewati
+    if tahun_n not in ringkasan_tahun:
+        sys.exit(1)
