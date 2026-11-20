@@ -498,13 +498,13 @@
     "Pagu Program": 1716421914.0,
     "Pagu Pengadaan": 1021408914.0,
     "Paket Penyedia": 106.0,
-    "RUP Penyedia": 846410912.0,
+    "RUP Penyedia": 845890012.0,
     "Paket Swakelola": 6.0,
     "RUP Swakelola": 175518902.0,
     "Total Paket Terumumkan": 112.0,
-    "Total RUP Terumumkan": 1021929814.0,
-    "Selisih RUP Terumumkan": 520900.0,
-    "Persentase": 100.05099818425904
+    "Total RUP Terumumkan": 1021408914.0,
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Kecamatan Pangkalan Banteng - 7.01.0.00.0.00.06.0000",
@@ -860,15 +860,15 @@
   {
     "Satuan Kerja": "Puskesmas Kumpai Batu Atas - 1.02.0.00.0.00.01.0008",
     "Pagu Program": 1620760820.0,
-    "Pagu Pengadaan": 143301959.0,
+    "Pagu Pengadaan": 549137928.0,
     "Paket Penyedia": 49.0,
     "RUP Penyedia": 549137928.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
     "Total Paket Terumumkan": 49.0,
     "Total RUP Terumumkan": 549137928.0,
-    "Selisih RUP Terumumkan": 405835969.0,
-    "Persentase": 383.2033643029262
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Puskesmas Madurejo - 1.02.0.00.0.00.01.0005",
@@ -886,15 +886,15 @@
   {
     "Satuan Kerja": "Puskesmas Mendawai - 1.02.0.00.0.00.01.0006",
     "Pagu Program": 2273064911.0,
-    "Pagu Pengadaan": 2155417785.0,
+    "Pagu Pengadaan": 652733265.0,
     "Paket Penyedia": 44.0,
     "RUP Penyedia": 475837253.0,
     "Paket Swakelola": 2.0,
     "RUP Swakelola": 86300000.0,
     "Total Paket Terumumkan": 46.0,
     "Total RUP Terumumkan": 562137253.0,
-    "Selisih RUP Terumumkan": -1593280532.0,
-    "Persentase": 26.08019925009573
+    "Selisih RUP Terumumkan": -90596012.0,
+    "Persentase": 86.12051555239796
   },
   {
     "Satuan Kerja": "Puskesmas Natai Pelingkau - 1.02.0.00.0.00.01.0007",
@@ -951,15 +951,15 @@
   {
     "Satuan Kerja": "Puskesmas Runtu - 1.02.0.00.0.00.01.0009",
     "Pagu Program": 1276473525.0,
-    "Pagu Pengadaan": 1276473525.0,
+    "Pagu Pengadaan": 300343015.0,
     "Paket Penyedia": 16.0,
     "RUP Penyedia": 160880475.0,
     "Paket Swakelola": 1.0,
     "RUP Swakelola": 143500000.0,
     "Total Paket Terumumkan": 17.0,
     "Total RUP Terumumkan": 304380475.0,
-    "Selisih RUP Terumumkan": -972093050.0,
-    "Persentase": 23.84542013905067
+    "Selisih RUP Terumumkan": 4037460.0,
+    "Persentase": 101.34428296925766
   },
   {
     "Satuan Kerja": "Puskesmas Sambi - 1.02.0.00.0.00.01.0018",
@@ -1029,15 +1029,15 @@
   {
     "Satuan Kerja": "Rumah Sakit Kutaringin - 1.02.0.00.0.00.01.0002",
     "Pagu Program": 1423662122.0,
-    "Pagu Pengadaan": 1301997890.0,
+    "Pagu Pengadaan": 719726120.0,
     "Paket Penyedia": 43.0,
     "RUP Penyedia": 719726120.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
     "Total Paket Terumumkan": 43.0,
     "Total RUP Terumumkan": 719726120.0,
-    "Selisih RUP Terumumkan": -582271770.0,
-    "Persentase": 55.2785934238342
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Rumah Sakit Umum Daerah Sultan Imanuddin - 1.02.0.00.0.00.01.0001",
