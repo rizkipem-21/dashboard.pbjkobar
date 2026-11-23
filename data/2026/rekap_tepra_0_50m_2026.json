@@ -273,8 +273,8 @@
   },
   {
     "Satuan Kerja": "DINAS PENDIDIKAN DAN KEBUDAYAAN - 1.01.2.22.0.00.01.0000",
-    "Data Laporan_Paket": 260,
-    "Data Laporan_Pagu": 2250906367.0,
+    "Data Laporan_Paket": 263,
+    "Data Laporan_Pagu": 2301840947.0,
     "Pemilihan_Paket": 75,
     "Pemilihan_Pagu": 783669286.0,
     "Hasil_Paket": 75,
@@ -283,9 +283,9 @@
     "Kontrak_Pagu": 512367617.0,
     "SerahTerima_Paket": 35,
     "SerahTerima_Pagu": 379083675.0,
-    "Belum_Paket": 185,
-    "Belum_Pagu": 1467237081.0,
-    "Progres_Persen": 28.8
+    "Belum_Paket": 188,
+    "Belum_Pagu": 1518171661.0,
+    "Progres_Persen": 28.5
   },
   {
     "Satuan Kerja": "DINAS PERHUBUNGAN - 2.15.0.00.0.00.01.0000",
@@ -481,8 +481,8 @@
   },
   {
     "Satuan Kerja": "KECAMATAN KOTAWARINGIN LAMA - 7.01.0.00.0.00.03.0000",
-    "Data Laporan_Paket": 40,
-    "Data Laporan_Pagu": 328457466.0,
+    "Data Laporan_Paket": 43,
+    "Data Laporan_Pagu": 344245298.0,
     "Pemilihan_Paket": 1,
     "Pemilihan_Pagu": 41625000.0,
     "Hasil_Paket": 1,
@@ -491,9 +491,9 @@
     "Kontrak_Pagu": 41600000.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 39,
-    "Belum_Pagu": 286832466.0,
-    "Progres_Persen": 2.5
+    "Belum_Paket": 42,
+    "Belum_Pagu": 302620298.0,
+    "Progres_Persen": 2.3
   },
   {
     "Satuan Kerja": "KECAMATAN KUMAI - 7.01.0.00.0.00.01.0000",
@@ -897,19 +897,19 @@
   },
   {
     "Satuan Kerja": "SEKRETARIAT DAERAH - 4.01.0.00.0.00.01.0000",
-    "Data Laporan_Paket": 142,
-    "Data Laporan_Pagu": 1568480266.0,
-    "Pemilihan_Paket": 39,
-    "Pemilihan_Pagu": 266052814.0,
-    "Hasil_Paket": 39,
-    "Hasil_Pagu": 238437357.0,
+    "Data Laporan_Paket": 146,
+    "Data Laporan_Pagu": 1615449694.0,
+    "Pemilihan_Paket": 43,
+    "Pemilihan_Pagu": 313022242.0,
+    "Hasil_Paket": 43,
+    "Hasil_Pagu": 284557302.0,
     "Kontrak_Paket": 35,
     "Kontrak_Pagu": 203513760.0,
     "SerahTerima_Paket": 11,
     "SerahTerima_Pagu": 29345450.0,
     "Belum_Paket": 103,
     "Belum_Pagu": 1302427452.0,
-    "Progres_Persen": 27.5
+    "Progres_Persen": 29.5
   },
   {
     "Satuan Kerja": "SEKRETARIAT DPRD - 4.02.0.00.0.00.01.0000",
@@ -929,18 +929,18 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 3943,
-    "Data Laporan_Pagu": 34904944515.0,
-    "Pemilihan_Paket": 923,
-    "Pemilihan_Pagu": 10458748764.0,
-    "Hasil_Paket": 923,
-    "Hasil_Pagu": 9728643742.0,
+    "Data Laporan_Paket": 3953,
+    "Data Laporan_Pagu": 35018636355.0,
+    "Pemilihan_Paket": 927,
+    "Pemilihan_Pagu": 10505718192.0,
+    "Hasil_Paket": 927,
+    "Hasil_Pagu": 9774763687.0,
     "Kontrak_Paket": 810,
     "Kontrak_Pagu": 7831198520.0,
     "SerahTerima_Paket": 504,
     "SerahTerima_Pagu": 4022267042.0,
-    "Belum_Paket": 3020,
-    "Belum_Pagu": 24446195751.0,
-    "Progres_Persen": 23.4
+    "Belum_Paket": 3026,
+    "Belum_Pagu": 24512918163.0,
+    "Progres_Persen": 23.5
   }
 ]

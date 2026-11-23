@@ -97,8 +97,8 @@
   },
   {
     "Satuan Kerja": "DINAS KEPEMUDAAN DAN OLAHRAGA - 2.19.0.00.0.00.01.0000",
-    "Data Laporan_Paket": 14,
-    "Data Laporan_Pagu": 1436141047.0,
+    "Data Laporan_Paket": 15,
+    "Data Laporan_Pagu": 1511141047.0,
     "Pemilihan_Paket": 7,
     "Pemilihan_Pagu": 715624185.0,
     "Hasil_Paket": 7,
@@ -107,9 +107,9 @@
     "Kontrak_Pagu": 608282580.0,
     "SerahTerima_Paket": 2,
     "SerahTerima_Pagu": 134550000.0,
-    "Belum_Paket": 7,
-    "Belum_Pagu": 720516862.0,
-    "Progres_Persen": 50.0
+    "Belum_Paket": 8,
+    "Belum_Pagu": 795516862.0,
+    "Progres_Persen": 46.7
   },
   {
     "Satuan Kerja": "DINAS KEPENDUDUKAN DAN PENCATATAN SIPIL - 2.12.0.00.0.00.01.0000",
@@ -273,8 +273,8 @@
   },
   {
     "Satuan Kerja": "DINAS PENDIDIKAN DAN KEBUDAYAAN - 1.01.2.22.0.00.01.0000",
-    "Data Laporan_Paket": 60,
-    "Data Laporan_Pagu": 6837169705.0,
+    "Data Laporan_Paket": 59,
+    "Data Laporan_Pagu": 6720347275.0,
     "Pemilihan_Paket": 36,
     "Pemilihan_Pagu": 4462166984.0,
     "Hasil_Paket": 36,
@@ -283,9 +283,9 @@
     "Kontrak_Pagu": 2459189002.0,
     "SerahTerima_Paket": 14,
     "SerahTerima_Pagu": 1790250000.0,
-    "Belum_Paket": 24,
-    "Belum_Pagu": 2375002721.0,
-    "Progres_Persen": 60.0
+    "Belum_Paket": 23,
+    "Belum_Pagu": 2258180291.0,
+    "Progres_Persen": 61.0
   },
   {
     "Satuan Kerja": "DINAS PERHUBUNGAN - 2.15.0.00.0.00.01.0000",
@@ -377,8 +377,8 @@
     "Hasil_Pagu": 23566943625.0,
     "Kontrak_Paket": 160,
     "Kontrak_Pagu": 21922956855.0,
-    "SerahTerima_Paket": 76,
-    "SerahTerima_Pagu": 11523273045.0,
+    "SerahTerima_Paket": 77,
+    "SerahTerima_Pagu": 11710033045.0,
     "Belum_Paket": 37,
     "Belum_Pagu": 4579907720.0,
     "Progres_Persen": 82.6
@@ -865,8 +865,8 @@
   },
   {
     "Satuan Kerja": "RUMAH SAKIT UMUM DAERAH SULTAN IMANUDDIN - 1.02.0.00.0.00.01.0001",
-    "Data Laporan_Paket": 31,
-    "Data Laporan_Pagu": 3478487490.0,
+    "Data Laporan_Paket": 32,
+    "Data Laporan_Pagu": 3553887490.0,
     "Pemilihan_Paket": 3,
     "Pemilihan_Pagu": 193172500.0,
     "Hasil_Paket": 3,
@@ -875,9 +875,9 @@
     "Kontrak_Pagu": 143412000.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 28,
-    "Belum_Pagu": 3285314990.0,
-    "Progres_Persen": 9.7
+    "Belum_Paket": 29,
+    "Belum_Pagu": 3360714990.0,
+    "Progres_Persen": 9.4
   },
   {
     "Satuan Kerja": "SATUAN POLISI PAMONG PRAJA - 1.05.0.00.0.00.01.0000",
@@ -929,18 +929,18 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 906,
-    "Data Laporan_Pagu": 107079129108.0,
+    "Data Laporan_Paket": 907,
+    "Data Laporan_Pagu": 107112706678.0,
     "Pemilihan_Paket": 568,
     "Pemilihan_Pagu": 70932907348.0,
     "Hasil_Paket": 568,
     "Hasil_Pagu": 68376798821.0,
     "Kontrak_Paket": 457,
     "Kontrak_Pagu": 55034078554.0,
-    "SerahTerima_Paket": 175,
-    "SerahTerima_Pagu": 21029227032.0,
-    "Belum_Paket": 338,
-    "Belum_Pagu": 36146221760.0,
-    "Progres_Persen": 62.7
+    "SerahTerima_Paket": 176,
+    "SerahTerima_Pagu": 21215987032.0,
+    "Belum_Paket": 339,
+    "Belum_Pagu": 36179799330.0,
+    "Progres_Persen": 62.6
   }
 ]
