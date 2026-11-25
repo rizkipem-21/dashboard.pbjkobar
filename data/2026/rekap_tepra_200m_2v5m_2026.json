@@ -193,8 +193,8 @@
   },
   {
     "Satuan Kerja": "DINAS PEKERJAAN UMUM DAN PENATAAN RUANG - 1.03.0.00.0.00.01.0000",
-    "Data Laporan_Paket": 54,
-    "Data Laporan_Pagu": 38181773017.0,
+    "Data Laporan_Paket": 53,
+    "Data Laporan_Pagu": 37865250523.0,
     "Pemilihan_Paket": 45,
     "Pemilihan_Pagu": 33031369371.0,
     "Hasil_Paket": 45,
@@ -203,9 +203,9 @@
     "Kontrak_Pagu": 19602710200.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 9,
-    "Belum_Pagu": 5150403646.0,
-    "Progres_Persen": 83.3
+    "Belum_Paket": 8,
+    "Belum_Pagu": 4833881152.0,
+    "Progres_Persen": 84.9
   },
   {
     "Satuan Kerja": "DINAS PEMADAM KEBAKARAN DAN PENYELAMATAN - 1.05.0.00.0.00.03.0000",
@@ -435,17 +435,17 @@
     "Satuan Kerja": "INSTALASI FARMASI - 1.02.0.00.0.00.01.0022",
     "Data Laporan_Paket": 20,
     "Data Laporan_Pagu": 28730864700.0,
-    "Pemilihan_Paket": 19,
-    "Pemilihan_Pagu": 27052635775.0,
-    "Hasil_Paket": 19,
-    "Hasil_Pagu": 513202709.0,
-    "Kontrak_Paket": 19,
-    "Kontrak_Pagu": 513202709.0,
+    "Pemilihan_Paket": 20,
+    "Pemilihan_Pagu": 28730864700.0,
+    "Hasil_Paket": 20,
+    "Hasil_Pagu": 516792449.0,
+    "Kontrak_Paket": 20,
+    "Kontrak_Pagu": 516792449.0,
     "SerahTerima_Paket": 8,
     "SerahTerima_Pagu": 288634567.0,
-    "Belum_Paket": 1,
-    "Belum_Pagu": 1678228925.0,
-    "Progres_Persen": 95.0
+    "Belum_Paket": 0,
+    "Belum_Pagu": 0.0,
+    "Progres_Persen": 100.0
   },
   {
     "Satuan Kerja": "KECAMATAN ARUT SELATAN - 7.01.0.00.0.00.02.0000",
@@ -929,18 +929,18 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 240,
-    "Data Laporan_Pagu": 184582398597.0,
-    "Pemilihan_Paket": 167,
-    "Pemilihan_Pagu": 146386754740.0,
-    "Hasil_Paket": 167,
-    "Hasil_Pagu": 68918467356.0,
-    "Kontrak_Paket": 146,
-    "Kontrak_Pagu": 54314784865.0,
+    "Data Laporan_Paket": 239,
+    "Data Laporan_Pagu": 184265876103.0,
+    "Pemilihan_Paket": 168,
+    "Pemilihan_Pagu": 148064983665.0,
+    "Hasil_Paket": 168,
+    "Hasil_Pagu": 68922057096.0,
+    "Kontrak_Paket": 147,
+    "Kontrak_Pagu": 54318374605.0,
     "SerahTerima_Paket": 61,
     "SerahTerima_Pagu": 10867697611.0,
-    "Belum_Paket": 73,
-    "Belum_Pagu": 38195643857.0,
-    "Progres_Persen": 69.6
+    "Belum_Paket": 71,
+    "Belum_Pagu": 36200892438.0,
+    "Progres_Persen": 70.3
   }
 ]

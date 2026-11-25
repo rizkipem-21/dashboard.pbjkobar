@@ -52,19 +52,6 @@
     "Persentase": 100.0
   },
   {
-    "Satuan Kerja": "Badan Penanggulangan Bencana Daerah - 1.05.0.00.0.00.05.0000",
-    "Pagu Program": 0.0,
-    "Pagu Pengadaan": 0.0,
-    "Paket Penyedia": 0.0,
-    "RUP Penyedia": 0.0,
-    "Paket Swakelola": 0.0,
-    "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 0.0,
-    "Total RUP Terumumkan": 0.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 0.0
-  },
-  {
     "Satuan Kerja": "Badan Pendapatan Daerah - 5.02.0.00.0.00.02.0000",
     "Pagu Program": 4253033842.0,
     "Pagu Pengadaan": 3525770642.0,
@@ -169,19 +156,6 @@
     "Persentase": 149.0561386891669
   },
   {
-    "Satuan Kerja": "Dinas Ketahanan Pangan - 2.09.0.00.0.00.01.0000",
-    "Pagu Program": 0.0,
-    "Pagu Pengadaan": 0.0,
-    "Paket Penyedia": 0.0,
-    "RUP Penyedia": 0.0,
-    "Paket Swakelola": 0.0,
-    "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 0.0,
-    "Total RUP Terumumkan": 0.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 0.0
-  },
-  {
     "Satuan Kerja": "Dinas Komunikasi, Informatika, Statistik dan Persandian - 2.16.2.20.2.21.01.0000",
     "Pagu Program": 4709371129.0,
     "Pagu Pengadaan": 4293942679.0,
@@ -245,19 +219,6 @@
     "Total RUP Terumumkan": 2122940502.0,
     "Selisih RUP Terumumkan": 0.0,
     "Persentase": 100.0
-  },
-  {
-    "Satuan Kerja": "Dinas Pemadam Kebakaran dan Penyelamatan - 1.05.0.00.0.00.04.0000",
-    "Pagu Program": 0.0,
-    "Pagu Pengadaan": 0.0,
-    "Paket Penyedia": 0.0,
-    "RUP Penyedia": 0.0,
-    "Paket Swakelola": 0.0,
-    "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 0.0,
-    "Total RUP Terumumkan": 0.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 0.0
   },
   {
     "Satuan Kerja": "Dinas Pemberdayaan Masyarakat dan Desa - 2.13.0.00.0.00.01.0000",
@@ -388,19 +349,6 @@
     "Total RUP Terumumkan": 32485301137.0,
     "Selisih RUP Terumumkan": 0.0,
     "Persentase": 100.0
-  },
-  {
-    "Satuan Kerja": "Dinas Peternakan dan Kesehatan Hewan - 3.27.0.00.0.00.02.0000",
-    "Pagu Program": 0.0,
-    "Pagu Pengadaan": 0.0,
-    "Paket Penyedia": 0.0,
-    "RUP Penyedia": 0.0,
-    "Paket Swakelola": 0.0,
-    "RUP Swakelola": 0.0,
-    "Total Paket Terumumkan": 0.0,
-    "Total RUP Terumumkan": 0.0,
-    "Selisih RUP Terumumkan": 0.0,
-    "Persentase": 0.0
   },
   {
     "Satuan Kerja": "Dinas Sosial - 1.06.0.00.0.00.01.0000",
@@ -888,13 +836,13 @@
     "Pagu Program": 2273064911.0,
     "Pagu Pengadaan": 652733265.0,
     "Paket Penyedia": 44.0,
-    "RUP Penyedia": 475837253.0,
+    "RUP Penyedia": 493068073.0,
     "Paket Swakelola": 2.0,
     "RUP Swakelola": 86300000.0,
     "Total Paket Terumumkan": 46.0,
-    "Total RUP Terumumkan": 562137253.0,
-    "Selisih RUP Terumumkan": -90596012.0,
-    "Persentase": 86.12051555239796
+    "Total RUP Terumumkan": 579368073.0,
+    "Selisih RUP Terumumkan": -73365192.0,
+    "Persentase": 88.7603105381798
   },
   {
     "Satuan Kerja": "Puskesmas Natai Pelingkau - 1.02.0.00.0.00.01.0007",
