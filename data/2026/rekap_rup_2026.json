@@ -314,15 +314,15 @@
   {
     "Satuan Kerja": "Dinas Perpustakaan dan Kearsipan - 2.23.2.24.0.00.01.0000",
     "Pagu Program": 700569391.0,
-    "Pagu Pengadaan": 700569480.0,
+    "Pagu Pengadaan": 535177290.0,
     "Paket Penyedia": 95.0,
     "RUP Penyedia": 535177291.0,
     "Paket Swakelola": 0.0,
     "RUP Swakelola": 0.0,
     "Total Paket Terumumkan": 95.0,
     "Total RUP Terumumkan": 535177291.0,
-    "Selisih RUP Terumumkan": -165392189.0,
-    "Persentase": 76.3917507511175
+    "Selisih RUP Terumumkan": 1.0,
+    "Persentase": 100.00000018685398
   },
   {
     "Satuan Kerja": "Dinas Pertanian - 3.27.0.00.0.00.01.0000",
@@ -834,15 +834,15 @@
   {
     "Satuan Kerja": "Puskesmas Mendawai - 1.02.0.00.0.00.01.0006",
     "Pagu Program": 2273064911.0,
-    "Pagu Pengadaan": 652733265.0,
-    "Paket Penyedia": 44.0,
-    "RUP Penyedia": 493068073.0,
+    "Pagu Pengadaan": 594719873.0,
+    "Paket Penyedia": 45.0,
+    "RUP Penyedia": 508419873.0,
     "Paket Swakelola": 2.0,
     "RUP Swakelola": 86300000.0,
-    "Total Paket Terumumkan": 46.0,
-    "Total RUP Terumumkan": 579368073.0,
-    "Selisih RUP Terumumkan": -73365192.0,
-    "Persentase": 88.7603105381798
+    "Total Paket Terumumkan": 47.0,
+    "Total RUP Terumumkan": 594719873.0,
+    "Selisih RUP Terumumkan": 0.0,
+    "Persentase": 100.0
   },
   {
     "Satuan Kerja": "Puskesmas Natai Pelingkau - 1.02.0.00.0.00.01.0007",

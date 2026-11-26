@@ -353,8 +353,8 @@
   },
   {
     "Satuan Kerja": "DINAS PERTANIAN - 3.27.0.00.0.00.01.0000",
-    "Data Laporan_Paket": 1,
-    "Data Laporan_Pagu": 2509875000.0,
+    "Data Laporan_Paket": 0,
+    "Data Laporan_Pagu": 0.0,
     "Pemilihan_Paket": 0,
     "Pemilihan_Pagu": 0.0,
     "Hasil_Paket": 0,
@@ -363,8 +363,8 @@
     "Kontrak_Pagu": 0.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 1,
-    "Belum_Pagu": 2509875000.0,
+    "Belum_Paket": 0,
+    "Belum_Pagu": 0.0,
     "Progres_Persen": 0.0
   },
   {
@@ -897,8 +897,8 @@
   },
   {
     "Satuan Kerja": "SEKRETARIAT DAERAH - 4.01.0.00.0.00.01.0000",
-    "Data Laporan_Paket": 0,
-    "Data Laporan_Pagu": 0.0,
+    "Data Laporan_Paket": 1,
+    "Data Laporan_Pagu": 2509875000.0,
     "Pemilihan_Paket": 0,
     "Pemilihan_Pagu": 0.0,
     "Hasil_Paket": 0,
@@ -907,8 +907,8 @@
     "Kontrak_Pagu": 0.0,
     "SerahTerima_Paket": 0,
     "SerahTerima_Pagu": 0.0,
-    "Belum_Paket": 0,
-    "Belum_Pagu": 0.0,
+    "Belum_Paket": 1,
+    "Belum_Pagu": 2509875000.0,
     "Progres_Persen": 0.0
   },
   {
