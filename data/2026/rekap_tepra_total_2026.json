@@ -97,8 +97,8 @@
   },
   {
     "Satuan Kerja": "DINAS KEPEMUDAAN DAN OLAHRAGA - 2.19.0.00.0.00.01.0000",
-    "Data Laporan_Paket": 105,
-    "Data Laporan_Pagu": 2458708775.0,
+    "Data Laporan_Paket": 109,
+    "Data Laporan_Pagu": 2658720775.0,
     "Pemilihan_Paket": 32,
     "Pemilihan_Pagu": 1042468631.0,
     "Hasil_Paket": 32,
@@ -107,9 +107,9 @@
     "Kontrak_Pagu": 924435418.0,
     "SerahTerima_Paket": 21,
     "SerahTerima_Pagu": 322173350.0,
-    "Belum_Paket": 73,
-    "Belum_Pagu": 1416240144.0,
-    "Progres_Persen": 30.5
+    "Belum_Paket": 77,
+    "Belum_Pagu": 1616252144.0,
+    "Progres_Persen": 29.4
   },
   {
     "Satuan Kerja": "DINAS KEPENDUDUKAN DAN PENCATATAN SIPIL - 2.12.0.00.0.00.01.0000",
@@ -161,7 +161,7 @@
   },
   {
     "Satuan Kerja": "DINAS LINGKUNGAN HIDUP - 2.11.3.28.0.00.01.0000",
-    "Data Laporan_Paket": 160,
+    "Data Laporan_Paket": 161,
     "Data Laporan_Pagu": 15853436332.0,
     "Pemilihan_Paket": 70,
     "Pemilihan_Pagu": 11490903172.0,
@@ -169,11 +169,11 @@
     "Hasil_Pagu": 11458351224.0,
     "Kontrak_Paket": 70,
     "Kontrak_Pagu": 11458351224.0,
-    "SerahTerima_Paket": 36,
-    "SerahTerima_Pagu": 494996203.0,
-    "Belum_Paket": 90,
+    "SerahTerima_Paket": 42,
+    "SerahTerima_Pagu": 3285403003.0,
+    "Belum_Paket": 91,
     "Belum_Pagu": 4362533160.0,
-    "Progres_Persen": 43.8
+    "Progres_Persen": 43.5
   },
   {
     "Satuan Kerja": "DINAS PARIWISATA - 3.26.0.00.0.00.01.0000",
@@ -273,8 +273,8 @@
   },
   {
     "Satuan Kerja": "DINAS PENDIDIKAN DAN KEBUDAYAAN - 1.01.2.22.0.00.01.0000",
-    "Data Laporan_Paket": 335,
-    "Data Laporan_Pagu": 19403780889.0,
+    "Data Laporan_Paket": 334,
+    "Data Laporan_Pagu": 19401418389.0,
     "Pemilihan_Paket": 118,
     "Pemilihan_Pagu": 6673189597.0,
     "Hasil_Paket": 118,
@@ -283,9 +283,9 @@
     "Kontrak_Pagu": 3885475619.0,
     "SerahTerima_Paket": 52,
     "SerahTerima_Pagu": 2871753675.0,
-    "Belum_Paket": 217,
-    "Belum_Pagu": 12730591292.0,
-    "Progres_Persen": 35.2
+    "Belum_Paket": 216,
+    "Belum_Pagu": 12728228792.0,
+    "Progres_Persen": 35.3
   },
   {
     "Satuan Kerja": "DINAS PERHUBUNGAN - 2.15.0.00.0.00.01.0000",
@@ -313,8 +313,8 @@
     "Hasil_Pagu": 6996090501.0,
     "Kontrak_Paket": 50,
     "Kontrak_Pagu": 6076817596.0,
-    "SerahTerima_Paket": 28,
-    "SerahTerima_Pagu": 3428221663.0,
+    "SerahTerima_Paket": 29,
+    "SerahTerima_Pagu": 3525679663.0,
     "Belum_Paket": 64,
     "Belum_Pagu": 902940370.0,
     "Progres_Persen": 47.5
@@ -353,8 +353,8 @@
   },
   {
     "Satuan Kerja": "DINAS PERTANIAN - 3.27.0.00.0.00.01.0000",
-    "Data Laporan_Paket": 159,
-    "Data Laporan_Pagu": 9576470924.0,
+    "Data Laporan_Paket": 158,
+    "Data Laporan_Pagu": 9021710924.0,
     "Pemilihan_Paket": 54,
     "Pemilihan_Pagu": 5212614626.0,
     "Hasil_Paket": 54,
@@ -363,9 +363,9 @@
     "Kontrak_Pagu": 4413871151.0,
     "SerahTerima_Paket": 35,
     "SerahTerima_Pagu": 1969899661.0,
-    "Belum_Paket": 105,
-    "Belum_Pagu": 4363856298.0,
-    "Progres_Persen": 34.0
+    "Belum_Paket": 104,
+    "Belum_Pagu": 3809096298.0,
+    "Progres_Persen": 34.2
   },
   {
     "Satuan Kerja": "DINAS PERUMAHAN RAKYAT, KAWASAN PEMUKIMAN DAN PERTANAHAN - 1.04.2.10.0.00.01.0000",
@@ -435,17 +435,17 @@
     "Satuan Kerja": "INSTALASI FARMASI - 1.02.0.00.0.00.01.0022",
     "Data Laporan_Paket": 52,
     "Data Laporan_Pagu": 31378521606.0,
-    "Pemilihan_Paket": 35,
-    "Pemilihan_Pagu": 29471001490.0,
-    "Hasil_Paket": 35,
-    "Hasil_Pagu": 810532587.0,
-    "Kontrak_Paket": 35,
-    "Kontrak_Pagu": 810532587.0,
+    "Pemilihan_Paket": 36,
+    "Pemilihan_Pagu": 31149230415.0,
+    "Hasil_Paket": 36,
+    "Hasil_Pagu": 818341437.0,
+    "Kontrak_Paket": 36,
+    "Kontrak_Pagu": 818341437.0,
     "SerahTerima_Paket": 18,
     "SerahTerima_Pagu": 527594639.0,
-    "Belum_Paket": 17,
-    "Belum_Pagu": 1907520116.0,
-    "Progres_Persen": 67.3
+    "Belum_Paket": 16,
+    "Belum_Pagu": 229291191.0,
+    "Progres_Persen": 69.2
   },
   {
     "Satuan Kerja": "KECAMATAN ARUT SELATAN - 7.01.0.00.0.00.02.0000",
@@ -899,17 +899,17 @@
     "Satuan Kerja": "SEKRETARIAT DAERAH - 4.01.0.00.0.00.01.0000",
     "Data Laporan_Paket": 197,
     "Data Laporan_Pagu": 17390775223.0,
-    "Pemilihan_Paket": 63,
-    "Pemilihan_Pagu": 7360722389.0,
-    "Hasil_Paket": 63,
-    "Hasil_Pagu": 7313681527.0,
-    "Kontrak_Paket": 49,
-    "Kontrak_Pagu": 6051526485.0,
+    "Pemilihan_Paket": 64,
+    "Pemilihan_Pagu": 9870597389.0,
+    "Hasil_Paket": 64,
+    "Hasil_Pagu": 9813681527.0,
+    "Kontrak_Paket": 50,
+    "Kontrak_Pagu": 8551526485.0,
     "SerahTerima_Paket": 13,
     "SerahTerima_Pagu": 1240724650.0,
-    "Belum_Paket": 134,
-    "Belum_Pagu": 10030052834.0,
-    "Progres_Persen": 32.0
+    "Belum_Paket": 133,
+    "Belum_Pagu": 7520177834.0,
+    "Progres_Persen": 32.5
   },
   {
     "Satuan Kerja": "SEKRETARIAT DPRD - 4.02.0.00.0.00.01.0000",
@@ -929,18 +929,18 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 5155,
-    "Data Laporan_Pagu": 630846770477.0,
-    "Pemilihan_Paket": 1721,
-    "Pemilihan_Pagu": 438550187348.0,
-    "Hasil_Paket": 1721,
-    "Hasil_Pagu": 212349722233.0,
-    "Kontrak_Paket": 1464,
-    "Kontrak_Pagu": 159084824158.0,
-    "SerahTerima_Paket": 762,
-    "SerahTerima_Pagu": 37548010439.0,
-    "Belum_Paket": 3434,
-    "Belum_Pagu": 192296583129.0,
+    "Data Laporan_Paket": 5158,
+    "Data Laporan_Pagu": 630489659977.0,
+    "Pemilihan_Paket": 1723,
+    "Pemilihan_Pagu": 442738291273.0,
+    "Hasil_Paket": 1723,
+    "Hasil_Pagu": 214857531083.0,
+    "Kontrak_Paket": 1466,
+    "Kontrak_Pagu": 161592633008.0,
+    "SerahTerima_Paket": 769,
+    "SerahTerima_Pagu": 40435875239.0,
+    "Belum_Paket": 3435,
+    "Belum_Pagu": 187751368704.0,
     "Progres_Persen": 33.4
   }
 ]

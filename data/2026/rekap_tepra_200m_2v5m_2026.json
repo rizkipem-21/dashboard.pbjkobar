@@ -169,8 +169,8 @@
     "Hasil_Pagu": 3459514800.0,
     "Kontrak_Paket": 4,
     "Kontrak_Pagu": 3459514800.0,
-    "SerahTerima_Paket": 0,
-    "SerahTerima_Pagu": 0.0,
+    "SerahTerima_Paket": 3,
+    "SerahTerima_Pagu": 2361099300.0,
     "Belum_Paket": 3,
     "Belum_Pagu": 3089100650.0,
     "Progres_Persen": 57.1
@@ -353,8 +353,8 @@
   },
   {
     "Satuan Kerja": "DINAS PERTANIAN - 3.27.0.00.0.00.01.0000",
-    "Data Laporan_Paket": 10,
-    "Data Laporan_Pagu": 3568601480.0,
+    "Data Laporan_Paket": 9,
+    "Data Laporan_Pagu": 3013841480.0,
     "Pemilihan_Paket": 9,
     "Pemilihan_Pagu": 3013841480.0,
     "Hasil_Paket": 9,
@@ -363,9 +363,9 @@
     "Kontrak_Pagu": 2296738818.0,
     "SerahTerima_Paket": 6,
     "SerahTerima_Pagu": 1317728818.0,
-    "Belum_Paket": 1,
-    "Belum_Pagu": 554760000.0,
-    "Progres_Persen": 90.0
+    "Belum_Paket": 0,
+    "Belum_Pagu": 0.0,
+    "Progres_Persen": 100.0
   },
   {
     "Satuan Kerja": "DINAS PERUMAHAN RAKYAT, KAWASAN PEMUKIMAN DAN PERTANAHAN - 1.04.2.10.0.00.01.0000",
@@ -435,17 +435,17 @@
     "Satuan Kerja": "INSTALASI FARMASI - 1.02.0.00.0.00.01.0022",
     "Data Laporan_Paket": 21,
     "Data Laporan_Pagu": 30409093625.0,
-    "Pemilihan_Paket": 20,
-    "Pemilihan_Pagu": 28730864700.0,
-    "Hasil_Paket": 20,
-    "Hasil_Pagu": 516792449.0,
-    "Kontrak_Paket": 20,
-    "Kontrak_Pagu": 516792449.0,
+    "Pemilihan_Paket": 21,
+    "Pemilihan_Pagu": 30409093625.0,
+    "Hasil_Paket": 21,
+    "Hasil_Pagu": 524601299.0,
+    "Kontrak_Paket": 21,
+    "Kontrak_Pagu": 524601299.0,
     "SerahTerima_Paket": 8,
     "SerahTerima_Pagu": 288634567.0,
-    "Belum_Paket": 1,
-    "Belum_Pagu": 1678228925.0,
-    "Progres_Persen": 95.2
+    "Belum_Paket": 0,
+    "Belum_Pagu": 0.0,
+    "Progres_Persen": 100.0
   },
   {
     "Satuan Kerja": "KECAMATAN ARUT SELATAN - 7.01.0.00.0.00.02.0000",
@@ -929,18 +929,18 @@
   },
   {
     "Satuan Kerja": "TOTAL KESELURUHAN",
-    "Data Laporan_Paket": 240,
-    "Data Laporan_Pagu": 185944105028.0,
-    "Pemilihan_Paket": 168,
-    "Pemilihan_Pagu": 148064983665.0,
-    "Hasil_Paket": 168,
-    "Hasil_Pagu": 68922057096.0,
-    "Kontrak_Paket": 147,
-    "Kontrak_Pagu": 54318374605.0,
-    "SerahTerima_Paket": 61,
-    "SerahTerima_Pagu": 10867697611.0,
-    "Belum_Paket": 72,
-    "Belum_Pagu": 37879121363.0,
-    "Progres_Persen": 70.0
+    "Data Laporan_Paket": 239,
+    "Data Laporan_Pagu": 185389345028.0,
+    "Pemilihan_Paket": 169,
+    "Pemilihan_Pagu": 149743212590.0,
+    "Hasil_Paket": 169,
+    "Hasil_Pagu": 68929865946.0,
+    "Kontrak_Paket": 148,
+    "Kontrak_Pagu": 54326183455.0,
+    "SerahTerima_Paket": 64,
+    "SerahTerima_Pagu": 13228796911.0,
+    "Belum_Paket": 70,
+    "Belum_Pagu": 35646132438.0,
+    "Progres_Persen": 70.7
   }
 ]
